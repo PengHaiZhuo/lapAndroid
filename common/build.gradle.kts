@@ -25,14 +25,6 @@ android {
     buildFeatures {
         viewBinding = true
     }
-    lint {
-        isCheckReleaseBuilds =false
-        isAbortOnError =false
-    }
-    buildTypes {
-        create("lintOptions") {
-        }
-    }
 }
 
 dependencies {

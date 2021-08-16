@@ -1,10 +1,10 @@
 buildscript {
     repositories {
         mavenCentral()
-        maven { url = uri("https://jitpack.io") }
-        maven { url = uri("https://maven.aliyun.com/repository/public") }
-        maven { url = uri("https://maven.aliyun.com/repository/google/") }
-        maven { url = uri("https://maven.aliyun.com/repository/gradle-plugin") }
+        maven { setUrl("https://jitpack.io") }
+        maven { setUrl("https://maven.aliyun.com/repository/public") }
+        maven { setUrl("https://maven.aliyun.com/repository/google/") }
+        maven { setUrl("https://maven.aliyun.com/repository/gradle-plugin") }
     }
     dependencies {
         classpath("com.android.tools.build:gradle:${BuildConfig.gradle_version}")
@@ -15,10 +15,10 @@ buildscript {
 allprojects {
     repositories {
         mavenCentral()
-        maven { url = uri("https://jitpack.io") }
-        maven { url = uri("https://maven.aliyun.com/repository/public") }
-        maven { url = uri("https://maven.aliyun.com/repository/google/") }
-        maven { url = uri("https://maven.aliyun.com/repository/gradle-plugin") }
+        maven { setUrl("https://jitpack.io") }
+        maven { setUrl("https://maven.aliyun.com/repository/public") }
+        maven { setUrl("https://maven.aliyun.com/repository/google/") }
+        maven { setUrl("https://maven.aliyun.com/repository/gradle-plugin") }
     }
 }
 
