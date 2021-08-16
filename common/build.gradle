@@ -31,6 +31,9 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
+    buildFeatures {
+        dataBinding = true
+    }
 }
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
@@ -59,6 +62,7 @@ dependencies {
     implementation deps.lifecycle.viewmodel_ktx
     implementation deps.lifecycle.livedata_ktx
     implementation deps.lifecycle.java8
+    implementation deps.lifecycle.process
     implementation deps.lifecycle.compiler
 
     //viewPager
@@ -94,11 +98,8 @@ dependencies {
 
     //unPeekLivedata
     implementation deps.unpeek_livedata
-    //loadSir
-    implementation deps.loadsir
     //标题栏工具
+    implementation deps.immersionbar
     implementation deps.immersionbar_ktx
-    //backgroundLibrary
-    implementation deps.background_libary
 }
 

@@ -154,6 +154,8 @@ lifecycle.runtime = "androidx.lifecycle:lifecycle-runtime:$versions.lifecycle"
 lifecycle.runtime_ktx = "androidx.lifecycle:lifecycle-runtime-ktx:$versions.lifecycle"
 lifecycle.java8 = "androidx.lifecycle:lifecycle-common-java8:$versions.lifecycle"
 lifecycle.compiler = "androidx.lifecycle:lifecycle-compiler:$versions.lifecycle"
+lifecycle.process ="androidx.lifecycle:lifecycle-process:$versions.lifecycle"
+
 lifecycle.viewmodel_ktx = "androidx.lifecycle:lifecycle-viewmodel-ktx:$versions.lifecycle"
 lifecycle.livedata_ktx = "androidx.lifecycle:lifecycle-livedata-ktx:$versions.lifecycle"
 deps.lifecycle = lifecycle
@@ -206,6 +208,7 @@ deps.material_dialogs = material_dialogs
 
 deps.unpeek_livedata ="com.kunminx.arch:unpeek-livedata:$versions.unpeek_livedata"
 deps.loadsir ="com.kingja.loadsir:loadsir:$versions.loadsir"
+deps.immersionbar="com.gyf.immersionbar:immersionbar:$versions.immersionbar"
 deps.immersionbar_ktx ="com.gyf.immersionbar:immersionbar-ktx:$versions.immersionbar"
 deps.background_libary ="com.noober.background:core:$versions.background_libary"
 
