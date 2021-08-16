@@ -138,7 +138,7 @@ object ThirdPart {
     const val rxandroid3 = "io.reactivex.rxjava3:rxandroid:3.0.0"*/
 
     //用于解决数据倒灌等问题的LiveData
-    const val unPeekLivedata = "com.kunminx.arch:unpeek-livedata:6.0.0-beta1"
+    const val unPeekLivedata = "com.kunminx.arch:unpeek-livedata:7.0.4-beta1"
 
     //启动优化异步加载
     //const val anchors="com.effective.android:anchors:1.1.1"

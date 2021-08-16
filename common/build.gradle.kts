@@ -23,7 +23,6 @@ android {
         jvmTarget = "11"
     }
     buildFeatures {
-        dataBinding = true
         viewBinding = true
     }
     lint {
@@ -104,11 +103,7 @@ dependencies {
 
     //unPeekLivedata
     implementation(ThirdPart.unPeekLivedata)
-    //loadSir
-    implementation(ThirdPart.loadSir)
     //标题栏工具
     implementation(ThirdPart.immersionbar)
     implementation(ThirdPart.immersionbarKtx)
-    //backgroundLibrary
-    implementation(ThirdPart.backgroundLibrary)
 }

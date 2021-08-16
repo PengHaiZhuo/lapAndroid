@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimaryNight">#FFBB86FC</color>
+    <color name="colorPrimary">#005BAE</color>
+    <color name="colorPrimaryVariant">#FF3700B3</color>
+    <color name="colorSecondary">#FF03DAC5</color>
+    <color name="colorSecondaryVariant">#FF018786</color>
+
+    <color name="colorTransparent">#00000000</color>
+    <color name="colorBlack">#000000</color>
+    <color name="colorWhite">#FFFFFF</color>
+    <color name="colorRed">#FF0000</color>
+    <color name="colorYellow">#FFFF00</color>
+    <color name="colorBlue">#0000FF</color>
+    <color name="colorGreen">#00ff00</color>
+
+
+    <color name="colorBlack33">#54000000</color>
+    <color name="colorBlack50">#80000000</color>
+    <color name="colorBlack66">#A8000000</color>
+    <color name="colorBlack80">#CC000000</color>
+    <color name="colorWhite10">#19FFFFFF</color>
+    <color name="colorRed10">#19FF0000</color>
+    <color name="colorRed20">#33FF0000</color>
+    <color name="colorRed50">#80FF0000</color>
+    <color name="colorYellow50">#7FFFFF00</color>
+    <color name="colorYellow80">#CCFFFF00</color>
+    <color name="colorBlue10">#190000FF</color>
+    <color name="colorBlue20">#330000FF</color>
+    <color name="colorBlue50">#800000FF</color>
+    <color name="colorBlue66">#A80000FF</color>
+
+
+    <color name="colorText">#707070</color>
+    <color name="colorLine">#fff0f0f0</color>
+    <color name="colorRecyclerLine">#fff0f0f0</color>
+    <color name="colorDivider">#ffd2d2d2</color>
+    <color name="colorBackGround">#F8F8F8</color>
+    <color name="colorProgress">#F4F9FC</color>
+</resources>
