@@ -23,7 +23,14 @@ android {
         jvmTarget = "11"
     }
     buildFeatures {
+        dataBinding =true
         viewBinding = true
+    }
+    buildTypes {
+        lint {
+            isCheckReleaseBuilds = false
+            isAbortOnError = false
+        }
     }
 }
 

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorSecondaryVariant">
+
+        <com.phz.dev.widget.AnimationLogoView
+            android:id="@+id/anim_log"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:autoPlay="true"
+            app:gradientAnimDuration="2000"
+            app:gradientColor="@color/colorBlue"
+            app:logoName="@string/app_name"
+            app:offsetAnimDuration="2000"
+            app:showGradient="true"
+            app:textColor="@color/white"
+            app:textPadding="3dp"
+            app:textSize="30sp" />
+
+
+        <TextView
+            android:id="@+id/tv_version"
+            style="@style/TextAppearance.AppCompat.Medium"
+            android:textColor="@color/colorWhite"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|center_horizontal"
+            android:layout_marginBottom="@dimen/activity_vertical_margin" />
+    </FrameLayout>
+</layout>

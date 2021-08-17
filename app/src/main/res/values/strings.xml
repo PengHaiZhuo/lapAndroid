@@ -1,3 +1,4 @@
 <resources>
-    <string name="app_name">dev</string>
+    <string name="app_name">WanAndroid</string>
+    <string name="v_version_name">V%s</string>
 </resources>

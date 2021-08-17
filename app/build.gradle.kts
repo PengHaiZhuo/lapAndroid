@@ -56,7 +56,14 @@ android {
         jvmTarget = "11"
     }
     buildFeatures {
+        dataBinding = true
         viewBinding = true
+    }
+}
+
+kapt {
+    arguments {
+        arg("AROUTER_MODULE_NAME", project.getName())
     }
 }
 
@@ -143,10 +150,14 @@ dependencies {
     //loadSir
     implementation(ThirdPart.loadSir)
     //标题栏工具
+    implementation(ThirdPart.immersionbar)
     implementation(ThirdPart.immersionbarKtx)
     //运行时权限请求
     implementation(ThirdPart.rxPermission)
     //蓝牙工具
     implementation(ThirdPart.rxandroidble)
     implementation(ThirdPart.rxjavaReplayingShare)
+    //ARouter路由
+    implementation(ThirdPart.aRouter)
+    kapt(ThirdPart.aRouterCompiler)
 }

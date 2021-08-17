@@ -150,4 +150,8 @@ object ThirdPart {
     const val rxandroidble ="com.polidea.rxandroidble2:rxandroidble:1.12.1"
     //Replaying share
     const val rxjavaReplayingShare ="com.jakewharton.rx2:replaying-share:2.2.0"
+
+    //ARouter
+    const val aRouter ="com.alibaba:arouter-api:1.5.2"
+    const val aRouterCompiler ="com.alibaba:arouter-compiler:1.5.2"
 }
