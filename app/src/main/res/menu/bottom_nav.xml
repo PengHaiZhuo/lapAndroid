@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/home"
+        android:checked="true"
+        android:icon="@drawable/ic_home"
+        android:title="@string/home" />
+    <item
+        android:id="@+id/project"
+        android:icon="@drawable/ic_project"
+        android:title="@string/project" />
+    <item
+        android:id="@+id/ground"
+        android:icon="@drawable/ic_ground"
+        android:title="@string/ground" />
+    <item
+        android:id="@+id/wx_official_account"
+        android:icon="@drawable/ic_wx"
+        android:title="@string/wechat_official_account" />
+    <item
+        android:id="@+id/mine"
+        android:icon="@drawable/ic_mine"
+        android:title="@string/mine" />
+</menu>

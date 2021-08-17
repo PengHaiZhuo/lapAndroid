@@ -77,7 +77,7 @@ dependencies {
     //retrofit2
     implementation (ThirdPart.Retrofit.retrofit)
     implementation (ThirdPart.Retrofit.convertGson)
-    implementation (ThirdPart.Retrofit.adapterRxjava)
+    implementation (ThirdPart.Retrofit.adapterRxjava2)
 
     //okhttp
     implementation (ThirdPart.OkHttp.okhttp)

@@ -9,6 +9,7 @@ buildscript {
     dependencies {
         classpath("com.android.tools.build:gradle:${BuildConfig.gradle_version}")
         classpath("${Kotlin.plugin}")
+        classpath("${AndroidX.Navigation.safeArgsGradlePlugin}")
     }
 }
 

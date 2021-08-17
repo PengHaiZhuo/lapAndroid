@@ -14,8 +14,9 @@ object ThirdPart {
         const val convertGson = "com.squareup.retrofit2:converter-gson:$retrofit_version"
 
         //scalars转换器
-        const val convertScalars = "com.squareup.retrofit2:converter-scalars:2.9.0"
-        const val adapterRxjava = "com.squareup.retrofit2:adapter-rxjava2:$retrofit_version"
+        const val convertScalars = "com.squareup.retrofit2:converter-scalars:$retrofit_version"
+        const val adapterRxjava2 = "com.squareup.retrofit2:adapter-rxjava2:$retrofit_version"
+        const val adapterRxjava3 = "com.squareup.retrofit2:adapter-rxjava3:$retrofit_version"
     }
 
     //okhttp

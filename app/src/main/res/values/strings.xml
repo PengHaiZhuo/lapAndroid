@@ -1,4 +1,10 @@
 <resources>
     <string name="app_name">WanAndroid</string>
     <string name="v_version_name">V%s</string>
+
+    <string name="home">首页</string>
+    <string name="project">项目</string>
+    <string name="ground">广场</string>
+    <string name="wechat_official_account">公众号</string>
+    <string name="mine">我的</string>
 </resources>

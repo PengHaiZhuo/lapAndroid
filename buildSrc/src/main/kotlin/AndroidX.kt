@@ -120,9 +120,13 @@ object AndroidX {
         const val safeArgs =
             "androidx.navigation:navigation-safe-args-generator:$navigation_version"
 
+        //classpath("${AndroidX.Navigation.safeArgsGradlePlugin}")
+        const val safeArgsGradlePlugin="androidx.navigation:navigation-safe-args-gradle-plugin:$navigation_version"
+
         // Dynamic Feature Module Support
         const val dynamic =
-            "androidx.navigation:navigation-dynamic-features-fragment:2.3.0-alpha01"
+            "androidx.navigation:navigation-dynamic-features-fragment:$navigation_version"
+        const val dynamicRuntime="androidx.navigation:navigation-dynamic-features-runtime:$navigation_version"
 
         // Testing Navigation
         const val testing = "androidx.navigation:navigation-testing:$navigation_version"

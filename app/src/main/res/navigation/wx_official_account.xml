@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/wx_official_account"
+    app:startDestination="@id/wxOfficialAccPage">
+
+    <fragment
+        android:id="@+id/wxOfficialAccPage"
+        android:name="com.phz.dev.feature.main.wechat.WeChatOfficialAccountsFragment"
+        android:label="WeChatOfficialAccountsFragment"
+        tools:layout="@layout/fragment_wechat_official_account"/>
+</navigation>

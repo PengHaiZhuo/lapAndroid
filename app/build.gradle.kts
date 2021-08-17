@@ -5,6 +5,7 @@ plugins {
     kotlin("android")//id("kotlin-android")
     kotlin("kapt")
     id("kotlin-parcelize")
+    id("androidx.navigation.safeargs")
 }
 
 android {
@@ -98,6 +99,10 @@ dependencies {
     implementation(AndroidX.Lifecycle.process)
     implementation(AndroidX.Lifecycle.runtimeKtx)
 
+    //JetPack navigation
+    implementation(AndroidX.Navigation.fragmentKtx)
+    implementation(AndroidX.Navigation.uiKtx)
+
     //JetPack Room
     implementation(AndroidX.Room.runtime)
     kapt(AndroidX.Room.compiler)
@@ -114,7 +119,7 @@ dependencies {
     //retrofit2
     implementation(ThirdPart.Retrofit.retrofit)
     implementation(ThirdPart.Retrofit.convertGson)
-    implementation(ThirdPart.Retrofit.adapterRxjava)
+    implementation(ThirdPart.Retrofit.adapterRxjava2)
     implementation(ThirdPart.Retrofit.convertScalars)
 
     //okhttp
