@@ -16,6 +16,7 @@ import com.phz.dev.feature.main.MainActivity
 class LoginActivity : BaseVmDbPureActivity<LoginViewModel, ActivityLoginBinding>() {
 
     override fun initData() {
+
         mViewDataBinding.btnLogin.clickNoRepeat {
             //todo 登陆
             startKtxActivity<MainActivity>()

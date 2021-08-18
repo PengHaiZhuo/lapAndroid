@@ -48,6 +48,7 @@
                 <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/item_margin_text"
                     android:layout_marginStart="@dimen/activity_horizontal_margin"
                     android:layout_marginEnd="@dimen/activity_horizontal_margin"
                     app:boxBackgroundColor="@color/colorWhite">
@@ -81,6 +82,7 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/item_margin_text"
                     android:layout_marginBottom="@dimen/activity_vertical_margin"
                     android:layout_marginStart="@dimen/activity_horizontal_margin"
                     android:layout_marginEnd="@dimen/activity_horizontal_margin"
@@ -98,6 +100,7 @@
                         android:clickable="true"
                         android:focusable="true"
                         android:text="@string/forget_pwd"
+                        android:visibility="gone"
                         android:textColor="@color/colorPrimary"
                         android:textSize="14sp" />
 
@@ -117,7 +120,7 @@
                         android:clickable="true"
                         android:focusable="true"
                         android:text="@string/register"
-                        android:textColor="@color/colorPrimary"
+                        android:textColor="@drawable/selector_click_state_txt_color"
                         android:textSize="14sp" />
 
                 </LinearLayout>
