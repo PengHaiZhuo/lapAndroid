@@ -13,7 +13,7 @@ import com.phz.common.page.activity.BaseVmDbPureActivity
 import com.phz.common.state.BaseViewModel
 import com.phz.dev.R
 import com.phz.dev.databinding.ActivitySplashBinding
-import com.phz.dev.feature.main.MainActivity
+import com.phz.dev.feature.login.LoginActivity
 
 class SplashActivity : BaseVmDbPureActivity<BaseViewModel, ActivitySplashBinding>() {
     val mHandler = Handler(Looper.getMainLooper())
@@ -41,7 +41,7 @@ class SplashActivity : BaseVmDbPureActivity<BaseViewModel, ActivitySplashBinding
                     super.onAnimationEnd(animation)
 
                     mHandler.postDelayed({
-                        startKtxActivity<MainActivity>()
+                        startKtxActivity<LoginActivity>()
                         this@SplashActivity.finish()
                     }, 2000L)
                 }

@@ -22,10 +22,9 @@
             </intent-filter>
         </activity>
 
+        <activity android:name=".feature.login.LoginActivity" />
 
-        <activity
-            android:name=".feature.main.MainActivity"
-            android:exported="true"/>
+        <activity android:name=".feature.main.MainActivity" />
     </application>
 
 </manifest>

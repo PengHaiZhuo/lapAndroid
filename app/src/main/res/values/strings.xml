@@ -7,4 +7,9 @@
     <string name="ground">广场</string>
     <string name="wechat_official_account">公众号</string>
     <string name="mine">我的</string>
+    <string name="login">登陆</string>
+    <string name="user_name">用户名</string>
+    <string name="pwd">密码</string>
+    <string name="forget_pwd">忘记密码？</string>
+    <string name="register">注册</string>
 </resources>
