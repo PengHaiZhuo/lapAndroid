@@ -7,7 +7,14 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@color/colorSecondaryVariant"
         android:orientation="vertical">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_toChild"
+            android:layout_width="120dp"
+            android:layout_height="40dp"
+            android:text="toChild"/>
 
     </LinearLayout>
 </layout>

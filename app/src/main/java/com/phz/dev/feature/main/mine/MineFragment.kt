@@ -1,6 +1,9 @@
 package com.phz.dev.feature.main.mine
 
 import android.os.Bundle
+import com.phz.common.ext.logE
+import com.phz.common.ext.nav
+import com.phz.common.ext.view.clickNoRepeat
 import com.phz.common.page.fragment.BaseVmDbPureFragment
 import com.phz.common.state.BaseViewModel
 import com.phz.dev.R
@@ -17,9 +20,18 @@ class MineFragment : BaseVmDbPureFragment<BaseViewModel, FragmentMineBinding>() 
     override fun getLayoutId(): Int = R.layout.fragment_mine
 
     override fun initData() {
+        mViewDataBinding.btnToChild.clickNoRepeat {
+            nav().navigate(R.id.action_mine_to_child)
+        }
     }
 
     override fun initView(savedInstanceState: Bundle?) {
+        "onViewCreated MineFragment".logE()
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        "onDestroyView MineFragment".logE()
     }
 
 }

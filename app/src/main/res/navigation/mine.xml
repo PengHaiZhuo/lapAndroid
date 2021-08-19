@@ -9,6 +9,14 @@
         android:id="@+id/minePage"
         android:name="com.phz.dev.feature.main.mine.MineFragment"
         android:label="MineFragment"
-        tools:layout="@layout/fragment_mine"/>
+        tools:layout="@layout/fragment_mine">
+        <action android:id="@+id/action_mine_to_child"
+            app:destination="@id/childPage"/>
+    </fragment>
 
+    <fragment
+        android:id="@+id/childPage"
+        android:name="com.phz.dev.feature.main.mine.child.ChildFragment"
+        android:label="ChildFragment"
+        tools:layout="@layout/fragment_home"/>
 </navigation>

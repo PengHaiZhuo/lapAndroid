@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
+import androidx.lifecycle.findViewTreeLifecycleOwner
 import com.phz.common.state.BaseViewModel
 
 /**
@@ -24,7 +25,7 @@ abstract class BaseVmDbPureFragment<VM : BaseViewModel, DB : ViewDataBinding> :
         savedInstanceState: Bundle?
     ): View? {
         mViewDataBinding = DataBindingUtil.inflate(inflater, getLayoutId(), container, false)
-        mViewDataBinding.lifecycleOwner = this
+        mViewDataBinding.lifecycleOwner = mViewDataBinding.root.findViewTreeLifecycleOwner()
         return mViewDataBinding.root
     }
 
