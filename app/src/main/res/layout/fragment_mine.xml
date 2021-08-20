@@ -2,19 +2,362 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <data></data>
+    <data>
 
-    <LinearLayout
+        <variable
+            name="vm"
+            type="com.phz.dev.feature.main.mine.MineViewModel" />
+
+        <variable
+            name="clickProxy"
+            type="com.phz.dev.feature.main.mine.MineFragment.ProxyClick" />
+    </data>
+
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/colorSecondaryVariant"
-        android:orientation="vertical">
+        android:layout_height="match_parent">
 
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btn_toChild"
-            android:layout_width="120dp"
-            android:layout_height="40dp"
-            android:text="toChild"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
-    </LinearLayout>
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/colorPrimary"
+                android:paddingTop="?actionBarSize"
+                android:paddingBottom="?actionBarSize">
+
+                <ImageView
+                    android:id="@+id/iv_avatar"
+                    circleImageUrlRes="@{vm.imgUrl}"
+                    android:layout_width="@dimen/icon_hw_large"
+                    android:layout_height="@dimen/icon_hw_large"
+                    android:layout_marginStart="@dimen/activity_horizontal_margin"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/gl_percent_50"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    app:layout_constraintGuide_percent="0.5" />
+
+                <TextView
+                    android:id="@+id/tv_mine_id2drank"
+                    style="@style/TextViewMiddle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:text="id: - 排名: - "
+                    android:textColor="@color/colorWhite"
+                    app:layout_constraintBottom_toBottomOf="@+id/iv_avatar"
+                    app:layout_constraintStart_toEndOf="@+id/iv_avatar"
+                    app:layout_constraintTop_toTopOf="@+id/gl_percent_50" />
+
+
+                <TextView
+                    android:id="@+id/tv_mine_name"
+                    style="@style/TextViewLarge"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:text="蔡徐坤"
+                    android:textColor="@color/colorWhite"
+                    app:layout_constraintBottom_toTopOf="@+id/gl_percent_50"
+                    app:layout_constraintStart_toEndOf="@+id/iv_avatar"
+                    app:layout_constraintTop_toTopOf="@+id/iv_avatar" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="-16dp"
+                app:cardBackgroundColor="@color/white"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="0dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/normal_view_hw"
+                        android:layout_marginTop="@dimen/activity_vertical_margin"
+                        android:background="?attr/selectableItemBackground"
+                        android:gravity="center_vertical"
+                        android:onClick="@{()->clickProxy.integral()}"
+                        android:orientation="horizontal"
+                        android:paddingLeft="@dimen/activity_horizontal_margin"
+                        android:paddingRight="@dimen/activity_horizontal_margin">
+
+                        <ImageView
+                            android:layout_width="@dimen/icon_hw_middle"
+                            android:layout_height="@dimen/icon_hw_middle"
+                            android:src="@drawable/ic_integral" />
+
+                        <TextView
+                            style="@style/TextViewMiddle"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/txt_margin_horizontal"
+                            android:layout_weight="1"
+                            android:text="@string/mine_integral"
+                            android:textColor="@color/colorBlack66" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/now_integral" />
+
+                        <TextView
+                            style="@style/TextViewMiddle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/txt_margin_horizontal"
+                            android:layout_marginEnd="@dimen/txt_margin_horizontal"
+                            android:text="0"
+                            android:textColor="@color/colorBlue66" />
+
+                        <ImageView
+                            android:layout_width="16dp"
+                            android:layout_height="16dp"
+                            android:src="@drawable/ic_arrow_right" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/normal_view_hw"
+                        android:background="?attr/selectableItemBackground"
+                        android:gravity="center_vertical"
+                        android:onClick="@{()->clickProxy.article()}"
+                        android:orientation="horizontal"
+                        android:paddingLeft="@dimen/activity_horizontal_margin"
+                        android:paddingRight="@dimen/activity_horizontal_margin">
+
+                        <ImageView
+                            android:layout_width="@dimen/icon_hw_middle"
+                            android:layout_height="@dimen/icon_hw_middle"
+                            android:src="@drawable/ic_article" />
+
+                        <TextView
+                            style="@style/TextViewMiddle"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/txt_margin_horizontal"
+                            android:layout_weight="1"
+                            android:text="@string/mine_article"
+                            android:textColor="@color/colorBlack66" />
+
+                        <ImageView
+                            android:layout_width="16dp"
+                            android:layout_height="16dp"
+                            android:src="@drawable/ic_arrow_right" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/normal_view_hw"
+                        android:background="?attr/selectableItemBackground"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:onClick="@{()->clickProxy.star()}"
+                        android:paddingLeft="@dimen/activity_horizontal_margin"
+                        android:paddingRight="@dimen/activity_horizontal_margin">
+
+                        <ImageView
+                            android:layout_width="@dimen/icon_hw_middle"
+                            android:layout_height="@dimen/icon_hw_middle"
+                            android:src="@drawable/ic_star" />
+
+                        <TextView
+                            style="@style/TextViewMiddle"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/txt_margin_horizontal"
+                            android:layout_weight="1"
+                            android:text="@string/mine_star"
+                            android:textColor="@color/colorBlack66" />
+
+                        <ImageView
+                            android:layout_width="16dp"
+                            android:layout_height="16dp"
+                            android:src="@drawable/ic_arrow_right" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/normal_view_hw"
+                        android:background="?attr/selectableItemBackground"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:onClick="@{()->clickProxy.todo()}"
+                        android:paddingLeft="@dimen/activity_horizontal_margin"
+                        android:paddingRight="@dimen/activity_horizontal_margin">
+
+                        <ImageView
+                            android:layout_width="@dimen/icon_hw_middle"
+                            android:layout_height="@dimen/icon_hw_middle"
+                            android:src="@drawable/ic_todo" />
+
+                        <TextView
+                            style="@style/TextViewMiddle"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/txt_margin_horizontal"
+                            android:layout_weight="1"
+                            android:text="@string/mine_todo"
+                            android:textColor="@color/colorBlack66" />
+
+                        <ImageView
+                            android:layout_width="16dp"
+                            android:layout_height="16dp"
+                            android:src="@drawable/ic_arrow_right" />
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/item_margin_vertical"
+                        android:background="@color/colorDivider" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/normal_view_hw"
+                        android:background="?attr/selectableItemBackground"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:onClick="@{()->clickProxy.practice()}"
+                        android:paddingLeft="@dimen/activity_horizontal_margin"
+                        android:paddingRight="@dimen/activity_horizontal_margin">
+
+                        <ImageView
+                            android:layout_width="@dimen/icon_hw_middle"
+                            android:layout_height="@dimen/icon_hw_middle"
+                            android:src="@drawable/ic_setting" />
+
+                        <TextView
+                            style="@style/TextViewMiddle"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/txt_margin_horizontal"
+                            android:layout_weight="1"
+                            android:text="@string/mine_practice"
+                            android:textColor="@color/colorBlack66" />
+
+                        <ImageView
+                            android:layout_width="16dp"
+                            android:layout_height="16dp"
+                            android:src="@drawable/ic_arrow_right" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/normal_view_hw"
+                        android:background="?attr/selectableItemBackground"
+                        android:gravity="center_vertical"
+                        android:onClick="@{()->clickProxy.clear()}"
+                        android:orientation="horizontal"
+                        android:paddingLeft="@dimen/activity_horizontal_margin"
+                        android:paddingRight="@dimen/activity_horizontal_margin">
+
+                        <ImageView
+                            android:layout_width="@dimen/icon_hw_middle"
+                            android:layout_height="@dimen/icon_hw_middle"
+                            android:src="@drawable/ic_clear" />
+
+                        <TextView
+                            style="@style/TextViewMiddle"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/txt_margin_horizontal"
+                            android:layout_weight="1"
+                            android:text="@string/clear_cache"
+                            android:textColor="@color/colorBlack66" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="0.0M"
+                            android:layout_marginStart="@dimen/txt_margin_horizontal"
+                            android:layout_marginEnd="@dimen/txt_margin_horizontal"/>
+
+                        <ImageView
+                            android:layout_width="16dp"
+                            android:layout_height="16dp"
+                            android:src="@drawable/ic_arrow_right" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/normal_view_hw"
+                        android:background="?attr/selectableItemBackground"
+                        android:gravity="center_vertical"
+                        android:onClick="@{()->clickProxy.update()}"
+                        android:orientation="horizontal"
+                        android:paddingLeft="@dimen/activity_horizontal_margin"
+                        android:paddingRight="@dimen/activity_horizontal_margin">
+
+                        <ImageView
+                            android:layout_width="@dimen/icon_hw_middle"
+                            android:layout_height="@dimen/icon_hw_middle"
+                            android:src="@drawable/ic_update" />
+
+                        <TextView
+                            style="@style/TextViewMiddle"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/txt_margin_horizontal"
+                            android:layout_weight="1"
+                            android:text="@string/check_update"
+                            android:textColor="@color/colorBlack66" />
+
+
+                        <ImageView
+                            android:layout_width="16dp"
+                            android:layout_height="16dp"
+                            android:src="@drawable/ic_arrow_right" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/normal_view_hw"
+                        android:background="?attr/selectableItemBackground"
+                        android:gravity="center_vertical"
+                        android:onClick="@{()->clickProxy.exit()}"
+                        android:orientation="horizontal"
+                        android:paddingLeft="@dimen/activity_horizontal_margin"
+                        android:paddingRight="@dimen/activity_horizontal_margin">
+
+                        <ImageView
+                            android:layout_width="@dimen/icon_hw_middle"
+                            android:layout_height="@dimen/icon_hw_middle"
+                            android:src="@drawable/ic_exit" />
+
+                        <TextView
+                            style="@style/TextViewMiddle"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/txt_margin_horizontal"
+                            android:layout_weight="1"
+                            android:text="@string/exit"
+                            android:textColor="@color/colorBlack66" />
+
+                        <ImageView
+                            android:layout_width="16dp"
+                            android:layout_height="16dp"
+                            android:src="@drawable/ic_arrow_right" />
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+        </LinearLayout>
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 </layout>
