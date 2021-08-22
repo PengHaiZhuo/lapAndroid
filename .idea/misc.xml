@@ -3,14 +3,15 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Android/Project/dev/app/src/main/res/layout/activity_splash.xml" value="0.19010416666666666" />
+        <entry key="..\:/Android/Project/dev/app/src/main/res/layout/activity_viewpager2_simple_slider.xml" value="0.19010416666666666" />
+        <entry key="..\:/Android/Project/dev/app/src/main/res/layout/fragment_mine.xml" value="0.33" />
         <entry key="..\:/haizhuo/Download/dev/app/src/main/res/drawable/selector_click_state_bg_light.xml" value="0.19010416666666666" />
         <entry key="..\:/haizhuo/Download/dev/app/src/main/res/drawable/selector_click_state_bg_primary.xml" value="0.19010416666666666" />
         <entry key="..\:/haizhuo/Download/dev/app/src/main/res/layout/activity_login.xml" value="0.25" />
         <entry key="..\:/haizhuo/Download/dev/app/src/main/res/layout/activity_main.xml" value="0.19635416666666666" />
         <entry key="..\:/haizhuo/Download/dev/app/src/main/res/layout/activity_splash.xml" value="0.2484375" />
-        <entry key="..\:/haizhuo/Download/dev/app/src/main/res/layout/fragment_home.xml" value="0.15307971014492755" />
-        <entry key="..\:/haizhuo/Download/dev/app/src/main/res/layout/fragment_mine.xml" value="0.4177997527812114" />
-        <entry key="..\:/haizhuo/Download/dev/app/src/main/res/layout/fragment_mine_integral.xml" value="0.27239583333333334" />
+        <entry key="..\:/haizhuo/Download/dev/app/src/main/res/layout/fragment_mine.xml" value="0.17198581560283688" />
         <entry key="..\:/haizhuo/Download/dev/app/src/main/res/menu/bottom_nav.xml" value="0.19635416666666666" />
         <entry key="..\:/haizhuo/Download/dev/common/src/main/res/drawable/ripple_item_white_bg.xml" value="0.19010416666666666" />
         <entry key="..\:/haizhuo/Download/dev/common/src/main/res/drawable/select_click_blue.xml" value="0.19010416666666666" />

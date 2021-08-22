@@ -41,7 +41,9 @@ class MineFragment : BaseVmDbPureFragment<MineViewModel, FragmentMineBinding>() 
         fun todo() {}
 
         //我的实践
-        fun practice() {}
+        fun practice() {
+
+        }
 
         //清理缓存
         fun clear(){}
