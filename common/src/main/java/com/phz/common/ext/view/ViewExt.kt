@@ -1,6 +1,9 @@
 package com.phz.common.ext.view
 
 import android.view.View
+import androidx.dynamicanimation.animation.DynamicAnimation
+import androidx.dynamicanimation.animation.SpringAnimation
+import androidx.dynamicanimation.animation.SpringForce
 
 /**
  * @author phz
@@ -94,3 +97,14 @@ fun setOnClickNoRepeat(vararg views: View?, interval: Long = 500, onClick: (View
     }
 }
 
+/**
+ * 给view设置DynamicAnimation
+ */
+fun View.spring(property: DynamicAnimation.ViewProperty, value: Float) {
+    val anim = SpringAnimation(this, property)
+    val springForce = SpringForce()
+    springForce.dampingRatio = SpringForce.DAMPING_RATIO_MEDIUM_BOUNCY
+    springForce.stiffness = SpringForce.STIFFNESS_LOW
+    anim.spring = springForce
+    anim.animateToFinalPosition(value)
+}

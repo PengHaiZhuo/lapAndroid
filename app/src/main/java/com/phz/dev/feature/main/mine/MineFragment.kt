@@ -1,9 +1,11 @@
 package com.phz.dev.feature.main.mine
 
 import android.os.Bundle
+import com.phz.common.ext.startKtxActivity
 import com.phz.common.page.fragment.BaseVmDbPureFragment
 import com.phz.dev.R
 import com.phz.dev.databinding.FragmentMineBinding
+import com.phz.dev.feature.practice.PracticeMainActivity
 
 /**
  * @author phz on 2021/8/17
@@ -42,16 +44,16 @@ class MineFragment : BaseVmDbPureFragment<MineViewModel, FragmentMineBinding>() 
 
         //我的实践
         fun practice() {
-
+            context!!.startKtxActivity<PracticeMainActivity>()
         }
 
         //清理缓存
-        fun clear(){}
+        fun clear() {}
 
         //检查更新
-        fun update(){}
+        fun update() {}
 
         //退出
-        fun exit(){}
+        fun exit() {}
     }
 }

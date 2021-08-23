@@ -32,6 +32,10 @@
         <activity android:name=".feature.login.LoginActivity" />
 
         <activity android:name=".feature.main.MainActivity" />
+
+        <activity android:name=".feature.practice.PracticeMainActivity"/>
+
+        <activity android:name=".feature.practice.animation.ViewPagerSimpleSliderActivity"/>
     </application>
 
 </manifest>
