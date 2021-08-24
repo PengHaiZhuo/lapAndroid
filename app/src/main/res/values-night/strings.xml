@@ -15,4 +15,6 @@
     <string name="clear_cache">清理缓存</string>
     <string name="check_update">检查更新</string>
     <string name="exit">退出</string>
+    <string name="scan_with_console">持续扫描并打印</string>
+    <string name="scan_normal_scene">一般扫描场景</string>
 </resources>

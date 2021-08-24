@@ -11,6 +11,15 @@
         android:maxSdkVersion="28" />
     <uses-permission android:name="android.permission.USE_FULL_SCREEN_INTENT"/>
 
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.FLASHLIGHT"/>
+    <uses-feature android:name="android.hardware.camera"
+        android:required="false"/>
+    <uses-feature android:name="android.hardware.camera.autofocus"
+        android:required="false"/>
+    <uses-feature android:name="android.hardware.camera.flash"
+        android:required="false"/>
+
     <application
         android:name=".app.MyApplication"
         android:allowBackup="true"
@@ -36,6 +45,10 @@
         <activity android:name=".feature.practice.PracticeMainActivity"/>
 
         <activity android:name=".feature.practice.animation.ViewPagerSimpleSliderActivity"/>
+
+        <activity android:name=".feature.practice.mlkit.scan.MlKitScanMenuActivity"/>
+
+        <activity android:name=".feature.practice.mlkit.scan.ct.MlKitScanWithConsoleActivity"/>
     </application>
 
 </manifest>

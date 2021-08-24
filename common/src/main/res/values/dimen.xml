@@ -23,4 +23,5 @@
     <dimen name="icon_hw_large">72dp</dimen>
     <dimen name="icon_hw_middle">24dp</dimen>
     <dimen name="icon_hw_small">12dp</dimen>
+    <dimen name="bt_elevation_small">2dp</dimen>
 </resources>

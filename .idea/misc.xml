@@ -10,7 +10,12 @@
         <entry key="..\:/haizhuo/Download/dev/app/src/main/res/drawable/selector_click_state_bg_primary.xml" value="0.19010416666666666" />
         <entry key="..\:/haizhuo/Download/dev/app/src/main/res/layout/activity_login.xml" value="0.25" />
         <entry key="..\:/haizhuo/Download/dev/app/src/main/res/layout/activity_main.xml" value="0.19635416666666666" />
+        <entry key="..\:/haizhuo/Download/dev/app/src/main/res/layout/activity_mlkit_scan_continue.xml" value="0.1515625" />
+        <entry key="..\:/haizhuo/Download/dev/app/src/main/res/layout/activity_mlkit_scan_ct.xml" value="0.27239583333333334" />
+        <entry key="..\:/haizhuo/Download/dev/app/src/main/res/layout/activity_mlkit_scan_menu.xml" value="0.1480978260869565" />
+        <entry key="..\:/haizhuo/Download/dev/app/src/main/res/layout/activity_mlkit_scan_normal.xml" value="0.1515625" />
         <entry key="..\:/haizhuo/Download/dev/app/src/main/res/layout/activity_practice_main.xml" value="0.19635416666666666" />
+        <entry key="..\:/haizhuo/Download/dev/app/src/main/res/layout/activity_scan.xml" value="0.22" />
         <entry key="..\:/haizhuo/Download/dev/app/src/main/res/layout/activity_splash.xml" value="0.2484375" />
         <entry key="..\:/haizhuo/Download/dev/app/src/main/res/layout/activity_viewpager2_simple_slider.xml" value="0.19635416666666666" />
         <entry key="..\:/haizhuo/Download/dev/app/src/main/res/layout/fragment_home.xml" value="0.15307971014492755" />

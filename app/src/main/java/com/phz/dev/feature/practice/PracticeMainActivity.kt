@@ -6,6 +6,7 @@ import com.phz.common.page.activity.BaseVmDbActivity
 import com.phz.dev.R
 import com.phz.dev.databinding.ActivityPracticeMainBinding
 import com.phz.dev.feature.practice.animation.ViewPagerSimpleSliderActivity
+import com.phz.dev.feature.practice.mlkit.scan.MlKitScanMenuActivity
 
 /**
  * @author phz on 2021/8/23
@@ -27,6 +28,10 @@ class PracticeMainActivity :
     inner class ProxyClick {
         fun vp2() {
             startKtxActivity<ViewPagerSimpleSliderActivity>()
+        }
+
+        fun scan(){
+            startKtxActivity<MlKitScanMenuActivity>()
         }
     }
 

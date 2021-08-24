@@ -121,12 +121,14 @@ object AndroidX {
             "androidx.navigation:navigation-safe-args-generator:$navigation_version"
 
         //classpath("${AndroidX.Navigation.safeArgsGradlePlugin}")
-        const val safeArgsGradlePlugin="androidx.navigation:navigation-safe-args-gradle-plugin:$navigation_version"
+        const val safeArgsGradlePlugin =
+            "androidx.navigation:navigation-safe-args-gradle-plugin:$navigation_version"
 
         // Dynamic Feature Module Support
         const val dynamic =
             "androidx.navigation:navigation-dynamic-features-fragment:$navigation_version"
-        const val dynamicRuntime="androidx.navigation:navigation-dynamic-features-runtime:$navigation_version"
+        const val dynamicRuntime =
+            "androidx.navigation:navigation-dynamic-features-runtime:$navigation_version"
 
         // Testing Navigation
         const val testing = "androidx.navigation:navigation-testing:$navigation_version"
@@ -158,6 +160,18 @@ object AndroidX {
         const val testing = "androidx.room:room-testing:$room_version"
     }
 
+    object Camera {
+        private const val camera_version = "1.0.1"
+
+        const val camera2 = "androidx.camera:camera-camera2:$camera_version"
+
+        const val core = "androidx.camera:camera-core:$camera_version"
+
+        const val lifecycle = "androidx.camera:camera-lifecycle:$camera_version"
+
+        const val view = "androidx.camera:camera-view:1.0.0-alpha27"
+    }
+
 
     //com.android.support:support-v4的androidx映射版本，关于其他支持库查看{https://developer.android.com/topic/libraries/support-library/packages}
     const val legacySupportV4 = "androidx.legacy:legacy-support-v4:1.0.0"
@@ -171,4 +185,7 @@ object AndroidX {
 
     //sdk包下graphics.drawable下有一个VectorDrawable类，对于较高的版本不需要引入此库来支持基于XML矢量图形创建可绘制对象。
     const val vectordrawable = "androidx.vectordrawable:vectordrawable:1.1.0"
+
+    //在kotlin中要添加Futures依赖项，参考：https://developer.android.com/jetpack/androidx/releases/concurrent
+    const val concurrentFuturesKtx = "androidx.concurrent:concurrent-futures-ktx:1.1.0"
 }

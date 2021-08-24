@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data></data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/mToolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?actionBarSize"
+            android:background="@color/colorTransparent"
+            android:popupTheme="@style/ThemeOverlay.MaterialComponents.Light"
+            android:theme="@style/ThemeOverlay.MaterialComponents.ActionBar"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:titleTextColor="@color/colorBlack66" />
+
+        <com.jraska.console.Console
+            android:id="@+id/camera_scan_qr"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/icon_hw_huge"
+            android:layout_marginBottom="@dimen/activity_vertical_margin"
+            android:elevation="@dimen/bt_elevation_small"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent" />
+
+        <androidx.camera.view.PreviewView
+            android:id="@+id/preview_frame"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <com.phz.dev.feature.practice.mlkit.scan.core.ScanOverlay
+            android:id="@+id/overlay"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            app:layout_constraintBottom_toTopOf="@+id/camera_scan_qr"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/preview_frame" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

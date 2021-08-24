@@ -23,7 +23,7 @@ android {
         ndk {
             //不配置则默认构建并打包所有可用的ABI
             //gradle版本-> abiFilters 'x86_64','armeabi-v7a','arm64-v8a'
-            abiFilters.addAll(arrayListOf("x86_64","armeabi-v7a", "arm64-v8a"))
+            abiFilters.addAll(arrayListOf("x86_64", "armeabi-v7a", "arm64-v8a"))
         }
     }
 
@@ -62,12 +62,6 @@ android {
     }
 }
 
-kapt {
-    arguments {
-        arg("AROUTER_MODULE_NAME", project.getName())
-    }
-}
-
 dependencies {
     implementation(fileTree(mapOf("include" to listOf("*.jar"), "dir" to "libs")))
     implementation(project(mapOf("path" to ":common")))
@@ -80,6 +74,7 @@ dependencies {
     implementation(AndroidX.constraintlayout)
     implementation(AndroidX.cardview)
     implementation(AndroidX.recyclerView)
+    implementation(AndroidX.swiperefreshlayout)
     implementation(AndroidX.activityKtx)
     implementation(AndroidX.fragmentKtx)
 
@@ -110,11 +105,15 @@ dependencies {
     implementation(AndroidX.Room.rxjava3)
     implementation(AndroidX.Room.guava)
 
-    implementation(Google.guava_conflict)
-
     //viewPager
     implementation(AndroidX.ViewPager.viewpager2)
     implementation(AndroidX.ViewPager.viewpager)
+
+    //camera
+    implementation(AndroidX.Camera.camera2)
+    implementation(AndroidX.Camera.core)
+    implementation(AndroidX.Camera.lifecycle)
+    implementation(AndroidX.Camera.view)
 
     //retrofit2
     implementation(ThirdPart.Retrofit.retrofit)
@@ -162,7 +161,8 @@ dependencies {
     //蓝牙工具
     implementation(ThirdPart.rxandroidble)
     implementation(ThirdPart.rxjavaReplayingShare)
-    //ARouter路由
-    implementation(ThirdPart.aRouter)
-    kapt(ThirdPart.aRouterCompiler)
+    //console
+    implementation(ThirdPart.console)
+    //扫码
+    implementation(Google.barcode_scanning)
 }

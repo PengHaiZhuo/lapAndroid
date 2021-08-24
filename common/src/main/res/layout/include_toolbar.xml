@@ -17,5 +17,6 @@
         android:layout_gravity="center"
         android:textColor="@android:color/white"
         android:textSize="@dimen/toolbar_txt_size" />
+
 </com.google.android.material.appbar.MaterialToolbar>
 

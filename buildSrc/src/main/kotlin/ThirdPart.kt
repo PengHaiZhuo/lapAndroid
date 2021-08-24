@@ -92,6 +92,9 @@ object ThirdPart {
 
     //通过标签直接写shape
     const val backgroundLibrary ="com.noober.background:core:1.6.5"
+
+    //console
+    const val console ="com.jraska:console:1.2.0"
     /*******************************窗口、控件和相关工具***********************************/
 
     /*******************************依赖注入***********************************/
