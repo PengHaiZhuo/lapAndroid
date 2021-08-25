@@ -9,14 +9,12 @@ import android.os.Process
 import android.util.Size
 import androidx.camera.core.CameraSelector
 import androidx.camera.core.ImageAnalysis
-import androidx.camera.core.ImageProxy
 import androidx.camera.core.Preview
 import androidx.camera.lifecycle.ProcessCameraProvider
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import com.google.common.util.concurrent.ListenableFuture
 import com.google.mlkit.vision.barcode.Barcode
-import com.google.mlkit.vision.barcode.BarcodeScanner
 import com.google.mlkit.vision.barcode.BarcodeScannerOptions
 import com.google.mlkit.vision.barcode.BarcodeScanning
 import com.google.mlkit.vision.common.InputImage
@@ -100,7 +98,7 @@ class MlKitScanWithConsoleActivity :
                     .setTargetResolution(Size(scanOverlay.width, scanOverlay.height))//设置预期目标的分辨率
                     .setBackpressureStrategy(ImageAnalysis.STRATEGY_KEEP_ONLY_LATEST)
                     .build()
-                //先解绑
+                //先解绑所有
                 cameraProvider?.unbindAll()
                 //将相机绑定到当前页面的生命周期，再也不用担心开关相机了
                 cameraProvider?.bindToLifecycle(
