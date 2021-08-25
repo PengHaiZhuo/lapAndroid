@@ -47,7 +47,7 @@ fun RecyclerView.grid(count:Int):RecyclerView{
  * @receiver RecyclerView
  * @return RecyclerView
  */
-fun RecyclerView.staggered(spanCount:Int=3,orientation:Int=RecyclerView.HORIZONTAL):RecyclerView{
+fun RecyclerView.staggered(spanCount:Int=2,orientation:Int=RecyclerView.VERTICAL):RecyclerView{
     layoutManager = StaggeredGridLayoutManager(spanCount,orientation)
     setHasFixedSize(true)
     return this

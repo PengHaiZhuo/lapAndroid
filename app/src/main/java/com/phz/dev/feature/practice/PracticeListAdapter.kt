@@ -23,7 +23,7 @@ class PracticeListAdapter(private val click: MyClick) :
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         val item = list[position]
-        holder.setText(item)
+        holder.setClick(item)
     }
 
     override fun getItemViewType(position: Int): Int = R.layout.item_simple_text
@@ -43,12 +43,10 @@ class PracticeListAdapter(private val click: MyClick) :
     inner class MyViewHolder(private val mViewDataBinding: ItemSimpleTextBinding) :
         RecyclerView.ViewHolder(mViewDataBinding.root) {
 
-        fun setText(string: String) {
-            mViewDataBinding.apply {
-                mViewDataBinding.tvSimple.text = string
-                mViewDataBinding.tvSimple.setOnClickListener {
-                    click.onClick(string)
-                }
+        fun setClick(string: String) {
+            mViewDataBinding.btPractice.text = string
+            mViewDataBinding.btPractice.setOnClickListener {
+                click.onClick(string)
             }
         }
     }

@@ -1,9 +1,7 @@
 package com.phz.dev.feature.practice
 
 import android.os.Bundle
-import com.blankj.utilcode.util.ColorUtils
 import com.phz.common.ext.startKtxActivity
-import com.phz.common.ext.view.divider
 import com.phz.common.ext.view.vertical
 import com.phz.common.page.activity.BaseVmDbActivity
 import com.phz.dev.R
@@ -38,10 +36,6 @@ class PracticeMainActivity :
     override fun initData() {
         mViewDataBinding.rvPractice.apply {
             vertical()
-            divider {
-                setColor(ColorUtils.getColor(R.color.colorDivider))
-                setDivider(2)
-            }
             mAdapter.addAll(practiceNames)
             adapter = mAdapter
         }
