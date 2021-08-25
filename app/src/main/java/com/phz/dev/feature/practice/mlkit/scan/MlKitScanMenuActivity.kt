@@ -6,7 +6,6 @@ import com.phz.common.page.activity.BaseVmDbActivity
 import com.phz.common.state.BaseViewModel
 import com.phz.dev.R
 import com.phz.dev.databinding.ActivityMlkitScanMenuBinding
-import com.phz.dev.feature.practice.animation.ViewPagerSimpleSliderActivity
 import com.phz.dev.feature.practice.mlkit.scan.ct.MlKitScanWithConsoleActivity
 
 /**

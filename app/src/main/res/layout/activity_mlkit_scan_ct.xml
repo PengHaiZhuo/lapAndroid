@@ -12,7 +12,7 @@
             android:id="@+id/camera_scan_qr"
             android:layout_width="0dp"
             android:layout_height="@dimen/icon_hw_huge"
-            android:layout_marginBottom="@dimen/activity_vertical_margin"
+            android:layout_marginBottom="@dimen/margin_normal"
             android:elevation="@dimen/bt_elevation_small"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"

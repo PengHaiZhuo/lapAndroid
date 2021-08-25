@@ -3,6 +3,7 @@ package com.phz.common.ext.view
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.phz.common.widget.recycleview.DefaultDecoration
 
 
@@ -37,6 +38,17 @@ fun RecyclerView.horizontal():RecyclerView{
  */
 fun RecyclerView.grid(count:Int):RecyclerView{
     layoutManager = GridLayoutManager(this.context,count)
+    setHasFixedSize(true)
+    return this
+}
+
+/**
+ * staggered grid recyclerview
+ * @receiver RecyclerView
+ * @return RecyclerView
+ */
+fun RecyclerView.staggered(spanCount:Int=3,orientation:Int=RecyclerView.HORIZONTAL):RecyclerView{
+    layoutManager = StaggeredGridLayoutManager(spanCount,orientation)
     setHasFixedSize(true)
     return this
 }

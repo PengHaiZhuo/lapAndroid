@@ -30,9 +30,9 @@
                 <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/activity_horizontal_margin"
-                    android:layout_marginTop="@dimen/activity_vertical_margin"
-                    android:layout_marginEnd="@dimen/activity_horizontal_margin"
+                    android:layout_marginStart="@dimen/margin_normal"
+                    android:layout_marginTop="@dimen/margin_normal"
+                    android:layout_marginEnd="@dimen/margin_normal"
                     app:boxBackgroundColor="@color/colorWhite">
 
                     <androidx.appcompat.widget.AppCompatEditText
@@ -48,9 +48,9 @@
                 <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/item_margin_vertical"
-                    android:layout_marginStart="@dimen/activity_horizontal_margin"
-                    android:layout_marginEnd="@dimen/activity_horizontal_margin"
+                    android:layout_marginTop="@dimen/margin_small"
+                    android:layout_marginStart="@dimen/margin_normal"
+                    android:layout_marginEnd="@dimen/margin_normal"
                     app:boxBackgroundColor="@color/colorWhite">
 
                     <androidx.appcompat.widget.AppCompatEditText
@@ -70,9 +70,9 @@
                     style="@style/Widget.AppCompat.Button.Colored"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/activity_horizontal_margin"
-                    android:layout_marginTop="@dimen/activity_horizontal_margin"
-                    android:layout_marginEnd="@dimen/activity_horizontal_margin"
+                    android:layout_marginStart="@dimen/margin_normal"
+                    android:layout_marginTop="@dimen/margin_normal"
+                    android:layout_marginEnd="@dimen/margin_normal"
                     android:backgroundTint="@color/colorAccent"
                     android:text="@string/login"
                     android:textAppearance="@style/TextAppearance.MaterialComponents.Button"
@@ -82,10 +82,10 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/item_margin_vertical"
-                    android:layout_marginBottom="@dimen/activity_vertical_margin"
-                    android:layout_marginStart="@dimen/activity_horizontal_margin"
-                    android:layout_marginEnd="@dimen/activity_horizontal_margin"
+                    android:layout_marginTop="@dimen/margin_small"
+                    android:layout_marginBottom="@dimen/margin_normal"
+                    android:layout_marginStart="@dimen/margin_normal"
+                    android:layout_marginEnd="@dimen/margin_normal"
                     android:gravity="center_vertical"
                     android:orientation="horizontal">
 
@@ -93,10 +93,10 @@
                         android:id="@+id/forgot_password"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:paddingTop="@dimen/item_margin_vertical"
-                        android:paddingStart="@dimen/activity_horizontal_margin"
-                        android:paddingEnd="@dimen/activity_horizontal_margin"
-                        android:paddingBottom="@dimen/item_margin_vertical"
+                        android:paddingTop="@dimen/margin_small"
+                        android:paddingStart="@dimen/margin_normal"
+                        android:paddingEnd="@dimen/margin_normal"
+                        android:paddingBottom="@dimen/margin_small"
                         android:clickable="true"
                         android:focusable="true"
                         android:text="@string/forget_pwd"
@@ -113,10 +113,10 @@
                         android:id="@+id/register"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:paddingTop="@dimen/item_margin_vertical"
-                        android:paddingStart="@dimen/activity_horizontal_margin"
-                        android:paddingEnd="@dimen/activity_horizontal_margin"
-                        android:paddingBottom="@dimen/item_margin_vertical"
+                        android:paddingTop="@dimen/margin_small"
+                        android:paddingStart="@dimen/margin_normal"
+                        android:paddingEnd="@dimen/margin_normal"
+                        android:paddingBottom="@dimen/margin_small"
                         android:clickable="true"
                         android:focusable="true"
                         android:text="@string/register"

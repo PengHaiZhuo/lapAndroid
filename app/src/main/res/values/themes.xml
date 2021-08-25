@@ -10,28 +10,4 @@
         <item name="colorSecondaryVariant">@color/colorSecondaryVariant</item>
         <item name="colorOnSecondary">@color/black</item>
     </style>
-
-    <style name="AppCompatEditTextMine" parent="ThemeOverlay.MaterialComponents.TextInputEditText">
-        <item name="android:maxLines">1</item>
-        <item name="android:singleLine">true</item>
-    </style>
-
-    <style name="TextViewMiddle" parent="Widget.AppCompat.TextView">
-        <item name="android:textSize">@dimen/text_middle</item>
-        <item name="android:maxLines">1</item>
-        <item name="android:ellipsize">end</item>
-    </style>
-
-    <style name="TextViewLarge" parent="Widget.AppCompat.TextView">
-        <item name="android:textSize">@dimen/text_large</item>
-        <item name="android:maxLines">1</item>
-        <item name="android:ellipsize">end</item>
-    </style>
-
-    <style name="TextViewSmall" parent="Widget.AppCompat.TextView">
-        <item name="android:textSize">@dimen/text_small</item>
-        <item name="android:maxLines">1</item>
-        <item name="android:ellipsize">end</item>
-    </style>
-
 </resources>

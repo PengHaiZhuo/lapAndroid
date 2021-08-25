@@ -11,7 +11,7 @@
             android:id="@+id/tv_index"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="@dimen/activity_horizontal_margin"
+            android:layout_margin="@dimen/margin_normal"
             android:textColor="@color/colorBlack66"
             android:textSize="@dimen/text_large"
             app:layout_constraintBottom_toTopOf="@id/vpc"

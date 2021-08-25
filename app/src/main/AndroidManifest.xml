@@ -49,6 +49,8 @@
         <activity android:name=".feature.practice.mlkit.scan.MlKitScanMenuActivity"/>
 
         <activity android:name=".feature.practice.mlkit.scan.ct.MlKitScanWithConsoleActivity"/>
+
+        <activity android:name=".feature.practice.coordinator.PlantsListActivity"/>
     </application>
 
 </manifest>
