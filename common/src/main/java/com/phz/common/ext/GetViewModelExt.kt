@@ -53,8 +53,9 @@ inline fun <reified VM : BaseViewModel> Fragment.getAppViewModel(): VM {
 
 /**
  * 得到当前Activity上下文的ViewModel
+ * exp{ val viewModel by viewModels<MyViewModel>() }
  */
-@Deprecated("已过时的方法，现在可以直接使用Ktx函数 viewmodels()获取")
+@Deprecated("已过时的方法，现在可以直接使用Ktx函数 viewModels()获取")
 inline fun <reified VM : BaseViewModel> AppCompatActivity.getViewModel(): VM {
     return ViewModelProvider(
         this,
@@ -66,7 +67,7 @@ inline fun <reified VM : BaseViewModel> AppCompatActivity.getViewModel(): VM {
  * 得到当前Fragment上下文的ViewModel
  * 提示，在fragment中调用该方法时，请在该Fragment onCreate以后调用或者请用by lazy方式懒加载初始化调用，不然会提示requireActivity没有导致错误
  */
-@Deprecated("已过时的方法，现在可以直接使用Ktx函数 viewmodels()获取")
+@Deprecated("已过时的方法，现在可以直接使用Ktx函数 viewModels()获取")
 inline fun <reified VM : BaseViewModel> Fragment.getViewModel(): VM {
     return ViewModelProvider(
         this,
@@ -77,6 +78,7 @@ inline fun <reified VM : BaseViewModel> Fragment.getViewModel(): VM {
 /**
  * 在Fragment中得到父类Activity的共享ViewModel
  * 提示，在fragment中调用该方法时，请在该Fragment onCreate以后调用或者请用by lazy方式懒加载初始化调用，不然会提示requireActivity没有导致错误
+ * exp { val viewModel by activityViewModels<MyViewModel>() }
  */
 @Deprecated("已过时的方法，现在可以直接使用Ktx函数 activityViewModels()获取")
 inline fun <reified VM : BaseViewModel> Fragment.getActivityViewModel(): VM {
