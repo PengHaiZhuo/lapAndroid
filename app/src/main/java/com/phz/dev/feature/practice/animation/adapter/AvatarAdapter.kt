@@ -6,7 +6,6 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.phz.common.databinding.MineBindingAdapter.circleImageUrlRes
-import com.phz.common.util.ActivityManagerKtx
 import com.phz.dev.R
 import com.phz.dev.databinding.ItemAvatarBinding
 import com.phz.dev.feature.practice.animation.data.model.GenShinRole
@@ -21,7 +20,7 @@ class AvatarAdapter : RecyclerView.Adapter<AvatarAdapter.MyViewHolder>() {
     private var list: MutableList<GenShinRole> = mutableListOf()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
-        val view = LayoutInflater.from(ActivityManagerKtx.currentActivity!!.baseContext)
+        val view = LayoutInflater.from(parent.context)
             .inflate(viewType, parent, false)
         return MyViewHolder(view)
     }
