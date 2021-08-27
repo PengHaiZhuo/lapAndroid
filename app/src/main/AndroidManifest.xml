@@ -3,22 +3,25 @@
     package="com.phz.dev">
 
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission
         android:name="android.permission.WRITE_EXTERNAL_STORAGE"
         android:maxSdkVersion="28" />
-    <uses-permission android:name="android.permission.USE_FULL_SCREEN_INTENT"/>
-
+    <uses-permission android:name="android.permission.USE_FULL_SCREEN_INTENT" />
     <uses-permission android:name="android.permission.CAMERA" />
-    <uses-permission android:name="android.permission.FLASHLIGHT"/>
-    <uses-feature android:name="android.hardware.camera"
-        android:required="false"/>
-    <uses-feature android:name="android.hardware.camera.autofocus"
-        android:required="false"/>
-    <uses-feature android:name="android.hardware.camera.flash"
-        android:required="false"/>
+    <uses-permission android:name="android.permission.FLASHLIGHT" />
+
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="false" />
+    <uses-feature
+        android:name="android.hardware.camera.autofocus"
+        android:required="false" />
+    <uses-feature
+        android:name="android.hardware.camera.flash"
+        android:required="false" />
 
     <application
         android:name=".app.MyApplication"
@@ -37,20 +40,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity android:name=".feature.login.LoginActivity" />
-
         <activity android:name=".feature.main.MainActivity" />
-
-        <activity android:name=".feature.practice.PracticeMainActivity"/>
-
-        <activity android:name=".feature.practice.animation.ViewPagerSimpleSliderActivity"/>
-
-        <activity android:name=".feature.practice.mlkit.scan.MlKitScanMenuActivity"/>
-
-        <activity android:name=".feature.practice.mlkit.scan.ct.MlKitScanWithConsoleActivity"/>
-
-        <activity android:name=".feature.practice.coordinator.PlantsListActivity"/>
+        <activity android:name=".feature.practice.PracticeMainActivity" />
+        <activity android:name=".feature.practice.animation.ViewPagerSimpleSliderActivity" />
+        <activity android:name=".feature.practice.mlkit.scan.MlKitScanMenuActivity" />
+        <activity android:name=".feature.practice.mlkit.scan.ct.MlKitScanWithConsoleActivity" />
+        <activity android:name=".feature.practice.toolbar.ToolbarLearnActivity"/>
     </application>
 
 </manifest>

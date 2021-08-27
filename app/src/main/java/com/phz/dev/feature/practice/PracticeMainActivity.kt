@@ -9,6 +9,7 @@ import com.phz.dev.R
 import com.phz.dev.databinding.ActivityPracticeMainBinding
 import com.phz.dev.feature.practice.animation.ViewPagerSimpleSliderActivity
 import com.phz.dev.feature.practice.mlkit.scan.MlKitScanMenuActivity
+import com.phz.dev.feature.practice.toolbar.ToolbarLearnActivity
 
 /**
  * @author phz on 2021/8/23
@@ -19,7 +20,7 @@ class PracticeMainActivity :
     private var mAdapter = PracticeListAdapter()
 
     companion object {
-        val practiceNames = arrayListOf("viewpager2", "mlkit扫码")
+        val practiceNames = arrayListOf("ViewPager Transformer", "Scan","ToolBar")
     }
 
     override fun initData() {
@@ -31,6 +32,9 @@ class PracticeMainActivity :
                     }
                     1 -> {
                         startKtxActivity<MlKitScanMenuActivity>()
+                    }
+                    2->{
+                        startKtxActivity<ToolbarLearnActivity>()
                     }
                 }
             }
