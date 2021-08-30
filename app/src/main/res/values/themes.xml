@@ -11,7 +11,12 @@
         <item name="colorOnSecondary">@color/black</item>
     </style>
 
-    <style name="Theme.MaterialToolbar.AppBarOverlay" parent="ThemeOverlay.MaterialComponents.ActionBar" />
+    <style name="AppBar" parent="Theme.Dev">
+        <!--This line changes the color of text in Toolbar-->
+        <item name="android:textColorPrimary">@color/white</item>
+        <!--This line changes the color of icons in toolbar (back, overflow menu icons)-->
+        <item name="android:textColorSecondary">@color/white</item>
+    </style>
 
-    <style name="Theme.MaterialToolbar.PopupOverlay" parent="ThemeOverlay.MaterialComponents.Light" />
+    <style name="ToolBarPop" parent="Theme.Dev" />
 </resources>

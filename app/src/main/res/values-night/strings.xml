@@ -17,4 +17,8 @@
     <string name="exit">退出</string>
     <string name="scan_with_console">持续扫描并打印</string>
     <string name="scan_normal_scene">一般扫描场景</string>
+    <string name="collect">收藏</string>
+    <string name="search">搜索</string>
+    <string name="add">新增</string>
+    <string name="scan">扫描</string>
 </resources>

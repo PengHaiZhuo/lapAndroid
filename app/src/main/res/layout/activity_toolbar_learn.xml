@@ -12,13 +12,16 @@
                 android:id="@+id/mToolbar"
                 android:layout_width="match_parent"
                 android:layout_height="?actionBarSize"
+                android:theme="@style/AppBar"
+                app:popupTheme="@style/ToolBarPop"
                 android:background="?attr/colorPrimary"
                 app:title="ToolBar"
-                app:titleTextColor="@color/colorWhite"
-                android:elevation="6dp"
-                app:theme="@style/Theme.MaterialToolbar.AppBarOverlay"
-                app:popupTheme="@style/Theme.MaterialToolbar.PopupOverlay"
-                app:navigationIcon="@drawable/ic_drawer" />
+                app:titleTextColor="@color/white"
+                app:subtitleTextColor="@color/white"
+                app:subtitle="second"
+                app:subtitleCentered="false"
+                app:titleCentered="false"
+                app:navigationIcon="@drawable/ic_drawer"/>
 
         </com.google.android.material.appbar.AppBarLayout>
 
