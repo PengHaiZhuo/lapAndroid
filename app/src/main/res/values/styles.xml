@@ -31,4 +31,11 @@
         <item name="cornerSizeBottomLeft">12dp</item>
     </style>
 
+    <style name="DateSelectorDialog" parent="android:style/Theme.Dialog">
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowBackground">@android:color/white</item>
+    </style>
 </resources>

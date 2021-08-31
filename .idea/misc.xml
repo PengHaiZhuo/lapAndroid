@@ -5,14 +5,21 @@
       <map>
         <entry key="..\:/haizhuo/Download/dev/app/src/main/res/drawable/ic_arrow_left.xml" value="0.15989583333333332" />
         <entry key="..\:/haizhuo/Download/dev/app/src/main/res/drawable/ic_arrow_right.xml" value="0.15989583333333332" />
+        <entry key="..\:/haizhuo/Download/dev/app/src/main/res/drawable/ic_checked_right.xml" value="0.228125" />
         <entry key="..\:/haizhuo/Download/dev/app/src/main/res/drawable/ic_collect.xml" value="0.30462962962962964" />
         <entry key="..\:/haizhuo/Download/dev/app/src/main/res/drawable/ic_drawer.xml" value="0.31851851851851853" />
         <entry key="..\:/haizhuo/Download/dev/app/src/main/res/drawable/ic_exit.xml" value="0.15989583333333332" />
         <entry key="..\:/haizhuo/Download/dev/app/src/main/res/drawable/ic_not_collect.xml" value="0.30462962962962964" />
         <entry key="..\:/haizhuo/Download/dev/app/src/main/res/drawable/ic_sacn.xml" value="0.30462962962962964" />
         <entry key="..\:/haizhuo/Download/dev/app/src/main/res/drawable/ic_search.xml" value="0.30462962962962964" />
+        <entry key="..\:/haizhuo/Download/dev/app/src/main/res/drawable/selector_click_bg_blue.xml" value="0.228125" />
+        <entry key="..\:/haizhuo/Download/dev/app/src/main/res/drawable/selector_click_bg_gray.xml" value="0.228125" />
         <entry key="..\:/haizhuo/Download/dev/app/src/main/res/drawable/selector_click_state_bg_light.xml" value="0.19010416666666666" />
         <entry key="..\:/haizhuo/Download/dev/app/src/main/res/drawable/selector_click_state_bg_primary.xml" value="0.19010416666666666" />
+        <entry key="..\:/haizhuo/Download/dev/app/src/main/res/drawable/selector_click_state_txt_color.xml" value="0.228125" />
+        <entry key="..\:/haizhuo/Download/dev/app/src/main/res/drawable/selector_click_state_txt_color_blue.xml" value="0.228125" />
+        <entry key="..\:/haizhuo/Download/dev/app/src/main/res/drawable/selector_click_state_view_bg.xml" value="0.228125" />
+        <entry key="..\:/haizhuo/Download/dev/app/src/main/res/layout/activity_drop_dwon_menu.xml" value="0.2441123188405797" />
         <entry key="..\:/haizhuo/Download/dev/app/src/main/res/layout/activity_login.xml" value="0.25" />
         <entry key="..\:/haizhuo/Download/dev/app/src/main/res/layout/activity_main.xml" value="0.19635416666666666" />
         <entry key="..\:/haizhuo/Download/dev/app/src/main/res/layout/activity_mlkit_scan_continue.xml" value="0.1515625" />
@@ -25,12 +32,17 @@
         <entry key="..\:/haizhuo/Download/dev/app/src/main/res/layout/activity_toolbar_learn.xml" value="0.25" />
         <entry key="..\:/haizhuo/Download/dev/app/src/main/res/layout/activity_viewpager2_simple_slider.xml" value="0.19635416666666666" />
         <entry key="..\:/haizhuo/Download/dev/app/src/main/res/layout/app_bar_drawer_learn.xml" value="0.19635416666666666" />
+        <entry key="..\:/haizhuo/Download/dev/app/src/main/res/layout/dialog_date.xml" value="0.2441123188405797" />
+        <entry key="..\:/haizhuo/Download/dev/app/src/main/res/layout/dialog_date_picker.xml" value="0.12635869565217392" />
         <entry key="..\:/haizhuo/Download/dev/app/src/main/res/layout/fragment_home.xml" value="0.15307971014492755" />
         <entry key="..\:/haizhuo/Download/dev/app/src/main/res/layout/fragment_mine.xml" value="0.4177997527812114" />
         <entry key="..\:/haizhuo/Download/dev/app/src/main/res/layout/fragment_mine_integral.xml" value="0.27239583333333334" />
         <entry key="..\:/haizhuo/Download/dev/app/src/main/res/layout/item_avatar.xml" value="0.19635416666666666" />
         <entry key="..\:/haizhuo/Download/dev/app/src/main/res/layout/item_practice_text.xml" value="0.2760416666666667" />
+        <entry key="..\:/haizhuo/Download/dev/app/src/main/res/layout/item_simple_button.xml" value="0.21197916666666666" />
         <entry key="..\:/haizhuo/Download/dev/app/src/main/res/layout/item_simple_text.xml" value="0.2760416666666667" />
+        <entry key="..\:/haizhuo/Download/dev/app/src/main/res/layout/popup_account_flow.xml" value="0.21197916666666666" />
+        <entry key="..\:/haizhuo/Download/dev/app/src/main/res/layout/popup_account_flow_time.xml" value="0.21197916666666666" />
         <entry key="..\:/haizhuo/Download/dev/app/src/main/res/menu/bottom_nav.xml" value="0.19635416666666666" />
         <entry key="..\:/haizhuo/Download/dev/app/src/main/res/menu/toolbar_learn.xml" value="0.33" />
         <entry key="..\:/haizhuo/Download/dev/common/src/main/res/drawable/ic_arrow_left.xml" value="0.15989583333333332" />

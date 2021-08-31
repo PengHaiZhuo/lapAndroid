@@ -2,15 +2,23 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/bt_practice"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="@dimen/def_height"
-        android:layout_marginStart="@dimen/margin_normal"
-        android:layout_marginTop="@dimen/margin_normal"
-        android:layout_marginEnd="@dimen/margin_normal"
-        android:layout_marginBottom="@dimen/margin_normal"
-        android:elevation="@dimen/bt_elevation_small"
-        android:gravity="center" />
-
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="@color/white">
+        <TextView
+            android:id="@+id/tv_item_simple"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/def_height"
+            android:textColor="@drawable/selector_click_state_txt_color"
+            android:gravity="center_vertical"
+            android:paddingLeft="@dimen/margin_normal"
+            android:paddingRight="@dimen/margin_normal"
+            android:textSize="@dimen/text_middle"/>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="@color/colorDivider"/>
+    </LinearLayout>
 </layout>

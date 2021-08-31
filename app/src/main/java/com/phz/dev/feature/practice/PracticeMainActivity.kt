@@ -9,6 +9,7 @@ import com.phz.dev.R
 import com.phz.dev.databinding.ActivityPracticeMainBinding
 import com.phz.dev.feature.practice.animation.ViewPagerSimpleSliderActivity
 import com.phz.dev.feature.practice.mlkit.scan.MlKitScanMenuActivity
+import com.phz.dev.feature.practice.popupwindow.dropdownmenu.ui.activity.DropDownMenuActivity
 import com.phz.dev.feature.practice.toolbar.ToolbarLearnActivity
 
 /**
@@ -20,7 +21,7 @@ class PracticeMainActivity :
     private var mAdapter = PracticeListAdapter()
 
     companion object {
-        val practiceNames = arrayListOf("ViewPager Transformer", "Scan","ToolBar")
+        val practiceNames = arrayListOf("ViewPager Transformer", "Scan","ToolBar","DropDownMenu")
     }
 
     override fun initData() {
@@ -35,6 +36,9 @@ class PracticeMainActivity :
                     }
                     2->{
                         startKtxActivity<ToolbarLearnActivity>()
+                    }
+                    3->{
+                        startKtxActivity<DropDownMenuActivity>()
                     }
                 }
             }

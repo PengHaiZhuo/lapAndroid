@@ -47,6 +47,7 @@
         <activity android:name=".feature.practice.mlkit.scan.MlKitScanMenuActivity" />
         <activity android:name=".feature.practice.mlkit.scan.ct.MlKitScanWithConsoleActivity" />
         <activity android:name=".feature.practice.toolbar.ToolbarLearnActivity"/>
+        <activity android:name=".feature.practice.popupwindow.dropdownmenu.ui.activity.DropDownMenuActivity"/>
     </application>
 
 </manifest>

@@ -120,7 +120,7 @@
                         android:clickable="true"
                         android:focusable="true"
                         android:text="@string/register"
-                        android:textColor="@drawable/selector_click_state_txt_color"
+                        android:textColor="@drawable/selector_click_state_txt_color_blue"
                         android:textSize="14sp" />
 
                 </LinearLayout>

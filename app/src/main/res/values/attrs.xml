@@ -12,4 +12,8 @@
         <attr name="textPadding" format="dimension" />
         <attr name="showGradient" format="boolean" />
     </declare-styleable>
+
+    <declare-styleable name="PickerView">
+        <attr name="isLoop" format="boolean" />
+    </declare-styleable>
 </resources>
