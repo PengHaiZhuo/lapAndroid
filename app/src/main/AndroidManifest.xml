@@ -31,6 +31,16 @@
         android:roundIcon="@android:color/transparent"
         android:supportsRtl="true"
         android:theme="@style/Theme.Dev">
+        <!-- 适配全面屏 -->
+        <meta-data
+            android:name="android.max_aspect"
+            android:value="2.4" /> <!-- 适配华为(hua wei)刘海屏 -->
+        <meta-data
+            android:name="android.notch_support"
+            android:value="true" /> <!-- 适配小米(xiao mi)刘海屏 -->
+        <meta-data
+            android:name="notch.config"
+            android:value="portrait|landscape" />
         <activity
             android:name=".feature.splash.SplashActivity"
             android:exported="true">
@@ -46,7 +56,7 @@
         <activity android:name=".feature.practice.animation.ViewPagerSimpleSliderActivity" />
         <activity android:name=".feature.practice.mlkit.scan.MlKitScanMenuActivity" />
         <activity android:name=".feature.practice.mlkit.scan.ct.MlKitScanWithConsoleActivity" />
-        <activity android:name=".feature.practice.toolbar.ToolbarLearnActivity"/>
+        <activity android:name=".feature.practice.toolbar.DrawerLayoutLearnActivity"/>
         <activity android:name=".feature.practice.popupwindow.dropdownmenu.ui.activity.DropDownMenuActivity"/>
     </application>
 

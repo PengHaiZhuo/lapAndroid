@@ -10,7 +10,7 @@ import com.phz.dev.databinding.ActivityPracticeMainBinding
 import com.phz.dev.feature.practice.animation.ViewPagerSimpleSliderActivity
 import com.phz.dev.feature.practice.mlkit.scan.MlKitScanMenuActivity
 import com.phz.dev.feature.practice.popupwindow.dropdownmenu.ui.activity.DropDownMenuActivity
-import com.phz.dev.feature.practice.toolbar.ToolbarLearnActivity
+import com.phz.dev.feature.practice.toolbar.DrawerLayoutLearnActivity
 
 /**
  * @author phz on 2021/8/23
@@ -21,23 +21,23 @@ class PracticeMainActivity :
     private var mAdapter = PracticeListAdapter()
 
     companion object {
-        val practiceNames = arrayListOf("ViewPager Transformer", "Scan","ToolBar","DropDownMenu")
+        val practiceNames = arrayListOf("ViewPager Transformer", "Scan","DrawerLayout","DropDownMenu","CollapsingToolbarLayout")
     }
 
     override fun initData() {
         mAdapter.setOnItemClick(object : OnItemClickListener<String> {
             override fun onClick(bean: String, position: Int) {
-                when (position) {
-                    0 -> {
+                when (bean) {
+                    "ViewPager Transformer" -> {
                         startKtxActivity<ViewPagerSimpleSliderActivity>()
                     }
-                    1 -> {
+                    "Scan" -> {
                         startKtxActivity<MlKitScanMenuActivity>()
                     }
-                    2->{
-                        startKtxActivity<ToolbarLearnActivity>()
+                    "DrawerLayout"->{
+                        startKtxActivity<DrawerLayoutLearnActivity>()
                     }
-                    3->{
+                    "DropDownMenu"->{
                         startKtxActivity<DropDownMenuActivity>()
                     }
                 }

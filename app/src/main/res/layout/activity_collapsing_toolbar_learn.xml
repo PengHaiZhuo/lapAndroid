@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="vm"
+            type="com.phz.dev.feature.practice.toolbar.DrawerLayoutLearnViewModel" />
+    </data>
+
+    <androidx.drawerlayout.widget.DrawerLayout
+        android:id="@+id/drawerLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.coordinatorlayout.widget.CoordinatorLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fitsSystemWindows="true">
+
+            <com.google.android.material.appbar.AppBarLayout
+                android:layout_width="match_parent"
+                android:layout_height="175dp">
+
+                <com.google.android.material.appbar.CollapsingToolbarLayout
+                    android:id="@+id/collapsing_toolbar_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    app:contentScrim="?attr/colorPrimary"
+                    app:expandedTitleGravity="top"
+                    app:collapsedTitleGravity="center"
+                    android:fitsSystemWindows="true"
+                    android:theme="@style/AppBar"
+                    app:layout_scrollFlags="scroll|exitUntilCollapsed|snap">
+                    <com.google.android.material.appbar.MaterialToolbar
+                        android:id="@+id/mToolbar"
+                        android:layout_width="match_parent"
+                        android:layout_height="?actionBarSize"
+                        android:background="?attr/colorPrimary"
+                        android:theme="@style/AppBar"
+                        app:popupTheme="@style/ToolBarPop"
+                        app:subtitleTextColor="@color/white"
+                        app:title="ToolBar"
+                        app:subtitle="second"
+                        app:subtitleCentered="true"
+                        app:titleCentered="true"
+                        app:titleTextColor="@color/white"
+                        app:layout_collapseMode="pin"/>
+
+                </com.google.android.material.appbar.CollapsingToolbarLayout>
+
+            </com.google.android.material.appbar.AppBarLayout>
+
+            <androidx.fragment.app.FragmentContainerView
+                android:id="@+id/nav_host_fragment"
+                android:name="androidx.navigation.fragment.NavHostFragment"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:defaultNavHost="true"
+                android:layout_marginTop="?actionBarSize"
+                app:navGraph="@navigation/nav_graph_drawer" />
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/fab"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:contentDescription="@null"
+                android:importantForAccessibility="no"
+                android:layout_gravity="bottom|end"
+                android:layout_margin="@dimen/margin_normal"
+                app:srcCompat="@android:drawable/ic_input_add" />
+
+        </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+        <com.google.android.material.navigation.NavigationView
+            android:id="@+id/nav_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="start"
+            android:fitsSystemWindows="true"
+            app:headerLayout="@layout/nav_header_practice"
+            app:menu="@menu/activity_tool_learn_drawer" />
+
+    </androidx.drawerlayout.widget.DrawerLayout>
+
+</layout>

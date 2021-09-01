@@ -1,6 +1,8 @@
 package com.phz.dev.feature.main.mine
 
 import android.os.Bundle
+import com.gyf.immersionbar.ktx.immersionBar
+import com.gyf.immersionbar.ktx.setFitsSystemWindows
 import com.phz.common.ext.startKtxActivity
 import com.phz.common.page.fragment.BaseVmDbPureFragment
 import com.phz.dev.R

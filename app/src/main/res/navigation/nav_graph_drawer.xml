@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph_drawer"
+    app:startDestination="@id/action_practice_home">
+    <fragment android:id="@+id/action_practice_home"
+        android:label="Home"
+        android:name="com.phz.dev.feature.practice.toolbar.fragment.MainFragment"/>
+    <fragment
+        android:id="@+id/action_practice_one"
+        android:label="Page One"
+        android:name="com.phz.dev.feature.practice.toolbar.fragment.OneFragment" />
+    <fragment
+        android:id="@+id/action_practice_two"
+        android:label="Page Two"
+        android:name="com.phz.dev.feature.practice.toolbar.fragment.TwoFragment" />
+    <fragment
+        android:id="@+id/action_practice_three"
+        android:label="Page Three"
+        android:name="com.phz.dev.feature.practice.toolbar.fragment.ThreeFragment" />
+    <fragment
+        android:id="@+id/action_practice_four"
+        android:label="Page Four"
+        android:name="com.phz.dev.feature.practice.toolbar.fragment.FourFragment" />
+</navigation>
