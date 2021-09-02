@@ -41,6 +41,7 @@
         <meta-data
             android:name="notch.config"
             android:value="portrait|landscape" />
+
         <activity
             android:name=".feature.splash.SplashActivity"
             android:exported="true">
@@ -56,8 +57,9 @@
         <activity android:name=".feature.practice.animation.ViewPagerSimpleSliderActivity" />
         <activity android:name=".feature.practice.mlkit.scan.MlKitScanMenuActivity" />
         <activity android:name=".feature.practice.mlkit.scan.ct.MlKitScanWithConsoleActivity" />
-        <activity android:name=".feature.practice.toolbar.DrawerLayoutLearnActivity"/>
-        <activity android:name=".feature.practice.popupwindow.dropdownmenu.ui.activity.DropDownMenuActivity"/>
+        <activity android:name=".feature.practice.toolbar.DrawerLayoutLearnActivity" />
+        <activity android:name=".feature.practice.popupwindow.dropdownmenu.ui.activity.DropDownMenuActivity" />
+        <activity android:name=".feature.practice.viewstub.ViewStubLearnActivity" />
     </application>
 
 </manifest>

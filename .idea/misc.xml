@@ -34,6 +34,7 @@
         <entry key="..\:/haizhuo/Download/dev/app/src/main/res/layout/activity_splash.xml" value="0.2484375" />
         <entry key="..\:/haizhuo/Download/dev/app/src/main/res/layout/activity_toolbar_learn.xml" value="0.25" />
         <entry key="..\:/haizhuo/Download/dev/app/src/main/res/layout/activity_viewpager2_simple_slider.xml" value="0.19635416666666666" />
+        <entry key="..\:/haizhuo/Download/dev/app/src/main/res/layout/activity_viewstub_learn.xml" value="0.23052536231884058" />
         <entry key="..\:/haizhuo/Download/dev/app/src/main/res/layout/app_bar_drawer_learn.xml" value="0.19635416666666666" />
         <entry key="..\:/haizhuo/Download/dev/app/src/main/res/layout/dialog_date.xml" value="0.2441123188405797" />
         <entry key="..\:/haizhuo/Download/dev/app/src/main/res/layout/dialog_date_picker.xml" value="0.12635869565217392" />
@@ -47,6 +48,7 @@
         <entry key="..\:/haizhuo/Download/dev/app/src/main/res/layout/fragment_mine_integral.xml" value="0.27239583333333334" />
         <entry key="..\:/haizhuo/Download/dev/app/src/main/res/layout/fragment_one.xml" value="0.21197916666666666" />
         <entry key="..\:/haizhuo/Download/dev/app/src/main/res/layout/fragment_two.xml" value="0.21197916666666666" />
+        <entry key="..\:/haizhuo/Download/dev/app/src/main/res/layout/fragment_viewstub_learn.xml" value="0.23052536231884058" />
         <entry key="..\:/haizhuo/Download/dev/app/src/main/res/layout/item_avatar.xml" value="0.19635416666666666" />
         <entry key="..\:/haizhuo/Download/dev/app/src/main/res/layout/item_practice_text.xml" value="0.2760416666666667" />
         <entry key="..\:/haizhuo/Download/dev/app/src/main/res/layout/item_simple_button.xml" value="0.21197916666666666" />
@@ -71,6 +73,8 @@
         <entry key="..\:/haizhuo/Download/dev/common/src/main/res/drawable/selector_click_state_view_bg.xml" value="0.2125" />
         <entry key="..\:/haizhuo/Download/dev/common/src/main/res/layout/activity_base.xml" value="0.2484375" />
         <entry key="..\:/haizhuo/Download/dev/common/src/main/res/layout/include_toolbar.xml" value="0.2078125" />
+        <entry key="..\:/haizhuo/Download/dev/common/src/main/res/layout/layout_empty.xml" value="0.11727456940222898" />
+        <entry key="..\:/haizhuo/Download/dev/common/src/main/res/layout/layout_error.xml" value="0.11727456940222898" />
       </map>
     </option>
   </component>
