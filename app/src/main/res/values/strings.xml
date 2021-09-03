@@ -28,4 +28,6 @@
     <string name="search">搜索</string>
     <string name="add">新增</string>
     <string name="scan">扫描</string>
+    <string name="more">更多</string>
+    <string name="map">地图</string>
 </resources>

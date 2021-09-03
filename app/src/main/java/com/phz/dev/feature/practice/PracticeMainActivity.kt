@@ -26,7 +26,7 @@ class PracticeMainActivity :
             "ViewPager Transformer",
             "Scan",
             "DrawerLayout",
-            "DropDownMenu",
+            "PopupWindow",
             "CollapsingToolbarLayout",
             "ViewStub"
         )
@@ -45,7 +45,7 @@ class PracticeMainActivity :
                     "DrawerLayout" -> {
                         startKtxActivity<DrawerLayoutLearnActivity>()
                     }
-                    "DropDownMenu" -> {
+                    "PopupWindow" -> {
                         startKtxActivity<DropDownMenuActivity>()
                     }
                     "ViewStub" -> {

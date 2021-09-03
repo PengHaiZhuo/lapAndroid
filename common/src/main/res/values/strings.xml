@@ -10,7 +10,7 @@
 
     <string name="menu_item_name1">业务类型</string>
     <string name="menu_item_name2">计费项目</string>
-    <string name="menu_item_name3">时间</string>
+    <string name="menu_item_name3">选择时间</string>
 
     <!--服务列表-->
     <string-array name="service_list">
