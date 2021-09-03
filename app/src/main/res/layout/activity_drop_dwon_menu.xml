@@ -15,16 +15,28 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
-
-        <com.google.android.material.appbar.MaterialToolbar
-            android:id="@+id/materialToolbar"
+        <com.google.android.material.appbar.AppBarLayout
             android:layout_width="match_parent"
-            android:layout_height="?actionBarSize"
-            android:background="@color/colorPrimary"
-            android:popupTheme="@style/ToolBarPop"
-            app:titleTextAppearance="@style/TextViewLarge"
-            app:navigationIcon="@drawable/ic_arrow_left_white"
-            android:theme="@style/AppBar"/>
+            android:layout_height="wrap_content">
+            <com.google.android.material.appbar.MaterialToolbar
+                android:id="@+id/materialToolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?actionBarSize"
+                android:background="@color/colorPrimary"
+                android:popupTheme="@style/ToolBarPop"
+                app:titleTextAppearance="@style/TextViewLarge"
+                app:navigationIcon="@drawable/ic_arrow_left_white"
+                android:theme="@style/AppBar">
+                <ImageView
+                    android:id="@+id/iv_anchor"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:src="@drawable/ic_more_overflow"
+                    android:layout_gravity="right"
+                    android:layout_marginEnd="@dimen/activity_horizontal_margin"/>
+            </com.google.android.material.appbar.MaterialToolbar>
+
+        </com.google.android.material.appbar.AppBarLayout>
 
 
         <LinearLayout
@@ -110,7 +122,7 @@
                     android:layout_width="wrap_content"
                     android:textSize="@dimen/text_middle"
                     android:layout_marginEnd="8dp"
-                    android:text="@string/menu_item_name2"
+                    android:text="@string/menu_item_name3"
                     android:textColor="@{vm.selectMenu==3?@color/blue_item_selected:@color/black}"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
