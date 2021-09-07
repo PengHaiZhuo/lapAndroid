@@ -31,6 +31,9 @@
         android:roundIcon="@android:color/transparent"
         android:supportsRtl="true"
         android:theme="@style/Theme.Dev">
+        <activity
+            android:name=".feature.practice.countdown.CountDownLatchLearnActivity"
+            android:exported="true" />
         <!-- 适配全面屏 -->
         <meta-data
             android:name="android.max_aspect"
