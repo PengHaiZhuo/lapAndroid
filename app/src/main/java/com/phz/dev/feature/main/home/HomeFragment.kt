@@ -1,6 +1,7 @@
 package com.phz.dev.feature.main.home
 
 import android.os.Bundle
+import com.gyf.immersionbar.ktx.immersionBar
 import com.phz.common.page.fragment.BaseVmDbPureFragment
 import com.phz.common.state.BaseViewModel
 import com.phz.dev.R
@@ -22,4 +23,12 @@ class HomeFragment : BaseVmDbPureFragment<BaseViewModel, FragmentHomeBinding>() 
     override fun initView(savedInstanceState: Bundle?) {
     }
 
+    override fun onResume() {
+        super.onResume()
+        immersionBar {
+            statusBarColor(R.color.white)
+            autoDarkModeEnable(true)
+        }
+
+    }
 }
