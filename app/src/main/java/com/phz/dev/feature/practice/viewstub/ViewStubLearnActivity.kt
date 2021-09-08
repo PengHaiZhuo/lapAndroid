@@ -45,6 +45,7 @@ class ViewStubLearnActivity :
             llEmpty.setOnClickListener {
                 //隐藏空布局
                 mViewDataBinding.vb.viewStub?.visibility = View.GONE
+                llEmpty.isClickable=false //我不知道为啥还需要这么设置，但是不加这句，设置不可见后依然可以响应点击（这不符合常理）
                 //模拟请求成功并设置背景
                 lifecycleScope.launch {
                     showLoadingExt()

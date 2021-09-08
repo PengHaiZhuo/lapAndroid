@@ -27,8 +27,9 @@ class PracticeMainActivity :
             "Scan",
             "DrawerLayout",
             "PopupWindow",
-            "CollapsingToolbarLayout",
+//            "CollapsingToolbarLayout",
             "ViewStub"
+//        ,"CountDownLatch"
         )
     }
 
