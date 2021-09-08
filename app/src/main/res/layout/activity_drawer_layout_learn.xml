@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data></data>
@@ -41,15 +42,90 @@
                 android:layout_marginTop="?actionBarSize"
                 app:navGraph="@navigation/nav_graph_drawer" />
 
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/cl_bottom_sheet"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:background="@drawable/bg_bottom_sheet"
+                app:behavior_hideable="true"
+                app:behavior_peekHeight="0dp"
+                app:layout_behavior="@string/bottom_sheet_behavior">
+
+                <View
+                    android:id="@+id/view"
+                    android:layout_width="50dp"
+                    android:layout_height="5dp"
+                    android:layout_marginTop="8dp"
+                    android:background="@color/colorDivider"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/nav_header_height"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/view">
+
+                    <ImageView
+                        android:id="@+id/iv_bottom_sheet"
+                        android:layout_width="@dimen/icon_hw_large"
+                        android:layout_height="@dimen/icon_hw_large"
+                        android:layout_marginTop="@dimen/margin_normal"
+                        android:layout_marginStart="@dimen/margin_normal"
+                        android:src="@drawable/ic_dio"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/textView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="极具魅力的反派人物"
+                        app:layout_constraintStart_toStartOf="@+id/textView2"
+                        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+
+                    <TextView
+                        android:id="@+id/textView2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="40dp"
+                        android:layout_marginTop="16dp"
+                        android:paddingTop="@dimen/margin_extra_small"
+                        android:text="迪奥布兰度"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                        app:layout_constraintStart_toEndOf="@+id/iv_bottom_sheet"
+                        app:layout_constraintTop_toTopOf="@+id/iv_bottom_sheet" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginEnd="8dp"
+                        android:text="迪奥的外表英俊、头脑聪颖、体型壮硕、爱好阅读、具有强大的个人魅力。他非常讨厌失败，是个十足的野心家。他的配色以亮金色为主体，金发、红眼、肌肤洁白。"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/iv_bottom_sheet" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
             <com.google.android.material.floatingactionbutton.FloatingActionButton
                 android:id="@+id/fab"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:contentDescription="@null"
                 android:importantForAccessibility="no"
-                android:layout_gravity="bottom|end"
-                android:layout_margin="@dimen/margin_normal"
-                app:srcCompat="@android:drawable/ic_input_add" />
+                app:layout_anchor="@id/cl_bottom_sheet"
+                app:layout_anchorGravity="end"
+                android:layout_marginEnd="@dimen/margin_normal"
+                android:layout_marginBottom="@dimen/margin_normal"
+                app:srcCompat="@drawable/ic_star" />
 
         </androidx.coordinatorlayout.widget.CoordinatorLayout>
 

@@ -9,6 +9,7 @@ import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.view.menu.MenuBuilder
 import androidx.appcompat.widget.SearchView
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.view.forEachIndexed
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.NavController
@@ -17,7 +18,7 @@ import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.onNavDestinationSelected
 import androidx.navigation.ui.setupWithNavController
-import com.google.android.material.snackbar.Snackbar
+import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.gyf.immersionbar.ktx.immersionBar
 import com.phz.common.databinding.MineBindingAdapter.circleImageUrlRes
 import com.phz.common.ext.logE
@@ -33,6 +34,7 @@ class DrawerLayoutLearnActivity : AppCompatActivity() {
     lateinit var binding: ActivityDrawerLayoutLearnBinding
     private lateinit var appBarConfiguration: AppBarConfiguration
     private lateinit var navController: NavController
+    private lateinit var bottomSheetBehavior:BottomSheetBehavior<ConstraintLayout>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -46,8 +48,9 @@ class DrawerLayoutLearnActivity : AppCompatActivity() {
 
     private fun initData() {
         //directly findViewById will get null,use getHeaderView
-        val ivNavHeader=binding.navView.getHeaderView(0).findViewById<ImageView>(R.id.iv_nav_header)
-        circleImageUrlRes(ivNavHeader,R.drawable.ic_dio)
+        val ivNavHeader =
+            binding.navView.getHeaderView(0).findViewById<ImageView>(R.id.iv_nav_header)
+        circleImageUrlRes(ivNavHeader, R.drawable.ic_dio)
     }
 
     private fun initObservable() {
@@ -84,13 +87,11 @@ class DrawerLayoutLearnActivity : AppCompatActivity() {
         }
         //目前使用 FragmentContainerView 不是很友好，你必须从 supportFragmentManager 访问它
 //        navController = findNavController( R.id.nav_host_fragment)//this is error
-        val navHostFragment = supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
-        navController =navHostFragment.navController
+        val navHostFragment =
+            supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
+        navController = navHostFragment.navController
         //监听导航事件
-        /**
-         * 3个占位符分别为 controller, destination, arguments
-         */
-        navController.addOnDestinationChangedListener {_,_,_ ->
+        navController.addOnDestinationChangedListener { _, _, _ ->//3个占位符分别为 controller, destination, arguments
             //该接口在 NavController 的当前目的地或其参数发生更改时调用
         }
         //一般情况下只有一个顶层目的地，如果有多个顶级，需要传入setOf(R.id.home, R.id.mine)这种
@@ -107,7 +108,7 @@ class DrawerLayoutLearnActivity : AppCompatActivity() {
 //        binding.collapsingToolbarLayout.setupWithNavController(binding.mToolbar,navController,appBarConfiguration)
 
         //将toolbar添加到导航支持
-        binding.mToolbar.setupWithNavController(navController,appBarConfiguration)
+        binding.mToolbar.setupWithNavController(navController, appBarConfiguration)
 
         //向默认操作栏添加导航支持
 //        setupActionBarWithNavController(navController, appBarConfiguration)
@@ -115,8 +116,14 @@ class DrawerLayoutLearnActivity : AppCompatActivity() {
 
     private fun initView() {
         initSupportActionBar()
+        bottomSheetBehavior=BottomSheetBehavior.from(binding.clBottomSheet)
         binding.fab.setOnClickListener {
-            Snackbar.make(it,"Click fab",Snackbar.LENGTH_SHORT).setAction("Action",null).show()
+            //现实底部弹框
+            if (bottomSheetBehavior.state!=BottomSheetBehavior.STATE_COLLAPSED){
+                bottomSheetBehavior.state=BottomSheetBehavior.STATE_COLLAPSED
+            }else{
+                bottomSheetBehavior.state=BottomSheetBehavior.STATE_EXPANDED
+            }
         }
     }
 
