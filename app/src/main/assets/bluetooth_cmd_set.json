@@ -1,0 +1,1401 @@
+{
+    "data": [
+        {
+            "moduleName": " 新总线型采集模块",
+            "moduleType": "1",
+            "moduleCommands": [
+                {
+                    "name": "清空传感器编号",
+                    "sendCommand": "#[模块编号]P[传感器编号][校验码]!",
+                    "timeout": 60,
+                    "fixCode": "Common",
+                    "type": 0
+                },
+                {
+                    "name": "读传感器编号",
+                    "sendCommand": "#[模块编号]N[校验码]!",
+                    "timeout": 60,
+                    "fixCode": "BusN",
+                    "type": 0
+                },
+                {
+                    "name": "设置传感器编号",
+                    "sendCommand": "#[模块编号]W[传感器类型码][传感器编号][校验码]!",
+                    "timeout": 60,
+                    "fixCode": "Common",
+                    "type": 0
+                },
+                {
+                    "name": "清空所有传感器编号",
+                    "sendCommand": "#[模块编号]I!",
+                    "timeout": 60,
+                    "fixCode": "Common",
+                    "type": 0
+                },
+                {
+                    "name": "读模块类型",
+                    "sendCommand": "#[模块编号]R[校验码]!",
+                    "timeout": 60,
+                    "fixCode": "Common",
+                    "type": 0
+                },
+                {
+                    "name": "实时测量",
+                    "sendCommand": "#[模块编号]A[校验码]!",
+                    "timeout": 120,
+                    "fixCode": "BusA",
+                    "type": 1
+                },
+                {
+                    "name": "修改模块时间",
+                    "sendCommand": "#[模块编号]Z[模块时间][校验码]!",
+                    "timeout": 60,
+                    "fixCode": "Common",
+                    "type": 0
+                },
+                {
+                    "name": "设置模块定时测量参数",
+                    "sendCommand": "#[模块编号]U[定时时间]+[时间间隔][校验码]!",
+                    "timeout": 60,
+                    "fixCode": "Common",
+                    "type": 0
+                },
+                {
+                    "name": "读模块定时测量参数",
+                    "sendCommand": "#[模块编号]S[校验码]!",
+                    "timeout": 60,
+                    "fixCode": "Common",
+                    "type": 0
+                },
+                {
+                    "name": "下载模块数据",
+                    "sendCommand": "#[模块编号]B[起止时间][校验码]!",
+                    "timeout": 120,
+                    "fixCode": "B",
+                    "type": 2
+                },
+                {
+                    "name": "读模块时间",
+                    "sendCommand": "#[模块编号]D[校验码]!",
+                    "timeout": 60,
+                    "fixCode": "Common",
+                    "type": 0
+                },
+                {
+                    "name": "取消模块定时测量参数",
+                    "sendCommand": "#[模块编号]U00[校验码]!",
+                    "timeout": 60,
+                    "fixCode": "Common",
+                    "type": 0
+                },
+                {
+                    "name": "清空模块内存数据",
+                    "sendCommand": "#[模块编号]G[校验码]!",
+                    "timeout": 60,
+                    "fixCode": "G",
+                    "type": 0
+                }
+            ]
+        },
+        {
+            "moduleName": "老总线型采集模块",
+            "moduleType": "17",
+            "moduleCommands": [
+                {
+                    "name": "读传感器编号",
+                    "sendCommand": "#[模块编号]N[校验码]!",
+                    "timeout": 60,
+                    "fixCode": "MultN",
+                    "type": 0
+                },
+                {
+                    "name": "实时测量",
+                    "sendCommand": "#[模块编号]A[校验码]!",
+                    "timeout": 120,
+                    "fixCode": "MultA",
+                    "type": 1
+                },
+                {
+                    "name": "读模块时间",
+                    "sendCommand": "#[模块编号]D[校验码]!",
+                    "timeout": 60,
+                    "fixCode": "Common",
+                    "type": 0
+                }
+            ]
+        },
+        {
+            "moduleName": " 四路倾斜采集模块",
+            "moduleType": "41",
+            "moduleCommands": [
+                {
+                    "name": "读传感器参数(P)",
+                    "sendCommand": "@[10位模块编号]P*[校验码]!",
+                    "timeout": 60,
+                    "fixCode": "P",
+                    "type": 0
+                },
+                {
+                    "name": "模块调零",
+                    "sendCommand": "@[10位模块编号]ZZ;+89134210*[校验码]!",
+                    "timeout": 120,
+                    "fixCode": "Common",
+                    "type": 0
+                },
+                {
+                    "name": "模块自检",
+                    "sendCommand": "@[10位模块编号]O*[校验码]!",
+                    "timeout": 120,
+                    "fixCode": "Common",
+                    "type": 0
+                },
+                {
+                    "name": "多模块实时测量",
+                    "sendCommand": "@0000000000C*[校验码]![sleep30]@[10位模块编号]E*[校验码]!",
+                    "timeout": 90,
+                    "fixCode": "New4A",
+                    "type": 1
+                },
+                {
+                    "name": "实时测量",
+                    "sendCommand": "@[10位模块编号]A*[校验码]!",
+                    "timeout": 60,
+                    "fixCode": "New4A",
+                    "type": 1
+                }
+            ]
+        },
+        {
+            "moduleName": " 综合型采集模块",
+            "moduleType": "2",
+            "moduleCommands": [
+                {
+                    "name": "读传感器编号",
+                    "sendCommand": "#[模块编号]N[校验码]!",
+                    "timeout": 60,
+                    "fixCode": "MultN",
+                    "type": 0
+                },
+                {
+                    "name": "模块自检",
+                    "sendCommand": "#[模块编号]O[校验码]!",
+                    "timeout": 60,
+                    "fixCode": "Common",
+                    "type": 0
+                },
+                {
+                    "name": "实时测量",
+                    "sendCommand": "#[模块编号]A[校验码]!",
+                    "timeout": 120,
+                    "fixCode": "MultA",
+                    "type": 1
+                },
+                {
+                    "name": "修改模块时间",
+                    "sendCommand": "#[模块编号]Z[模块时间][校验码]!",
+                    "timeout": 60,
+                    "fixCode": "Common",
+                    "type": 0
+                },
+                {
+                    "name": "设置模块定时测量参数",
+                    "sendCommand": "#[模块编号]U[定时时间]+[时间间隔][校验码]!",
+                    "timeout": 60,
+                    "fixCode": "Common",
+                    "type": 0
+                },
+                {
+                    "name": "读模块定时测量参数",
+                    "sendCommand": "#[模块编号]S[校验码]!",
+                    "timeout": 60,
+                    "fixCode": "Common",
+                    "type": 0
+                },
+                {
+                    "name": "下载模块数据",
+                    "sendCommand": "#[模块编号]B[起止时间][校验码]!",
+                    "timeout": 60,
+                    "fixCode": "MultB",
+                    "type": 2
+                },
+                {
+                    "name": "读模块时间",
+                    "sendCommand": "#[模块编号]D[校验码]!",
+                    "timeout": 60,
+                    "fixCode": "Common",
+                    "type": 0
+                },
+                {
+                    "name": "读模块电压",
+                    "sendCommand": "#[模块编号]Y[校验码]!",
+                    "timeout": 60,
+                    "fixCode": "DY",
+                    "type": 0
+                },
+                {
+                    "name": "取消模块定时测量参数",
+                    "sendCommand": "#[模块编号]U00[校验码]!",
+                    "timeout": 60,
+                    "fixCode": "Common",
+                    "type": 0
+                },
+                {
+                    "name": "清空模块内存数据",
+                    "sendCommand": "#[模块编号]G[校验码]!",
+                    "timeout": 60,
+                    "fixCode": "G",
+                    "type": 0
+                }
+            ]
+        },
+        {
+            "moduleName": "高速综合采集模块AH（从）",
+            "moduleType": "4",
+            "moduleCommands": [
+                {
+                    "name": "测量模块返回数据",
+                    "sendCommand": "@0000000000C*0![sleep15]@[10位模块编号]E*[校验码]!",
+                    "timeout": 60,
+                    "fixCode": "NewA",
+                    "type": 1
+                },
+                {
+                    "name": "实时测量模块数据",
+                    "sendCommand": "@[10位模块编号]A*[校验码]!",
+                    "timeout": 60,
+                    "fixCode": "NewA",
+                    "type": 1
+                },
+                {
+                    "name": "设置传感器编号",
+                    "sendCommand": "@[10位模块编号]ZN;+[通道],[传感器名][传感器编号],[型号码],[传感器类型码],[传感器型号]*[校验码]!",
+                    "timeout": 60,
+                    "fixCode": "Common",
+                    "type": 0
+                },
+                {
+                    "name": "修改模块信息",
+                    "sendCommand": "@[10位模块编号]ZM;+[修改的编号],[公司代码],[项目代码],*[校验码]!",
+                    "timeout": 60,
+                    "fixCode": "Common",
+                    "type": 0
+                },
+                {
+                    "name": "模块自检",
+                    "sendCommand": "@[10位模块编号]O*[校验码]!",
+                    "timeout": 120,
+                    "fixCode": "Common",
+                    "type": 0
+                }
+            ]
+        },
+        {
+            "moduleName": " 高速综合采集模块AH（主）",
+            "moduleType": "5",
+            "moduleCommands": [
+                {
+                    "name": "取消模块定时测量参数",
+                    "sendCommand": "@[10位主模块编号],[10位模块编号]U;20191216142100,0,0,*[校验码]!",
+                    "timeout": 60,
+                    "fixCode": "Common",
+                    "type": 0
+                },
+                {
+                    "name": "下载主模块数据",
+                    "sendCommand": "@[10位主模块编号],[10位模块编号]B;[起止时间14]",
+                    "timeout": 300,
+                    "fixCode": "NewB",
+                    "type": 2
+                },
+                {
+                    "name": "设置传感器参数",
+                    "sendCommand": "@[10位主模块编号],[10位模块编号]ZN;+[通道],[传感器名][传感器编号],[型号码],[传感器类型码],[传感器型号]*[校验码]!",
+                    "timeout": 60,
+                    "fixCode": "Common",
+                    "type": 0
+                },
+                {
+                    "name": "模块自检",
+                    "sendCommand": "@[10位主模块编号],[10位模块编号]O*[校验码]!",
+                    "timeout": 60,
+                    "fixCode": "Common",
+                    "type": 0
+                },
+                {
+                    "name": "读拓展模块编号",
+                    "sendCommand": "@[10位主模块编号]NM*[校验码]!",
+                    "timeout": 60,
+                    "fixCode": "Common",
+                    "type": 0
+                },
+                {
+                    "name": "设置主模块时间",
+                    "sendCommand": "@[10位主模块编号]ZT;[模块时间]*[校验码]!",
+                    "timeout": 60,
+                    "fixCode": "Common",
+                    "type": 0
+                },
+                {
+                    "name": "设置扩展模块编号",
+                    "sendCommand": "@[10位主模块编号]WM;[扩展模块编号]+[模块类型]*[校验码]!",
+                    "timeout": 60,
+                    "fixCode": "Common",
+                    "type": 0
+                },
+                {
+                    "name": "清空拓展模块编号",
+                    "sendCommand": "@[10位主模块编号]IM*[校验码]!",
+                    "timeout": 60,
+                    "fixCode": "Common",
+                    "type": 0
+                },
+                {
+                    "name": "读主模块时间",
+                    "sendCommand": "@[10位主模块编号]D*[校验码]!",
+                    "timeout": 60,
+                    "fixCode": "Common",
+                    "type": 0
+                },
+                {
+                    "name": "主模块重启",
+                    "sendCommand": "@[10位主模块编号]RE*[校验码]!",
+                    "timeout": 120,
+                    "fixCode": "Common",
+                    "type": 0
+                },
+                {
+                    "name": "实时测量模块数据",
+                    "sendCommand": "@[10位主模块编号],[10位模块编号]A*[校验码]!",
+                    "timeout": 60,
+                    "fixCode": "NewMainA",
+                    "type": 1
+                },
+                {
+                    "name": "测量模块，并返回数据",
+                    "sendCommand": "@0000000000C*0![sleep30]@[10位主模块编号],[10位模块编号]E*[校验码]!",
+                    "timeout": 120,
+                    "fixCode": "NewMainA",
+                    "type": 1
+                },
+                {
+                    "name": "设置模块定时测量参数",
+                    "sendCommand": "@[10位主模块编号],[10位模块编号]U;[定时时间14],[时间间隔sec],[上传标志],*[校验码]!",
+                    "timeout": 60,
+                    "fixCode": "Common",
+                    "type": 0
+                },
+                {
+                    "name": "STATE",
+                    "sendCommand": "@[10位主模块编号],STATE*0!",
+                    "timeout": 60,
+                    "fixCode": "Common",
+                    "type": 0
+                },
+                {
+                    "name": "主模块测量",
+                    "sendCommand": "@[10位主模块编号]A*[校验码]!",
+                    "timeout": 60,
+                    "fixCode": "Common",
+                    "type": 1
+                },
+                {
+                    "name": "全模块采集",
+                    "sendCommand": "@[10位主模块编号],0000000000A*[校验码]!",
+                    "timeout": 60,
+                    "fixCode": "Common",
+                    "type": 1
+                }
+            ]
+        },
+        {
+            "moduleName": " 动态采集模块200Hz",
+            "moduleType": "3",
+            "moduleCommands": [
+                {
+                    "name": "停止实时测量模块数据",
+                    "sendCommand": "#[模块编号]Z!",
+                    "timeout": 60,
+                    "fixCode": "Common",
+                    "type": 0
+                },
+                {
+                    "name": "设置通道参数",
+                    "sendCommand": "#[模块编号]H[通道位图]!",
+                    "timeout": 60,
+                    "fixCode": "Common",
+                    "type": 0
+                },
+                {
+                    "name": "设置放大倍数",
+                    "sendCommand": "#[模块编号]a200+00[放大倍数]!",
+                    "timeout": 60,
+                    "fixCode": "Common",
+                    "type": 0
+                },
+                {
+                    "name": "设置通道参数放大倍数",
+                    "sendCommand": "#[模块编号]H[通道位图]![sleep25]#[模块编号]a200+00[放大倍数]!",
+                    "timeout": 60,
+                    "fixCode": "Common",
+                    "type": 0
+                },
+                {
+                    "name": "实时测量模块数据",
+                    "sendCommand": "#[模块编号]Z![sleep01]#[模块编号]Z![sleep01]#[模块编号]f!",
+                    "timeout": 60,
+                    "fixCode": "AutoA",
+                    "type": 1
+                }
+            ]
+        },
+        {
+            "moduleName": "动态采集模块（实际频率）",
+            "moduleType": "30",
+            "moduleCommands": [
+                {
+                    "name": "停止实时测量模块数据",
+                    "sendCommand": "#[模块编号]Z!",
+                    "timeout": 60,
+                    "fixCode": "Common",
+                    "type": 0
+                },
+                {
+                    "name": "设置通道参数",
+                    "sendCommand": "#[模块编号]H[通道位图]!",
+                    "timeout": 60,
+                    "fixCode": "Common",
+                    "type": 0
+                },
+                {
+                    "name": "设置通道参数放大倍数",
+                    "sendCommand": "#[模块编号]H[通道位图]![sleep25]#[模块编号]a[频率]+00[放大倍数]!",
+                    "timeout": 60,
+                    "fixCode": "Common",
+                    "type": 0
+                },
+                {
+                    "name": "设置放大倍数",
+                    "sendCommand": "#[模块编号]a[频率]+00[放大倍数]!",
+                    "timeout": 60,
+                    "fixCode": "Common",
+                    "type": 0
+                },
+                {
+                    "name": "实时测量模块数据",
+                    "sendCommand": "#[模块编号]Z![sleep01]#[模块编号]Z![sleep01]#[模块编号]f!",
+                    "timeout": 60,
+                    "fixCode": "AutoA0",
+                    "type": 1
+                }
+            ]
+        },
+        {
+            "moduleName": " 温度采集模块",
+            "moduleType": "6",
+            "moduleCommands": [
+                {
+                    "name": "清空模块内存数据",
+                    "sendCommand": "#[模块编号]G[校验码]!",
+                    "timeout": 60,
+                    "fixCode": "G",
+                    "type": 0
+                },
+                {
+                    "name": "设置模块定时测量参数",
+                    "sendCommand": "#[模块编号]U[定时时间]+[时间间隔][校验码]!",
+                    "timeout": 60,
+                    "fixCode": "Common",
+                    "type": 0
+                },
+                {
+                    "name": "读模块电压",
+                    "sendCommand": "#[模块编号]Y[校验码]!",
+                    "timeout": 60,
+                    "fixCode": "DY",
+                    "type": 0
+                },
+                {
+                    "name": "读模块定时测量参数",
+                    "sendCommand": "#[模块编号]S[校验码]!",
+                    "timeout": 60,
+                    "fixCode": "Common",
+                    "type": 0
+                },
+                {
+                    "name": "读模块时间",
+                    "sendCommand": "#[模块编号]D[校验码]!",
+                    "timeout": 60,
+                    "fixCode": "Common",
+                    "type": 0
+                },
+                {
+                    "name": "修改模块时间",
+                    "sendCommand": "#[模块编号]Z[模块时间][校验码]!",
+                    "timeout": 60,
+                    "fixCode": "Common",
+                    "type": 0
+                },
+                {
+                    "name": "实时测量",
+                    "sendCommand": "#[模块编号]A[校验码]!",
+                    "timeout": 120,
+                    "fixCode": "TempA",
+                    "type": 1
+                },
+                {
+                    "name": "下载模块数据",
+                    "sendCommand": "#[模块编号]B[起止时间][校验码]!",
+                    "timeout": 60,
+                    "fixCode": "MultB",
+                    "type": 2
+                },
+                {
+                    "name": "取消模块定时测量参数",
+                    "sendCommand": "#[模块编号]U00[校验码]!",
+                    "timeout": 60,
+                    "fixCode": "Common",
+                    "type": 0
+                }
+            ]
+        },
+        {
+            "moduleName": " 新雨量仪采集模块",
+            "moduleType": "11",
+            "moduleCommands": [
+                {
+                    "name": "修改模块时间",
+                    "sendCommand": "#[模块编号]Z[模块时间][校验码]!",
+                    "timeout": 60,
+                    "fixCode": "Common",
+                    "type": 0
+                },
+                {
+                    "name": "设置模块定时测量参数",
+                    "sendCommand": "#[模块编号]U[定时时间]+[时间间隔][校验码]!",
+                    "timeout": 60,
+                    "fixCode": "Common",
+                    "type": 0
+                },
+                {
+                    "name": "读模块时间",
+                    "sendCommand": "#[模块编号]D[校验码]!",
+                    "timeout": 60,
+                    "fixCode": "Common",
+                    "type": 0
+                },
+                {
+                    "name": "读模块定时测量参数",
+                    "sendCommand": "#[模块编号]S[校验码]!",
+                    "timeout": 60,
+                    "fixCode": "Common",
+                    "type": 0
+                },
+                {
+                    "name": "实时测量模块数据",
+                    "sendCommand": "#[模块编号]A[校验码]!",
+                    "timeout": 60,
+                    "fixCode": "SingleA",
+                    "type": 1
+                },
+                {
+                    "name": "下载模块数据",
+                    "sendCommand": "#[模块编号]B[起止时间][校验码]!",
+                    "timeout": 120,
+                    "fixCode": "B",
+                    "type": 2
+                },
+                {
+                    "name": "清空模块内存数据",
+                    "sendCommand": "#[模块编号]G[校验码]!",
+                    "timeout": 60,
+                    "fixCode": "G",
+                    "type": 0
+                }
+            ]
+        },
+        {
+            "moduleName": " 雨量仪采集模块",
+            "moduleType": "12",
+            "moduleCommands": [
+                {
+                    "name": "修改模块时间",
+                    "sendCommand": "#[模块编号]Z[模块时间][校验码]!",
+                    "timeout": 60,
+                    "fixCode": "Common",
+                    "type": 0
+                },
+                {
+                    "name": "设置模块定时测量参数",
+                    "sendCommand": "#[模块编号]U[定时时间]+[时间间隔][校验码]!",
+                    "timeout": 60,
+                    "fixCode": "Common",
+                    "type": 0
+                },
+                {
+                    "name": "读模块时间",
+                    "sendCommand": "#[模块编号]D[校验码]!",
+                    "timeout": 60,
+                    "fixCode": "Common",
+                    "type": 0
+                },
+                {
+                    "name": "读模块定时测量参数",
+                    "sendCommand": "#[模块编号]S[校验码]!",
+                    "timeout": 60,
+                    "fixCode": "Common",
+                    "type": 0
+                },
+                {
+                    "name": "实时测量模块数据",
+                    "sendCommand": "#[模块编号]A[校验码]!",
+                    "timeout": 60,
+                    "fixCode": "SingleA",
+                    "type": 1
+                },
+                {
+                    "name": "下载模块数据",
+                    "sendCommand": "#[模块编号]B[起止时间][校验码]!",
+                    "timeout": 120,
+                    "fixCode": "B",
+                    "type": 2
+                },
+                {
+                    "name": "清空模块内存数据",
+                    "sendCommand": "#[模块编号]G[校验码]!",
+                    "timeout": 60,
+                    "fixCode": "G",
+                    "type": 0
+                }
+            ]
+        },
+        {
+            "moduleName": " 单通道采集模块",
+            "moduleType": "13",
+            "moduleCommands": [
+                {
+                    "name": "实时测量模块数据",
+                    "sendCommand": "#[模块编号]A[校验码]!",
+                    "timeout": 60,
+                    "fixCode": "SingleA",
+                    "type": 1
+                },
+                {
+                    "name": "清空模块内存数据",
+                    "sendCommand": "#[模块编号]G[校验码]!",
+                    "timeout": 60,
+                    "fixCode": "G",
+                    "type": 0
+                }
+            ]
+        },
+        {
+            "moduleName": " 单通道风速风向采集模块",
+            "moduleType": "14",
+            "moduleCommands": [
+                {
+                    "name": "修改模块时间",
+                    "sendCommand": "#[模块编号]Z[模块时间][校验码]!",
+                    "timeout": 60,
+                    "fixCode": "Common",
+                    "type": 0
+                },
+                {
+                    "name": "设置模块定时测量参数",
+                    "sendCommand": "#[模块编号]U[定时时间]+[时间间隔][校验码]!",
+                    "timeout": 60,
+                    "fixCode": "Common",
+                    "type": 0
+                },
+                {
+                    "name": "读模块时间",
+                    "sendCommand": "#[模块编号]D[校验码]!",
+                    "timeout": 60,
+                    "fixCode": "Common",
+                    "type": 0
+                },
+                {
+                    "name": "读模块定时测量参数",
+                    "sendCommand": "#[模块编号]S[校验码]!",
+                    "timeout": 60,
+                    "fixCode": "Common",
+                    "type": 0
+                },
+                {
+                    "name": "实时测量模块数据",
+                    "sendCommand": "#[模块编号]A[校验码]!",
+                    "timeout": 60,
+                    "fixCode": "SingleA",
+                    "type": 1
+                },
+                {
+                    "name": "下载模块数据",
+                    "sendCommand": "#[模块编号]B[起止时间][校验码]!",
+                    "timeout": 120,
+                    "fixCode": "B",
+                    "type": 2
+                },
+                {
+                    "name": "清空模块内存数据",
+                    "sendCommand": "#[模块编号]G[校验码]!",
+                    "timeout": 60,
+                    "fixCode": "G",
+                    "type": 0
+                }
+            ]
+        },
+        {
+            "moduleName": "记录盒",
+            "moduleType": "15",
+            "moduleCommands": []
+        },
+        {
+            "moduleName": "三轴加速度计虚拟模块",
+            "moduleType": "20",
+            "moduleCommands": [
+                {
+                    "name": "实时测量",
+                    "sendCommand": "#[模块编号]F!",
+                    "timeout": 60,
+                    "fixCode": "ThreeA",
+                    "type": 1
+                }
+            ]
+        },
+        {
+            "moduleName": " 标准信号型采集模块",
+            "moduleType": "16",
+            "moduleCommands": [
+                {
+                    "name": "清空模块内存数据",
+                    "sendCommand": "#[模块编号]G[校验码]!",
+                    "timeout": 60,
+                    "fixCode": "G",
+                    "type": 0
+                },
+                {
+                    "name": "实时测量",
+                    "sendCommand": "#[模块编号]A[校验码]!",
+                    "timeout": 120,
+                    "fixCode": "MultA",
+                    "type": 1
+                },
+                {
+                    "name": "修改模块时间",
+                    "sendCommand": "#[模块编号]Z[模块时间][校验码]!",
+                    "timeout": 60,
+                    "fixCode": "Common",
+                    "type": 0
+                },
+                {
+                    "name": "设置模块定时测量参数",
+                    "sendCommand": "#[模块编号]U[定时时间]+[时间间隔][校验码]!",
+                    "timeout": 60,
+                    "fixCode": "Common",
+                    "type": 0
+                },
+                {
+                    "name": "读模块定时测量参数",
+                    "sendCommand": "#[模块编号]S[校验码]!",
+                    "timeout": 60,
+                    "fixCode": "Common",
+                    "type": 0
+                },
+                {
+                    "name": "下载模块数据",
+                    "sendCommand": "#[模块编号]B[起止时间][校验码]!",
+                    "timeout": 60,
+                    "fixCode": "MultB",
+                    "type": 2
+                },
+                {
+                    "name": "读模块时间",
+                    "sendCommand": "#[模块编号]D[校验码]!",
+                    "timeout": 60,
+                    "fixCode": "Common",
+                    "type": 0
+                },
+                {
+                    "name": "读模块电压",
+                    "sendCommand": "#[模块编号]Y[校验码]!",
+                    "timeout": 60,
+                    "fixCode": "DY",
+                    "type": 0
+                },
+                {
+                    "name": "取消模块定时测量参数",
+                    "sendCommand": "#[模块编号]U00[校验码]!",
+                    "timeout": 60,
+                    "fixCode": "Common",
+                    "type": 0
+                }
+            ]
+        },
+        {
+            "moduleName": "北斗位移采集模块380",
+            "moduleType": "31",
+            "moduleCommands": [
+                {
+                    "name": "复位",
+                    "sendCommand": "FRESET",
+                    "timeout": 30,
+                    "fixCode": "BDA",
+                    "type": 3
+                },
+                {
+                    "name": "设置为移动站",
+                    "sendCommand": "UNLOGALL COM2 TRUE[sleep01]INTERFACEMODE COM2 AUTOMATIC AUTOMATIC ON[sleep01]LOG GPGSA ONTIME [gap][sleep01]LOG GPGGA ONTIME [gap][sleep01]SAVECONFIG",
+                    "timeout": 2,
+                    "fixCode": "Common",
+                    "type": 5
+                },
+                {
+                    "name": "基站初始化",
+                    "sendCommand": "UNLOGALL COM2 TRUE[sleep01]LOG GPGSA ONTIME 2[sleep01]LOG GPGGA ONTIME 2",
+                    "timeout": 2,
+                    "fixCode": "Common",
+                    "type": 6
+                },
+                {
+                    "name": "移动站初始化",
+                    "sendCommand": "UNLOGALL COM2 TRUE[sleep01]LOG GPGSA ONTIME 2[sleep01]LOG GPGGA ONTIME 2",
+                    "timeout": 2,
+                    "fixCode": "Common",
+                    "type": 8
+                },
+                {
+                    "name": "设置为基站",
+                    "sendCommand": "UNLOGALL COM2 TRUE[sleep01];FIX POSITION [纬度] [经度] [高程][sleep01]ECUTOFF BD2 10.0[sleep01]ECUTOFF GPS 10.0[sleep01]INTERFACEMODE COM2 AUTOMATIC AUTOMATIC ON[sleep01]SAVECONFIG",
+                    "timeout": 2,
+                    "fixCode": "Common",
+                    "type": 4
+                },
+                {
+                    "name": "基站采集",
+                    "sendCommand": "UNLOGALL COM2 TRUE[sleep01]LOG COM2 RTCM1074 ONTIME [gap][sleep01]LOG COM2 RTCM1084 ONTIME [gap][sleep01]LOG COM2 RTCM1124 ONTIME [gap][sleep01]LOG COM2 RTCM1005 ONTIME [gap][sleep01]SAVECONFIG",
+                    "timeout": 2,
+                    "fixCode": "Common",
+                    "type": 7
+                },
+                {
+                    "name": "移动站采集",
+                    "sendCommand": "UNLOGALL COM2 TRUE[sleep01]LOG GPGSA ONTIME [gap][sleep01]LOG GPGGA ONTIME [gap][sleep01]SAVECONFIG",
+                    "timeout": 2,
+                    "fixCode": "Common",
+                    "type": 9
+                },
+                {
+                    "name": "停止采集",
+                    "sendCommand": "UNLOGALL COM2 TRUE",
+                    "timeout": 2,
+                    "fixCode": "Common",
+                    "type": 10
+                }
+            ]
+        },
+        {
+            "moduleName": "地灾北斗位移采集模块",
+            "moduleType": "32",
+            "moduleCommands": [
+                {
+                    "name": "重置",
+                    "sendCommand": "@[10位模块编号]B#FRESET",
+                    "timeout": 30,
+                    "fixCode": "Common",
+                    "type": 0
+                },
+                {
+                    "name": "设置基准站坐标",
+                    "sendCommand": "@[10位模块编号]B#FIX POSITION [纬度] [经度] [高程]",
+                    "timeout": 30,
+                    "fixCode": "Common",
+                    "type": 0
+                },
+                {
+                    "name": "设置卫星截止高度角",
+                    "sendCommand": "@[10位模块编号]B#ECUTOFF [system] [angle]",
+                    "timeout": 30,
+                    "fixCode": "Common",
+                    "type": 0
+                },
+                {
+                    "name": "设置串口发送/接收模式",
+                    "sendCommand": "@[10位模块编号]B#INTERFACEMODE COM2 AUTOMATIC AUTOMATIC ON",
+                    "timeout": 30,
+                    "fixCode": "Common",
+                    "type": 0
+                },
+                {
+                    "name": "保存配置",
+                    "sendCommand": "@[10位模块编号]B#SAVECONFIG",
+                    "timeout": 30,
+                    "fixCode": "Common",
+                    "type": 0
+                },
+                {
+                    "name": "GPGGA",
+                    "sendCommand": "@[10位模块编号]B#LOG GPGGA ONTIME [gap]",
+                    "timeout": 30,
+                    "fixCode": "Common",
+                    "type": 0
+                },
+                {
+                    "name": "RTCM1074",
+                    "sendCommand": "@[10位模块编号]B#LOG COM2 RTCM1074 ONTIME [gap]",
+                    "timeout": 30,
+                    "fixCode": "Common",
+                    "type": 0
+                },
+                {
+                    "name": "RTCM1084",
+                    "sendCommand": "@[10位模块编号]B#LOG COM2 RTCM1084 ONTIME [gap]",
+                    "timeout": 30,
+                    "fixCode": "Common",
+                    "type": 0
+                },
+                {
+                    "name": "RTCM1124",
+                    "sendCommand": "@[10位模块编号]B#LOG COM2 RTCM1124 ONTIME [gap]",
+                    "timeout": 30,
+                    "fixCode": "Common",
+                    "type": 0
+                },
+                {
+                    "name": "RTCM1005",
+                    "sendCommand": "@[10位模块编号]B#LOG COM2 RTCM1005 ONTIME [gap]",
+                    "timeout": 30,
+                    "fixCode": "Common",
+                    "type": 0
+                },
+                {
+                    "name": "GPGSA",
+                    "sendCommand": "@[10位模块编号]B#LOG GPGSA ONTIME [gap]",
+                    "timeout": 30,
+                    "fixCode": "Common",
+                    "type": 0
+                },
+                {
+                    "name": "UNLOGALL",
+                    "sendCommand": "@[10位模块编号]B#UNLOGALL COM2 TRUE",
+                    "timeout": 30,
+                    "fixCode": "Common",
+                    "type": 0
+                },
+                {
+                    "name": "北斗实时测量",
+                    "sendCommand": "@[10位模块编号]B#LOG LOGLISTA ONCE",
+                    "timeout": 10,
+                    "fixCode": "NewBDA",
+                    "type": 0
+                },
+                {
+                    "name": "设置传感器编号",
+                    "sendCommand": "@[10位模块编号]ZN;+[通道],[传感器名][传感器编号],[型号码],[传感器类型码],[传感器型号]*[校验码]!",
+                    "timeout": 60,
+                    "fixCode": "Common",
+                    "type": 0
+                },
+                {
+                    "name": "修改模块信息",
+                    "sendCommand": "@[10位模块编号]ZM;+[修改的编号],[公司代码],[项目代码],*[校验码]!",
+                    "timeout": 60,
+                    "fixCode": "Common",
+                    "type": 0
+                },
+                {
+                    "name": "模块自检",
+                    "sendCommand": "@[10位模块编号]O*[校验码]!",
+                    "timeout": 60,
+                    "fixCode": "Common",
+                    "type": 0
+                },
+                {
+                    "name": "倾角实时测量",
+                    "sendCommand": "@[10位模块编号]AM*[校验码]!",
+                    "timeout": 60,
+                    "fixCode": "NewA",
+                    "type": 1
+                }
+            ]
+        },
+        {
+            "moduleName": " 高速通用信号采集模块",
+            "moduleType": "49",
+            "moduleCommands": []
+        },
+        {
+            "moduleName": " 索力动测模块",
+            "moduleType": "19",
+            "moduleCommands": [
+                {
+                    "name": "实时测量数据(返回1024点)",
+                    "sendCommand": "#00000000W![sleep60]#[模块编号]d!",
+                    "timeout": 300,
+                    "fixCode": "CableForceA",
+                    "type": 1
+                },
+                {
+                    "name": "设置内部采集频率",
+                    "sendCommand": "#[模块编号]a[频率代码]!",
+                    "timeout": 60,
+                    "fixCode": "Common",
+                    "type": 0
+                },
+                {
+                    "name": "修改模块时间",
+                    "sendCommand": "#[模块编号]Z[模块时间][校验码]!",
+                    "timeout": 30,
+                    "fixCode": "Common",
+                    "type": 0
+                },
+                {
+                    "name": "读模块时间",
+                    "sendCommand": "#[模块编号]D[校验码]!",
+                    "timeout": 60,
+                    "fixCode": "Common",
+                    "type": 0
+                },
+                {
+                    "name": "读内部采集频率",
+                    "sendCommand": "#[模块编号]b!",
+                    "timeout": 60,
+                    "fixCode": "RB",
+                    "type": 0
+                }
+            ]
+        },
+        {
+            "moduleName": "崩塌计采集模块",
+            "moduleType": "18",
+            "moduleCommands": [
+                {
+                    "name": "实时全参数测量",
+                    "sendCommand": "@[10位模块编号]A*[校验码]!",
+                    "timeout": 120,
+                    "fixCode": "NewA",
+                    "type": 1
+                }
+            ]
+        },
+        {
+            "moduleName": "北斗位移采集模块4B0",
+            "moduleType": "33",
+            "moduleCommands": [
+                {
+                    "name": "复位",
+                    "sendCommand": "FRESET",
+                    "timeout": 2,
+                    "fixCode": "Common",
+                    "type": 3
+                },
+                {
+                    "name": "设置为基站",
+                    "sendCommand": "UNLOG COM2[sleep01]mode base  [纬度] [经度] [高程][sleep01]mask 10[sleep01]SAVECONFIG",
+                    "timeout": 2,
+                    "fixCode": "Common",
+                    "type": 4
+                },
+                {
+                    "name": "基站采集",
+                    "sendCommand": "UNLOG COM2[sleep01]RTCM1074 COM2 [gap][sleep01]RTCM1084 COM2 [gap][sleep01]RTCM1124 COM2 [gap][sleep01]RTCM1006 COM2 [gap][sleep01]RTCM1033 COM2 [gap][sleep01]SAVECONFIG",
+                    "timeout": 2,
+                    "fixCode": "Common",
+                    "type": 7
+                },
+                {
+                    "name": "设置为移动站",
+                    "sendCommand": "MODE ROVER[sleep01]UNLOG COM2[sleep01]GNGGA COM2 [gap][sleep01]GPGSA COM2 [gap][sleep01]mask 10[sleep01]SAVECONFIG",
+                    "timeout": 2,
+                    "fixCode": "Common",
+                    "type": 5
+                },
+                {
+                    "name": "移动站采集",
+                    "sendCommand": "MODE ROVER[sleep01]UNLOG COM2[sleep01]GNGGA COM2 [gap][sleep01]GPGSA COM2 [gap][sleep01]SAVECONFIG",
+                    "timeout": 2,
+                    "fixCode": "Common",
+                    "type": 9
+                },
+                {
+                    "name": "停止采集",
+                    "sendCommand": "UNLOG COM2",
+                    "timeout": 2,
+                    "fixCode": "Common",
+                    "type": 10
+                },
+                {
+                    "name": "基站初始化",
+                    "sendCommand": "GNGGA COM2 [gap][sleep01]GPGSA COM2 [gap]",
+                    "timeout": 2,
+                    "fixCode": "Common",
+                    "type": 6
+                },
+                {
+                    "name": "移动站初始化",
+                    "sendCommand": "GNGGA COM2 [gap][sleep01]GPGSA COM2 [gap]",
+                    "timeout": 2,
+                    "fixCode": "Common",
+                    "type": 8
+                }
+            ]
+        },
+        {
+            "moduleName": "北斗位移采集模块北云科技",
+            "moduleType": "34",
+            "moduleCommands": [
+                {
+                    "name": "授权",
+                    "sendCommand": "auth add A6455F4049DFB2D671FB89D5883D1E9D[sleep01]saveconfig[sleep01]reboot",
+                    "timeout": 5,
+                    "fixCode": "z",
+                    "type": 0
+                },
+                {
+                    "name": "enu",
+                    "sendCommand": "log com2 gpenu ontime [gap]",
+                    "timeout": 5,
+                    "fixCode": "z",
+                    "type": 0
+                },
+                {
+                    "name": "设置为基站",
+                    "sendCommand": "rtktype base[sleep01]log com2 rtcm1074 ontime 2[sleep01]log com2 rtcm1084 ontime 2[sleep01]log com2 rtcm1114 ontime 2[sleep01]log com2 rtcm1124 ontime 2[sleep01]log com2 rtcm1006 ontime 5[sleep01]log com2 rtcm1033 ontime 10[sleep01]fix auto[sleep01]saveconfig[sleep01]reboot",
+                    "timeout": 2,
+                    "fixCode": "Common",
+                    "type": 4
+                },
+                {
+                    "name": "基站采集",
+                    "sendCommand": "rtktype base[sleep01]log com2 rtcm1074 ontime 2[sleep01]log com2 rtcm1084 ontime 2[sleep01]log com2 rtcm1114 ontime 2[sleep01]log com2 rtcm1124 ontime 2[sleep01]log com2 rtcm1006 ontime 5[sleep01]log com2 rtcm1033 ontime 10[sleep01]saveconfig",
+                    "timeout": 2,
+                    "fixCode": "Common",
+                    "type": 7
+                },
+                {
+                    "name": "停止采集",
+                    "sendCommand": "unlog gpgga[sleep01]unlog gpgsa[sleep01]",
+                    "timeout": 2,
+                    "fixCode": "Common",
+                    "type": 10
+                },
+                {
+                    "name": "移动站采集",
+                    "sendCommand": "log com2 gpenu ontime [gap][sleep01]unlog gpgga[sleep01]unlog gpgsa[sleep01]saveconfig",
+                    "timeout": 2,
+                    "fixCode": "Common",
+                    "type": 9
+                },
+                {
+                    "name": "移动站初始化",
+                    "sendCommand": "LOG GPGGA ONTIME 2[sleep01]SAVECONFIG",
+                    "timeout": 10,
+                    "fixCode": "Common",
+                    "type": 8
+                },
+                {
+                    "name": "基站初始化",
+                    "sendCommand": "LOG GPGGA ONTIME 2",
+                    "timeout": 2,
+                    "fixCode": "Common",
+                    "type": 6
+                },
+                {
+                    "name": "手输指令",
+                    "sendCommand": "[手输指令内容][进制]",
+                    "timeout": 60,
+                    "fixCode": "Common",
+                    "type": 11
+                },
+                {
+                    "name": "复位",
+                    "sendCommand": "FRESET",
+                    "timeout": 2,
+                    "fixCode": "Common",
+                    "type": 3
+                },
+                {
+                    "name": "unlog gpgga",
+                    "sendCommand": "unlog gpgga",
+                    "timeout": 10,
+                    "fixCode": "BDA",
+                    "type": 1
+                }
+            ]
+        },
+        {
+            "moduleName": " 总线型静力水准仪",
+            "moduleType": "101",
+            "moduleCommands": [
+                {
+                    "name": "实时测量",
+                    "sendCommand": "#+[模块编号]",
+                    "timeout": 120,
+                    "fixCode": "BusSensorA",
+                    "type": 1
+                }
+            ]
+        },
+        {
+            "moduleName": "总线型激光挠度仪",
+            "moduleType": "102",
+            "moduleCommands": []
+        },
+        {
+            "moduleName": "总线型测斜仪传感器",
+            "moduleType": "103",
+            "moduleCommands": [
+                {
+                    "name": "实时测量",
+                    "sendCommand": "#+[模块编号]",
+                    "timeout": 120,
+                    "fixCode": "BusSensorA",
+                    "type": 1
+                }
+            ]
+        },
+        {
+            "moduleName": "总线型温湿度传感器",
+            "moduleType": "104",
+            "moduleCommands": []
+        },
+        {
+            "moduleName": " 总线型测裂传感器",
+            "moduleType": "105",
+            "moduleCommands": [
+                {
+                    "name": "实时测量",
+                    "sendCommand": "#+[模块编号]",
+                    "timeout": 120,
+                    "fixCode": "BusSensorA",
+                    "type": 1
+                }
+            ]
+        },
+        {
+            "moduleName": "总线型压差式静力水准仪",
+            "moduleType": "106",
+            "moduleCommands": [
+                {
+                    "name": "实时测量",
+                    "sendCommand": "#+[模块编号]",
+                    "timeout": 120,
+                    "fixCode": "BusSensorA",
+                    "type": 1
+                }
+            ]
+        },
+        {
+            "moduleName": "海罗科技温度采集模块",
+            "moduleType": "56",
+            "moduleCommands": [
+                {
+                    "name": "实时测量",
+                    "sendCommand": "[模块编号]",
+                    "timeout": 10,
+                    "fixCode": "HLKJA",
+                    "type": 1
+                }
+            ]
+        },
+        {
+            "moduleName": "电流采集模块",
+            "moduleType": "51",
+            "moduleCommands": [
+                {
+                    "name": "读电流值",
+                    "sendCommand": "0300000001",
+                    "timeout": 60,
+                    "fixCode": "ModBusA",
+                    "type": 1
+                },
+                {
+                    "name": "控制电流",
+                    "sendCommand": "060001[current]",
+                    "timeout": 60,
+                    "fixCode": "CurrentControl",
+                    "type": 0
+                }
+            ]
+        },
+        {
+            "moduleName": " 基康采集模块",
+            "moduleType": "52",
+            "moduleCommands": []
+        },
+        {
+            "moduleName": "流量采集模块",
+            "moduleType": "53",
+            "moduleCommands": [
+                {
+                    "name": "新读瞬时流量",
+                    "sendCommand": "0307D00002",
+                    "timeout": 60,
+                    "fixCode": "ModBusA",
+                    "type": 1
+                },
+                {
+                    "name": "读瞬时流量",
+                    "sendCommand": "0307080002",
+                    "timeout": 60,
+                    "fixCode": "ModBusA",
+                    "type": 1
+                }
+            ]
+        },
+        {
+            "moduleName": "ModBus风速风向模块",
+            "moduleType": "54",
+            "moduleCommands": [
+                {
+                    "name": "实时测量",
+                    "sendCommand": "0300000002",
+                    "timeout": 60,
+                    "fixCode": "ModBusWindA",
+                    "type": 1
+                }
+            ]
+        },
+        {
+            "moduleName": "ModBus雨量采集模块",
+            "moduleType": "55",
+            "moduleCommands": [
+                {
+                    "name": "读输出分辨率",
+                    "sendCommand": "03000E0001",
+                    "timeout": 15,
+                    "fixCode": "Common",
+                    "type": 0
+                },
+                {
+                    "name": "实时测量",
+                    "sendCommand": "03000E0001,0300480002",
+                    "timeout": 60,
+                    "fixCode": "ModBusRainA",
+                    "type": 1
+                }
+            ]
+        },
+        {
+            "moduleName": "虚拟油缸采集模块",
+            "moduleType": "956",
+            "moduleCommands": []
+        },
+        {
+            "moduleName": "虚拟全站仪模块",
+            "moduleType": "957",
+            "moduleCommands": []
+        },
+        {
+            "moduleName": "虚拟塔吊模块",
+            "moduleType": "958",
+            "moduleCommands": []
+        },
+        {
+            "moduleName": "卷扬机虚拟模块",
+            "moduleType": "959",
+            "moduleCommands": []
+        }
+    ],
+    "status": 200,
+    "message": "Success",
+    "errorMsg": "fail"
+}
