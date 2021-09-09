@@ -29,24 +29,26 @@ class ViewPagerSimpleSliderActivity :
             GenShinRole("优菈", R.drawable.ic_genshin_yl),
             GenShinRole("钟离", R.drawable.ic_genshin_zl)
         )
+        private val singlePageSize = roleList.size
+        var nextLoadMore = singlePageSize - 3//避免滑到底才进行加载，预先就加载更多，比较平滑
     }
 
     override fun initData() {
         mViewDataBinding.vp2SimpleSlider.apply {
-            offscreenPageLimit=3
-            adapter=recyclePagerAdapter
-            registerOnPageChangeCallback(object:ViewPager2.OnPageChangeCallback(){
+            offscreenPageLimit = 3
+            adapter = recyclePagerAdapter
+            registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
                 override fun onPageScrollStateChanged(state: Int) {
-                    when(state){
+                    when (state) {
                         //空闲稳定状态，可以开始动画
-                        ViewPager2.SCROLL_STATE_IDLE->{
+                        ViewPager2.SCROLL_STATE_IDLE -> {
                             animationStartNeeded = true
                             targetPosition = 0f
                             targetAlpha = 1f
                         }
-                        else->{
+                        else -> {
                             if (animationStartNeeded) {
-                                animationStartNeeded=false
+                                animationStartNeeded = false
                                 targetPosition = 20.toPx().toFloat()
                                 targetAlpha = 0f
                             }
@@ -58,18 +60,22 @@ class ViewPagerSimpleSliderActivity :
                 }
 
                 override fun onPageSelected(position: Int) {
-                    mViewDataBinding.tvIndex.text="Role ${position+1}"
+                    mViewDataBinding.tvIndex.text = "Role ${position + 1}"
+                    if (nextLoadMore <= position + 1) {
+                        nextLoadMore += singlePageSize
+                        recyclePagerAdapter.addItems(roleList)
+                    }
                     super.onPageSelected(position)
                 }
             })
         }
-        mViewDataBinding.vpc.setSimpleSlider(0f,0.2f,0.5f)
+        mViewDataBinding.vpc.setSimpleSlider(0f, 0.2f, 0.5f)
         recyclePagerAdapter.addAll(roleList)
     }
 
     override fun initView(savedInstanceState: Bundle?) {
         mToolbar.setNavigationIcon(R.drawable.ic_arrow_left_white)
         mToolbar.setNavigationOnClickListener { onBackPressed() }
-        centerTextView.text="ViewPager2 Container"
+        centerTextView.text = "ViewPager2 Container"
     }
 }

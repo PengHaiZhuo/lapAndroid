@@ -39,8 +39,9 @@ class AvatarAdapter : RecyclerView.Adapter<AvatarAdapter.MyViewHolder>() {
     }
 
     fun addItems(list: MutableList<GenShinRole>) {
+        val oldSize=list.size-1
         this.list.addAll(list)
-        notifyDataSetChanged()
+        notifyItemRangeChanged(oldSize,list.size)
     }
 
     inner class MyViewHolder(@NotNull view: View) : RecyclerView.ViewHolder(view) {
