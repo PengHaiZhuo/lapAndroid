@@ -34,7 +34,7 @@ class DrawerLayoutLearnActivity : AppCompatActivity() {
     lateinit var binding: ActivityDrawerLayoutLearnBinding
     private lateinit var appBarConfiguration: AppBarConfiguration
     private lateinit var navController: NavController
-    private lateinit var bottomSheetBehavior:BottomSheetBehavior<ConstraintLayout>
+    private lateinit var bottomSheetBehavior: BottomSheetBehavior<ConstraintLayout>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -116,15 +116,16 @@ class DrawerLayoutLearnActivity : AppCompatActivity() {
 
     private fun initView() {
         initSupportActionBar()
-        bottomSheetBehavior=BottomSheetBehavior.from(binding.clBottomSheet)
+        bottomSheetBehavior = BottomSheetBehavior.from(binding.clBottomSheet)
         binding.fab.setOnClickListener {
             //现实底部弹框
-            if (bottomSheetBehavior.state!=BottomSheetBehavior.STATE_COLLAPSED){
-                bottomSheetBehavior.state=BottomSheetBehavior.STATE_COLLAPSED
-            }else{
-                bottomSheetBehavior.state=BottomSheetBehavior.STATE_EXPANDED
+            if (bottomSheetBehavior.state != BottomSheetBehavior.STATE_COLLAPSED) {
+                bottomSheetBehavior.state = BottomSheetBehavior.STATE_COLLAPSED
+            } else {
+                bottomSheetBehavior.state = BottomSheetBehavior.STATE_EXPANDED
             }
         }
+        binding.vm=mViewModel.value
     }
 
 //    override fun onSupportNavigateUp(): Boolean {

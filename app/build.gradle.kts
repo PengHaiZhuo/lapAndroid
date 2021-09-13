@@ -165,4 +165,6 @@ dependencies {
     implementation(ThirdPart.console)
     //扫码
     implementation(Google.barcode_scanning)
+    //lottie
+    implementation(ThirdPart.lottie)
 }

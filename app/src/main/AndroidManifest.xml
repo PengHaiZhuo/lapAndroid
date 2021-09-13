@@ -70,7 +70,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".feature.practice.PracticeMainActivity" />
-        <activity android:name=".feature.practice.animation.ViewPagerSimpleSliderActivity" />
+        <activity android:name=".feature.practice.animation.dynamic.ViewPagerSimpleSliderActivity" />
+        <activity android:name=".feature.practice.animation.lottie.LottieLearnActivity"/>
         <activity android:name=".feature.practice.mlkit.scan.MlKitScanMenuActivity" />
         <activity android:name=".feature.practice.mlkit.scan.ct.MlKitScanWithConsoleActivity" />
         <activity android:name=".feature.practice.toolbar.DrawerLayoutLearnActivity" />

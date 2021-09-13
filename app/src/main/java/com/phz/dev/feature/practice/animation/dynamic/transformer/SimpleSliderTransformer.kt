@@ -1,4 +1,4 @@
-package com.phz.dev.feature.practice.animation.transformer
+package com.phz.dev.feature.practice.animation.dynamic.transformer
 
 import android.view.View
 import androidx.viewpager2.widget.ViewPager2

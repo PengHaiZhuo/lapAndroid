@@ -5,7 +5,7 @@ import android.util.AttributeSet
 import android.view.MotionEvent
 import android.widget.FrameLayout
 import androidx.viewpager2.widget.ViewPager2
-import com.phz.dev.feature.practice.animation.transformer.SimpleSliderTransformer
+import com.phz.dev.feature.practice.animation.dynamic.transformer.SimpleSliderTransformer
 import kotlin.math.abs
 
 /**

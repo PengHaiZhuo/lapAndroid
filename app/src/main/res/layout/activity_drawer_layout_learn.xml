@@ -3,7 +3,11 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <data></data>
+    <data>
+        <variable
+            name="vm"
+            type="com.phz.dev.feature.practice.toolbar.DrawerLayoutLearnViewModel" />
+    </data>
 
     <androidx.drawerlayout.widget.DrawerLayout
         android:id="@+id/drawerLayout"
@@ -75,7 +79,7 @@
                         android:layout_height="@dimen/icon_hw_large"
                         android:layout_marginTop="@dimen/margin_normal"
                         android:layout_marginStart="@dimen/margin_normal"
-                        android:src="@drawable/ic_dio"
+                        circleImageUrlRes="@{vm.avatarId}"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
 

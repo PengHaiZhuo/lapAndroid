@@ -30,4 +30,7 @@
     <string name="scan">扫描</string>
     <string name="more">更多</string>
     <string name="map">地图</string>
+    <string name="pause">暂停</string>
+    <string name="play">播放</string>
+    <string name="resume">恢复</string>
 </resources>

@@ -3,6 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/haizhuo/Download/dev/app/src/main/res/drawable/anim_maomao.xml" value="0.31302083333333336" />
         <entry key="..\:/haizhuo/Download/dev/app/src/main/res/drawable/bg_bottom_sheet.xml" value="0.20729166666666668" />
         <entry key="..\:/haizhuo/Download/dev/app/src/main/res/drawable/ic_add_list_item.xml" value="0.2515625" />
         <entry key="..\:/haizhuo/Download/dev/app/src/main/res/drawable/ic_arrow_left.xml" value="0.15989583333333332" />
@@ -14,6 +15,7 @@
         <entry key="..\:/haizhuo/Download/dev/app/src/main/res/drawable/ic_not_collect.xml" value="0.30462962962962964" />
         <entry key="..\:/haizhuo/Download/dev/app/src/main/res/drawable/ic_sacn.xml" value="0.30462962962962964" />
         <entry key="..\:/haizhuo/Download/dev/app/src/main/res/drawable/ic_search.xml" value="0.30462962962962964" />
+        <entry key="..\:/haizhuo/Download/dev/app/src/main/res/drawable/ic_wx.xml" value="0.3509259259259259" />
         <entry key="..\:/haizhuo/Download/dev/app/src/main/res/drawable/selector_click_bg_blue.xml" value="0.228125" />
         <entry key="..\:/haizhuo/Download/dev/app/src/main/res/drawable/selector_click_bg_gray.xml" value="0.228125" />
         <entry key="..\:/haizhuo/Download/dev/app/src/main/res/drawable/selector_click_state_bg_light.xml" value="0.19010416666666666" />
@@ -27,6 +29,7 @@
         <entry key="..\:/haizhuo/Download/dev/app/src/main/res/layout/activity_drawer_layout_learn.xml" value="0.22" />
         <entry key="..\:/haizhuo/Download/dev/app/src/main/res/layout/activity_drop_dwon_menu.xml" value="0.2441123188405797" />
         <entry key="..\:/haizhuo/Download/dev/app/src/main/res/layout/activity_login.xml" value="0.25" />
+        <entry key="..\:/haizhuo/Download/dev/app/src/main/res/layout/activity_lottie_learn.xml" value="0.2259963768115942" />
         <entry key="..\:/haizhuo/Download/dev/app/src/main/res/layout/activity_main.xml" value="0.19635416666666666" />
         <entry key="..\:/haizhuo/Download/dev/app/src/main/res/layout/activity_mlkit_scan_continue.xml" value="0.1515625" />
         <entry key="..\:/haizhuo/Download/dev/app/src/main/res/layout/activity_mlkit_scan_ct.xml" value="0.27239583333333334" />
@@ -42,6 +45,8 @@
         <entry key="..\:/haizhuo/Download/dev/app/src/main/res/layout/app_bar_drawer_learn.xml" value="0.19635416666666666" />
         <entry key="..\:/haizhuo/Download/dev/app/src/main/res/layout/dialog_date.xml" value="0.2441123188405797" />
         <entry key="..\:/haizhuo/Download/dev/app/src/main/res/layout/dialog_date_picker.xml" value="0.12635869565217392" />
+        <entry key="..\:/haizhuo/Download/dev/app/src/main/res/layout/dialog_lottie_diona.xml" value="0.2259963768115942" />
+        <entry key="..\:/haizhuo/Download/dev/app/src/main/res/layout/dialog_svg_animation.xml" value="0.2259963768115942" />
         <entry key="..\:/haizhuo/Download/dev/app/src/main/res/layout/fragment_drawer_practice_four.xml" value="0.21197916666666666" />
         <entry key="..\:/haizhuo/Download/dev/app/src/main/res/layout/fragment_drawer_practice_main.xml" value="0.22083333333333333" />
         <entry key="..\:/haizhuo/Download/dev/app/src/main/res/layout/fragment_drawer_practice_one.xml" value="0.21197916666666666" />

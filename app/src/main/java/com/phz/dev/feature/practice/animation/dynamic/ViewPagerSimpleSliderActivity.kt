@@ -1,4 +1,4 @@
-package com.phz.dev.feature.practice.animation
+package com.phz.dev.feature.practice.animation.dynamic
 
 import android.os.Bundle
 import androidx.dynamicanimation.animation.DynamicAnimation
@@ -9,8 +9,8 @@ import com.phz.common.page.activity.BaseVmDbActivity
 import com.phz.common.state.BaseViewModel
 import com.phz.dev.R
 import com.phz.dev.databinding.ActivityViewpager2SimpleSliderBinding
-import com.phz.dev.feature.practice.animation.adapter.AvatarAdapter
-import com.phz.dev.feature.practice.animation.data.model.GenShinRole
+import com.phz.dev.feature.practice.animation.dynamic.adapter.AvatarAdapter
+import com.phz.dev.feature.practice.animation.dynamic.data.model.GenShinRole
 
 class ViewPagerSimpleSliderActivity :
     BaseVmDbActivity<BaseViewModel, ActivityViewpager2SimpleSliderBinding>() {
@@ -62,7 +62,7 @@ class ViewPagerSimpleSliderActivity :
                 override fun onPageSelected(position: Int) {
                     mViewDataBinding.tvIndex.text = "Role ${position + 1}"
                     if (nextLoadMore <= position + 1) {
-                        nextLoadMore += singlePageSize
+                        nextLoadMore += com.phz.dev.feature.practice.animation.dynamic.ViewPagerSimpleSliderActivity.Companion.singlePageSize
                         recyclePagerAdapter.addItems(roleList)
                     }
                     super.onPageSelected(position)
