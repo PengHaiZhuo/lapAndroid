@@ -59,6 +59,17 @@ object MineBindingAdapter {
             .into(view)
     }
 
+    @BindingAdapter(value = ["circleImageUrlGifRes"])
+    @JvmStatic
+    fun circleImageUrlGifRes(view: ImageView, resourceId: Int) {
+        Glide.with(view.context.applicationContext)
+            .asGif()
+            .load(resourceId)
+            .apply(RequestOptions.bitmapTransform(CircleCrop()))
+            .transition(DrawableTransitionOptions.withCrossFade(500))
+            .into(view)
+    }
+
     @BindingAdapter("noRepeatClick")
     @JvmStatic
     fun setOnClick(view: View, clickListener: () -> Unit) {

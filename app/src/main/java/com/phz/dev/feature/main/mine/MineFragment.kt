@@ -23,6 +23,10 @@ class MineFragment : BaseVmDbPureFragment<MineViewModel, FragmentMineBinding>() 
 //        mViewDataBinding.btnToChild.clickNoRepeat {
 //            nav().navigate(R.id.action_mine_to_child)
 //        }
+        mViewDataBinding.swipeRl.setOnRefreshListener {
+            //todo 从网络获取积分 返回结果后手动停止动画
+//            mViewDataBinding.swipeRl.isRefreshing=false
+        }
     }
 
     override fun onResume() {
