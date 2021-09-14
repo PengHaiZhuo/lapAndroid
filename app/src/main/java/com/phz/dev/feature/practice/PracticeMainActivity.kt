@@ -9,6 +9,7 @@ import com.phz.dev.R
 import com.phz.dev.databinding.ActivityPracticeMainBinding
 import com.phz.dev.feature.practice.animation.dynamic.ViewPagerSimpleSliderActivity
 import com.phz.dev.feature.practice.animation.lottie.LottieLearnActivity
+import com.phz.dev.feature.practice.dialog.DialogLearnActivity
 import com.phz.dev.feature.practice.mlkit.scan.MlKitScanMenuActivity
 import com.phz.dev.feature.practice.popupwindow.dropdownmenu.ui.activity.DropDownMenuActivity
 import com.phz.dev.feature.practice.toolbar.DrawerLayoutLearnActivity
@@ -32,6 +33,7 @@ class PracticeMainActivity :
 //            "CollapsingToolbarLayout",
             "ViewStub"
 //        ,"CountDownLatch"
+            , "Dialog"
         )
     }
 
@@ -56,6 +58,9 @@ class PracticeMainActivity :
                     }
                     "ViewStub" -> {
                         startKtxActivity<ViewStubLearnActivity>()
+                    }
+                    "Dialog" -> {
+                        startKtxActivity<DialogLearnActivity>()
                     }
                 }
             }
