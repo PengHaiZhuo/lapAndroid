@@ -29,7 +29,9 @@
                 android:layout_height="wrap_content"
                 android:background="@color/colorPrimary"
                 android:paddingTop="?actionBarSize"
-                android:paddingBottom="?actionBarSize">
+                android:paddingBottom="?actionBarSize"
+                app:layout_constraintBottom_toTopOf="@+id/gl_percent_50"
+                app:layout_constraintTop_toTopOf="@+id/gl_percent_50">
 
                 <ImageView
                     android:id="@+id/iv_avatar"
@@ -168,8 +170,8 @@
                         android:layout_height="@dimen/normal_view_hw"
                         android:background="?attr/selectableItemBackground"
                         android:gravity="center_vertical"
-                        android:orientation="horizontal"
                         android:onClick="@{()->clickProxy.star()}"
+                        android:orientation="horizontal"
                         android:paddingLeft="@dimen/margin_normal"
                         android:paddingRight="@dimen/margin_normal">
 
@@ -198,8 +200,8 @@
                         android:layout_height="@dimen/normal_view_hw"
                         android:background="?attr/selectableItemBackground"
                         android:gravity="center_vertical"
-                        android:orientation="horizontal"
                         android:onClick="@{()->clickProxy.todo()}"
+                        android:orientation="horizontal"
                         android:paddingLeft="@dimen/margin_normal"
                         android:paddingRight="@dimen/margin_normal">
 
@@ -233,8 +235,8 @@
                         android:layout_height="@dimen/normal_view_hw"
                         android:background="?attr/selectableItemBackground"
                         android:gravity="center_vertical"
-                        android:orientation="horizontal"
                         android:onClick="@{()->clickProxy.practice()}"
+                        android:orientation="horizontal"
                         android:paddingLeft="@dimen/margin_normal"
                         android:paddingRight="@dimen/margin_normal">
 
@@ -285,9 +287,9 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="0.0M"
                             android:layout_marginStart="@dimen/margin_small"
-                            android:layout_marginEnd="@dimen/margin_small"/>
+                            android:layout_marginEnd="@dimen/margin_small"
+                            android:text="0.0M" />
 
                         <ImageView
                             android:layout_width="16dp"
