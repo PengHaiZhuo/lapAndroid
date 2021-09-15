@@ -22,7 +22,7 @@ object AndroidX {
     const val activityKtx = "androidx.activity:activity-ktx:1.3.1"
 
     //fragment+ktx扩展函数
-    const val fragmentKtx = "androidx.fragment:fragment-ktx:1.4.0-alpha01"
+    const val fragmentKtx = "androidx.fragment:fragment-ktx:1.4.0-alpha04"
 
     //约束布局
     const val constraintlayout = "androidx.constraintlayout:constraintlayout:2.1.0"
@@ -109,7 +109,7 @@ object AndroidX {
 
     object Navigation {
         //这个版本支持多返回栈了
-        private const val navigation_version = "2.4.0-alpha01"
+        private const val navigation_version = "2.4.0-alpha04"
 
         //const val fragment = "androidx.navigation:navigation-fragment:$navigation_version"
         const val fragmentKtx = "androidx.navigation:navigation-fragment-ktx:$navigation_version"

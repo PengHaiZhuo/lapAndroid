@@ -29,9 +29,7 @@
                 android:layout_height="wrap_content"
                 android:background="@color/colorPrimary"
                 android:paddingTop="?actionBarSize"
-                android:paddingBottom="?actionBarSize"
-                app:layout_constraintBottom_toTopOf="@+id/gl_percent_50"
-                app:layout_constraintTop_toTopOf="@+id/gl_percent_50">
+                android:paddingBottom="?actionBarSize">
 
                 <ImageView
                     android:id="@+id/iv_avatar"
