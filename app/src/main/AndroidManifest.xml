@@ -78,6 +78,10 @@
         <activity android:name=".feature.practice.popupwindow.dropdownmenu.ui.activity.DropDownMenuActivity" />
         <activity android:name=".feature.practice.viewstub.ViewStubLearnActivity" />
         <activity android:name=".feature.practice.dialog.DialogLearnActivity" />
+        <activity
+            android:name=".feature.practice.dialog.activity.DialogSampleActivity"
+            android:theme="@android:style/Theme.Material.Dialog" />
+
     </application>
 
 </manifest>

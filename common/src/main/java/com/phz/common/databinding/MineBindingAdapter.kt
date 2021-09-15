@@ -39,6 +39,16 @@ object MineBindingAdapter {
             .into(view)
     }
 
+    @BindingAdapter(value = ["imageGifUrl"])
+    @JvmStatic
+    fun imageGifUrlRes(view: ImageView, resourceId: Int) {
+        Glide.with(view.context.applicationContext)
+            .asGif()
+            .load(resourceId)
+            .transition(DrawableTransitionOptions.withCrossFade(500))
+            .into(view)
+    }
+
     @BindingAdapter(value = ["circleImageUrl"])
     @JvmStatic
     fun circleImageUrl(view: ImageView, url: String) {
