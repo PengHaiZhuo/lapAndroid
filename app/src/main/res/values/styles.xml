@@ -47,8 +47,25 @@
         <item name="android:windowNoTitle">true</item><!--是否没有标题 -->
         <item name="android:windowIsFloating">true</item><!--是否浮现在activity之上-->
         <item name="android:windowIsTranslucent">true</item><!--是否窗体半透明-->
+        <item name="android:windowCloseOnTouchOutside">true</item><!--是否点击周围关闭弹窗-->
         <item name="android:windowBackground">@android:color/transparent</item>
         <!--<item name="android:windowSoftInputMode">adjustPan|stateHidden</item>-->
+        <item name="android:windowFullscreen">true</item> <!-- 是否窗体全屏 -->
+    </style>
+
+    <style name="DialogActivityMaterialComponent" parent="@style/Theme.MaterialComponents.Dialog.Alert">
+        <item name="windowNoTitle">true</item><!--是否没有标题 -->
+        <item name="android:background">@android:color/transparent</item>
+        <item name="android:backgroundDimEnabled">true</item><!--是否背景模糊-->
+        <item name="android:windowFrame">@null</item><!--可绘制用在窗口周围的框架-->
+        <item name="android:windowActionBar">false</item><!--是否没有窗体活动栏-->
+        <item name="android:windowIsFloating">true</item><!--是否浮现在activity之上-->
+        <item name="android:windowContentOverlay">@null</item><!--覆盖在窗体内容的前景上，通常在标题下发放一个阴影-->
+        <item name="android:windowSoftInputMode">stateAlwaysHidden</item><!--默认软输状态-->
+        <!--<item name="android:windowSoftInputMode">adjustPan|stateHidden</item>-->
+        <item name="android:windowIsTranslucent">true</item><!--是否窗体半透明-->
+        <item name="android:windowCloseOnTouchOutside">true</item><!--是否点击周围关闭弹窗-->
+        <item name="android:windowBackground">@android:color/transparent</item><!--整体窗口背景-->
         <item name="android:windowFullscreen">true</item> <!-- 是否窗体全屏 -->
     </style>
 </resources>

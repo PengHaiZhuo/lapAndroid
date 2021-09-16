@@ -35,7 +35,8 @@
     <string name="resume">恢复</string>
     <string name="confirm">确认</string>
     <string name="cancel">取消</string>
-    
+    <string name="commit">提交</string>
+
     <string-array name="items_dialog_learn">
         <item>Red</item>
         <item>Yellow</item>

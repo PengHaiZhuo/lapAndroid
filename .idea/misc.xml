@@ -3,6 +3,8 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Android/.gradle/caches/transforms-3/de7c8c9c946855800e80b66914d20eee/transformed/jetified-core-3.3.0/res/drawable-v21/md_btn_shape.xml" value="0.23229166666666667" />
+        <entry key="..\:/Android/.gradle/caches/transforms-3/de7c8c9c946855800e80b66914d20eee/transformed/jetified-core-3.3.0/res/drawable-v21/md_item_shape.xml" value="0.23229166666666667" />
         <entry key="..\:/Android/Sdk/platforms/android-30/data/res/layout/simple_list_item_1.xml" value="0.1484375" />
         <entry key="..\:/haizhuo/Download/dev/app/src/main/res/drawable/anim_maomao.xml" value="0.31302083333333336" />
         <entry key="..\:/haizhuo/Download/dev/app/src/main/res/drawable/bg_bottom_sheet.xml" value="0.20729166666666668" />
@@ -49,6 +51,7 @@
         <entry key="..\:/haizhuo/Download/dev/app/src/main/res/layout/activity_viewpager2_simple_slider.xml" value="0.19635416666666666" />
         <entry key="..\:/haizhuo/Download/dev/app/src/main/res/layout/activity_viewstub_learn.xml" value="0.23052536231884058" />
         <entry key="..\:/haizhuo/Download/dev/app/src/main/res/layout/app_bar_drawer_learn.xml" value="0.19635416666666666" />
+        <entry key="..\:/haizhuo/Download/dev/app/src/main/res/layout/custom_genshin_user_reflect.xml" value="0.33" />
         <entry key="..\:/haizhuo/Download/dev/app/src/main/res/layout/dialog_date.xml" value="0.2441123188405797" />
         <entry key="..\:/haizhuo/Download/dev/app/src/main/res/layout/dialog_date_picker.xml" value="0.12635869565217392" />
         <entry key="..\:/haizhuo/Download/dev/app/src/main/res/layout/dialog_lottie_diona.xml" value="0.2259963768115942" />

@@ -80,7 +80,7 @@
         <activity android:name=".feature.practice.dialog.DialogLearnActivity" />
         <activity
             android:name=".feature.practice.dialog.activity.DialogSampleActivity"
-            android:theme="@android:style/Theme.Material.Dialog" />
+            android:theme="@style/DialogActivityMaterialComponent" />
 
     </application>
 
