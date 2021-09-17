@@ -12,6 +12,7 @@ import com.phz.dev.feature.practice.animation.lottie.LottieLearnActivity
 import com.phz.dev.feature.practice.dialog.DialogLearnActivity
 import com.phz.dev.feature.practice.mlkit.scan.MlKitScanMenuActivity
 import com.phz.dev.feature.practice.popupwindow.dropdownmenu.ui.activity.DropDownMenuActivity
+import com.phz.dev.feature.practice.screenrecord.ScreenRecordActivity
 import com.phz.dev.feature.practice.toolbar.DrawerLayoutLearnActivity
 import com.phz.dev.feature.practice.viewstub.ViewStubLearnActivity
 
@@ -25,6 +26,7 @@ class PracticeMainActivity :
 
     companion object {
         val practiceNames = arrayListOf(
+            "Screen Record",
             "ViewPager Transformer",
             "Lottie",
             "Scan",
@@ -41,6 +43,9 @@ class PracticeMainActivity :
         mAdapter.setOnItemClick(object : OnItemClickListener<String> {
             override fun onClick(bean: String, position: Int) {
                 when (bean) {
+                    "Screen Record" -> {
+                        startKtxActivity<ScreenRecordActivity>()
+                    }
                     "ViewPager Transformer" -> {
                         startKtxActivity<ViewPagerSimpleSliderActivity>()
                     }
