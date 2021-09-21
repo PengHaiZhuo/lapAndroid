@@ -3,6 +3,7 @@ package com.phz.dev.feature.main
 import android.os.Bundle
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
+import com.gyf.immersionbar.ktx.immersionBar
 import com.phz.common.page.activity.BaseVmDbPureActivity
 import com.phz.common.state.BaseViewModel
 import com.phz.dev.R
@@ -23,6 +24,10 @@ class MainActivity : BaseVmDbPureActivity<BaseViewModel, ActivityMainBinding>() 
         val navHostFragment =
             supportFragmentManager.findFragmentById(R.id.nav_host_container) as NavHostFragment
         mViewDataBinding.bottomNav.setupWithNavController(navHostFragment.navController)
+        immersionBar {
+            statusBarColor(R.color.colorPrimary)
+            autoDarkModeEnable(true)
+        }
     }
 
     override fun layoutId(): Int = R.layout.activity_main

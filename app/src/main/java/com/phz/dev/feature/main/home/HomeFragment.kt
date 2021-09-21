@@ -25,10 +25,6 @@ class HomeFragment : BaseVmDbPureFragment<BaseViewModel, FragmentHomeBinding>() 
 
     override fun onResume() {
         super.onResume()
-        immersionBar {
-            statusBarColor(R.color.white)
-            autoDarkModeEnable(true)
-        }
 
     }
 }

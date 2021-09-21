@@ -26,7 +26,7 @@ class ScreenRecordActivity : BaseVmDbActivity<BaseViewModel, ActivityScreenRecor
     inner class ClickProxy {
 
         fun clickMpAndroidChart() {
-
+            
         }
     }
 

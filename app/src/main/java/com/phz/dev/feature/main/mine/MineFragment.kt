@@ -31,10 +31,6 @@ class MineFragment : BaseVmDbPureFragment<MineViewModel, FragmentMineBinding>() 
 
     override fun onResume() {
         super.onResume()
-        immersionBar {
-            statusBarColor(R.color.colorPrimary)
-            autoDarkModeEnable(true)
-        }
     }
 
     override fun initView(savedInstanceState: Bundle?) {
