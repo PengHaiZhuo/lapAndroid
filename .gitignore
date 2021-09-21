@@ -11,12 +11,10 @@
 /.idea/vcs.xml
 /.idea/misc.xml
 .DS_Store
-
 /build
 /buildSrc/build
 /app/build
 /common/build
-
 /captures
 .externalNativeBuild
 .cxx

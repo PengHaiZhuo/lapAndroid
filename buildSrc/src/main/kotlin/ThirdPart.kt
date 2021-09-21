@@ -95,6 +95,11 @@ object ThirdPart {
 
     //console
     const val console ="com.jraska:console:1.2.0"
+
+    //lottie用来加载json动画
+    // 你可以使用转换工具将mp4转换成json【https://isotropic.co/video-to-lottie/】
+    // 去这里下载素材【https://lottiefiles.com/】
+    const val lottie ="com.airbnb.android:lottie:4.1.0"
     /*******************************窗口、控件和相关工具***********************************/
 
     /*******************************依赖注入***********************************/

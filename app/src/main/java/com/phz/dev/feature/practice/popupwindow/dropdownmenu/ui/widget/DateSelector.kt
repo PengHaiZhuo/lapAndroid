@@ -1,4 +1,4 @@
-package com.phz.dev.feature.practice.popupwindow.dropdownmenu.ui.window.dialog
+package com.phz.dev.feature.practice.popupwindow.dropdownmenu.ui.widget
 
 import android.animation.ObjectAnimator
 import android.animation.PropertyValuesHolder
@@ -83,12 +83,12 @@ class DateSelector {
         }
     }
 
-    constructor(context: Context?, handler: ResultHandler?,startDate: String,endDate: String,selectDate: String) {
+    constructor(context: Context?, handler: ResultHandler?, startDate: String, endDate: String, selectDate: String) {
         this.context = context
         this.handler = handler
-        selectedCalender.time = TimeUtil.format(selectDate,FORMAT_DATE)
-        startCalendar.time =TimeUtil.format(startDate,FORMAT_DATE)
-        endCalendar.time =TimeUtil.format(endDate,FORMAT_DATE)
+        selectedCalender.time = TimeUtil.format(selectDate, FORMAT_DATE)
+        startCalendar.time =TimeUtil.format(startDate, FORMAT_DATE)
+        endCalendar.time =TimeUtil.format(endDate, FORMAT_DATE)
         initDialog()
         initView()
     }
@@ -122,7 +122,7 @@ class DateSelector {
             selectorDialog.dismiss()
         }
         tv_select!!.setOnClickListener {
-            handler?.handle(TimeUtil.format(selectedCalender.time,FORMAT_DATE))
+            handler?.handle(TimeUtil.format(selectedCalender.time, FORMAT_DATE))
             selectorDialog.dismiss()
         }
     }
@@ -138,7 +138,7 @@ class DateSelector {
         endYear=endCalendar.get(Calendar.YEAR)
         endMonth=endCalendar.get(Calendar.MONTH)+1
         endDay=endCalendar.get(Calendar.DAY_OF_MONTH)
-        selectedCalender.time = TimeUtil.format(selectDate,FORMAT_DATE)
+        selectedCalender.time = TimeUtil.format(selectDate, FORMAT_DATE)
 
         yearList.clear()
         monthList.clear()
@@ -172,9 +172,9 @@ class DateSelector {
         year_pv!!.setData(yearList)
         month_pv!!.setData(monthList)
         day_pv!!.setData(dayList)
-        year_pv!!.setSelected(TimeUtil.getYear(TimeUtil.format(selectDate,FORMAT_DATE)))
-        month_pv!!.setSelected(TimeUtil.getMonth(TimeUtil.format(selectDate,FORMAT_DATE)))
-        day_pv!!.setSelected(TimeUtil.getDay(TimeUtil.format(selectDate,FORMAT_DATE)))
+        year_pv!!.setSelected(TimeUtil.getYear(TimeUtil.format(selectDate, FORMAT_DATE)))
+        month_pv!!.setSelected(TimeUtil.getMonth(TimeUtil.format(selectDate, FORMAT_DATE)))
+        day_pv!!.setSelected(TimeUtil.getDay(TimeUtil.format(selectDate, FORMAT_DATE)))
         year_pv!!.setCanScroll(yearList.size > 1)
         month_pv!!.setCanScroll(monthList.size > 1)
         day_pv!!.setCanScroll(dayList.size > 1)

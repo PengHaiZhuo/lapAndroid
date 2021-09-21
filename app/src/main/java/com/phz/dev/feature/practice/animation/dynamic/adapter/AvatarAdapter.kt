@@ -1,4 +1,4 @@
-package com.phz.dev.feature.practice.animation.adapter
+package com.phz.dev.feature.practice.animation.dynamic.adapter
 
 import android.view.LayoutInflater
 import android.view.View
@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.phz.common.databinding.MineBindingAdapter.circleImageUrlRes
 import com.phz.dev.R
 import com.phz.dev.databinding.ItemAvatarBinding
-import com.phz.dev.feature.practice.animation.data.model.GenShinRole
+import com.phz.dev.feature.practice.animation.dynamic.data.model.GenShinRole
 import org.jetbrains.annotations.NotNull
 
 /**

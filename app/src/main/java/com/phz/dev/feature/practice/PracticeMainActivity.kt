@@ -7,9 +7,12 @@ import com.phz.common.page.activity.BaseVmDbActivity
 import com.phz.common.page.adapter.OnItemClickListener
 import com.phz.dev.R
 import com.phz.dev.databinding.ActivityPracticeMainBinding
-import com.phz.dev.feature.practice.animation.ViewPagerSimpleSliderActivity
+import com.phz.dev.feature.practice.animation.dynamic.ViewPagerSimpleSliderActivity
+import com.phz.dev.feature.practice.animation.lottie.LottieLearnActivity
+import com.phz.dev.feature.practice.dialog.DialogLearnActivity
 import com.phz.dev.feature.practice.mlkit.scan.MlKitScanMenuActivity
 import com.phz.dev.feature.practice.popupwindow.dropdownmenu.ui.activity.DropDownMenuActivity
+import com.phz.dev.feature.practice.screenrecord.ScreenRecordActivity
 import com.phz.dev.feature.practice.toolbar.DrawerLayoutLearnActivity
 import com.phz.dev.feature.practice.viewstub.ViewStubLearnActivity
 
@@ -23,13 +26,16 @@ class PracticeMainActivity :
 
     companion object {
         val practiceNames = arrayListOf(
+            "Screen Record",
             "ViewPager Transformer",
+            "Lottie",
             "Scan",
             "DrawerLayout",
             "PopupWindow",
 //            "CollapsingToolbarLayout",
             "ViewStub"
 //        ,"CountDownLatch"
+            , "Dialog"
         )
     }
 
@@ -37,8 +43,14 @@ class PracticeMainActivity :
         mAdapter.setOnItemClick(object : OnItemClickListener<String> {
             override fun onClick(bean: String, position: Int) {
                 when (bean) {
+                    "Screen Record" -> {
+                        startKtxActivity<ScreenRecordActivity>()
+                    }
                     "ViewPager Transformer" -> {
                         startKtxActivity<ViewPagerSimpleSliderActivity>()
+                    }
+                    "Lottie" -> {
+                        startKtxActivity<LottieLearnActivity>()
                     }
                     "Scan" -> {
                         startKtxActivity<MlKitScanMenuActivity>()
@@ -51,6 +63,9 @@ class PracticeMainActivity :
                     }
                     "ViewStub" -> {
                         startKtxActivity<ViewStubLearnActivity>()
+                    }
+                    "Dialog" -> {
+                        startKtxActivity<DialogLearnActivity>()
                     }
                 }
             }

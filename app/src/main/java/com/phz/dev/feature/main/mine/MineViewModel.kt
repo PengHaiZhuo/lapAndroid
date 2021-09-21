@@ -22,4 +22,7 @@ class MineViewModel : BaseViewModel() {
 
     //头像url
     val imgUrl = R.drawable.ic_saber
+
+    //gif头像
+    val gifUrl = R.raw.xiangling
 }

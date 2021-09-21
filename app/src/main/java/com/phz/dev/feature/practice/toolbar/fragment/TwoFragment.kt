@@ -11,7 +11,8 @@ import com.phz.dev.R
  * @author phz
  * @description
  */
-class TwoFragment : Fragment(){
+class TwoFragment : Fragment() {
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -19,4 +20,5 @@ class TwoFragment : Fragment(){
     ): View? {
         return inflater.inflate(R.layout.fragment_drawer_practice_two, container, false)
     }
+
 }
