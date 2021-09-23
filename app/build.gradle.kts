@@ -167,4 +167,8 @@ dependencies {
     implementation(Google.barcode_scanning)
     //lottie
     implementation(ThirdPart.lottie)
+    //ExoPlayer相关
+    implementation(ThirdPart.ExoPlayer.core)
+    implementation(ThirdPart.ExoPlayer.ui)
+    implementation(ThirdPart.ExoPlayer.hls)
 }

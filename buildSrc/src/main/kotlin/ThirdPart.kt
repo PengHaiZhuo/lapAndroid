@@ -47,6 +47,22 @@ object ThirdPart {
     }
     /*******************************图片E***********************************/
 
+    /*******************************播放器S***********************************/
+    object ExoPlayer{
+        private const val exo_player_version="2.15.0"
+        //完整依赖
+        const val all="com.google.android.exoplayer:exoplayer:$exo_player_version"
+        //核心依赖
+        const val core="com.google.android.exoplayer:exoplayer-core:$exo_player_version"
+        const val dash="com.google.android.exoplayer:exoplayer-dash:$exo_player_version"
+        const val hls="com.google.android.exoplayer:exoplayer-hls:$exo_player_version"
+        const val rtsp="com.google.android.exoplayer:exoplayer-rtsp:$exo_player_version"
+        const val smoothstreaming="com.google.android.exoplayer:exoplayer-smoothstreaming:$exo_player_version"
+        const val transformer="com.google.android.exoplayer:exoplayer-transformer:$exo_player_version"
+        const val ui="com.google.android.exoplayer:exoplayer-ui:$exo_player_version"
+    }
+    /*******************************播放器E***********************************/
+
     /*******************************窗口、控件和相关工具***********************************/
     //顶部SnackBar
     const val topSnackBar = "com.github.PengHaiZhuo:TSnackBar:1.1.1"
