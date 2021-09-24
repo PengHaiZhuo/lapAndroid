@@ -81,8 +81,8 @@
         <activity
             android:name=".feature.practice.dialog.activity.DialogSampleActivity"
             android:theme="@style/DialogActivityMaterialComponent" />
-        <activity android:name=".feature.practice.screenrecord.ScreenRecordActivity"/>
-
+        <activity android:name=".feature.practice.screenrecord.ScreenRecordActivity" />
+        <activity android:name=".feature.practice.screenrecord.ExoPlayerActivity" />
     </application>
 
 </manifest>

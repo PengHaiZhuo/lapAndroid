@@ -25,9 +25,37 @@ class ScreenRecordActivity : BaseVmDbActivity<BaseViewModel, ActivityScreenRecor
 
     inner class ClickProxy {
 
-        fun clickMpAndroidChart() {
-            
+        fun clickCarStatistics() {
+            ExoPlayerActivity.start(
+                this@ScreenRecordActivity,
+                ExoPlayerActivity.Companion.TYPE.CAR_STATISTICS
+            )
         }
+
+        fun clickTurboStatistics() {
+            ExoPlayerActivity.start(
+                this@ScreenRecordActivity,
+                ExoPlayerActivity.Companion.TYPE.TURBO_STATISTICS
+            )
+
+        }
+
+        fun clickWindStatistics() {
+            ExoPlayerActivity.start(
+                this@ScreenRecordActivity,
+                ExoPlayerActivity.Companion.TYPE.WIND_STATISTICS
+            )
+
+        }
+
+        fun clickBluetoothHp() {
+            ExoPlayerActivity.start(
+                this@ScreenRecordActivity,
+                ExoPlayerActivity.Companion.TYPE.BLUETOOTH_HELPER
+            )
+
+        }
+
     }
 
 }
