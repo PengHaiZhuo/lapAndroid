@@ -5,11 +5,13 @@ import android.content.Intent
 import android.os.Build
 import android.os.Bundle
 import android.view.View
+import androidx.core.view.get
 import com.google.android.exoplayer2.*
 import com.google.android.exoplayer2.trackselection.DefaultTrackSelector
 import com.google.android.exoplayer2.util.Util
+import com.gyf.immersionbar.ktx.immersionBar
 import com.phz.common.ext.logE
-import com.phz.common.page.activity.BaseVmDbActivity
+import com.phz.common.page.activity.BaseVmDbPureActivity
 import com.phz.common.state.BaseViewModel
 import com.phz.dev.R
 import com.phz.dev.databinding.ActivityExoPlayerBinding
@@ -19,7 +21,7 @@ import kotlin.math.max
  * @author phz on 2021/9/22
  * @description
  */
-class ExoPlayerActivity : BaseVmDbActivity<BaseViewModel, ActivityExoPlayerBinding>() {
+class ExoPlayerActivity : BaseVmDbPureActivity<BaseViewModel, ActivityExoPlayerBinding>() {
     private var type: TYPE? = null
     private var url: String = ""
     private val playerEventListener: Player.Listener = playEventListener()
@@ -115,6 +117,7 @@ class ExoPlayerActivity : BaseVmDbActivity<BaseViewModel, ActivityExoPlayerBindi
                 simpleExoPlayer.setMediaItem(mediaItem)
                 simpleExoPlayer.playWhenReady = playWhenReady
                 simpleExoPlayer.seekTo(currentWindow, playPosition)
+                //添加事件监听
                 simpleExoPlayer.addListener(playerEventListener)
                 simpleExoPlayer.prepare()
             }
@@ -135,34 +138,6 @@ class ExoPlayerActivity : BaseVmDbActivity<BaseViewModel, ActivityExoPlayerBindi
         player = null
     }
 
-
-    override fun initData() {
-        type = intent.extras?.get(KEY_TYPE) as TYPE
-        type?.let {
-            url = when (it) {
-                TYPE.CAR_STATISTICS -> {
-                    "https://cdn.jsdelivr.net/gh/GuberP/mResouce/vedio/car_statistics.mp4"
-                }
-                TYPE.WIND_STATISTICS -> {
-                    "https://cdn.jsdelivr.net/gh/GuberP/mResouce/vedio/wind_statistics.mp4"
-                }
-                TYPE.TURBO_STATISTICS -> {
-                    "https://cdn.jsdelivr.net/gh/GuberP/mResouce/vedio/turbo_statistics.mp4"
-                }
-                TYPE.BLUETOOTH_HELPER -> {
-                    "https://cdn.jsdelivr.net/gh/GuberP/mResouce/vedio/bluetooth_hp.mp4"
-                }
-            }
-        }
-
-    }
-
-    override fun initView(savedInstanceState: Bundle?) {
-        mToolbar.setNavigationIcon(R.drawable.ic_arrow_left_white)
-        mToolbar.setNavigationOnClickListener { onBackPressed() }
-        centerTextView.text = "录屏"
-
-    }
 
     companion object {
         const val KEY_TYPE = "type"
@@ -208,5 +183,52 @@ class ExoPlayerActivity : BaseVmDbActivity<BaseViewModel, ActivityExoPlayerBindi
         override fun onPlayerError(error: PlaybackException) {
             super.onPlayerError(error)
         }
+    }
+
+    override fun layoutId(): Int = R.layout.activity_exo_player
+    override fun initView(savedInstanceState: Bundle?) {
+        val mToolbar = mViewDataBinding.mToolbar
+        //初始化沉浸式
+        setSupportActionBar(mViewDataBinding.mToolbar)
+        supportActionBar?.title = ""
+        immersionBar {
+            titleBar(mToolbar)
+            statusBarColor(R.color.colorTransparent)
+            autoStatusBarDarkModeEnable(true)
+        }
+        mToolbar.setNavigationIcon(R.drawable.ic_arrow_left_white)
+        mToolbar.setNavigationOnClickListener { onBackPressed() }
+        mViewDataBinding.stylePlayer.setControllerVisibilityListener {
+            //根据StyledPlayerControlView的显示状态，设置toolbar的返回按钮
+            when (it) {
+                View.VISIBLE -> {
+                    mToolbar[0].visibility = View.VISIBLE
+                }
+                else -> {
+                    mToolbar[0].visibility = View.GONE
+                }
+            }
+        }
+    }
+
+    override fun initData() {
+        type = intent.extras?.get(KEY_TYPE) as TYPE
+        type?.let {
+            url = when (it) {
+                TYPE.CAR_STATISTICS -> {
+                    "https://cdn.jsdelivr.net/gh/GuberP/mResouce/vedio/car_statistics.mp4"
+                }
+                TYPE.WIND_STATISTICS -> {
+                    "https://cdn.jsdelivr.net/gh/GuberP/mResouce/vedio/wind_statistics.mp4"
+                }
+                TYPE.TURBO_STATISTICS -> {
+                    "https://cdn.jsdelivr.net/gh/GuberP/mResouce/vedio/turbo_statistics.mp4"
+                }
+                TYPE.BLUETOOTH_HELPER -> {
+                    "https://cdn.jsdelivr.net/gh/GuberP/mResouce/vedio/bluetooth_hp.mp4"
+                }
+            }
+        }
+
     }
 }
