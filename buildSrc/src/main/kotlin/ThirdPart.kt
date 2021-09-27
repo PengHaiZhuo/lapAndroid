@@ -179,4 +179,7 @@ object ThirdPart {
     //ARouter
     const val aRouter ="com.alibaba:arouter-api:1.5.2"
     const val aRouterCompiler ="com.alibaba:arouter-compiler:1.5.2"
+
+    //Android-Iconics
+    const val icon_mike="com.mikepenz:iconics-core:5.3.1"
 }

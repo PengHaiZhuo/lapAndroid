@@ -10,6 +10,7 @@ import com.phz.dev.databinding.ActivityPracticeMainBinding
 import com.phz.dev.feature.practice.animation.dynamic.ViewPagerSimpleSliderActivity
 import com.phz.dev.feature.practice.animation.lottie.LottieLearnActivity
 import com.phz.dev.feature.practice.dialog.DialogLearnActivity
+import com.phz.dev.feature.practice.list.listview.StudentListActivity
 import com.phz.dev.feature.practice.mlkit.scan.MlKitScanMenuActivity
 import com.phz.dev.feature.practice.popupwindow.dropdownmenu.ui.activity.DropDownMenuActivity
 import com.phz.dev.feature.practice.screenrecord.ScreenRecordActivity
@@ -35,7 +36,8 @@ class PracticeMainActivity :
 //            "CollapsingToolbarLayout",
             "ViewStub"
 //        ,"CountDownLatch"
-            , "Dialog"
+            , "Dialog",
+            "ExpandableListView"
         )
     }
 
@@ -66,6 +68,9 @@ class PracticeMainActivity :
                     }
                     "Dialog" -> {
                         startKtxActivity<DialogLearnActivity>()
+                    }
+                    "ExpandableListView" ->{
+                        startKtxActivity<StudentListActivity>()
                     }
                 }
             }

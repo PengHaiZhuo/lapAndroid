@@ -83,6 +83,7 @@
             android:theme="@style/DialogActivityMaterialComponent" />
         <activity android:name=".feature.practice.screenrecord.ScreenRecordActivity" />
         <activity android:name=".feature.practice.screenrecord.ExoPlayerActivity" />
+        <activity android:name=".feature.practice.list.listview.StudentListActivity" />
     </application>
 
 </manifest>
