@@ -5,9 +5,13 @@
       <map>
         <entry key="..\:/Android/.gradle/caches/transforms-3/de7c8c9c946855800e80b66914d20eee/transformed/jetified-core-3.3.0/res/drawable-v21/md_btn_shape.xml" value="0.23229166666666667" />
         <entry key="..\:/Android/.gradle/caches/transforms-3/de7c8c9c946855800e80b66914d20eee/transformed/jetified-core-3.3.0/res/drawable-v21/md_item_shape.xml" value="0.23229166666666667" />
+        <entry key="..\:/Android/.gradle/caches/transforms-3/deb7a4d797bcaf799bc4746aaa87a276/transformed/jetified-core-3.3.0/res/drawable-v21/md_item_shape.xml" value="0.31979166666666664" />
+        <entry key="..\:/Android/Sdk/platforms/android-30/data/res/layout/simple_dropdown_item_1line.xml" value="0.23731884057971014" />
         <entry key="..\:/Android/Sdk/platforms/android-30/data/res/layout/simple_list_item_1.xml" value="0.1484375" />
         <entry key="..\:/haizhuo/Download/dev/app/src/main/res/drawable/anim_maomao.xml" value="0.31302083333333336" />
+        <entry key="..\:/haizhuo/Download/dev/app/src/main/res/drawable/bg_Item_white_c5.xml" value="0.31979166666666664" />
         <entry key="..\:/haizhuo/Download/dev/app/src/main/res/drawable/bg_bottom_sheet.xml" value="0.20729166666666668" />
+        <entry key="..\:/haizhuo/Download/dev/app/src/main/res/drawable/bg_item_c_white.xml" value="0.31979166666666664" />
         <entry key="..\:/haizhuo/Download/dev/app/src/main/res/drawable/ic_add_list_item.xml" value="0.2515625" />
         <entry key="..\:/haizhuo/Download/dev/app/src/main/res/drawable/ic_arrow_left.xml" value="0.15989583333333332" />
         <entry key="..\:/haizhuo/Download/dev/app/src/main/res/drawable/ic_arrow_right.xml" value="0.15989583333333332" />
@@ -36,6 +40,7 @@
         <entry key="..\:/haizhuo/Download/dev/app/src/main/res/layout/activity_dialog_sample.xml" value="0.20729166666666668" />
         <entry key="..\:/haizhuo/Download/dev/app/src/main/res/layout/activity_drawer_layout_learn.xml" value="0.22" />
         <entry key="..\:/haizhuo/Download/dev/app/src/main/res/layout/activity_drop_dwon_menu.xml" value="0.2441123188405797" />
+        <entry key="..\:/haizhuo/Download/dev/app/src/main/res/layout/activity_drop_dwon_ti.xml" value="0.23731884057971014" />
         <entry key="..\:/haizhuo/Download/dev/app/src/main/res/layout/activity_exo_player.xml" value="0.2807971014492754" />
         <entry key="..\:/haizhuo/Download/dev/app/src/main/res/layout/activity_login.xml" value="0.25" />
         <entry key="..\:/haizhuo/Download/dev/app/src/main/res/layout/activity_lottie_learn.xml" value="0.2259963768115942" />

@@ -9,7 +9,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import com.google.android.material.checkbox.MaterialCheckBox
 import com.phz.dev.R
-import com.phz.dev.feature.practice.list.listview.model.ClassRoom
+import com.phz.dev.feature.practice.list.listview.model.ClassRoomBean
 
 
 /**
@@ -18,7 +18,7 @@ import com.phz.dev.feature.practice.list.listview.model.ClassRoom
  */
 class ClassRoomAdapter(
     private val mContext: Context,
-    private val classRoomList: List<ClassRoom>,
+    private val classRoomList: List<ClassRoomBean>,
     private val onChildItemClickListener: OnItemClickListener
 ) :
     BaseExpandableListAdapter() {
