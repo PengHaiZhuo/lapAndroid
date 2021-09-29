@@ -20,6 +20,7 @@ import com.phz.dev.feature.practice.list.listview.model.StudentBean
  * 关于左右侧滑Item的列表，可以参考开源项目SwipeRecyclerView
  */
 class StudentListActivity : BaseVmDbActivity<BaseViewModel, ActivityStudentListBinding>() {
+
     var classList = arrayListOf(
         ClassRoomBean("3年1班", arrayListOf(StudentBean("张电"), StudentBean("李电"), StudentBean("王树林"))),
         ClassRoomBean("3年2班", arrayListOf(StudentBean("赵一"), StudentBean("钱二"), StudentBean("孙三"))),

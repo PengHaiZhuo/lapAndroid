@@ -84,8 +84,10 @@
         <activity android:name=".feature.practice.screenrecord.ScreenRecordActivity" />
         <activity android:name=".feature.practice.screenrecord.ExoPlayerActivity" />
         <activity android:name=".feature.practice.list.listview.StudentListActivity" />
-        <activity android:name=".feature.practice.list.listview.DropDownMenuTlActivity"
-            android:windowSoftInputMode="stateAlwaysHidden"/>
+        <activity
+            android:name=".feature.practice.list.listview.DropDownMenuTlActivity"
+            android:windowSoftInputMode="stateAlwaysHidden" />
+        <activity android:name=".feature.practice.list.recycleview.GenShinRoleActivity" />
     </application>
 
 </manifest>
