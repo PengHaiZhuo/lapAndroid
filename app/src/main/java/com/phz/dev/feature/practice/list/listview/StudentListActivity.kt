@@ -15,8 +15,8 @@ import com.phz.dev.feature.practice.list.listview.model.StudentBean
 /**
  * @author phz on 2021/9/26
  * @description 学生列表
- * 关于3层及以上的扩展列表，可以参考开源项目 BaseRecyclerViewAdapterHelper中的Expandable Item
- * 关于2级联动列表，可以参考开源项目 Linkage-RecyclerView
+ * 关于3层及以上的扩展列表，可以参考开源项目 BaseRecyclerViewAdapterHelper中的Expandable Item，或者通过嵌套多层ExpandableListView(这非常麻烦)
+ * 关于饿了么2级联动列表，可以参考开源项目 Linkage-RecyclerView
  * 关于左右侧滑Item的列表，可以参考开源项目SwipeRecyclerView
  */
 class StudentListActivity : BaseVmDbActivity<BaseViewModel, ActivityStudentListBinding>() {
