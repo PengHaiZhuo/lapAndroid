@@ -45,6 +45,8 @@ object ThirdPart {
         const val glide = "com.github.bumptech.glide:glide:$glide_version"
         const val compiler = "com.github.bumptech.glide:compiler:$glide_version"
     }
+    //线圈（Kotlin 协程支持的 Android 图像加载库）
+    const val coil="io.coil-kt:coil:1.3.2"
     /*******************************图片E***********************************/
 
     /*******************************播放器S***********************************/

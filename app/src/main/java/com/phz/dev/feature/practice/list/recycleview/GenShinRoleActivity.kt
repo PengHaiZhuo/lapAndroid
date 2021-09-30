@@ -2,15 +2,22 @@ package com.phz.dev.feature.practice.list.recycleview
 
 import android.graphics.Color
 import android.os.Bundle
+import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.repeatOnLifecycle
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.phz.common.ext.dismissLoadingExt
+import com.phz.common.ext.logE
 import com.phz.common.ext.showLoadingExt
+import com.phz.common.ext.view.vertical
 import com.phz.common.page.activity.BaseVmDbActivity
 import com.phz.dev.R
 import com.phz.dev.databinding.ActivityGenshinRoleBinding
+import com.phz.dev.feature.practice.list.recycleview.adapter.GenShinRoleAdapter
 import com.phz.dev.feature.practice.list.recycleview.state.GenShinRoleListViewModel
 import kotlinx.coroutines.delay
+import kotlinx.coroutines.flow.collect
+import kotlinx.coroutines.launch
 
 /**
  * @author phz on 2021/9/29
@@ -18,29 +25,27 @@ import kotlinx.coroutines.delay
  */
 class GenShinRoleActivity :
     BaseVmDbActivity<GenShinRoleListViewModel, ActivityGenshinRoleBinding>() {
-    override fun initData() {
-        mViewDataBinding.swipeGenshinRole.apply {
-            setSize(SwipeRefreshLayout.DEFAULT) //设置尺寸
-            setColorSchemeResources(
-                android.R.color.holo_blue_bright,
-                android.R.color.holo_green_light,
-                android.R.color.holo_orange_light,
-                android.R.color.holo_red_light
-            )//设置刷新时颜色变换
-            setBackgroundColor(Color.WHITE)//设置背景色
-            setDistanceToTriggerSync(96)//设置下拉距离
-            setOnRefreshListener {
-                lifecycleScope.launchWhenResumed {
-                    //模拟网络加载
-                    showLoadingExt()
-                    delay(1000)
-                    //更改列表数据
 
-                    dismissLoadingExt()
+    private lateinit var mAdapter:GenShinRoleAdapter
+
+    override fun initData() {
+        mAdapter=GenShinRoleAdapter()
+        mViewDataBinding.rvGenshinRole.apply {
+            vertical()
+            adapter=mAdapter
+        }
+        lifecycleScope.launch {
+            //模拟网络请求
+            mViewModel.showLoading.value=true
+            delay(1000)
+            mViewModel.showLoading.value=false
+            lifecycle.repeatOnLifecycle(Lifecycle.State.STARTED){
+                mViewModel.roles.collect {
+                    mAdapter.submitList(it)
+                    "submitList".logE()
                 }
             }
         }
-
     }
 
     override fun initView(savedInstanceState: Bundle?) {

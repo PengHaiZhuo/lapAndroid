@@ -19,6 +19,8 @@
         <entry key="..\:/haizhuo/Download/dev/app/src/main/res/drawable/ic_collect.xml" value="0.30462962962962964" />
         <entry key="..\:/haizhuo/Download/dev/app/src/main/res/drawable/ic_drawer.xml" value="0.31851851851851853" />
         <entry key="..\:/haizhuo/Download/dev/app/src/main/res/drawable/ic_exit.xml" value="0.15989583333333332" />
+        <entry key="..\:/haizhuo/Download/dev/app/src/main/res/drawable/ic_like_selected.xml" value="0.253125" />
+        <entry key="..\:/haizhuo/Download/dev/app/src/main/res/drawable/ic_like_unselected.xml" value="0.22083333333333333" />
         <entry key="..\:/haizhuo/Download/dev/app/src/main/res/drawable/ic_not_collect.xml" value="0.30462962962962964" />
         <entry key="..\:/haizhuo/Download/dev/app/src/main/res/drawable/ic_pwd.xml" value="0.2703125" />
         <entry key="..\:/haizhuo/Download/dev/app/src/main/res/drawable/ic_sacn.xml" value="0.30462962962962964" />
@@ -33,6 +35,7 @@
         <entry key="..\:/haizhuo/Download/dev/app/src/main/res/drawable/selector_click_state_txt_color.xml" value="0.228125" />
         <entry key="..\:/haizhuo/Download/dev/app/src/main/res/drawable/selector_click_state_txt_color_blue.xml" value="0.228125" />
         <entry key="..\:/haizhuo/Download/dev/app/src/main/res/drawable/selector_click_state_view_bg.xml" value="0.228125" />
+        <entry key="..\:/haizhuo/Download/dev/app/src/main/res/drawable/selector_like.xml" value="0.22083333333333333" />
         <entry key="..\:/haizhuo/Download/dev/app/src/main/res/font/myfont.xml" value="0.2490740740740741" />
         <entry key="..\:/haizhuo/Download/dev/app/src/main/res/layout/activity_collapsing_learn.xml" value="0.22604166666666667" />
         <entry key="..\:/haizhuo/Download/dev/app/src/main/res/layout/activity_count_down_latch_learn.xml" value="0.22239583333333332" />

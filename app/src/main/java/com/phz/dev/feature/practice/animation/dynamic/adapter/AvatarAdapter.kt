@@ -34,7 +34,8 @@ class AvatarAdapter : RecyclerView.Adapter<AvatarAdapter.MyViewHolder>() {
     }
 
     fun addAll(list: MutableList<GenShinRole>) {
-        this.list = list
+        this.list.clear()
+        this.list.addAll(list)
         notifyDataSetChanged()
     }
 

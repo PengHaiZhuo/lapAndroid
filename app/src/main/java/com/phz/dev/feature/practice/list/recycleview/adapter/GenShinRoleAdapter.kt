@@ -6,20 +6,20 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.phz.common.databinding.MineBindingAdapter.circleImageUrlRes
 import com.phz.common.ext.logD
 import com.phz.dev.R
-import com.phz.dev.feature.practice.list.recycleview.adapter.diff.GenShinRoleDiffCallback
 import com.phz.dev.feature.practice.list.recycleview.model.GenShinRole
 
 /**
  * @author phz on 2021/9/29
  * @description
  */
-class GenShinRoleAdapter(private val callBack: GenShinRoleDiffCallback) :
-    ListAdapter<GenShinRole, GenShinRoleAdapter.MyViewHolder>(callBack) {
+class GenShinRoleAdapter() :
+    ListAdapter<GenShinRole, GenShinRoleAdapter.MyViewHolder>(GenShinRoleDiffCallback()) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
         val view = LayoutInflater.from(parent.context)
@@ -34,6 +34,9 @@ class GenShinRoleAdapter(private val callBack: GenShinRoleDiffCallback) :
             circleImageUrlRes(iv, item.imgResId)
             tvName.text = item.name
             tvDes.text = item.des
+            ivLike.setOnClickListener {
+
+            }
         }
     }
 
@@ -70,9 +73,44 @@ class GenShinRoleAdapter(private val callBack: GenShinRoleDiffCallback) :
     }
 
     inner class MyViewHolder(private val view: View) : RecyclerView.ViewHolder(view) {
-        var iv: ImageView = view.findViewById(R.id.iv_avatar)
-        var tvName: TextView = view.findViewById(R.id.tv_name)
-        var tvDes: TextView = view.findViewById(R.id.tv_des)
+        val iv: ImageView = view.findViewById(R.id.iv_avatar)
+        val tvName: TextView = view.findViewById(R.id.tv_name)
+        val tvDes: TextView = view.findViewById(R.id.tv_des)
+        val ivLike:ImageView=view.findViewById(R.id.iv_like)
     }
 
+}
+
+class GenShinRoleDiffCallback : DiffUtil.ItemCallback<GenShinRole>() {
+    companion object {
+        const val KEY_NAME = "NAME"
+        const val KEY_IMG = "IMG"
+        const val KEY_DES = "DES"
+    }
+
+    override fun areItemsTheSame(oldItem: GenShinRole, newItem: GenShinRole): Boolean {
+        return oldItem.id == newItem.id
+    }
+
+    override fun areContentsTheSame(oldItem: GenShinRole, newItem: GenShinRole): Boolean {
+        //当areItemsTheSame返回true，代表2个对象是同一个Item，在此方法进行细节比较
+        return oldItem.imgResId == newItem.imgResId || oldItem.des == newItem.des || oldItem.name == newItem.name
+    }
+
+    override fun getChangePayload(oldItem: GenShinRole, newItem: GenShinRole): Any? {
+        //获取有关更改的有效负载,具体处理移步Adapter的onBindViewHolder方法
+        //这样使用可以实现子item的局部刷新
+        var diffBundle = Bundle()
+        if (oldItem.name != newItem.name) {
+            diffBundle.putString(KEY_NAME, newItem.name)
+        }
+        if (oldItem.imgResId != newItem.imgResId) {
+            diffBundle.putInt(KEY_IMG, newItem.imgResId)
+        }
+        if (oldItem.des != newItem.des) {
+            diffBundle.putString(KEY_DES, newItem.des)
+        }
+        if (diffBundle.size() == 0) return null
+        return diffBundle
+    }
 }

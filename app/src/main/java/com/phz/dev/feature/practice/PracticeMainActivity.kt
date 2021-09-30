@@ -12,6 +12,7 @@ import com.phz.dev.feature.practice.animation.lottie.LottieLearnActivity
 import com.phz.dev.feature.practice.dialog.DialogLearnActivity
 import com.phz.dev.feature.practice.list.listview.DropDownMenuTlActivity
 import com.phz.dev.feature.practice.list.listview.StudentListActivity
+import com.phz.dev.feature.practice.list.recycleview.GenShinRoleActivity
 import com.phz.dev.feature.practice.mlkit.scan.MlKitScanMenuActivity
 import com.phz.dev.feature.practice.popupwindow.dropdownmenu.ui.activity.DropDownMenuActivity
 import com.phz.dev.feature.practice.screenrecord.ScreenRecordActivity
@@ -39,7 +40,8 @@ class PracticeMainActivity :
 //        ,"CountDownLatch"
             , "Dialog",
             "ExpandableListView",
-            "DropDownList"
+            "DropDownList",
+            "Rv Payload Use"
         )
     }
 
@@ -71,11 +73,14 @@ class PracticeMainActivity :
                     "Dialog" -> {
                         startKtxActivity<DialogLearnActivity>()
                     }
-                    "ExpandableListView" ->{
+                    "ExpandableListView" -> {
                         startKtxActivity<StudentListActivity>()
                     }
-                    "DropDownList" ->{
+                    "DropDownList" -> {
                         startKtxActivity<DropDownMenuTlActivity>()
+                    }
+                    "Rv Payload Use" -> {
+                        startKtxActivity<GenShinRoleActivity>()
                     }
                 }
             }
