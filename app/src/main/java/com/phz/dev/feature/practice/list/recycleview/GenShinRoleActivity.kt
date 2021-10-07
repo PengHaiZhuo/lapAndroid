@@ -29,7 +29,7 @@ class GenShinRoleActivity :
     private lateinit var mAdapter:GenShinRoleAdapter
 
     override fun initData() {
-        mAdapter=GenShinRoleAdapter()
+        mAdapter=GenShinRoleAdapter(this::toggleLike)
         mViewDataBinding.rvGenshinRole.apply {
             vertical()
             adapter=mAdapter
@@ -41,8 +41,8 @@ class GenShinRoleActivity :
             mViewModel.showLoading.value=false
             lifecycle.repeatOnLifecycle(Lifecycle.State.STARTED){
                 mViewModel.roles.collect {
+                    //StateFlow的collect有点类似LiveData的observe，当数据源发生变化时，会跑到这里来
                     mAdapter.submitList(it)
-                    "submitList".logE()
                 }
             }
         }
@@ -52,5 +52,9 @@ class GenShinRoleActivity :
         mToolbar.setNavigationIcon(R.drawable.ic_arrow_left_white)
         mToolbar.setNavigationOnClickListener { onBackPressed() }
         centerTextView.text = "局部刷新"
+    }
+
+    private fun toggleLike(id:Int){
+        mViewModel.toggleLikeStatus(id)
     }
 }
