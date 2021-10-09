@@ -6,11 +6,6 @@
         <entry key="..\:/Android/.gradle/caches/transforms-3/de7c8c9c946855800e80b66914d20eee/transformed/jetified-core-3.3.0/res/drawable-v21/md_btn_shape.xml" value="0.23229166666666667" />
         <entry key="..\:/Android/.gradle/caches/transforms-3/de7c8c9c946855800e80b66914d20eee/transformed/jetified-core-3.3.0/res/drawable-v21/md_item_shape.xml" value="0.23229166666666667" />
         <entry key="..\:/Android/.gradle/caches/transforms-3/deb7a4d797bcaf799bc4746aaa87a276/transformed/jetified-core-3.3.0/res/drawable-v21/md_item_shape.xml" value="0.31979166666666664" />
-        <entry key="..\:/Android/Project/dev/app/src/main/res/drawable/ic_like_selected.xml" value="0.19010416666666666" />
-        <entry key="..\:/Android/Project/dev/app/src/main/res/drawable/ic_like_unselected.xml" value="0.19010416666666666" />
-        <entry key="..\:/Android/Project/dev/app/src/main/res/drawable/selector_like.xml" value="0.19427083333333334" />
-        <entry key="..\:/Android/Project/dev/app/src/main/res/layout/activity_genshin_role.xml" value="0.178125" />
-        <entry key="..\:/Android/Project/dev/app/src/main/res/layout/item_genshin_role.xml" value="0.178125" />
         <entry key="..\:/Android/Sdk/platforms/android-30/data/res/layout/simple_dropdown_item_1line.xml" value="0.23731884057971014" />
         <entry key="..\:/Android/Sdk/platforms/android-30/data/res/layout/simple_list_item_1.xml" value="0.1484375" />
         <entry key="..\:/haizhuo/Download/dev/app/src/main/res/drawable/anim_maomao.xml" value="0.31302083333333336" />
@@ -96,6 +91,7 @@
         <entry key="..\:/haizhuo/Download/dev/app/src/main/res/layout/nav_header_practice.xml" value="0.22083333333333333" />
         <entry key="..\:/haizhuo/Download/dev/app/src/main/res/layout/popup_account_flow.xml" value="0.21197916666666666" />
         <entry key="..\:/haizhuo/Download/dev/app/src/main/res/layout/popup_account_flow_time.xml" value="0.21197916666666666" />
+        <entry key="..\:/haizhuo/Download/dev/app/src/main/res/layout/popup_compass_tip.xml" value="0.2164855072463768" />
         <entry key="..\:/haizhuo/Download/dev/app/src/main/res/layout/popup_over_flow_menu.xml" value="0.5" />
         <entry key="..\:/haizhuo/Download/dev/app/src/main/res/menu/activity_tool_learn_drawer.xml" value="0.21197916666666666" />
         <entry key="..\:/haizhuo/Download/dev/app/src/main/res/menu/bottom_nav.xml" value="0.19635416666666666" />
