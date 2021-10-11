@@ -151,14 +151,14 @@ class ZipUtil private constructor() {
             compressed: ByteArray,
             charsetName: String? = "UTF-8"
         ): String? {
-            val BUFFER_SIZE = compressed.size
+            val bufferSize = compressed.size
             var gis: GZIPInputStream? = null
             var `is`: ByteArrayInputStream? = null
             try {
                 `is` = ByteArrayInputStream(compressed)
-                gis = GZIPInputStream(`is`, BUFFER_SIZE)
+                gis = GZIPInputStream(`is`, bufferSize)
                 val string = StringBuilder()
-                val data = ByteArray(BUFFER_SIZE)
+                val data = ByteArray(bufferSize)
                 var bytesRead: Int
                 while (gis.read(data).also { bytesRead = it } != -1) {
                     string.append(String(data, 0, bytesRead, Charset.forName(charsetName)))

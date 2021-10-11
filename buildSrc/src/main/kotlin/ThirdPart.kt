@@ -4,9 +4,8 @@
  * @desciption 第三方依赖包
  */
 object ThirdPart {
-    /*******************************网络请求S***********************************/
-    //网路请求库retrofit
-    object Retrofit {
+    /**网络请求**/
+    object Retrofit {//网路请求库retrofit
         private const val retrofit_version = "2.9.0"
         const val retrofit = "com.squareup.retrofit2:retrofit:$retrofit_version"
 
@@ -19,8 +18,7 @@ object ThirdPart {
         const val adapterRxjava3 = "com.squareup.retrofit2:adapter-rxjava3:$retrofit_version"
     }
 
-    //okhttp
-    object OkHttp {
+    object OkHttp {//okhttp
         private const val okhttp_version = "4.8.0"
         const val okhttp = "com.squareup.okhttp3:okhttp:$okhttp_version"
         const val urlConnection = "com.squareup.okhttp3:okhttp-urlconnection:$okhttp_version"
@@ -36,9 +34,7 @@ object ThirdPart {
     //监听上传下载进度
     //const val progressmanager = "me.jessyan:progressmanager:1.5.0"
 
-    /*******************************网络请求E***********************************/
-
-    /*******************************图片S***********************************/
+    /**图片**/
     //图片加载框架
     object Glide {
         private const val glide_version = "4.11.0"
@@ -47,9 +43,8 @@ object ThirdPart {
     }
     //线圈（Kotlin 协程支持的 Android 图像加载库）
     const val coil="io.coil-kt:coil:1.3.2"
-    /*******************************图片E***********************************/
 
-    /*******************************播放器S***********************************/
+    /**播放器**/
     object ExoPlayer{
         private const val exo_player_version="2.15.0"
         //完整依赖
@@ -63,7 +58,44 @@ object ThirdPart {
         const val transformer="com.google.android.exoplayer:exoplayer-transformer:$exo_player_version"
         const val ui="com.google.android.exoplayer:exoplayer-ui:$exo_player_version"
     }
-    /*******************************播放器E***********************************/
+
+    /**BaiduMap**/
+    object BaiduMap {
+        private const val version = "7.4.0"
+        private const val locationVersion = "9.1.8"
+        private const val ttsVersion = "2.5.5"
+        private const val panoramaVersion = "2.9.0"
+
+        //地图组件
+        const val map = "com.baidu.lbsyun:BaiduMapSDK_Map:$version"
+
+        //步、骑行地图组件
+        const val bwMap = "com.baidu.lbsyun:BaiduMapSDK_Map-BWNavi:$version"
+
+        //驾车导航地图组件
+        const val carMap = "com.baidu.lbsyun:BaiduMapSDK_Map-Navi:$version"
+
+        //完整包地图组件（步、骑行+驾车导航）
+        const val allMap = "com.baidu.lbsyun:BaiduMapSDK_Map-AllNavi:$version"
+
+        //检索组件
+        const val search = "com.baidu.lbsyun:BaiduMapSDK_Search:$version"
+
+        //工具组件
+        const val util = "com.baidu.lbsyun:BaiduMapSDK_Util:$version"
+
+        //基础定位
+        const val location = "com.baidu.lbsyun:BaiduMapSDK_Location:$locationVersion"
+
+        //全量定位
+        const val locationAll = "com.baidu.lbsyun:BaiduMapSDK_Location_All:$locationVersion"
+
+        //TTS
+        const val tts = "com.baidu.lbsyun:NaviTts:$ttsVersion"
+
+        //全景
+        const val panorama = "com.baidu.lbsyun:BaiduMapSDK_Panorama:$panoramaVersion"
+    }
 
     /*******************************窗口、控件和相关工具***********************************/
     //顶部SnackBar
@@ -125,18 +157,18 @@ object ThirdPart {
         object Koin {
             private const val koin_version = "2.1.5"
 
-            val core = "org.koin:koin-core:$koin_version}"
-            val android = "org.koin:koin-android:$koin_version"
-            val androidxViewModel = "org.koin:koin-androidx-viewmodel:$koin_version"
-            val androidScope = "org.koin:koin-android-scope:$$koin_version"
+            const val core = "org.koin:koin-core:$koin_version}"
+            const val android = "org.koin:koin-android:$koin_version"
+            const val androidxViewModel = "org.koin:koin-androidx-viewmodel:$koin_version"
+            const val androidScope = "org.koin:koin-android-scope:$$koin_version"
         }
 
         object Dagger{
             //tip:可搭配Hilt使用
             private const val dagger_version = "2.37"
-            val dagger ="com.google.dagger:dagger:$dagger_version"
+            const val dagger ="com.google.dagger:dagger:$dagger_version"
             //use annotationProcessor ,not implementation
-            val compiler ="com.google.dagger:dagger-compiler::$dagger_version"
+            const val compiler ="com.google.dagger:dagger-compiler::$dagger_version"
         }
     }
     /*******************************依赖注入***********************************/
@@ -146,9 +178,9 @@ object ThirdPart {
 
     object PermissionDispatcher{
         private const val version= "4.8.0"
-        val permissionsdispatcher="com.github.permissions-dispatcher:permissionsdispatcher:$version"
+        const val permissionsdispatcher="com.github.permissions-dispatcher:permissionsdispatcher:$version"
         //use kapt，not api or implementation
-        val processor="com.github.permissions-dispatcher:permissionsdispatcher-processor:$version"
+        const val processor="com.github.permissions-dispatcher:permissionsdispatcher-processor:$version"
     }
 
     //常用的工具类

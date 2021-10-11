@@ -171,4 +171,7 @@ dependencies {
     implementation(ThirdPart.ExoPlayer.core)
     implementation(ThirdPart.ExoPlayer.ui)
     implementation(ThirdPart.ExoPlayer.hls)
+    //BaiduMap相关
+    implementation(ThirdPart.BaiduMap.map)
+    implementation(ThirdPart.BaiduMap.location)
 }

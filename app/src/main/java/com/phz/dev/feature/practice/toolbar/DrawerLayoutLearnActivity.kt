@@ -138,9 +138,8 @@ class DrawerLayoutLearnActivity : AppCompatActivity() {
         //设置膨胀菜单
         menuInflater.inflate(R.menu.toolbar_learn, menu)
         if (menu is MenuBuilder) {
-            val menuBuilder = menu as MenuBuilder
             //todo use popup window,because the RestrictedApi label
-            menuBuilder.setOptionalIconsVisible(true)
+            menu.setOptionalIconsVisible(true)
         }
         menu!!.forEachIndexed { _, item ->
             when (item.itemId) {
