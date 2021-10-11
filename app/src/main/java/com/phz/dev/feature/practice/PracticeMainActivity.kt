@@ -13,6 +13,7 @@ import com.phz.dev.feature.practice.dialog.DialogLearnActivity
 import com.phz.dev.feature.practice.list.listview.DropDownMenuTlActivity
 import com.phz.dev.feature.practice.list.listview.StudentListActivity
 import com.phz.dev.feature.practice.list.recycleview.GenShinRoleActivity
+import com.phz.dev.feature.practice.map.baidu.BaiduMapViewActivity
 import com.phz.dev.feature.practice.mlkit.scan.MlKitScanMenuActivity
 import com.phz.dev.feature.practice.popupwindow.dropdownmenu.ui.activity.DropDownMenuActivity
 import com.phz.dev.feature.practice.screenrecord.ScreenRecordActivity
@@ -41,7 +42,8 @@ class PracticeMainActivity :
             , "Dialog",
             "ExpandableListView",
             "DropDownList",
-            "Rv Payload Use"
+            "Rv Payload Use",
+            "BaiduMapView"
         )
     }
 
@@ -81,6 +83,9 @@ class PracticeMainActivity :
                     }
                     "Rv Payload Use" -> {
                         startKtxActivity<GenShinRoleActivity>()
+                    }
+                    "BaiduMapView" -> {
+                        startKtxActivity<BaiduMapViewActivity>()
                     }
                 }
             }
