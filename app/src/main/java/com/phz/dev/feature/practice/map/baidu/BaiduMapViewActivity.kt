@@ -1,11 +1,11 @@
 package com.phz.dev.feature.practice.map.baidu
 
+import android.Manifest
 import android.os.Bundle
 import android.view.View
 import android.widget.RelativeLayout
 import com.baidu.mapapi.map.BaiduMap
 import com.google.android.material.bottomsheet.BottomSheetBehavior
-import com.phz.common.ext.logE
 import com.phz.common.ext.view.clickNoRepeat
 import com.phz.common.page.activity.BaseVmDbActivity
 import com.phz.common.state.BaseViewModel
@@ -17,6 +17,15 @@ import com.phz.dev.databinding.ActivityBaiduMapviewBinding
  * @description 百度地图
  */
 class BaiduMapViewActivity : BaseVmDbActivity<BaseViewModel, ActivityBaiduMapviewBinding>() {
+    companion object {
+        //确切定位权限
+        const val fineLocation=Manifest.permission.ACCESS_FINE_LOCATION
+        //大致定位权限
+        const val crossLocation=Manifest.permission.ACCESS_COARSE_LOCATION
+        //相机 实景导航要用
+        const val camera=Manifest.permission.CAMERA
+    }
+
     private lateinit var bottomSheetBehavior: BottomSheetBehavior<RelativeLayout>
     private lateinit var baiduMap: BaiduMap
     private val onMapLoadedCallback by lazy {
@@ -26,7 +35,6 @@ class BaiduMapViewActivity : BaseVmDbActivity<BaseViewModel, ActivityBaiduMapvie
     }
 
     override fun initData() {
-
     }
 
     override fun initView(savedInstanceState: Bundle?) {
@@ -44,8 +52,6 @@ class BaiduMapViewActivity : BaseVmDbActivity<BaseViewModel, ActivityBaiduMapvie
                     }
                     BottomSheetBehavior.STATE_EXPANDED -> {//已展开
                         mViewDataBinding.imageView.setImageResource(R.drawable.ic_show_in)
-                    }
-                    else -> {
                     }
                 }
             }
@@ -66,5 +72,20 @@ class BaiduMapViewActivity : BaseVmDbActivity<BaseViewModel, ActivityBaiduMapvie
                 bottomSheetBehavior.state = BottomSheetBehavior.STATE_COLLAPSED
             }
         }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        mViewDataBinding.mapview.onResume()
+    }
+
+    override fun onPause() {
+        super.onPause()
+        mViewDataBinding.mapview.onPause()
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        mViewDataBinding.mapview.onDestroy()
     }
 }

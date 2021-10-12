@@ -16,4 +16,5 @@ open class BaseViewModel : ViewModel() {
         super.onCleared()
         //ViewModel销毁时会调用，常用于释放一些资源，避免泄漏
     }
+
 }
