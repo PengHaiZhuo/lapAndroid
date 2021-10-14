@@ -183,6 +183,8 @@ object ThirdPart {
         const val processor="com.github.permissions-dispatcher:permissionsdispatcher-processor:$version"
     }
 
+    const val xxPermission="com.github.getActivity:XXPermissions:12.5"
+
     //常用的工具类
     const val utilcodex = "com.blankj:utilcodex:1.26.0"
 

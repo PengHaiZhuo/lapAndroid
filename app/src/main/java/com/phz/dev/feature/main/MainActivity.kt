@@ -1,10 +1,15 @@
 package com.phz.dev.feature.main
 
 import android.Manifest
+import android.content.ContentValues
+import android.content.Context
 import android.content.pm.PackageManager
 import android.os.Build
 import android.os.Bundle
+import android.os.Environment
 import android.os.Process
+import android.provider.MediaStore
+import androidx.annotation.RequiresApi
 import androidx.core.app.ActivityCompat
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
@@ -14,6 +19,8 @@ import com.phz.common.page.activity.BaseVmDbPureActivity
 import com.phz.common.state.BaseViewModel
 import com.phz.dev.R
 import com.phz.dev.databinding.ActivityMainBinding
+import java.io.File
+import java.net.URL
 
 /**
  * @author phz
@@ -22,13 +29,25 @@ import com.phz.dev.databinding.ActivityMainBinding
 class MainActivity : BaseVmDbPureActivity<BaseViewModel, ActivityMainBinding>() {
 
     companion object {
+        const val pdfUrl =
+            "https://download.brother.com/welcome/docp000648/cv_pt3600_schn_sig_lad962001.pdf"
         const val REQUEST_STORAGE = 0x115
+        const val REQUEST_LOCATION = 0x116
         const val readPermission = Manifest.permission.READ_EXTERNAL_STORAGE
 
         //in Android 10 WRITE_EXTERNAL_STORAGE默认无法获取，除非在配置文件中添加 android:requestLegacyExternalStorage="true"
         //in Android 11, 只有READ_EXTERNAL_STORAGE请求会弹出对话框，仅仅请求访问照片和媒体，WRITE_EXTERNAL_STORAGE无法获取，requestLegacyExternalStorage无效。
         //从Android 10开始，需要做分区适配了，使用MediaStore
         const val writePermission = Manifest.permission.WRITE_EXTERNAL_STORAGE
+
+        //确切定位权限
+        const val fineLocation = Manifest.permission.ACCESS_FINE_LOCATION
+
+        //大致定位权限
+        const val crossLocation = Manifest.permission.ACCESS_COARSE_LOCATION
+
+        //相机 实景导航要用
+        const val camera = Manifest.permission.CAMERA
     }
 
     override fun initData() {
@@ -68,6 +87,47 @@ class MainActivity : BaseVmDbPureActivity<BaseViewModel, ActivityMainBinding>() 
                 }
             }
         }
+//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+//            lifecycleScope.launch() {
+//                withContext(Dispatchers.IO) {
+//                    savePDFUsingMediaStore(
+//                        this@MainActivity,
+//                        pdfUrl,
+//                        "xxxxxx.pdf"
+//                    )
+//                }
+//            }
+//        }
+
+    }
+
+    //todo MediaStore 方式读写实践
+    @RequiresApi(Build.VERSION_CODES.Q)
+    private fun savePDFUsingMediaStore(context: Context, url: String, fileName: String) {
+        val contentValues = ContentValues().apply {
+            put(MediaStore.MediaColumns.RELATIVE_PATH, Environment.DIRECTORY_DOWNLOADS)
+            put(MediaStore.MediaColumns.DISPLAY_NAME, fileName)
+            put(MediaStore.MediaColumns.MIME_TYPE, "application/pdf")
+        }
+        val resolver = context.contentResolver
+        val uri = resolver.insert(MediaStore.Downloads.EXTERNAL_CONTENT_URI, contentValues)
+        uri.toString().logE()
+        if (uri != null) {
+            URL(url).openStream().use { input ->
+                resolver.openOutputStream(uri).use { output ->
+                    input.copyTo(output!!, DEFAULT_BUFFER_SIZE)
+                }
+            }
+        }
+    }
+
+    @RequiresApi(Build.VERSION_CODES.Q)
+    private fun isFileExistsInQ(name:String):Boolean{
+        val file = File(
+            Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES),
+            name
+        )
+        return file.exists()
     }
 
     override fun onRequestPermissionsResult(
