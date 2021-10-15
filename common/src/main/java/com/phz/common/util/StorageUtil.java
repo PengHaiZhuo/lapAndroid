@@ -1,26 +1,16 @@
 package com.phz.common.util;
 
-import android.content.ContentResolver;
-import android.content.ContentValues;
 import android.content.Context;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Environment;
-import android.os.ParcelFileDescriptor;
-import android.provider.MediaStore;
 import android.text.TextUtils;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.annotation.RequiresApi;
+import androidx.core.content.FileProvider;
 
 import com.phz.common.BaseApplication;
 
 import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
 
 /**
  * @author phz
@@ -159,80 +149,20 @@ public class StorageUtil {
         return flag ? file : null;
     }
 
-//    public static void writeSelfFile_In_ExternalPublicCategory(String fileName,String fileType){
-//        ContentValues contentValues=new ContentValues();
-//        if (Build.VERSION.SDK_INT>=Build.VERSION_CODES.Q){
-//            //相对路径
-//            contentValues.put(MediaStore.Files.FileColumns.RELATIVE_PATH,BaseApplication.appName+"file");
-//        }
-//        //名称
-//        contentValues.put(MediaStore.Files.FileColumns.DISPLAY_NAME,fileName);
-//        //文件类型
-//        contentValues.put(MediaStore.Files.FileColumns.MEDIA_TYPE);
-//    }
-
-
-    @RequiresApi(api = Build.VERSION_CODES.Q)
-    @NonNull
-    private Uri savePDFFile(@NonNull final Context context, @NonNull InputStream in,
-                            @NonNull final String mimeType,
-                            @NonNull final String displayName, @Nullable final String subFolder) throws IOException {
-        String relativeLocation = Environment.DIRECTORY_DOCUMENTS;
-
-        if (!TextUtils.isEmpty(subFolder)) {
-            relativeLocation += File.separator + subFolder;
+    /**
+     * 获取文件Uri,适配7.0
+     * @param context
+     * @param mFile
+     * @return
+     */
+    public static Uri getUriFromFile(Context context, File mFile){
+        Uri fileUri;
+        if (Build.VERSION.SDK_INT>=Build.VERSION_CODES.N){
+            //第二个参数与配置文件中provider的authorities字段相同
+            fileUri= FileProvider.getUriForFile(context,context.getPackageName(),mFile);
+        }else {
+            fileUri=Uri.fromFile(mFile);
         }
-
-        final ContentValues contentValues = new ContentValues();
-        contentValues.put(MediaStore.MediaColumns.DISPLAY_NAME, displayName);
-        contentValues.put(MediaStore.MediaColumns.MIME_TYPE, mimeType);
-        contentValues.put(MediaStore.MediaColumns.RELATIVE_PATH, relativeLocation);
-        contentValues.put(MediaStore.Video.Media.TITLE, "SomeName");
-        contentValues.put(MediaStore.Video.Media.DATE_ADDED, System.currentTimeMillis() / 1000);
-        contentValues.put(MediaStore.Video.Media.DATE_TAKEN, System.currentTimeMillis());
-        final ContentResolver resolver = context.getContentResolver();
-        OutputStream stream = null;
-        Uri uri = null;
-
-        try {
-            final Uri contentUri = MediaStore.Files.getContentUri("external");
-            uri = resolver.insert(contentUri, contentValues);
-            ParcelFileDescriptor pfd;
-            try {
-                assert uri != null;
-                pfd = context.getContentResolver().openFileDescriptor(uri, "w");
-                assert pfd != null;
-                FileOutputStream out = new FileOutputStream(pfd.getFileDescriptor());
-
-                byte[] buf = new byte[4 * 1024];
-                int len;
-                while ((len = in.read(buf)) > 0) {
-
-                    out.write(buf, 0, len);
-                }
-                out.close();
-                in.close();
-                pfd.close();
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-
-            contentValues.clear();
-            contentValues.put(MediaStore.Video.Media.IS_PENDING, 0);
-            context.getContentResolver().update(uri, contentValues, null, null);
-            stream = resolver.openOutputStream(uri);
-            if (stream == null) {
-                throw new IOException("Failed to get output stream.");
-            }
-            return uri;
-        } catch (IOException e) {
-            // Don't leave an orphan entry in the MediaStore
-            resolver.delete(uri, null, null);
-            throw e;
-        } finally {
-            if (stream != null) {
-                stream.close();
-            }
-        }
+        return fileUri;
     }
 }

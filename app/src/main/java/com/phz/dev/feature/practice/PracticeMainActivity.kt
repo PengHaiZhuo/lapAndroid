@@ -18,6 +18,7 @@ import com.phz.dev.feature.practice.mlkit.scan.MlKitScanMenuActivity
 import com.phz.dev.feature.practice.popupwindow.dropdownmenu.ui.activity.DropDownMenuActivity
 import com.phz.dev.feature.practice.screenrecord.ScreenRecordActivity
 import com.phz.dev.feature.practice.toolbar.DrawerLayoutLearnActivity
+import com.phz.dev.feature.practice.uriwithfilepath.UriWithFilePathActivity
 import com.phz.dev.feature.practice.viewstub.ViewStubLearnActivity
 
 /**
@@ -43,7 +44,8 @@ class PracticeMainActivity :
             "ExpandableListView",
             "DropDownList",
             "Rv Payload Use",
-            "BaiduMapView"
+            "BaiduMapView",
+            "Path"
         )
     }
 
@@ -86,6 +88,9 @@ class PracticeMainActivity :
                     }
                     "BaiduMapView" -> {
                         startKtxActivity<BaiduMapViewActivity>()
+                    }
+                    "Path" -> {
+                        startKtxActivity<UriWithFilePathActivity>()
                     }
                 }
             }

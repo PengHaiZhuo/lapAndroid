@@ -11,6 +11,7 @@ import android.os.Process
 import android.provider.MediaStore
 import androidx.annotation.RequiresApi
 import androidx.core.app.ActivityCompat
+import androidx.core.content.FileProvider.getUriForFile
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
 import com.gyf.immersionbar.ktx.immersionBar
@@ -87,6 +88,12 @@ class MainActivity : BaseVmDbPureActivity<BaseViewModel, ActivityMainBinding>() 
                 }
             }
         }
+        val context=this@MainActivity.baseContext
+        val file=File(context.filesDir,"xImages")
+        val newFile=File(file,"dddd.png")
+        val contentUri = getUriForFile(context,context.packageName,newFile)
+        contentUri.toString().logE()
+
 //        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
 //            lifecycleScope.launch() {
 //                withContext(Dispatchers.IO) {
@@ -119,15 +126,6 @@ class MainActivity : BaseVmDbPureActivity<BaseViewModel, ActivityMainBinding>() 
                 }
             }
         }
-    }
-
-    @RequiresApi(Build.VERSION_CODES.Q)
-    private fun isFileExistsInQ(name:String):Boolean{
-        val file = File(
-            Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES),
-            name
-        )
-        return file.exists()
     }
 
     override fun onRequestPermissionsResult(

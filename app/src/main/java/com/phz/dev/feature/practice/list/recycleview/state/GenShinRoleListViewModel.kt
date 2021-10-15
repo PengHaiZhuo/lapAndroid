@@ -30,12 +30,12 @@ class GenShinRoleListViewModel : BaseViewModel() {
     }
 
     private fun generateRoleList() = listOf(
-        GenShinRole(1, "空", "开挂的主角", R.drawable.ic_genshin_k,true),
+        GenShinRole(1, "空", "开挂的主角", R.drawable.ic_genshin_k,false),
         GenShinRole(2, "可莉", "火花骑士", R.drawable.ic_genshin_kl,false),
         GenShinRole(3, "刻晴", "璃月七星中的玉衡", R.drawable.ic_genshin_kq,false),
         GenShinRole(4, "钟离", "岩王爷", R.drawable.ic_genshin_zl,false),
         GenShinRole(5, "温蒂", "干正事的风神", R.drawable.ic_genshin_wd,false),
         GenShinRole(6, "莫娜", "穷的没钱吃饭的占星术士", R.drawable.ic_genshin_mn,false),
-        GenShinRole(7, "优菈", "记仇的浪花骑士", R.drawable.ic_genshin_yl,false)
+        GenShinRole(7, "优菈", "我老婆", R.drawable.ic_genshin_yl,true)
     )
 }

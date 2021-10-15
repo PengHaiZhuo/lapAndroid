@@ -1,6 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <paths xmlns:android="http://schemas.android.com/apk/res/android">
+    <!--name是URI路径段，path是实际的子目录名称-->
     <external-path name="external_files" path="."/>
+    <files-path
+        name="xImages"
+        path="images/"/>
+    <files-path
+        name="xDocs"
+        path="docs/"/>
     <root-path
         name="root_path"
         path="." />

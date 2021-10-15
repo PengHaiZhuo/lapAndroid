@@ -9,6 +9,7 @@ import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.phz.common.ext.dismissLoadingExt
 import com.phz.common.ext.logE
 import com.phz.common.ext.showLoadingExt
+import com.phz.common.ext.view.divider
 import com.phz.common.ext.view.vertical
 import com.phz.common.page.activity.BaseVmDbActivity
 import com.phz.dev.R
@@ -32,6 +33,9 @@ class GenShinRoleActivity :
         mAdapter=GenShinRoleAdapter(this::toggleLike)
         mViewDataBinding.rvGenshinRole.apply {
             vertical()
+            divider {
+                setColor("#ff0000")
+            }
             adapter=mAdapter
         }
         lifecycleScope.launch {
