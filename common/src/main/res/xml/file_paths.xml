@@ -1,14 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
-<paths xmlns:android="http://schemas.android.com/apk/res/android">
+<paths>
     <!--name是URI路径段，path是实际的子目录名称-->
-    <external-path name="external_files" path="."/>
-    <files-path
-        name="xImages"
-        path="images/"/>
-    <files-path
-        name="xDocs"
-        path="docs/"/>
     <root-path
         name="root_path"
-        path="." />
+        path="" />
+    <!--示例
+    val file=File(context.getFilesDir(), "my_images")
+    val newFile=File(file,"dddd.png")
+    newFile.mkdirs()
+    val contentUri = getUriForFile(context,context.packageName,newFile)
+    打印uri为content://com.phz.dev/my_images/dddd.png
+    文件绝对路径为/data/data/com.phz.dev/files/images/dddd.png-->
+    <files-path
+        name="my_images"
+        path="images" />
+    <files-path
+        name="my_docs"
+        path="docs" />
+    <cache-path
+        name="my_caches"
+        path="cache" />
+    <external-path
+        name="external"
+        path="/" />
+    <external-files-path
+        name="external_files"
+        path="/" />
+    <!--
+    /sdcard/Android/data/com.phz.dev/cache/
+    -->
+    <external-cache-path
+        name="external_cache"
+        path="/" />
+    <external-media-path
+        name="external_media"
+        path="/" />
 </paths>

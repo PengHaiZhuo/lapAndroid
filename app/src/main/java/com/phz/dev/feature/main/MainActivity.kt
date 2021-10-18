@@ -12,6 +12,7 @@ import android.provider.MediaStore
 import androidx.annotation.RequiresApi
 import androidx.core.app.ActivityCompat
 import androidx.core.content.FileProvider.getUriForFile
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
 import com.gyf.immersionbar.ktx.immersionBar
@@ -20,7 +21,10 @@ import com.phz.common.page.activity.BaseVmDbPureActivity
 import com.phz.common.state.BaseViewModel
 import com.phz.dev.R
 import com.phz.dev.databinding.ActivityMainBinding
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 import java.io.File
+import java.io.FileOutputStream
 import java.net.URL
 
 /**
@@ -89,23 +93,22 @@ class MainActivity : BaseVmDbPureActivity<BaseViewModel, ActivityMainBinding>() 
             }
         }
         val context=this@MainActivity.baseContext
-        val file=File(context.filesDir,"xImages")
-        val newFile=File(file,"dddd.png")
-        val contentUri = getUriForFile(context,context.packageName,newFile)
+        val file=File(context.externalCacheDir,"12458.pdf")
+        val contentUri = getUriForFile(context,context.packageName,file)
         contentUri.toString().logE()
-
-//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
-//            lifecycleScope.launch() {
-//                withContext(Dispatchers.IO) {
-//                    savePDFUsingMediaStore(
-//                        this@MainActivity,
-//                        pdfUrl,
-//                        "xxxxxx.pdf"
-//                    )
-//                }
-//            }
-//        }
-
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+            savePDFUsingMediaStore(context,pdfUrl,"12458.pdf")
+        }else{
+            val target = File(
+                Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS),
+                "12458.pdf"
+            )
+            URL(pdfUrl).openStream().use { input ->
+                FileOutputStream (target).use { output ->
+                    input.copyTo(output)
+                }
+            }
+        }
     }
 
     //todo MediaStore 方式读写实践
@@ -120,9 +123,11 @@ class MainActivity : BaseVmDbPureActivity<BaseViewModel, ActivityMainBinding>() 
         val uri = resolver.insert(MediaStore.Downloads.EXTERNAL_CONTENT_URI, contentValues)
         uri.toString().logE()
         if (uri != null) {
-            URL(url).openStream().use { input ->
-                resolver.openOutputStream(uri).use { output ->
-                    input.copyTo(output!!, DEFAULT_BUFFER_SIZE)
+            lifecycleScope.launch(Dispatchers.IO) {
+                URL(url).openStream().use { input ->
+                    resolver.openOutputStream(uri).use { output ->
+                        input.copyTo(output!!, DEFAULT_BUFFER_SIZE)
+                    }
                 }
             }
         }

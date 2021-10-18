@@ -1,6 +1,7 @@
 package com.phz.common.util;
 
 import android.content.Context;
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Environment;
@@ -159,10 +160,19 @@ public class StorageUtil {
         Uri fileUri;
         if (Build.VERSION.SDK_INT>=Build.VERSION_CODES.N){
             //第二个参数与配置文件中provider的authorities字段相同
+            //FileProvider 只能返回在其<paths>元数据元素中定义的文件路径的content Uri,详见res/xml/file_paths.xml
             fileUri= FileProvider.getUriForFile(context,context.getPackageName(),mFile);
         }else {
             fileUri=Uri.fromFile(mFile);
         }
+       /**
+        * 建议直接使用Intent的addFlags添加权限，Intent在接收堆栈Activity处于活动状态时，授权有效，从堆栈移出后，权限将自动删除
+        //授予URI临时权限
+        context.grantUriPermission(context.getPackageName(),fileUri, Intent.FLAG_GRANT_READ_URI_PERMISSION|Intent.FLAG_GRANT_WRITE_URI_PERMISSION);
+        //使用完后移除临时授权
+        context.revokeUriPermission(fileUri, Intent.FLAG_GRANT_READ_URI_PERMISSION|Intent.FLAG_GRANT_WRITE_URI_PERMISSION);
+        */
         return fileUri;
     }
+
 }
