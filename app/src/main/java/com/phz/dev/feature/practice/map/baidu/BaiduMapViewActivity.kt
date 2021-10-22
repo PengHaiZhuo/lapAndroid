@@ -6,6 +6,8 @@ import android.view.View
 import android.widget.RelativeLayout
 import com.baidu.mapapi.map.BaiduMap
 import com.google.android.material.bottomsheet.BottomSheetBehavior
+import com.hjq.permissions.OnPermissionCallback
+import com.hjq.permissions.XXPermissions
 import com.phz.common.ext.view.clickNoRepeat
 import com.phz.common.page.activity.BaseVmDbActivity
 import com.phz.common.state.BaseViewModel
@@ -28,10 +30,25 @@ class BaiduMapViewActivity : BaseVmDbActivity<BaseViewModel, ActivityBaiduMapvie
 
     private lateinit var bottomSheetBehavior: BottomSheetBehavior<RelativeLayout>
     private lateinit var baiduMap: BaiduMap
+    private var locService by lazy {  }
     private val onMapLoadedCallback by lazy {
         BaiduMap.OnMapLoadedCallback {
             //地图加载成功回调
         }
+    }
+
+    override fun onAttachedToWindow() {
+        super.onAttachedToWindow()
+        XXPermissions.with(this).permission(fineLocation,crossLocation, camera).request(object :
+            OnPermissionCallback{
+            override fun onGranted(permissions: MutableList<String>?, all: Boolean) {
+
+            }
+
+            override fun onDenied(permissions: MutableList<String>?, never: Boolean) {
+                super.onDenied(permissions, never)
+            }
+        })
     }
 
     override fun initData() {

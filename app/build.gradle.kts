@@ -157,7 +157,7 @@ dependencies {
     implementation(ThirdPart.immersionbar)
     implementation(ThirdPart.immersionbarKtx)
     //运行时权限请求
-    implementation(ThirdPart.rxPermission)
+    implementation(ThirdPart.xxPermission)
     //蓝牙工具
     implementation(ThirdPart.rxandroidble)
     implementation(ThirdPart.rxjavaReplayingShare)
