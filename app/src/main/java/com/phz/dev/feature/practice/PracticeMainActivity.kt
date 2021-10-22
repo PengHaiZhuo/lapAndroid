@@ -16,6 +16,7 @@ import com.phz.dev.feature.practice.list.recycleview.GenShinRoleActivity
 import com.phz.dev.feature.practice.map.baidu.BaiduMapViewActivity
 import com.phz.dev.feature.practice.mlkit.scan.MlKitScanMenuActivity
 import com.phz.dev.feature.practice.popupwindow.dropdownmenu.ui.activity.DropDownMenuActivity
+import com.phz.dev.feature.practice.saf.StorageAccessFrameworkActivity
 import com.phz.dev.feature.practice.screenrecord.ScreenRecordActivity
 import com.phz.dev.feature.practice.toolbar.DrawerLayoutLearnActivity
 import com.phz.dev.feature.practice.uriwithfilepath.UriWithFilePathActivity
@@ -45,7 +46,8 @@ class PracticeMainActivity :
             "DropDownList",
             "Rv Payload Use",
             "BaiduMapView",
-            "Path"
+            "Path",
+            "Storage Access Framework"
         )
     }
 
@@ -91,6 +93,9 @@ class PracticeMainActivity :
                     }
                     "Path" -> {
                         startKtxActivity<UriWithFilePathActivity>()
+                    }
+                    "Storage Access Framework" -> {
+                        startKtxActivity<StorageAccessFrameworkActivity>()
                     }
                 }
             }

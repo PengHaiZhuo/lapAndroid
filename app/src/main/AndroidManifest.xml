@@ -126,6 +126,7 @@
         <activity android:name=".feature.practice.list.recycleview.GenShinRoleActivity" />
         <activity android:name=".feature.practice.map.baidu.BaiduMapViewActivity"/>
         <activity android:name=".feature.practice.uriwithfilepath.UriWithFilePathActivity"/>
+        <activity android:name=".feature.practice.saf.StorageAccessFrameworkActivity"/>
     </application>
 
 </manifest>
