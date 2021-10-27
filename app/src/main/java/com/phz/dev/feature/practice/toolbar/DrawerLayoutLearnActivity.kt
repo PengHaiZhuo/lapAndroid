@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.ArrayAdapter
 import android.widget.ImageView
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
@@ -125,7 +126,7 @@ class DrawerLayoutLearnActivity : AppCompatActivity() {
                 bottomSheetBehavior.state = BottomSheetBehavior.STATE_EXPANDED
             }
         }
-        binding.vm=mViewModel.value
+        binding.vm = mViewModel.value
     }
 
 //    override fun onSupportNavigateUp(): Boolean {
@@ -145,6 +146,8 @@ class DrawerLayoutLearnActivity : AppCompatActivity() {
             when (item.itemId) {
                 R.id.action_search -> {
                     val searchView = item.actionView as SearchView
+                    //设置检索提示文本
+                    searchView.queryHint = resources.getString(R.string.plz_input_query)
                     searchView.setIconifiedByDefault(false)
                     searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
                         override fun onQueryTextSubmit(query: String?): Boolean {
@@ -157,6 +160,23 @@ class DrawerLayoutLearnActivity : AppCompatActivity() {
                             return true
                         }
                     })
+                    val searchAutoComplete =
+                        searchView.findViewById<SearchView.SearchAutoComplete>(R.id.search_src_text)
+                    val searchTextArr =
+                        arrayOf("RNG", "EDG", "IG", "RW", "OMG", "C9", "DK", "DRX", "FNC","FPX","V5","LGD","LNG","WE")
+                    val searchTextAdapter = ArrayAdapter<String>(
+                        baseContext,
+                        R.layout.item_simple_text,
+                        R.id.tv_item_simple,
+                        searchTextArr
+                    )
+                    searchAutoComplete.setAdapter(searchTextAdapter)
+                    searchAutoComplete.setOnItemClickListener { _, _, position, _ ->
+                        searchView.clearFocus()
+                        searchView.setQuery(searchTextAdapter.getItem(position),true)
+                    }
+                    //输入一个字符就展示下拉列表
+                    searchAutoComplete.threshold=1
                 }
                 R.id.action_collect -> {
                     if (mViewModel.value.isCollect.value) {

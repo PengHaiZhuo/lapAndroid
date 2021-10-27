@@ -1,12 +1,10 @@
 package com.phz.common.databinding
 
-import android.os.Build
 import android.os.SystemClock
 import android.text.InputType
 import android.view.View
 import android.widget.EditText
 import android.widget.ImageView
-import androidx.annotation.RequiresApi
 import androidx.databinding.BindingAdapter
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.bitmap.CircleCrop

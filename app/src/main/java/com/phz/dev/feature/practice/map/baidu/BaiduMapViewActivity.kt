@@ -30,7 +30,6 @@ class BaiduMapViewActivity : BaseVmDbActivity<BaseViewModel, ActivityBaiduMapvie
 
     private lateinit var bottomSheetBehavior: BottomSheetBehavior<RelativeLayout>
     private lateinit var baiduMap: BaiduMap
-    private var locService by lazy {  }
     private val onMapLoadedCallback by lazy {
         BaiduMap.OnMapLoadedCallback {
             //地图加载成功回调

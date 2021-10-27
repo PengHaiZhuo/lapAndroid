@@ -36,6 +36,6 @@ class GenShinRoleListViewModel : BaseViewModel() {
         GenShinRole(4, "钟离", "岩王爷", R.drawable.ic_genshin_zl,false),
         GenShinRole(5, "温蒂", "干正事的风神", R.drawable.ic_genshin_wd,false),
         GenShinRole(6, "莫娜", "穷的没钱吃饭的占星术士", R.drawable.ic_genshin_mn,false),
-        GenShinRole(7, "优菈", "我老婆", R.drawable.ic_genshin_yl,true)
+        GenShinRole(7, "优菈", "我的公主", R.drawable.ic_genshin_yl,true)
     )
 }
