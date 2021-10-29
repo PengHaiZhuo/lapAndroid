@@ -4,6 +4,8 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.Animation
+import android.view.animation.AnimationUtils
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.DiffUtil
@@ -18,8 +20,10 @@ import com.phz.dev.feature.practice.list.recycleview.model.GenShinRole
  * @author phz on 2021/9/29
  * @description
  */
-class GenShinRoleAdapter(private val isLikeChangeListener:(Int)->Unit) :
+class GenShinRoleAdapter(private val isLikeChangeListener: (Int) -> Unit) :
     ListAdapter<GenShinRole, GenShinRoleAdapter.MyViewHolder>(GenShinRoleDiffCallback()) {
+
+    private var lastPosition = -1
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
         val view = LayoutInflater.from(parent.context)
@@ -34,11 +38,14 @@ class GenShinRoleAdapter(private val isLikeChangeListener:(Int)->Unit) :
             circleImageUrlRes(iv, item.imgResId)
             tvName.text = item.name
             tvDes.text = item.des
-            ivLike.isSelected=item.isLike
+            ivLike.isSelected = item.isLike
             ivLike.setOnClickListener {
                 isLikeChangeListener(item.id)
             }
         }
+        /*val animation: Animation =
+            AnimationUtils.loadAnimation(holder.itemView.context, android.R.anim.slide_in_left)
+        holder.itemView.startAnimation(animation)*/
     }
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int, payloads: MutableList<Any>) {
@@ -58,8 +65,8 @@ class GenShinRoleAdapter(private val isLikeChangeListener:(Int)->Unit) :
                     circleImageUrlRes(holder.iv, it)
                 }
             }
-            diffBundle.getBoolean(GenShinRoleDiffCallback.KEY_IS_LIKE,false).let {
-                holder.ivLike.isSelected=it
+            diffBundle.getBoolean(GenShinRoleDiffCallback.KEY_IS_LIKE, false).let {
+                holder.ivLike.isSelected = it
             }
         }
     }
@@ -80,9 +87,24 @@ class GenShinRoleAdapter(private val isLikeChangeListener:(Int)->Unit) :
         val iv: ImageView = view.findViewById(R.id.iv_avatar)
         val tvName: TextView = view.findViewById(R.id.tv_name)
         val tvDes: TextView = view.findViewById(R.id.tv_des)
-        val ivLike:ImageView=view.findViewById(R.id.iv_like)
+        val ivLike: ImageView = view.findViewById(R.id.iv_like)
     }
 
+    override fun onViewDetachedFromWindow(holder: MyViewHolder) {
+        super.onViewDetachedFromWindow(holder)
+        holder.itemView.clearAnimation()
+    }
+
+    override fun onViewAttachedToWindow(holder: MyViewHolder) {
+        super.onViewAttachedToWindow(holder)
+        startAnimationForItem(holder)
+    }
+
+    fun startAnimationForItem(holder: MyViewHolder) {
+        val animation: Animation =
+            AnimationUtils.loadAnimation(holder.itemView.context, android.R.anim.slide_in_left)
+        holder.itemView.startAnimation(animation)
+    }
 }
 
 class GenShinRoleDiffCallback : DiffUtil.ItemCallback<GenShinRole>() {
@@ -90,7 +112,7 @@ class GenShinRoleDiffCallback : DiffUtil.ItemCallback<GenShinRole>() {
         const val KEY_NAME = "NAME"
         const val KEY_IMG = "IMG"
         const val KEY_DES = "DES"
-        const val KEY_IS_LIKE="LIKE"
+        const val KEY_IS_LIKE = "LIKE"
     }
 
     override fun areItemsTheSame(oldItem: GenShinRole, newItem: GenShinRole): Boolean {
@@ -99,7 +121,7 @@ class GenShinRoleDiffCallback : DiffUtil.ItemCallback<GenShinRole>() {
 
     override fun areContentsTheSame(oldItem: GenShinRole, newItem: GenShinRole): Boolean {
         //当areItemsTheSame返回true，代表2个对象是同一个类型Item，在此方法判断是否是一个Item，不是则跳getChangePayload方法比较细节
-        return oldItem.imgResId == newItem.imgResId && oldItem.des == newItem.des && oldItem.name == newItem.name && oldItem.isLike==newItem.isLike
+        return oldItem.imgResId == newItem.imgResId && oldItem.des == newItem.des && oldItem.name == newItem.name && oldItem.isLike == newItem.isLike
     }
 
     override fun getChangePayload(oldItem: GenShinRole, newItem: GenShinRole): Any? {
@@ -115,8 +137,8 @@ class GenShinRoleDiffCallback : DiffUtil.ItemCallback<GenShinRole>() {
         if (oldItem.des != newItem.des) {
             diffBundle.putString(KEY_DES, newItem.des)
         }
-        if (oldItem.isLike!=newItem.isLike){
-            diffBundle.putBoolean(KEY_IS_LIKE,newItem.isLike)
+        if (oldItem.isLike != newItem.isLike) {
+            diffBundle.putBoolean(KEY_IS_LIKE, newItem.isLike)
         }
         if (diffBundle.size() == 0) return null
         return diffBundle

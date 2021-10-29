@@ -1,14 +1,9 @@
 package com.phz.dev.feature.practice.list.recycleview
 
-import android.graphics.Color
 import android.os.Bundle
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
-import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
-import com.phz.common.ext.dismissLoadingExt
-import com.phz.common.ext.logE
-import com.phz.common.ext.showLoadingExt
 import com.phz.common.ext.view.divider
 import com.phz.common.ext.view.vertical
 import com.phz.common.page.activity.BaseVmDbActivity
@@ -27,23 +22,23 @@ import kotlinx.coroutines.launch
 class GenShinRoleActivity :
     BaseVmDbActivity<GenShinRoleListViewModel, ActivityGenshinRoleBinding>() {
 
-    private lateinit var mAdapter:GenShinRoleAdapter
+    private lateinit var mAdapter: GenShinRoleAdapter
 
     override fun initData() {
-        mAdapter=GenShinRoleAdapter(this::toggleLike)
+        mAdapter = GenShinRoleAdapter(this::toggleLike)
         mViewDataBinding.rvGenshinRole.apply {
             vertical()
             divider {
                 setColor("#ff0000")
             }
-            adapter=mAdapter
+            adapter = mAdapter
         }
         lifecycleScope.launch {
             //模拟网络请求
-            mViewModel.showLoading.value=true
+            mViewModel.showLoading.value = true
             delay(1000)
-            mViewModel.showLoading.value=false
-            lifecycle.repeatOnLifecycle(Lifecycle.State.STARTED){
+            mViewModel.showLoading.value = false
+            lifecycle.repeatOnLifecycle(Lifecycle.State.STARTED) {
                 mViewModel.roles.collect {
                     //StateFlow的collect有点类似LiveData的observe，当数据源发生变化时，会跑到这里来
                     mAdapter.submitList(it)
@@ -58,7 +53,7 @@ class GenShinRoleActivity :
         centerTextView.text = "局部刷新"
     }
 
-    private fun toggleLike(id:Int){
+    private fun toggleLike(id: Int) {
         mViewModel.toggleLikeStatus(id)
     }
 }
