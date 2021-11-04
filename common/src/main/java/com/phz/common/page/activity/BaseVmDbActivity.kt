@@ -26,4 +26,9 @@ abstract class BaseVmDbActivity<VM : BaseViewModel, DB : ViewDataBinding> : Base
         mViewDataBinding.lifecycleOwner = this
         super.onCreate(savedInstanceState)
     }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        mViewDataBinding.unbind()
+    }
 }

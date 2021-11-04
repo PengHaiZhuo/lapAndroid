@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mine"
+    app:startDestination="@id/minePage">
+
+    <fragment
+        android:id="@+id/minePage"
+        android:name="com.phz.dev.feature.main.mine.MineFragment"
+        android:label="MineFragment"
+        tools:layout="@layout/fragment_mine">
+        <action
+            android:id="@+id/action_mine_to_integral"
+            app:destination="@id/integralPage"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/childPage"
+        android:name="com.phz.dev.feature.main.mine.child.ChildFragment"
+        android:label="ChildFragment"
+        tools:layout="@layout/fragment_home" />
+
+    <fragment
+        android:id="@+id/integralPage"
+        android:name="com.phz.dev.feature.main.mine.integral.IntegralFragment"
+        android:label="IntegralFragment"
+        tools:layout="@layout/fragment_mine_integral" />
+
+</navigation>

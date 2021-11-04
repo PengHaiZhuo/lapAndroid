@@ -5,7 +5,8 @@ import retrofit2.Retrofit
 
 /**
  * @author phz
- * @description okhttp网络请求管理类基类。子类继承此类，重写[setHttpClientBuilder]和[setRetrofitBuilder]
+ * @description okhttp网络请求管理类基类。子类可继承此类，重写[setHttpClientBuilder]和[setRetrofitBuilder]
+ * 或者采取其他方式初始化retrofit和OkHttpClient
  */
 abstract class HttpCommonManager {
 

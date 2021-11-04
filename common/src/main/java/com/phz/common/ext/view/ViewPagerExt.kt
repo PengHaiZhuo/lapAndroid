@@ -73,12 +73,12 @@ fun ViewPager.getFragmentByPage(index: Int): Fragment? {
             //调用getItemId方法获取id
             val id = fragmentPagerAdapter.getItemId(currentPosition)
             val fpaClazz = (adapter as FragmentPagerAdapter)::class.java
-            //调用Class的getDeclaredField方法获取某个name的对象 {mFragmentManager in FragmentPagerAdapter.java}
+            //调用Class的getDeclaredField方法获取包含某个name的Filed对象 {mFragmentManager in FragmentPagerAdapter.java}
             val fragmentManagerField = fpaClazz.getDeclaredField("mFragmentManager")
             //可能抛出SecurityException，这里是设置反射对象在使用时应禁止 Java 语言访问检查
             fragmentManagerField.isAccessible = true
-            //通过Field的get方法获取对象
-            val fragmentManager = fragmentManagerField.get(FragmentManager::class.java) as FragmentManager
+            //通过Field的get方法获取对象,传入一个object对象，这里是adapter，具体看上文fpaClazz赋值
+            val fragmentManager = fragmentManagerField.get(adapter) as FragmentManager
             //通过Class的getDeclaredMethod方法获取Method对象 {反射获取方法 makeFragmentName in FragmentPagerAdapter}
             val method =fpaClazz.getDeclaredMethod("makeFragmentName", Int::class.java, Long::class.java)
             //将此方法的isAccessible标志设置为true，禁止java语言访问检查

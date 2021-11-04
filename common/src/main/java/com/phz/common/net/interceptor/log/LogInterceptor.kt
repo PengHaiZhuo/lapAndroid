@@ -105,7 +105,7 @@ class LogInterceptor : Interceptor {
             val responseBody = response.newBuilder().build().body
             val source = responseBody!!.source()
             source.request(Long.MAX_VALUE) // Buffer the entire body.
-            val buffer = source.buffer()
+            val buffer = source.buffer
 
             //获取content的压缩类型
             val encoding = response
@@ -203,13 +203,13 @@ class LogInterceptor : Interceptor {
                     charset = contentType.charset(charset)
                 }
                 var json = requestBuffer.readString(charset)
-                if (hasUrlEncoded(json!!)) {
+                if (hasUrlEncoded(json)) {
                     json = URLDecoder.decode(
                         json,
                         convertCharset(charset)
                     )
                 }
-                jsonFormat(json!!)
+                jsonFormat(json)
             } catch (e: IOException) {
                 e.printStackTrace()
                 "{\"error\": \"" + e.message + "\"}"
@@ -253,26 +253,26 @@ class LogInterceptor : Interceptor {
         fun isJson(mediaType: MediaType?): Boolean {
             return if (mediaType?.subtype == null) {
                 false
-            } else mediaType.subtype.toLowerCase(Locale.getDefault()).contains("json")
+            } else mediaType.subtype.lowercase(Locale.getDefault()).contains("json")
         }
 
         @JvmStatic
         fun isXml(mediaType: MediaType?): Boolean {
             return if (mediaType?.subtype == null) {
                 false
-            } else mediaType.subtype.toLowerCase(Locale.getDefault()).contains("xml")
+            } else mediaType.subtype.lowercase(Locale.getDefault()).contains("xml")
         }
 
         private fun isHtml(mediaType: MediaType?): Boolean {
             return if (mediaType?.subtype == null) {
                 false
-            } else mediaType.subtype.toLowerCase(Locale.getDefault()).contains("html")
+            } else mediaType.subtype.lowercase(Locale.getDefault()).contains("html")
         }
 
         private fun isForm(mediaType: MediaType?): Boolean {
             return if (mediaType?.subtype == null) {
                 false
-            } else mediaType.subtype.toLowerCase(Locale.getDefault())
+            } else mediaType.subtype.lowercase(Locale.getDefault())
                 .contains("x-www-form-urlencoded")
         }
 

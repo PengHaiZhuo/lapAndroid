@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.ViewDataBinding
+import androidx.lifecycle.findViewTreeLifecycleOwner
 import com.phz.common.state.BaseViewModel
 import java.lang.reflect.ParameterizedType
 
@@ -28,7 +29,7 @@ abstract class BaseVmDbFragment<VM : BaseViewModel, DB : ViewDataBinding> : Base
         method.isAccessible=true
         mViewDataBinding = method.invoke(null, layoutInflater) as DB
         mRootView = mViewDataBinding.root
-        mViewDataBinding.lifecycleOwner = this
+        mViewDataBinding.lifecycleOwner = mRootView!!.findViewTreeLifecycleOwner()
         return super.onCreateView(inflater, container, savedInstanceState)
     }
 }

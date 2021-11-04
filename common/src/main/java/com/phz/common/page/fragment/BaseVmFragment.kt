@@ -29,7 +29,7 @@ abstract class BaseVmFragment<VM : BaseViewModel> : Fragment() {
     //是否加载过，为了实现Androidx下懒加载
     protected var isLoaded = false
 
-    //当前Activity的ViewDataBinding的root
+    //当前碎片布局的ViewDataBinding的根布局
     var mRootView: View? = null
 
     override fun onAttach(context: Context) {
@@ -42,11 +42,10 @@ abstract class BaseVmFragment<VM : BaseViewModel> : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return if (mRootView == null) {
-            inflater.inflate(getLayoutId(), container, false)
-        } else {
-            mRootView
+        if (mRootView == null) {
+            mRootView = inflater.inflate(getLayoutId(), container, false)
         }
+        return mRootView
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -88,6 +87,7 @@ abstract class BaseVmFragment<VM : BaseViewModel> : Fragment() {
 
     override fun onDestroyView() {
         super.onDestroyView()
+        mRootView = null
         isLoaded = false
     }
 

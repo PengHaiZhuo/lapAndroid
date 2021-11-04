@@ -1,12 +1,10 @@
 package com.phz.common.databinding
 
-import android.os.Build
 import android.os.SystemClock
 import android.text.InputType
 import android.view.View
 import android.widget.EditText
 import android.widget.ImageView
-import androidx.annotation.RequiresApi
 import androidx.databinding.BindingAdapter
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.bitmap.CircleCrop
@@ -39,11 +37,42 @@ object MineBindingAdapter {
             .into(view)
     }
 
+    @BindingAdapter(value = ["imageGifUrl"])
+    @JvmStatic
+    fun imageGifUrlRes(view: ImageView, resourceId: Int) {
+        Glide.with(view.context.applicationContext)
+            .asGif()
+            .load(resourceId)
+            .transition(DrawableTransitionOptions.withCrossFade(500))
+            .into(view)
+    }
+
     @BindingAdapter(value = ["circleImageUrl"])
     @JvmStatic
     fun circleImageUrl(view: ImageView, url: String) {
         Glide.with(view.context.applicationContext)
             .load(url)
+            .apply(RequestOptions.bitmapTransform(CircleCrop()))
+            .transition(DrawableTransitionOptions.withCrossFade(500))
+            .into(view)
+    }
+
+    @BindingAdapter(value = ["circleImageUrlRes"])
+    @JvmStatic
+    fun circleImageUrlRes(view: ImageView, resourceId: Int) {
+        Glide.with(view.context.applicationContext)
+            .load(resourceId)
+            .apply(RequestOptions.bitmapTransform(CircleCrop()))
+            .transition(DrawableTransitionOptions.withCrossFade(500))
+            .into(view)
+    }
+
+    @BindingAdapter(value = ["circleImageUrlGifRes"])
+    @JvmStatic
+    fun circleImageUrlGifRes(view: ImageView, resourceId: Int) {
+        Glide.with(view.context.applicationContext)
+            .asGif()
+            .load(resourceId)
             .apply(RequestOptions.bitmapTransform(CircleCrop()))
             .transition(DrawableTransitionOptions.withCrossFade(500))
             .into(view)

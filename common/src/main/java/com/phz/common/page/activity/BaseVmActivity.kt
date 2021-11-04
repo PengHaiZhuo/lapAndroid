@@ -53,7 +53,7 @@ abstract class BaseVmActivity<VM : BaseViewModel> : AppCompatActivity() {
             supportActionBar?.title = ""
             immersionBar {
                 titleBar(mToolbar)
-                statusBarColor(R.color.colorWhite)
+                statusBarColor(R.color.colorPrimary)
                 autoStatusBarDarkModeEnable(true)
             }
         }
