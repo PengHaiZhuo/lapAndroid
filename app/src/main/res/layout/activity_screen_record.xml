@@ -73,6 +73,46 @@
                 app:layout_constraintTop_toBottomOf="@id/bt_turbo_statistics" />
 
 
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/bt_xp"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="32dp"
+                android:layout_marginEnd="16dp"
+                android:onClick="@{()->click.clickXiaoPu()}"
+                android:text="小普健康"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/bt_bluetooth_hp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/bt_ly"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="32dp"
+                android:layout_marginEnd="16dp"
+                android:onClick="@{()->click.clickNeighborVoice()}"
+                android:text="铃音"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/bt_xp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/bt_ep"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="32dp"
+                android:layout_marginEnd="16dp"
+                android:onClick="@{()->click.clickEngineeringPulse()}"
+                android:text="工程脉搏"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/bt_ly" />
+
+
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </ScrollView>

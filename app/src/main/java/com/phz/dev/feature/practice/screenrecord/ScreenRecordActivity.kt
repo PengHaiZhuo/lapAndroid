@@ -37,7 +37,6 @@ class ScreenRecordActivity : BaseVmDbActivity<BaseViewModel, ActivityScreenRecor
                 this@ScreenRecordActivity,
                 ExoPlayerActivity.Companion.TYPE.TURBO_STATISTICS
             )
-
         }
 
         fun clickWindStatistics() {
@@ -45,7 +44,6 @@ class ScreenRecordActivity : BaseVmDbActivity<BaseViewModel, ActivityScreenRecor
                 this@ScreenRecordActivity,
                 ExoPlayerActivity.Companion.TYPE.WIND_STATISTICS
             )
-
         }
 
         fun clickBluetoothHp() {
@@ -53,7 +51,27 @@ class ScreenRecordActivity : BaseVmDbActivity<BaseViewModel, ActivityScreenRecor
                 this@ScreenRecordActivity,
                 ExoPlayerActivity.Companion.TYPE.BLUETOOTH_HELPER
             )
+        }
 
+        fun clickXiaoPu() {
+            ExoPlayerActivity.start(
+                this@ScreenRecordActivity,
+                ExoPlayerActivity.Companion.TYPE.XIAO_PU
+            )
+        }
+
+        fun clickNeighborVoice() {
+            ExoPlayerActivity.start(
+                this@ScreenRecordActivity,
+                ExoPlayerActivity.Companion.TYPE.NEIGHBOR_VOICE
+            )
+        }
+
+        fun clickEngineeringPulse() {
+            ExoPlayerActivity.start(
+                this@ScreenRecordActivity,
+                ExoPlayerActivity.Companion.TYPE.ENGINEERING_PLUS
+            )
         }
 
     }

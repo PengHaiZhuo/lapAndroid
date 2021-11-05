@@ -146,7 +146,7 @@ class ExoPlayerActivity : BaseVmDbPureActivity<BaseViewModel, ActivityExoPlayerB
         const val KEY_POSITION = "position"
 
         enum class TYPE {
-            CAR_STATISTICS, WIND_STATISTICS, TURBO_STATISTICS, BLUETOOTH_HELPER
+            CAR_STATISTICS, WIND_STATISTICS, TURBO_STATISTICS, BLUETOOTH_HELPER, XIAO_PU, NEIGHBOR_VOICE, ENGINEERING_PLUS
         }
 
         @JvmStatic
@@ -215,20 +215,14 @@ class ExoPlayerActivity : BaseVmDbPureActivity<BaseViewModel, ActivityExoPlayerB
         type = intent.extras?.get(KEY_TYPE) as TYPE
         type?.let {
             url = when (it) {
-                TYPE.CAR_STATISTICS -> {
-                    "https://cdn.jsdelivr.net/gh/GuberP/mResouce/vedio/car_statistics.mp4"
-                }
-                TYPE.WIND_STATISTICS -> {
-                    "https://cdn.jsdelivr.net/gh/GuberP/mResouce/vedio/wind_statistics.mp4"
-                }
-                TYPE.TURBO_STATISTICS -> {
-                    "https://cdn.jsdelivr.net/gh/GuberP/mResouce/vedio/turbo_statistics.mp4"
-                }
-                TYPE.BLUETOOTH_HELPER -> {
-                    "https://cdn.jsdelivr.net/gh/GuberP/mResouce/vedio/bluetooth_hp.mp4"
-                }
+                TYPE.CAR_STATISTICS -> "https://cdn.jsdelivr.net/gh/GuberP/mResouce/vedio/car_statistics.mp4"
+                TYPE.WIND_STATISTICS -> "https://cdn.jsdelivr.net/gh/GuberP/mResouce/vedio/wind_statistics.mp4"
+                TYPE.TURBO_STATISTICS -> "https://cdn.jsdelivr.net/gh/GuberP/mResouce/vedio/turbo_statistics.mp4"
+                TYPE.BLUETOOTH_HELPER -> "https://cdn.jsdelivr.net/gh/GuberP/mResouce/vedio/bluetooth_hp.mp4"
+                TYPE.XIAO_PU -> "https://cdn.jsdelivr.net/gh/GuberP/mResouce/vedio/xiaopu.mp4"
+                TYPE.NEIGHBOR_VOICE -> "https://cdn.jsdelivr.net/gh/GuberP/mResouce/vedio/m3u8/NeighborVoice/play_list.m3u8"
+                TYPE.ENGINEERING_PLUS -> "https://cdn.jsdelivr.net/gh/GuberP/mResouce/vedio/m3u8/EngineeringPulse/play_list.m3u8"
             }
         }
-
     }
 }
