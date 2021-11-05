@@ -1,2 +1,2 @@
-# dev
-study android,practice
+# lapAndroid
+study and practice android
