@@ -30,4 +30,7 @@
     <string name="cancel">取消</string>
     <string name="commit">提交</string>
     <string name="plz_input_query">请输入检索内容</string>
+    <string name="plz_input_username">请输入用户名</string>
+    <string name="tip_username">用户名不能少于3位</string>
+    <string name="tip_pwd">密码不能少于6位</string>
 </resources>

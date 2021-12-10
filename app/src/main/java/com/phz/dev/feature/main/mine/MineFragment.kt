@@ -2,31 +2,32 @@ package com.phz.dev.feature.main.mine
 
 import android.graphics.Color
 import android.os.Bundle
-import androidx.core.view.size
-import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
-import com.gyf.immersionbar.ktx.immersionBar
-import com.gyf.immersionbar.ktx.setFitsSystemWindows
+import androidx.lifecycle.viewModelScope
 import com.phz.common.databinding.MineBindingAdapter.circleImageUrlGifRes
-import com.phz.common.ext.startKtxActivity
+import com.phz.common.ext.*
 import com.phz.common.page.fragment.BaseVmDbPureFragment
+import com.phz.common.util.ActivityManagerKtx
 import com.phz.dev.R
 import com.phz.dev.databinding.FragmentMineBinding
+import com.phz.dev.ext.request
 import com.phz.dev.feature.practice.PracticeMainActivity
+import com.phz.dev.net.apiService
+import com.phz.dev.state.AppViewModel
+import com.phz.dev.util.PersistenceUtil
+import kotlinx.coroutines.launch
 
 /**
  * @author phz on 2021/8/17
  * @description 我的页面
  */
 class MineFragment : BaseVmDbPureFragment<MineViewModel, FragmentMineBinding>() {
+    val appViewModel: AppViewModel by lazy { getAppViewModel<AppViewModel>() }
     override fun lazyInit() {
     }
 
     override fun getLayoutId(): Int = R.layout.fragment_mine
 
     override fun initData() {
-//        mViewDataBinding.btnToChild.clickNoRepeat {
-//            nav().navigate(R.id.action_mine_to_child)
-//        }
     }
 
     override fun onResume() {
@@ -52,7 +53,7 @@ class MineFragment : BaseVmDbPureFragment<MineViewModel, FragmentMineBinding>() 
                 postDelayed({
                     circleImageUrlGifRes(mViewDataBinding.ivAvatar, mViewModel.gifUrl)
                     mViewDataBinding.swipeRl.isRefreshing = false
-                },2000)
+                }, 2000)
 
             }
         }
@@ -61,7 +62,9 @@ class MineFragment : BaseVmDbPureFragment<MineViewModel, FragmentMineBinding>() 
 
     inner class ProxyClick {
         //积分
-        fun integral() {}
+        fun integral() {
+            nav().navigate(R.id.action_mine_to_integral)
+        }
 
         //文章
         fun article() {}
@@ -84,6 +87,22 @@ class MineFragment : BaseVmDbPureFragment<MineViewModel, FragmentMineBinding>() 
         fun update() {}
 
         //退出
-        fun exit() {}
+        fun exit() {
+            showDialogMessage(
+                "确认要退出吗？", "提示",
+                positiveAction = {
+                    mViewModel.viewModelScope.launch {
+                        mViewModel.request({ apiService.logout() }, {
+                            appViewModel.userBean.value = null
+                            PersistenceUtil.clear()
+                            ActivityManagerKtx.removeAllActivity()
+                        }, {
+                            it.message?.logE()
+                        })
+
+                    }
+                }, negativeButtonText = "取消"
+            )
+        }
     }
 }

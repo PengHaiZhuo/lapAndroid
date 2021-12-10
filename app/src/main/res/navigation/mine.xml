@@ -19,11 +19,6 @@
             app:popExitAnim="@anim/slide_out_right" />
     </fragment>
 
-    <fragment
-        android:id="@+id/childPage"
-        android:name="com.phz.dev.feature.main.mine.child.ChildFragment"
-        android:label="ChildFragment"
-        tools:layout="@layout/fragment_home" />
 
     <fragment
         android:id="@+id/integralPage"
