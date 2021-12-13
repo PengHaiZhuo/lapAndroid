@@ -10,21 +10,14 @@ import com.tencent.mmkv.MMKV
 object PersistenceUtil {
     private const val ID_CACHE = "cache_kk"
 
-    const val USERNAME = "USERNAME"
-    const val PWD = "PWD"
+    const val USERNAME = "USERNAME" //用户名
+    const val PWD = "PWD" //密码
+    const val TOKEN = "TOKEN"//登陆后获取的token
 
-    //登陆后获取的token
-    const val TOKEN = "TOKEN"
-
-    //登录后获取的USER对象
-    const val USER = "USER"
-
-
-    fun clear() {
+    fun clearCache() {
         setUserName("")
         setPWD("")
         setToken("")
-        setUserBean(UserBean())
     }
 
     fun setUserName(name: String) {
@@ -43,12 +36,5 @@ object PersistenceUtil {
         MMKV.mmkvWithID(ID_CACHE).encode(TOKEN, token)
     }
 
-    fun getToken(): String = MMKV.mmkvWithID(ID_CACHE).decodeString(TOKEN)
-
-    fun setUserBean(userBean: UserBean) {
-        MMKV.defaultMMKV().encode(USER, userBean)
-    }
-
-    fun getUserBean(): UserBean? =
-        MMKV.defaultMMKV().decodeParcelable(USER, UserBean::class.java, null)
+    fun getToken(): String = MMKV.mmkvWithID(ID_CACHE).decodeString(TOKEN,"")
 }

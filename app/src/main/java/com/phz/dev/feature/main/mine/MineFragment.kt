@@ -94,7 +94,7 @@ class MineFragment : BaseVmDbPureFragment<MineViewModel, FragmentMineBinding>() 
                     mViewModel.viewModelScope.launch {
                         mViewModel.request({ apiService.logout() }, {
                             appViewModel.userBean.value = null
-                            PersistenceUtil.clear()
+                            PersistenceUtil.clearCache()
                             ActivityManagerKtx.removeAllActivity()
                         }, {
                             it.message?.logE()

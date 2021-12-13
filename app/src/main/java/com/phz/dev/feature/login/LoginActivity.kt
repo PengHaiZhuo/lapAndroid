@@ -52,7 +52,6 @@ class LoginActivity : BaseVmDbPureActivity<LoginViewModel, ActivityLoginBinding>
     fun initObserver() {
         mViewModel.userBeanLiveData.observe(this) {
             //将用户信息缓存本地
-            PersistenceUtil.setUserBean(it)
             PersistenceUtil.setUserName(mViewModel.userName.get())
             PersistenceUtil.setPWD(mViewModel.pwd.get())
             appViewModel.userBean.value = it

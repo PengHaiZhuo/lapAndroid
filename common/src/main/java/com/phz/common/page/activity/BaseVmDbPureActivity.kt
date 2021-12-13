@@ -6,7 +6,9 @@ import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import com.phz.common.ext.dismissLoadingExt
 import com.phz.common.ext.getVmClazz
+import com.phz.common.ext.showLoadingExt
 import com.phz.common.lifecycle.FrontAndBackObservable
 import com.phz.common.net.manager.NetState
 import com.phz.common.net.manager.NetStateManager
@@ -27,6 +29,16 @@ abstract class BaseVmDbPureActivity<VM : BaseViewModel, DB : ViewDataBinding> :
         mViewDataBinding.lifecycleOwner = this
         mViewModel = ViewModelProvider(this)[getVmClazz(this)]
         initView(savedInstanceState)
+        //注册界面响应事件观察者
+        mViewModel.showLoading.observe(this@BaseVmDbPureActivity) {
+            if (it) {
+                //显示加载对话框
+                showLoadingExt()
+            } else {
+                //隐藏加载对话框
+                dismissLoadingExt()
+            }
+        }
         NetStateManager.instance.mNetworkStateCallback.observe(this, Observer {
             onNetworkStateChanged(it)
         })
