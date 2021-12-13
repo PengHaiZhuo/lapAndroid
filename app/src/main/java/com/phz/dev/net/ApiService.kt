@@ -27,4 +27,12 @@ interface ApiService {
 
     @GET("user/logout/json")
     suspend fun logout():BaseResponse<String?>
+
+    @FormUrlEncoded
+    @POST("user/register")
+    suspend fun register(
+        @Field("username") username: String,
+        @Field("password") pwd: String,
+        @Field("repassword") repwd: String
+    ):BaseResponse<UserBean>
 }

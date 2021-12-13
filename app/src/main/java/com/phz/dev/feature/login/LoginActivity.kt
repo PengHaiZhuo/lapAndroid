@@ -9,6 +9,7 @@ import com.phz.common.page.activity.BaseVmDbPureActivity
 import com.phz.dev.R
 import com.phz.dev.databinding.ActivityLoginBinding
 import com.phz.dev.feature.main.MainActivity
+import com.phz.dev.feature.register.RegisterActivity
 import com.phz.dev.state.AppViewModel
 import com.phz.dev.util.PersistenceUtil
 import com.phz.dev.util.StringUtil
@@ -18,15 +19,10 @@ import com.phz.dev.util.StringUtil
  * @description 登录页
  */
 class LoginActivity : BaseVmDbPureActivity<LoginViewModel, ActivityLoginBinding>() {
-    val appViewModel: AppViewModel by lazy { getAppViewModel<AppViewModel>() }
+    val appViewModel: AppViewModel by lazy { getAppViewModel() }
 
     override fun initData() {
-        PersistenceUtil.getUserName().let {
-            mViewDataBinding.etUsername.setText(it)
-        }
-        PersistenceUtil.getPWD().let {
-            mViewDataBinding.etPassword.setText(it)
-        }
+        mViewDataBinding.vm=mViewModel
         mViewDataBinding.btnLogin.clickNoRepeat {
             val name = mViewDataBinding.etUsername.text.toString()
             val pwd = mViewDataBinding.etPassword.text.toString()
@@ -41,6 +37,9 @@ class LoginActivity : BaseVmDbPureActivity<LoginViewModel, ActivityLoginBinding>
             mViewModel.userName.set(name)
             mViewModel.pwd.set(pwd)
             mViewModel.login(name, pwd)
+        }
+        mViewDataBinding.register.clickNoRepeat {
+            startKtxActivity<RegisterActivity>()//跳转注册页
         }
         //初始化观察员
         initObserver()

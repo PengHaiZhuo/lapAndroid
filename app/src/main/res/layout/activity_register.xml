@@ -4,22 +4,30 @@
 
     <data>
         <variable
-            name="vm"
-            type="com.phz.dev.feature.login.LoginViewModel" />
+            name="user"
+            type="com.phz.dev.data.model.UserBean" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@drawable/bg_login">
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:src="@drawable/bg_login"
+            android:scaleType="fitXY"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <androidx.cardview.widget.CardView
-            android:id="@+id/login_view"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="40dp"
-            android:layout_marginEnd="40dp"
-            app:cardCornerRadius="4dp"
+            android:layout_centerInParent="true"
+            android:layout_margin="@dimen/margin_normal"
+            app:cardCornerRadius="@dimen/corner_radius_normal"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -28,6 +36,8 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_normal"
+                android:layout_marginBottom="@dimen/margin_normal"
                 android:gravity="center_horizontal"
                 android:orientation="vertical">
 
@@ -35,10 +45,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/margin_normal"
-                    android:layout_marginTop="@dimen/margin_normal"
                     android:layout_marginEnd="@dimen/margin_normal"
-                    app:boxBackgroundColor="@color/colorWhite"
-                    app:startIconDrawable="@drawable/ic_user">
+                    app:boxBackgroundColor="@color/colorWhite">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/et_username"
@@ -46,7 +54,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="@string/user_name"
-                        android:text="@={vm.userName}" />
+                        android:text="@={user.username}" />
 
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -54,76 +62,60 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/margin_normal"
-                    android:layout_marginTop="@dimen/margin_small"
                     android:layout_marginEnd="@dimen/margin_normal"
-                    app:passwordToggleEnabled="true"
+                    android:hint="@string/pwd"
                     app:boxBackgroundColor="@color/colorWhite"
-                    app:startIconDrawable="@drawable/ic_pwd">
+                    app:passwordToggleEnabled="true">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/et_password"
                         style="@style/TextInputEditTextMine"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="@string/pwd"
                         android:imeOptions="actionUnspecified"
                         android:inputType="textPassword"
-                        android:text="@={vm.pwd}"
-                        />
+                        android:maxLength="20"
+                        android:singleLine="true"/>
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margin_normal"
+                    android:layout_marginEnd="@dimen/margin_normal"
+                    app:boxBackgroundColor="@color/colorWhite"
+                    app:passwordToggleEnabled="true">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/et_confirm_password"
+                        style="@style/TextInputEditTextMine"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/confirm_pwd"
+                        android:imeOptions="actionUnspecified"
+                        android:inputType="textPassword"
+                        android:maxLength="20"
+                        android:singleLine="true"/>
 
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.button.MaterialButton
-                    android:id="@+id/btn_login"
-                    style="@style/Widget.MaterialComponents.Button"
+                    android:id="@+id/btn_register"
+                    style="@style/Widget.AppCompat.Button.Colored"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/margin_normal"
                     android:layout_marginTop="@dimen/margin_normal"
                     android:layout_marginEnd="@dimen/margin_normal"
-                    android:backgroundTint="@color/colorPrimary"
-                    android:insetTop="6dp"
-                    android:insetBottom="6dp"
-                    android:text="@string/login"
+                    android:text="@string/register_and_login"
                     android:textAppearance="@style/TextAppearance.MaterialComponents.Button"
                     android:textColor="@android:color/white"
-                    android:textSize="16sp" />
+                    android:textSize="@dimen/text_middle" />
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/margin_normal"
-                    android:layout_marginTop="@dimen/margin_small"
-                    android:layout_marginEnd="@dimen/margin_normal"
-                    android:layout_marginBottom="@dimen/margin_normal"
-                    android:gravity="center_vertical"
-                    android:orientation="horizontal">
-
-
-                    <View
-                        android:layout_width="0dp"
-                        android:layout_height="1dp"
-                        android:layout_weight="1" />
-
-                    <TextView
-                        android:id="@+id/register"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:clickable="true"
-                        android:focusable="true"
-                        android:paddingStart="@dimen/margin_normal"
-                        android:paddingTop="@dimen/margin_small"
-                        android:paddingEnd="@dimen/margin_normal"
-                        android:paddingBottom="@dimen/margin_small"
-                        android:text="@string/register"
-                        android:textColor="@drawable/selector_click_state_txt_color_blue"
-                        android:textSize="14sp" />
-
-                </LinearLayout>
             </LinearLayout>
 
         </androidx.cardview.widget.CardView>
-
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

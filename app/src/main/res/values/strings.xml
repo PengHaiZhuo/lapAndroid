@@ -39,7 +39,17 @@
     <string name="plz_input_query">请输入检索内容</string>
     <string name="plz_input_username">请输入用户名</string>
     <string name="tip_username">用户名不能少于3位</string>
-    <string name="tip_pwd">密码不能少于6位</string>
+    <string name="tip_pwd">密码长度为6-20位</string>
+    <string name="short_message_vf">短信验证码</string>
+    <string name="phone_number">手机号码</string>
+    <string name="obtain_verify_code">获取验证码</string>
+    <string name="confirm_pwd">确认密码</string>
+    <string name="read_and_confirm">阅读并同意</string>
+    <string name="privacy_policy">《隐私政策》</string>
+    <string name="and">和</string>
+    <string name="service_agreement">《服务协议》</string>
+    <string name="register_and_login">注册并登陆</string>
+    <string name="tip_pwd_not_same">密码输入不一致</string>
 
     <string-array name="items_dialog_learn">
         <item>Red</item>

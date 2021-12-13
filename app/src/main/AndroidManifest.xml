@@ -89,6 +89,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".feature.login.LoginActivity" />
+        <activity android:name=".feature.register.RegisterActivity"/>
         <activity android:name=".feature.main.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />

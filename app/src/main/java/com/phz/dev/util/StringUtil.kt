@@ -14,7 +14,7 @@ class StringUtil {
 
         @JvmStatic
         fun isPwd(pwd:String):Boolean{
-            return !(pwd.isEmpty()||pwd.length<6)
+            return !(pwd.isEmpty()||pwd.length<6||pwd.length>20)
         }
     }
 }

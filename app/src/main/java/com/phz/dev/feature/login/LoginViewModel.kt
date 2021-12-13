@@ -9,6 +9,7 @@ import com.phz.common.state.BaseViewModel
 import com.phz.dev.data.model.UserBean
 import com.phz.dev.ext.request
 import com.phz.dev.net.apiService
+import com.phz.dev.util.PersistenceUtil
 import kotlinx.coroutines.launch
 
 /**
@@ -19,6 +20,15 @@ class LoginViewModel : BaseViewModel() {
     val userName = StringObservableField()
     val pwd = StringObservableField()
     val userBeanLiveData = MutableLiveData<UserBean>()//登陆返回信息
+
+    init {
+        PersistenceUtil.getUserName().let {
+            userName.set(it)
+        }
+        PersistenceUtil.getPWD().let {
+            pwd.set(it)
+        }
+    }
 
     fun login(name: String, pwd: String) {
         viewModelScope.launch {
