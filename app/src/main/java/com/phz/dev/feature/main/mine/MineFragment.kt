@@ -13,6 +13,7 @@ import com.phz.dev.ext.request
 import com.phz.dev.feature.practice.PracticeMainActivity
 import com.phz.dev.net.apiService
 import com.phz.dev.state.AppViewModel
+import com.phz.dev.util.CacheFileManager
 import com.phz.dev.util.PersistenceUtil
 import kotlinx.coroutines.launch
 
@@ -21,17 +22,14 @@ import kotlinx.coroutines.launch
  * @description 我的页面
  */
 class MineFragment : BaseVmDbPureFragment<MineViewModel, FragmentMineBinding>() {
-    val appViewModel: AppViewModel by lazy { getAppViewModel<AppViewModel>() }
+    val appViewModel: AppViewModel by lazy { getAppViewModel() }
     override fun lazyInit() {
     }
 
     override fun getLayoutId(): Int = R.layout.fragment_mine
 
     override fun initData() {
-    }
-
-    override fun onResume() {
-        super.onResume()
+        mViewDataBinding.tvCacheSize.text= CacheFileManager.getTotalCacheSize(requireContext())
     }
 
     override fun initView(savedInstanceState: Bundle?) {
