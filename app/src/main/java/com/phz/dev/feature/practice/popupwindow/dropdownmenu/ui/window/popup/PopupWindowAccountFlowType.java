@@ -14,7 +14,7 @@ import com.phz.dev.feature.practice.popupwindow.dropdownmenu.adapter.AccountFlow
 import com.phz.dev.feature.practice.popupwindow.dropdownmenu.util.Util;
 
 /**
- * @author haizhuo
+ * @author phz
  * @introduction 账户流水 菜单弹出框
  */
 public class PopupWindowAccountFlowType extends PopupWindow {

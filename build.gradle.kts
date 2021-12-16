@@ -13,10 +13,9 @@ buildscript {
 //        maven { setUrl("https://maven.aliyun.com/repository/gradle-plugin") }
     }
     dependencies {
-        classpath("com.android.tools.build:gradle:${BuildConfig.gradle_version}")
+        classpath("${Gradle.plugin}")
         classpath("${Kotlin.plugin}")
         classpath("${AndroidX.Navigation.safeArgsGradlePlugin}")
-        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:1.5.20")
     }
 }
 

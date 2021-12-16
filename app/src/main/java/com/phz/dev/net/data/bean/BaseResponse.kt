@@ -1,7 +1,7 @@
 package com.phz.dev.net.data.bean
 
 import com.phz.common.net.support.data.BaseJsonResponse
-import com.phz.dev.net.ApiService.Companion.TOKEN_OVERDUE
+import com.phz.dev.net.ApiService
 
 /**
  * @author phz
@@ -22,7 +22,7 @@ data class BaseResponse<T>(
         //登录成功获取有时效的token字段，本地缓存，后面的请求附带这个参数
         //服务器做校验，当token过期返回一个过期的code，重新登录获取新token
         //不使用这种方案的话，可以使用cookie，方式差不多。现在都网络请求框架基本都可以设置，比如okhttp可以设置cookieJar
-        return (errorCode == TOKEN_OVERDUE)
+        return (errorCode == ApiService.TOKEN_OVERDUE)
     }
 
     override fun getResponseData(): T {

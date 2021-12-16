@@ -20,6 +20,7 @@ fun <VM> getVmClazz(obj: Any): VM {
  * 获取当前类绑定的泛型ViewDataBinding-clazz
  * 要求Class 泛型第二个是DB
  */
+@Suppress("UNCHECKED_CAST")
 fun <DB> getDbClazz(obj: Any): DB {
     return (obj.javaClass.genericSuperclass as ParameterizedType).actualTypeArguments[1] as DB
 }

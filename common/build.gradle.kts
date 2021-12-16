@@ -90,19 +90,19 @@ dependencies {
 
     //rxjava
     implementation (ThirdPart.rxjava2)
-    implementation (ThirdPart.rxandroid)
+    implementation (ThirdPart.rxAndroid)
 
     implementation(ThirdPart.MaterialDialogs.core)
     implementation(ThirdPart.MaterialDialogs.input)
     implementation(ThirdPart.MaterialDialogs.color)
     implementation(ThirdPart.MaterialDialogs.files)
     implementation(ThirdPart.MaterialDialogs.datetime)
-    implementation(ThirdPart.MaterialDialogs.bottomsheets)
+    implementation(ThirdPart.MaterialDialogs.bottomSheets)
     implementation(ThirdPart.MaterialDialogs.lifecycle)
 
     //unPeekLivedata
     implementation(ThirdPart.unPeekLivedata)
     //标题栏工具
-    implementation(ThirdPart.immersionbar)
-    implementation(ThirdPart.immersionbarKtx)
+    implementation(ThirdPart.immersionBar)
+    implementation(ThirdPart.immersionBarKtx)
 }

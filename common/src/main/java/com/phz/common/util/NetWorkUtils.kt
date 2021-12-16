@@ -8,7 +8,7 @@ import android.util.Log
 import java.io.IOException
 
 /**
- * @author haizhuo
+ * @author phz
  * @description 网络链接工具
  */
 object NetWorkUtils {

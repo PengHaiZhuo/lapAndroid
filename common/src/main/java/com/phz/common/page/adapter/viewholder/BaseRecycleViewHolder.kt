@@ -1,4 +1,4 @@
-package com.phz.common.page.adapter
+package com.phz.common.page.adapter.viewholder
 
 import android.view.LayoutInflater
 import android.view.ViewGroup

@@ -2,7 +2,9 @@ package com.phz.dev.feature.register
 
 import android.os.Bundle
 import androidx.lifecycle.viewModelScope
+import com.blankj.utilcode.util.ToastUtils
 import com.phz.common.ext.getAppViewModel
+import com.phz.common.ext.logE
 import com.phz.common.ext.startKtxActivity
 import com.phz.common.ext.view.clickNoRepeat
 import com.phz.common.page.activity.BaseVmDbActivity
@@ -55,7 +57,10 @@ class RegisterActivity : BaseVmDbActivity<BaseViewModel, ActivityRegisterBinding
                     startKtxActivity<MainActivity>()
                     ActivityManagerKtx.finishActivity(LoginActivity::class.java)
                     finish()
-                }, {})
+                }, {
+                    ToastUtils.showShort("注册失败，错误码${it.errorCode}")
+                    "message:${it.errorMsg}    code:${it.errorCode}".logE()
+                })
             }
         }
     }

@@ -57,6 +57,7 @@ android {
         jvmTarget = "11"
     }
     buildFeatures {
+        /*compose =true*/
         dataBinding = true
         viewBinding = true
     }
@@ -132,21 +133,23 @@ dependencies {
 
     //rxjava
     implementation(ThirdPart.rxjava2)
-    implementation(ThirdPart.rxandroid)
+    implementation(ThirdPart.rxAndroid)
 
+    //材料设计弹出框
     implementation(ThirdPart.MaterialDialogs.core)
     implementation(ThirdPart.MaterialDialogs.input)
     implementation(ThirdPart.MaterialDialogs.color)
     implementation(ThirdPart.MaterialDialogs.files)
     implementation(ThirdPart.MaterialDialogs.datetime)
-    implementation(ThirdPart.MaterialDialogs.bottomsheets)
+    implementation(ThirdPart.MaterialDialogs.bottomSheets)
     implementation(ThirdPart.MaterialDialogs.lifecycle)
 
+    //好用的列表适配器
     implementation(ThirdPart.baseRecycleViewHelper)
     //mkkv
     implementation(ThirdPart.mmkv)
     //blankj工具集
-    implementation(ThirdPart.utilcodex)
+    implementation(ThirdPart.utilCodex)
     //unPeekLivedata
     implementation(ThirdPart.unPeekLivedata)
     //bugly
@@ -154,12 +157,12 @@ dependencies {
     //loadSir
     implementation(ThirdPart.loadSir)
     //标题栏工具
-    implementation(ThirdPart.immersionbar)
-    implementation(ThirdPart.immersionbarKtx)
+    implementation(ThirdPart.immersionBar)
+    implementation(ThirdPart.immersionBarKtx)
     //运行时权限请求
     implementation(ThirdPart.xxPermission)
     //蓝牙工具
-    implementation(ThirdPart.rxandroidble)
+    implementation(ThirdPart.rxAndroidBle)
     implementation(ThirdPart.rxjavaReplayingShare)
     //console
     implementation(ThirdPart.console)

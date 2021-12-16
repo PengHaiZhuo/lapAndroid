@@ -2,7 +2,7 @@ package com.phz.dev.feature.practice
 
 import android.view.ViewGroup
 import com.phz.common.page.adapter.BaseRecycleViewAdapter
-import com.phz.common.page.adapter.BaseRecycleViewHolder
+import com.phz.common.page.adapter.viewholder.BaseRecycleViewHolder
 import com.phz.dev.R
 import com.phz.dev.databinding.ItemSimpleButtonBinding
 

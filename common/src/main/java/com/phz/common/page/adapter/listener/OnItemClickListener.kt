@@ -1,4 +1,4 @@
-package com.phz.common.page.adapter
+package com.phz.common.page.adapter.listener
 
 /**
  * @author phz on 2021/8/26

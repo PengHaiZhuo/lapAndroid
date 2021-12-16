@@ -3,11 +3,13 @@ package com.phz.common.page.adapter
 import androidx.databinding.ViewDataBinding
 import androidx.recyclerview.widget.RecyclerView
 import com.phz.common.ext.view.clickNoRepeat
+import com.phz.common.page.adapter.listener.OnItemClickListener
+import com.phz.common.page.adapter.viewholder.BaseRecycleViewHolder
 
 /**
  * @author phz on 2021/8/26
  * @description 普通RecycleViewAdapter{ T:item的泛型  D:item布局的ViewDataBinding}
- * @notice 为了图方便，没有使用DiffUtil，没有做局部刷新判断，全量刷新notifyDataSetChanged耗费很大，数据量多不建议使用
+ * @notice 为了图方便，没有使用DiffUtil
  */
 abstract class BaseRecycleViewAdapter<T, D : ViewDataBinding> :
     RecyclerView.Adapter<BaseRecycleViewHolder<T, D>>() {
@@ -32,26 +34,41 @@ abstract class BaseRecycleViewAdapter<T, D : ViewDataBinding> :
 
     override fun getItemCount(): Int = mList.size
 
+    /**
+     * 全局刷新
+     */
     fun addAll(list: MutableList<T>) {
         mList = list
         notifyDataSetChanged()
     }
 
+    /**
+     * 添加到末尾
+     */
     fun addItems(list: MutableList<T>) {
         mList.addAll(list)
-        notifyDataSetChanged()
+        notifyItemRangeChanged(mList.size,list.size)
     }
 
+    /**
+     * 清楚列表并刷新
+     */
     fun clear() {
         mList.clear()
         notifyDataSetChanged()
     }
 
+    /**
+     * 部分删除
+     */
     fun removeItems(list: MutableList<T>) {
         this.mList.retainAll(list)
         notifyDataSetChanged()
     }
 
+    /**
+     * 删除某个特定项
+     */
     fun removeItem(obj: T) {
         this.mList.remove(obj)
         notifyDataSetChanged()
@@ -60,7 +77,7 @@ abstract class BaseRecycleViewAdapter<T, D : ViewDataBinding> :
     /**
      * 设置item点击监听
      */
-    fun setOnItemClick(onClick:OnItemClickListener<T>){
+    fun setOnItemClick(onClick: OnItemClickListener<T>){
         this.onItemClickListener=onClick
     }
 

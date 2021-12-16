@@ -86,8 +86,8 @@ class DropDownMenuTlActivity :
 
         //模拟网络请求
         lifecycleScope.launchWhenResumed {
-            showLoadingExt()
             delay(2000)
+            showLoadingExt()
             projectList.clear()
             projectList.addAll(projects)
             projectAdapter.notifyDataSetChanged()

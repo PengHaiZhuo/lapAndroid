@@ -4,7 +4,7 @@ import android.os.Bundle
 import com.phz.common.ext.startKtxActivity
 import com.phz.common.ext.view.vertical
 import com.phz.common.page.activity.BaseVmDbActivity
-import com.phz.common.page.adapter.OnItemClickListener
+import com.phz.common.page.adapter.listener.OnItemClickListener
 import com.phz.dev.R
 import com.phz.dev.databinding.ActivityPracticeMainBinding
 import com.phz.dev.feature.practice.animation.dynamic.ViewPagerSimpleSliderActivity

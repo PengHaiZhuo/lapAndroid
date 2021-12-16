@@ -1,5 +1,5 @@
 /**
- * @author haizhuo
+ * @author phz
  * @description 编译配置信息
  */
 object BuildConfig {
@@ -13,7 +13,4 @@ object BuildConfig {
 
     var versionName = "1.0.0"
     var versionCode = 1
-
-    var gradle_version = "7.0.0"
-    var kotlin_version = "1.5.20"
 }
