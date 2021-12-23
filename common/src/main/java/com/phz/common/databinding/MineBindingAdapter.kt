@@ -80,7 +80,7 @@ object MineBindingAdapter {
 
     @BindingAdapter("noRepeatClick")
     @JvmStatic
-    fun setOnClick(view: View, clickListener: () -> Unit) {
+    fun noRepeatClick(view: View, clickListener: () -> Unit) {
         val mHits = LongArray(2)
         view.setOnClickListener {
             System.arraycopy(mHits, 1, mHits, 0, mHits.size - 1)
