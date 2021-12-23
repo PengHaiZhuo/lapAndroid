@@ -1,25 +1,35 @@
 package com.phz.dev.feature.main
 
 import android.Manifest
+import android.content.IntentFilter
 import android.content.pm.PackageManager
+import android.net.ConnectivityManager
 import android.os.Build
 import android.os.Bundle
 import android.os.Process
 import androidx.core.app.ActivityCompat
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
 import com.gyf.immersionbar.ktx.immersionBar
 import com.phz.common.ext.logE
+import com.phz.common.ext.showSnackShort
+import com.phz.common.net.manager.NetStateManager
+import com.phz.common.net.manager.NetStateReceiver
 import com.phz.common.page.activity.BaseVmDbPureActivity
 import com.phz.common.state.BaseViewModel
 import com.phz.dev.R
 import com.phz.dev.databinding.ActivityMainBinding
+import kotlinx.coroutines.flow.collect
+import kotlinx.coroutines.flow.collectLatest
+import kotlinx.coroutines.launch
 
 /**
  * @author phz
  * @description
  */
 class MainActivity : BaseVmDbPureActivity<BaseViewModel, ActivityMainBinding>() {
+    private lateinit var mNetStateReceiver: NetStateReceiver
 
     companion object {
         const val REQUEST_STORAGE = 0x115
@@ -27,10 +37,13 @@ class MainActivity : BaseVmDbPureActivity<BaseViewModel, ActivityMainBinding>() 
 
         const val readPermission = Manifest.permission.READ_EXTERNAL_STORAGE
         const val writePermission = Manifest.permission.WRITE_EXTERNAL_STORAGE
+
         //确切定位权限
         const val fineLocation = Manifest.permission.ACCESS_FINE_LOCATION
+
         //大致定位权限
         const val crossLocation = Manifest.permission.ACCESS_COARSE_LOCATION
+
         //相机 实景导航要用
         const val camera = Manifest.permission.CAMERA
     }
@@ -70,8 +83,38 @@ class MainActivity : BaseVmDbPureActivity<BaseViewModel, ActivityMainBinding>() 
                 )
             }
         }
+        //注册网络变化监听广播
+        mNetStateReceiver = NetStateReceiver()
+        registerReceiver(
+            mNetStateReceiver,
+            IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION)
+        )//虽然被标记为过时，但是动态注册还是能用的
+
+        var isInit=false//用来解决第一次监听回调，没有发生变化也回调了，毕竟用了flow
+        lifecycleScope.launch {
+            //添加网络状态变化观察者
+            NetStateManager.instance.isNetAvailable.collect {
+                if (isInit){
+                    showSnackShort(
+                        if (it) {
+                            "有网"
+                        } else {
+                            "断网"
+                        }
+                    )
+                }else{
+                    isInit=true
+                }
+            }
+        }
     }
 
+
+    override fun onDestroy() {
+        super.onDestroy()
+        //解除注册网络变化监听广播
+        unregisterReceiver(mNetStateReceiver)
+    }
 
     override fun onRequestPermissionsResult(
         requestCode: Int,
@@ -106,5 +149,4 @@ class MainActivity : BaseVmDbPureActivity<BaseViewModel, ActivityMainBinding>() 
     }
 
     override fun layoutId(): Int = R.layout.activity_main
-
 }

@@ -27,12 +27,15 @@ object NetWorkUtils {
                 //不包括 蓝牙传输、VPN传输和LOWPAN传输，tips:其实可以使用ping命令判断网络是否可用
                 if (capabilities != null) {
                     when {
+                        //蜂窝
                         capabilities.hasTransport(NetworkCapabilities.TRANSPORT_CELLULAR) -> {
                             return true
                         }
+                        //wifi
                         capabilities.hasTransport(NetworkCapabilities.TRANSPORT_WIFI) -> {
                             return true
                         }
+                        //以太网
                         capabilities.hasTransport(NetworkCapabilities.TRANSPORT_ETHERNET) -> {
                             return true
                         }

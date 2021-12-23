@@ -13,8 +13,6 @@ import androidx.lifecycle.findViewTreeLifecycleOwner
 import com.phz.common.ext.dismissLoadingExt
 import com.phz.common.ext.getVmClazz
 import com.phz.common.ext.showLoadingExt
-import com.phz.common.net.manager.NetState
-import com.phz.common.net.manager.NetStateManager
 import com.phz.common.state.BaseViewModel
 import java.lang.reflect.ParameterizedType
 
@@ -27,6 +25,7 @@ abstract class BaseVmDbFragment<VM : BaseViewModel, DB : ViewDataBinding> : Frag
 
     //当前Fragment绑定的泛型类ViewModel
     lateinit var mViewModel: VM
+
     //子类直接拿mViewDataBinding获取子View操作就行
     lateinit var mViewDataBinding: DB
 
@@ -50,7 +49,7 @@ abstract class BaseVmDbFragment<VM : BaseViewModel, DB : ViewDataBinding> : Frag
         val superClass = javaClass.genericSuperclass
         val aClass = (superClass as ParameterizedType).actualTypeArguments[1] as Class<*>
         val method = aClass.getDeclaredMethod("inflate", LayoutInflater::class.java)
-        method.isAccessible=true
+        method.isAccessible = true
         mViewDataBinding = method.invoke(null, layoutInflater) as DB
         mRootView = mViewDataBinding.root
         mViewDataBinding.lifecycleOwner = mRootView!!.findViewTreeLifecycleOwner()
@@ -73,10 +72,6 @@ abstract class BaseVmDbFragment<VM : BaseViewModel, DB : ViewDataBinding> : Frag
                 //隐藏加载对话框
                 dismissLoadingExt()
             }
-        }
-        //添加网络状态变化观察者
-        NetStateManager.instance.mNetworkStateCallback.observe(this) {
-            onNetworkStateChanged(it)
         }
         initView(savedInstanceState)
         initObserver()
@@ -120,9 +115,4 @@ abstract class BaseVmDbFragment<VM : BaseViewModel, DB : ViewDataBinding> : Frag
      * 初始化view
      */
     abstract fun initView(savedInstanceState: Bundle?)
-
-    /**
-     * 网络变化监听 子类重写即可获取网络状态监听回调
-     */
-    open fun onNetworkStateChanged(netState: NetState) {}
 }

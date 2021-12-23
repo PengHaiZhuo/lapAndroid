@@ -4,13 +4,10 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.phz.common.ext.dismissLoadingExt
 import com.phz.common.ext.getVmClazz
 import com.phz.common.ext.showLoadingExt
-import com.phz.common.net.manager.NetState
-import com.phz.common.net.manager.NetStateManager
 import com.phz.common.state.BaseViewModel
 
 /**
@@ -38,9 +35,6 @@ abstract class BaseVmDbPureActivity<VM : BaseViewModel, DB : ViewDataBinding> :
                 dismissLoadingExt()
             }
         }
-        NetStateManager.instance.mNetworkStateCallback.observe(this, Observer {
-            onNetworkStateChanged(it)
-        })
         initData()
     }
 
@@ -56,9 +50,4 @@ abstract class BaseVmDbPureActivity<VM : BaseViewModel, DB : ViewDataBinding> :
      * 可以在此方法内加载数据，创建数据源观察者，配合setOnclick()拓展函数设置点击事件
      */
     abstract fun initData()
-
-    /**
-     * 网络变化监听 子类重写即可获取网络状态监听回调
-     */
-    open fun onNetworkStateChanged(netState: NetState) {}
 }

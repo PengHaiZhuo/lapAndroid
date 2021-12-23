@@ -15,8 +15,6 @@ import com.phz.common.ext.dismissLoadingExt
 import com.phz.common.ext.getVmClazz
 import com.phz.common.ext.showLoadingExt
 import com.phz.common.ext.view.visibleOrGone
-import com.phz.common.net.manager.NetState
-import com.phz.common.net.manager.NetStateManager
 import com.phz.common.state.BaseViewModel
 import java.lang.reflect.ParameterizedType
 
@@ -84,10 +82,6 @@ abstract class BaseVmDbActivity<VM : BaseViewModel, DB : ViewDataBinding> : AppC
                 dismissLoadingExt()
             }
         }
-        //添加网络状态变化观察者
-        NetStateManager.instance.mNetworkStateCallback.observe(this) {
-            onNetworkStateChanged(it)
-        }
         initView(savedInstanceState)
         initData()
     }
@@ -104,11 +98,6 @@ abstract class BaseVmDbActivity<VM : BaseViewModel, DB : ViewDataBinding> : AppC
     open fun showToolBar(): Boolean {
         return true
     }
-
-    /**
-     * 网络变化监听 子类重写即可获取网络状态监听回调
-     */
-    open fun onNetworkStateChanged(netState: NetState) {}
 
     /**
      * 可以在此方法内加载数据，创建数据源观察者，配合setOnclick()拓展函数设置点击事件
