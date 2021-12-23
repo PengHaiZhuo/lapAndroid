@@ -15,7 +15,6 @@ import com.phz.common.ext.dismissLoadingExt
 import com.phz.common.ext.getVmClazz
 import com.phz.common.ext.showLoadingExt
 import com.phz.common.ext.view.visibleOrGone
-import com.phz.common.lifecycle.FrontAndBackObservable
 import com.phz.common.net.manager.NetState
 import com.phz.common.net.manager.NetStateManager
 import com.phz.common.state.BaseViewModel
@@ -89,10 +88,6 @@ abstract class BaseVmDbActivity<VM : BaseViewModel, DB : ViewDataBinding> : AppC
         NetStateManager.instance.mNetworkStateCallback.observe(this) {
             onNetworkStateChanged(it)
         }
-        //添加前后台状态变化观察者
-        FrontAndBackObservable.isForeground.observe(this) {
-            onFrontAndBackChanged(it)
-        }
         initView(savedInstanceState)
         initData()
     }
@@ -114,11 +109,6 @@ abstract class BaseVmDbActivity<VM : BaseViewModel, DB : ViewDataBinding> : AppC
      * 网络变化监听 子类重写即可获取网络状态监听回调
      */
     open fun onNetworkStateChanged(netState: NetState) {}
-
-    /**
-     * 前后台监听 子类重写即可获取前后台状态监听回调
-     */
-    open fun onFrontAndBackChanged(boolean: Boolean) {}
 
     /**
      * 可以在此方法内加载数据，创建数据源观察者，配合setOnclick()拓展函数设置点击事件

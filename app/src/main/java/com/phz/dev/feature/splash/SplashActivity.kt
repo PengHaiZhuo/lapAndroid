@@ -34,7 +34,7 @@ class SplashActivity : BaseVmDbPureActivity<BaseViewModel, ActivitySplashBinding
 
     override fun initData() {
         mViewDataBinding.tvVersion.text =
-            String.format(appContext.getString(R.string.v_version_name), getVersionName(appContext))
+            String.format(appContext.getString(R.string.v_version_name), appContext.getVersionName())
         mViewDataBinding.animLog.apply {
             addOffsetAnimListener(object : AnimatorListenerAdapter() {
                 override fun onAnimationEnd(animation: Animator?) {

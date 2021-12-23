@@ -1,28 +1,42 @@
 package com.phz.common.util;
 
+import android.content.ContentResolver;
 import android.content.Context;
-import android.content.Intent;
+import android.database.Cursor;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Environment;
+import android.provider.MediaStore;
 import android.text.TextUtils;
-
-import androidx.core.content.FileProvider;
+import android.util.Log;
 
 import com.phz.common.BaseApplication;
 
+import java.io.Closeable;
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
 
 /**
- * @author phz
+ * @author haizhuo
  * @introduction 工具类，存储文件
  */
+@SuppressWarnings("all")
 public class StorageUtil {
+    private static final String TAG = StorageUtil.class.getSimpleName();
+
     private StorageUtil() {
     }
 
+    private enum TYPE {
+        FILEDIR, FILEIMG, FILECACHE, FILEAUDIO
+    }
+
     /**
-     * 判断外存储是否可写
+     * 判断外存储是否挂载
      *
      * @return
      */
@@ -30,19 +44,54 @@ public class StorageUtil {
         return Environment.MEDIA_MOUNTED.equals(Environment.getExternalStorageState());
     }
 
-    private static File getAppDir() {
+    /**
+     * 获取存储的目录，做了一些处理,见方法内部注释，用到了Context#getFilesDir
+     * 也可以直接用context的api获取目录，比如Context#getCacheDir、Context#getDataDir
+     * @param context
+     * @param typeSub
+     * @return
+     */
+    private static File getAppDir(Context context, TYPE typeSub) {
         File rootDir;
-        //从 Android 4.4 到 Android 10，可以通过 Environment.getExternalStorageDirectory() 以 File Api 的方式读写。
-        //6.0以上需要申请读写权限，Android 10需要在配置清单声明兼容（requestLegacyExternalStorage = true）。
-        //Android 10开始可以做分区适配，如果不做适配在拥有读写权限的情况下，和之前一样。
-        //通过Context访问自己的私有目录，不需要读写权限，不管在哪个版本或者是外部存储还是内部存储。
-        //通过Storage Access Framework的Api不需要权限，可以访问其他应用创建的文件。
-        if (isExternalStorageWritable() && Build.VERSION.SDK_INT < Build.VERSION_CODES.R) {
-            //返回外部存储下应用名字文件夹
-            rootDir = new File(Environment.getExternalStorageDirectory(), BaseApplication.appName);
-        } else {
-            //返回外部存储私有目录文件夹
-            rootDir = BaseApplication.instance.getFilesDir();
+        /**
+         * ---关于Android10的分区适配----
+         * 1.从 Android 4.4 到 Android 10，可以通过 Environment.getExternalStorageDirectory() 以 File Api 的方式读写。
+         * 2.通过Context访问自己的私有目录，不需要读写权限，不管系统是哪个版本或者是外部存储还是内部存储。
+         * 3.注意uri和真实路径的区别，查看res/xml/file_paths.xml中的示例。
+         * 4.通过Storage Access Framework的Api不需要权限，可以访问其他应用创建的文件。
+         * 不重要的知识：
+         *      ① 6.0开始需要申请存储权限；
+         *      ② Android 10开始可以做分区适配，不想做的话在配置清单application节点添加声明（requestLegacyExternalStorage = true）。
+         *      不过②这种方式在Android11失效了，谷歌给了开发者一个的版本的适应时间，然后逼着你适配
+         */
+        File mFile;
+        if (isExternalStorageWritable()) {//有外部存储
+            if (Build.VERSION.SDK_INT < Build.VERSION_CODES.R) {//Android 11以前
+                //mFile👉外部存储根目录/项目名称
+                mFile = new File(Environment.getExternalStorageDirectory(), BaseApplication.appName);
+            } else {//Android11及以后，返回私有目录files
+                //mFile👉外部存储当前项目目录/files/项目名称
+                mFile = new File(context.getExternalFilesDir(null), BaseApplication.appName);
+            }
+        } else {//没有外部存储
+            //mFile👉内部存储当前项目目录/files
+            mFile = new File(context.getFilesDir(), BaseApplication.appName);
+        }
+        switch (typeSub) {
+            case FILEDIR:
+                rootDir = new File(mFile, "fs");
+                break;
+            case FILEIMG:
+                rootDir = new File(mFile, "images");
+                break;
+            case FILECACHE:
+                rootDir = new File(mFile, "caches");
+                break;
+            case FILEAUDIO:
+                rootDir = new File(mFile, "audios");
+                break;
+            default:
+                throw new IllegalStateException("Unexpected value: " + typeSub);
         }
         if (!rootDir.exists()) {
             rootDir.mkdirs();
@@ -55,12 +104,8 @@ public class StorageUtil {
      *
      * @return
      */
-    public static File getFileDir() {
-        File fileDir = new File(getAppDir(), "file");
-        if (!fileDir.exists()) {
-            fileDir.mkdirs();
-        }
-        return fileDir;
+    public static File getFileDir(Context context) {
+        return getAppDir(context, TYPE.FILEDIR);
     }
 
 
@@ -69,12 +114,8 @@ public class StorageUtil {
      *
      * @return
      */
-    public static File getImageDir() {
-        File imageDir = new File(getAppDir(), "image");
-        if (!imageDir.exists()) {
-            imageDir.mkdirs();
-        }
-        return imageDir;
+    public static File getImageDir(Context context) {
+        return getAppDir(context, TYPE.FILEIMG);
     }
 
     /**
@@ -82,29 +123,8 @@ public class StorageUtil {
      *
      * @return
      */
-    public static File getCacheDir() {
-        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.R) {
-            File cacheDir = new File(getAppDir(), "cache");
-            if (!cacheDir.exists()) {
-                cacheDir.mkdirs();
-            }
-            return cacheDir;
-        } else {
-            return BaseApplication.instance.getCacheDir();
-        }
-    }
-
-    /**
-     * 获取当前app的pdf文件存储目录
-     *
-     * @return
-     */
-    public static File getPdfDir() {
-        File cacheDir = new File(getAppDir(), "pdf");
-        if (!cacheDir.exists()) {
-            cacheDir.mkdirs();
-        }
-        return cacheDir;
+    public static File getCacheDir(Context context) {
+        return getAppDir(context, TYPE.FILECACHE);
     }
 
 
@@ -113,17 +133,13 @@ public class StorageUtil {
      *
      * @return
      */
-    public static File getAudioDir() {
-        File audioDir = new File(getAppDir(), "audio");
-        if (!audioDir.exists()) {
-            audioDir.mkdirs();
-        }
-        return audioDir;
+    public static File getAudioDir(Context context) {
+        return getAppDir(context, TYPE.FILEAUDIO);
     }
 
     /**
      * @param context
-     * @return "/storage/emulated/0/Android/data/com.xxx.xxx/cache"目录
+     * @return 真实路径"/storage/emulated/0/Android/data/包名/cache"
      */
     public static String getExternalCacheDir(Context context) {
         return context.getExternalCacheDir().getAbsolutePath();
@@ -151,28 +167,156 @@ public class StorageUtil {
     }
 
     /**
-     * 获取文件Uri,适配7.0
-     * @param context
-     * @param mFile
+     * 根据输入流，保存文件
+     * 类型：直接覆盖文件
+     *
+     * @param file
+     * @param is
      * @return
      */
-    public static Uri getUriFromFile(Context context, File mFile){
-        Uri fileUri;
-        if (Build.VERSION.SDK_INT>=Build.VERSION_CODES.N){
-            //第二个参数与配置文件中provider的authorities字段相同
-            //FileProvider 只能返回在其<paths>元数据元素中定义的文件路径的content Uri,详见res/xml/file_paths.xml
-            fileUri= FileProvider.getUriForFile(context,context.getPackageName(),mFile);
-        }else {
-            fileUri=Uri.fromFile(mFile);
+    public static boolean writeFile(File file, InputStream is) {
+        OutputStream os = null;
+        try {
+            //在每次调用的时候都会覆盖掉原来的数据
+            os = new FileOutputStream(file);
+            byte data[] = new byte[1024];
+            int length = -1;
+            while ((length = is.read(data)) != -1) {
+                os.write(data, 0, length);
+            }
+            os.flush();
+            return true;
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+            Log.e(TAG, e.getMessage());
+            return false;
+        } catch (IOException e) {
+            e.printStackTrace();
+            Log.e(TAG, e.getMessage());
+            return false;
+        } finally {
+            closeStream(os);
+            closeStream(is);
         }
-       /**
-        * 建议直接使用Intent的addFlags添加权限，Intent在接收堆栈Activity处于活动状态时，授权有效，从堆栈移出后，权限将自动删除
-        //授予URI临时权限
-        context.grantUriPermission(context.getPackageName(),fileUri, Intent.FLAG_GRANT_READ_URI_PERMISSION|Intent.FLAG_GRANT_WRITE_URI_PERMISSION);
-        //使用完后移除临时授权
-        context.revokeUriPermission(fileUri, Intent.FLAG_GRANT_READ_URI_PERMISSION|Intent.FLAG_GRANT_WRITE_URI_PERMISSION);
-        */
-        return fileUri;
     }
 
+    /**
+     * 删除文件或文件夹
+     *
+     * @param file
+     */
+    public static void deleteFile(File file) {
+        try {
+            if (file == null || !file.exists()) {
+                return;
+            }
+
+            if (file.isDirectory()) {
+                File[] files = file.listFiles();
+                if (files != null && files.length > 0) {
+                    for (File f : files) {
+                        if (f.exists()) {
+                            if (f.isDirectory()) {
+                                deleteFile(f);
+                            } else {
+                                f.deleteOnExit();
+                                Log.d(TAG, "删除文件 " + f.getAbsolutePath());
+                            }
+                        }
+                    }
+                }
+            } else {
+                file.deleteOnExit();
+                Log.d(TAG, "删除文件 " + file.getAbsolutePath());
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * 保存文件
+     *
+     * @param inputStream  输入流，比如获取网络下载的字节流 ResponseBody.byteStream()
+     * @param outputStream 输出流，比如FileOutputStream则是保存文件
+     * @return
+     */
+    public static boolean saveFile(InputStream inputStream, OutputStream outputStream) {
+        if (inputStream == null || outputStream == null) {
+            return false;
+        }
+        try {
+            try {
+                byte[] buffer = new byte[1024 * 4];
+                while (true) {
+                    int read = inputStream.read(buffer);
+                    if (read == -1) {
+                        break;
+                    }
+                    outputStream.write(buffer, 0, read);
+                }
+                outputStream.flush();
+                return true;
+            } catch (IOException e) {
+                e.printStackTrace();
+                return false;
+            } finally {
+                inputStream.close();
+                outputStream.close();
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+    /**
+     * 关闭流
+     *
+     * @param closeable
+     */
+    public static void closeStream(Closeable closeable) {
+        if (closeable != null) {
+            try {
+                closeable.close();
+            } catch (IOException e) {
+                throw new RuntimeException("关闭流失败!", e);
+            }
+        }
+    }
+
+
+    /**
+     * 通过uri拿到图片文件真实路径
+     *
+     * @param context
+     * @param uri
+     * @return
+     * @deprecated Android10开始，MediaStore.Images.ImageColumns.DATA被标记为过期
+     */
+    @Deprecated
+    public static String getImgRealFilePath(final Context context, final Uri uri) {
+        if (null == uri) {
+            return null;
+        }
+        final String scheme = uri.getScheme();
+        String data = null;
+        if (scheme == null) {
+            data = uri.getPath();
+        } else if (ContentResolver.SCHEME_FILE.equals(scheme)) {
+            data = uri.getPath();
+        } else if (ContentResolver.SCHEME_CONTENT.equals(scheme)) {
+            final Cursor cursor = context.getContentResolver().query(uri, new String[]{MediaStore.Images.ImageColumns.DATA}, null, null, null);
+            if (null != cursor) {
+                if (cursor.moveToFirst()) {
+                    final int index = cursor.getColumnIndex(MediaStore.Images.ImageColumns.DATA);
+                    if (index > -1) {
+                        data = cursor.getString(index);
+                    }
+                }
+                cursor.close();
+            }
+        }
+        return data;
+    }
 }

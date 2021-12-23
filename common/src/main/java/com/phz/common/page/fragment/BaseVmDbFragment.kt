@@ -13,7 +13,6 @@ import androidx.lifecycle.findViewTreeLifecycleOwner
 import com.phz.common.ext.dismissLoadingExt
 import com.phz.common.ext.getVmClazz
 import com.phz.common.ext.showLoadingExt
-import com.phz.common.lifecycle.FrontAndBackObservable
 import com.phz.common.net.manager.NetState
 import com.phz.common.net.manager.NetStateManager
 import com.phz.common.state.BaseViewModel
@@ -79,10 +78,6 @@ abstract class BaseVmDbFragment<VM : BaseViewModel, DB : ViewDataBinding> : Frag
         NetStateManager.instance.mNetworkStateCallback.observe(this) {
             onNetworkStateChanged(it)
         }
-        //添加前后台状态变化观察者
-        FrontAndBackObservable.isForeground.observe(viewLifecycleOwner) {
-            onFrontAndBackChanged(it)
-        }
         initView(savedInstanceState)
         initObserver()
         initData()
@@ -130,9 +125,4 @@ abstract class BaseVmDbFragment<VM : BaseViewModel, DB : ViewDataBinding> : Frag
      * 网络变化监听 子类重写即可获取网络状态监听回调
      */
     open fun onNetworkStateChanged(netState: NetState) {}
-
-    /**
-     * 前后台监听 子类重写即可获取前后台状态监听回调
-     */
-    open fun onFrontAndBackChanged(boolean: Boolean) {}
 }

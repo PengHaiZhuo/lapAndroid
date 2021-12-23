@@ -9,7 +9,6 @@ import androidx.lifecycle.ViewModelProvider
 import com.phz.common.ext.dismissLoadingExt
 import com.phz.common.ext.getVmClazz
 import com.phz.common.ext.showLoadingExt
-import com.phz.common.lifecycle.FrontAndBackObservable
 import com.phz.common.net.manager.NetState
 import com.phz.common.net.manager.NetStateManager
 import com.phz.common.state.BaseViewModel
@@ -42,9 +41,6 @@ abstract class BaseVmDbPureActivity<VM : BaseViewModel, DB : ViewDataBinding> :
         NetStateManager.instance.mNetworkStateCallback.observe(this, Observer {
             onNetworkStateChanged(it)
         })
-        FrontAndBackObservable.isForeground.observe(this) {
-            onFrontAndBackChanged(it)
-        }
         initData()
     }
 
@@ -65,9 +61,4 @@ abstract class BaseVmDbPureActivity<VM : BaseViewModel, DB : ViewDataBinding> :
      * 网络变化监听 子类重写即可获取网络状态监听回调
      */
     open fun onNetworkStateChanged(netState: NetState) {}
-
-    /**
-     * 前后台监听 子类重写即可获取前后台状态监听回调
-     */
-    open fun onFrontAndBackChanged(boolean: Boolean) {}
 }

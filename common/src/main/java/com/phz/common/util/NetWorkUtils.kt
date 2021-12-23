@@ -56,7 +56,7 @@ object NetWorkUtils {
      * 判断网络是否可用
      * 使用ping命令，由结果判断网络状态
      */
-    private fun isNetConnected(): Boolean {
+    fun pingBaidu(): Boolean {
         val runtime = Runtime.getRuntime()
         try {
             val ipProcess = runtime.exec("ping -c 3 www.baidu.com")

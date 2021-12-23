@@ -4,7 +4,7 @@ import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
 import android.net.ConnectivityManager
-import com.phz.common.util.NetWorkUtils.isNetConnected
+import com.phz.common.ext.isNetWorkAvailable
 
 /**
  * @author phz
@@ -16,7 +16,7 @@ class NetStateReceiver : BroadcastReceiver() {
         if (intent.action == ConnectivityManager.CONNECTIVITY_ACTION) {
             //第一次注册广播时，默认有网
             if (!isInit) {
-                if (!isNetConnected(context)) {
+                if (!context.isNetWorkAvailable) {
                     //收到没有网络时判断之前的值是不是有网络，如果有网络才提示通知 ，防止重复通知
                     NetStateManager.instance.mNetworkStateCallback.value?.let {
                         if (it.isConnected) {

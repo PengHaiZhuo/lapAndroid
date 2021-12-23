@@ -3,36 +3,35 @@
     <!--name是URI路径段，path是实际的子目录名称-->
     <root-path
         name="root_path"
-        path="" />
-    <!--示例
-    val file=File(context.getFilesDir(), "my_images")
-    val newFile=File(file,"dddd.png")
-    newFile.mkdirs()
-    val contentUri = getUriForFile(context,context.packageName,newFile)
-    打印uri为content://com.phz.dev/my_images/dddd.png
-    文件绝对路径为/data/data/com.phz.dev/files/images/dddd.png-->
+        path="/" /> <!--内部路径相关api有关，涉及api较多-->
+    <files-path
+        name="my_files"
+        path="fs/" /><!--与Context.getFilesDir()有关-->
     <files-path
         name="my_images"
-        path="images" />
+        path="images/" />
     <files-path
-        name="my_docs"
-        path="docs" />
-    <cache-path
         name="my_caches"
-        path="cache" />
+        path="caches/" />
+    <files-path
+        name="my_audios"
+        path="audios/" />
     <external-path
         name="external"
-        path="/" />
+        path="/" /><!--与Environment.getExternalStorageDirectory()有关-->
     <external-files-path
-        name="external_files"
-        path="/" />
-    <!--
-    /sdcard/Android/data/com.phz.dev/cache/
-    -->
+        name="my_files"
+        path="fs/" /><!--与Context#getExternalFilesDir(String)和Context.getExternalFilesDir(null)有关-->
+    <external-files-path
+        name="my_images"
+        path="images/" />
+    <external-files-path
+        name="my_caches"
+        path="caches/" />
+    <external-files-path
+        name="my_audios"
+        path="audios/" />
     <external-cache-path
-        name="external_cache"
-        path="/" />
-    <external-media-path
-        name="external_media"
-        path="/" />
+        name="external_cache_path"
+        path="/" /> <!--与Context.getExternalCacheDir()有关-->
 </paths>

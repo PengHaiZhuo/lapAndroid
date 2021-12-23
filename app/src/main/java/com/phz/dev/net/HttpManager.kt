@@ -46,7 +46,7 @@ class HttpManager : HttpCommonManager() {
     override fun setHttpClientBuilder(builder: OkHttpClient.Builder): OkHttpClient.Builder {
         builder.apply {
             //设置缓存配置 缓存最大10M
-            cache(Cache(File(StorageUtil.getCacheDir(), "cache_kk"), 10 * 1024 * 1024))
+            cache(Cache(File(appContext.cacheDir, "okhttp"), 10 * 1024 * 1024))
             //添加Cookies自动持久化,去掉这行默认NoCookies
             cookieJar(cookieJar)
             //添加cache拦截器

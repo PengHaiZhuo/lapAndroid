@@ -34,7 +34,7 @@ open abstract class BaseApplication : Application(), ViewModelStoreOwner {
     override fun onCreate() {
         super.onCreate()
         instance = this
-        appName = getAppName(this)
+        appName = this.getAppName()
         mAppViewModelStore = ViewModelStore()
         //添加前后台监听
         ProcessLifecycleOwner.get().lifecycle.addObserver(FrontAndBackObservable)
@@ -42,7 +42,8 @@ open abstract class BaseApplication : Application(), ViewModelStoreOwner {
         registerActivityLifecycleCallbacks(ActivityLifeCircleCallBackMine)
         //注册网络变化监听广播
         mNetStateReceiver= NetStateReceiver()
-        registerReceiver(mNetStateReceiver, IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION))
+        registerReceiver(mNetStateReceiver, IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION))//虽然被标记为过时，但是手动注册还是能用的
+//        unregisterReceiver(mNetStateReceiver)
     }
 
     override fun getViewModelStore(): ViewModelStore {

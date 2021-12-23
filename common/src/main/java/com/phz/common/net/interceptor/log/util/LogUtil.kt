@@ -11,7 +11,7 @@ import com.phz.common.ext.getAppName
 @SuppressWarnings("all")
 class LogUtil private constructor() {
     companion object {
-        private val DEFAULT_TAG:String = getAppName(appContext)
+        private val DEFAULT_TAG:String = appContext.getAppName()
         private var isLog = true
         fun isLog(): Boolean {
             return isLog
