@@ -2,8 +2,6 @@ package com.phz.dev.util
 
 import android.content.Context
 import android.os.Environment
-import androidx.appcompat.app.AppCompatActivity
-import com.phz.dev.ext.showSnackShort
 import java.io.File
 import java.math.BigDecimal
 
@@ -13,7 +11,7 @@ import java.math.BigDecimal
 object CacheFileManager {
 
     /**
-     * 获取sd卡下项目文件下缓存文件大小
+     * 获取文件下缓存文件大小，包含2部分cacheDir和externalCacheDir
      */
     fun getTotalCacheSize(context: Context): String {
 
@@ -27,21 +25,16 @@ object CacheFileManager {
     /**
      * 清理缓存
      */
-    fun clearAllCache(activity: AppCompatActivity?) {
-        activity?.let {
-            deleteDir(it.cacheDir)
-            if (Environment.getExternalStorageState() == Environment.MEDIA_MOUNTED) {
-                if (it.externalCacheDir == null) {
-                    it.showSnackShort("清理缓存失败")
-                }
-                return
-            }
-            it.externalCacheDir?.let { file ->
-                if(deleteDir(file)){
-                    activity.showSnackShort("清理缓存成功")
-                }
+    fun clearAllCache(context: Context):Boolean {
+        var resultDeleteCache = false
+        var resultDeleteExCache = false
+        resultDeleteCache = deleteDir(context.cacheDir)
+        if (Environment.getExternalStorageState() == Environment.MEDIA_MOUNTED) {
+            context.externalCacheDir?.let { file ->
+                resultDeleteExCache = deleteDir(file)
             }
         }
+        return resultDeleteCache and resultDeleteExCache
     }
 
 }

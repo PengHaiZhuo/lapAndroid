@@ -46,7 +46,7 @@ object ThirdPart {
 
     /**播放器**/
     object ExoPlayer{
-        private const val version="2.15.0"
+        private const val version="2.16.1"
         //完整依赖
         const val all="com.google.android.exoplayer:exoplayer:$version"
         //核心依赖
@@ -187,7 +187,7 @@ object ThirdPart {
     const val xxPermission="com.github.getActivity:XXPermissions:12.5"
 
     //常用的工具类
-    const val utilCodex = "com.blankj:utilcodex:1.26.0"
+    const val utilCodex = "com.blankj:utilcodex:1.30.0"
 
     //微信开源项目，替代SP
     const val mmkv = "com.tencent:mmkv:1.0.22"

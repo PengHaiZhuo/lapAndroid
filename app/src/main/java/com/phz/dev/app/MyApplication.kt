@@ -7,11 +7,13 @@ import com.phz.common.BaseApplication
 import com.phz.dev.BuildConfig
 import com.tencent.bugly.Bugly
 import com.tencent.mmkv.MMKV
+import dagger.hilt.android.HiltAndroidApp
 
 /**
  * @author phz
  * @description 工程类
  */
+@HiltAndroidApp
 class MyApplication :BaseApplication(){
 
     override fun onCreate() {

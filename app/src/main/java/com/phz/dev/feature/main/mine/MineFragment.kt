@@ -2,6 +2,7 @@ package com.phz.dev.feature.main.mine
 
 import android.graphics.Color
 import android.os.Bundle
+import android.widget.Toast
 import androidx.lifecycle.viewModelScope
 import com.phz.common.databinding.MineBindingAdapter.circleImageUrlGifRes
 import com.phz.common.ext.*
@@ -79,7 +80,12 @@ class MineFragment : BaseVmDbPureFragment<MineViewModel, FragmentMineBinding>() 
         }
 
         //清理缓存
-        fun clear() {}
+        fun clear() {
+            val result=CacheFileManager.clearAllCache(requireContext())
+            if (result){
+                Toast.makeText(requireContext(), "清除缓存成功", Toast.LENGTH_SHORT).show()
+            }
+        }
 
         //检查更新
         fun update() {}

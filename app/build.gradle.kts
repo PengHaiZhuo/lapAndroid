@@ -6,6 +6,7 @@ plugins {
     kotlin("kapt")
     id("kotlin-parcelize")
     id("androidx.navigation.safeargs")
+    id("dagger.hilt.android.plugin")
 }
 
 android {
@@ -25,6 +26,12 @@ android {
             //gradle版本-> abiFilters 'x86_64','armeabi-v7a','arm64-v8a'
             abiFilters.addAll(arrayListOf("x86_64", "armeabi-v7a", "arm64-v8a"))
         }
+
+//        javaCompileOptions{
+//            annotationProcessorOptions {
+//                arguments = arguments + mapOf("room.incremental" to "true")
+//            }
+//        }
     }
 
     base {
@@ -105,6 +112,10 @@ dependencies {
     implementation(AndroidX.Room.ktx)
     implementation(AndroidX.Room.rxjava3)
     implementation(AndroidX.Room.guava)
+
+    //hilt
+    implementation(AndroidX.Hilt.common)
+    kapt(AndroidX.Hilt.compiler)
 
     //viewPager
     implementation(AndroidX.ViewPager.viewpager2)

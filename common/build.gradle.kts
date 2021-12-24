@@ -46,6 +46,10 @@ dependencies {
     //material包
     implementation(Google.material)
 
+    testImplementation(Testing.junit)
+    androidTestImplementation(Testing.androidJunit)
+    androidTestImplementation(Testing.espresso)
+
     //JetPack navigation
     implementation(AndroidX.Navigation.fragmentKtx)
     implementation(AndroidX.Navigation.uiKtx)

@@ -7,8 +7,3 @@ repositories {
     google()
     gradlePluginPortal()
 }
-
-dependencies {
-    implementation(gradleApi())
-    implementation(localGroovy())
-}
