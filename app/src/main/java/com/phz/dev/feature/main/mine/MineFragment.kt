@@ -53,7 +53,6 @@ class MineFragment : BaseVmDbPureFragment<MineViewModel, FragmentMineBinding>() 
                     circleImageUrlGifRes(mViewDataBinding.ivAvatar, mViewModel.gifUrl)
                     mViewDataBinding.swipeRl.isRefreshing = false
                 }, 2000)
-
             }
         }
     }

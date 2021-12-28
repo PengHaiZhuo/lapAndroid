@@ -14,16 +14,16 @@ import javax.inject.Singleton
 
 /**
  * @author phz on 2021/12/23
- * @description
+ * @description 网络模块
  */
 @Module
 //InstallIn标签作用是告知 Hilt 每个模块将用在或安装在哪个 Android 类
 @InstallIn(SingletonComponent::class)
 object NetWorkModule{
-    //超时时间
-    private const val TIME_OUT=10L
+    private const val TIME_OUT=10L//超时时间
 
     @Provides
+    @WanAndroidOkhttpClient
     @Singleton
     fun provideWanAndroidOkhttpClient():OkHttpClient=OkHttpClient.Builder()
         .cache(Cache(File(appContext.cacheDir, "okhttp"), 10 * 1024 * 1024))
@@ -31,6 +31,8 @@ object NetWorkModule{
         .readTimeout(TIME_OUT,TimeUnit.SECONDS)
         .writeTimeout(TIME_OUT,TimeUnit.SECONDS)
         .build()
+
+
 }
 
 @Qualifier

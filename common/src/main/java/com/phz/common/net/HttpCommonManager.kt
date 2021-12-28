@@ -7,6 +7,7 @@ import retrofit2.Retrofit
  * @author phz
  * @description okhttp网络请求管理类基类。子类可继承此类，重写[setHttpClientBuilder]和[setRetrofitBuilder]
  * 或者采取其他方式初始化retrofit和OkHttpClient
+ * @notice 这样封装的缺点是，如果需要不同配置的retrofit和okhttp客户端需要新建多个继承此类的HttpManager
  */
 abstract class HttpCommonManager {
 
