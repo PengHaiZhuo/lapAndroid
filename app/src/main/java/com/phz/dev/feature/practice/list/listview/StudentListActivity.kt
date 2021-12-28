@@ -33,7 +33,7 @@ class StudentListActivity : BaseVmDbActivity<BaseViewModel, ActivityStudentListB
             override fun checkedChange(groupPosition: Int, childPosition: Int, isChecked: Boolean) {
                 val msg =
                     "${classList[groupPosition].name}${classList[groupPosition].student[childPosition].name}同学状态改变"
-                showDialogMessage(msg,"提示" )
+                showDialogMessage(msg,"提示")
             }
 
         })

@@ -70,7 +70,7 @@ abstract class BaseVmDbPureFragment<VM : BaseViewModel, DB : ViewDataBinding> :
     abstract fun lazyInit()
     abstract fun getLayoutId(): Int
     /**
-     * 可以在此方法内加载数据，创建数据源观察者，配合setOnclick()拓展函数设置点击事件
+     * 可以在此方法内加载数据，创建数据源观察者，使用View#setOnclick()拓展函数设置点击事件
      */
     abstract fun initData()
     /**

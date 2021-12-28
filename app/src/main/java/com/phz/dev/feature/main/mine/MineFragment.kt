@@ -81,10 +81,15 @@ class MineFragment : BaseVmDbPureFragment<MineViewModel, FragmentMineBinding>() 
 
         //清理缓存
         fun clear() {
-            val result=CacheFileManager.clearAllCache(requireContext())
-            if (result){
-                Toast.makeText(requireContext(), "清除缓存成功", Toast.LENGTH_SHORT).show()
-            }
+            showDialogMessage(getString(R.string.confirm_to_clear_cache),getString(R.string.tip),
+                positiveAction = {
+                    val result=CacheFileManager.clearAllCache(requireContext())
+                    if (result){
+                        mViewDataBinding.tvCacheSize.text= "0.0Byte"
+                        Toast.makeText(requireContext(), "清除缓存成功", Toast.LENGTH_SHORT).show()
+                    }
+                }, negativeButtonText = getString(R.string.cancel), negativeAction = {})
+
         }
 
         //检查更新
