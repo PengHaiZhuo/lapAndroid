@@ -11,5 +11,4 @@ study and practice android
 * Navigation (导航)
 
 ## 📜 计划
-* 完全移除LiveData，迁移到flow
-* Hilt (依赖注入)
+* 使用Hilt处理多套retrofit配置
