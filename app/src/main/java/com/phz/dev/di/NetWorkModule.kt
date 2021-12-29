@@ -7,6 +7,9 @@ import com.phz.common.net.interceptor.log.LogInterceptor
 import com.phz.common.net.persistentcookiejar.PersistentCookieJar
 import com.phz.common.net.persistentcookiejar.cache.SetCookieCache
 import com.phz.common.net.persistentcookiejar.persistence.SharedPrefsCookiePersistor
+import com.phz.dev.api.WanAndroidApi
+import com.phz.dev.api.WanAndroidApiImpl
+import com.phz.dev.api.service.WanAndroidApiService
 import com.phz.dev.net.ApiService
 import com.phz.dev.net.authenticator.MyAuthenticator
 import dagger.Module
@@ -68,9 +71,12 @@ object NetWorkModule {
 
     @Provides
     @Singleton
-    fun provideWanAndroidApiService(@WanAndroidRetrofit retrofit: Retrofit): ApiService =
-        retrofit.create(ApiService::class.java)
+    fun provideWanAndroidApiService(@WanAndroidRetrofit retrofit: Retrofit): WanAndroidApiService =
+        retrofit.create(WanAndroidApiService::class.java)
 
+    @Provides
+    @Singleton
+    fun provideWanAndroidApi(wanAndroidApiService: WanAndroidApiService):WanAndroidApi=WanAndroidApiImpl(wanAndroidApiService)
 }
 
 @Qualifier

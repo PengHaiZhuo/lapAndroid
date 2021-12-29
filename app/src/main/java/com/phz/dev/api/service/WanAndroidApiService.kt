@@ -1,7 +1,7 @@
 package com.phz.dev.api.service
 
+import com.phz.common.net.support.data.BaseJsonFormFeedBack
 import com.phz.dev.data.model.UserBean
-import com.phz.dev.net.data.bean.BaseResponse
 import retrofit2.http.Field
 import retrofit2.http.FormUrlEncoded
 import retrofit2.http.GET
@@ -19,10 +19,10 @@ interface WanAndroidApiService {
     suspend fun login(
         @Field("username") username: String,
         @Field("password") pwd: String
-    ):BaseResponse<UserBean>
+    ): BaseJsonFormFeedBack<UserBean>
 
     @GET("user/logout/json")
-    suspend fun logout():BaseResponse<String?>
+    suspend fun logout(): BaseJsonFormFeedBack<String?>
 
     @FormUrlEncoded
     @POST("user/register")
@@ -30,5 +30,5 @@ interface WanAndroidApiService {
         @Field("username") username: String,
         @Field("password") pwd: String,
         @Field("repassword") repwd: String
-    ):BaseResponse<UserBean>
+    ):BaseJsonFormFeedBack<UserBean>
 }
