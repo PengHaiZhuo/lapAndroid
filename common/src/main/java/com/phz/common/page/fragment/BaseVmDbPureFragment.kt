@@ -32,6 +32,13 @@ abstract class BaseVmDbPureFragment<VM : BaseViewModel, DB : ViewDataBinding> :
         super.onAttach(context)
         mActivity = context as AppCompatActivity
     }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        //获取viewModel
+        mViewModel = ViewModelProvider(this)[getVmClazz(this)]
+    }
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -44,8 +51,6 @@ abstract class BaseVmDbPureFragment<VM : BaseViewModel, DB : ViewDataBinding> :
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        //获取viewModel
-        mViewModel = ViewModelProvider(this)[getVmClazz(this)]
         initView(savedInstanceState)
         initData()
     }

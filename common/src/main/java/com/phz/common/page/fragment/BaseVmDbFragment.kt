@@ -40,6 +40,22 @@ abstract class BaseVmDbFragment<VM : BaseViewModel, DB : ViewDataBinding> : Frag
         mActivity = context as AppCompatActivity
     }
 
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        //获取viewModel
+        mViewModel = ViewModelProvider(this)[getVmClazz(this)]
+        //注册界面响应事件观察者
+        mViewModel.showLoading.observe(this) {
+            if (it) {
+                //显示加载对话框
+                showLoadingExt()
+            } else {
+                //隐藏加载对话框
+                dismissLoadingExt()
+            }
+        }
+    }
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -61,18 +77,6 @@ abstract class BaseVmDbFragment<VM : BaseViewModel, DB : ViewDataBinding> : Frag
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        //获取viewModel
-        mViewModel = ViewModelProvider(this)[getVmClazz(this)]
-        //注册界面响应事件观察者
-        mViewModel.showLoading.observe(this) {
-            if (it) {
-                //显示加载对话框
-                showLoadingExt()
-            } else {
-                //隐藏加载对话框
-                dismissLoadingExt()
-            }
-        }
         initView(savedInstanceState)
         initObserver()
         initData()
