@@ -17,18 +17,17 @@ import com.phz.common.ext.showSnackShort
 import com.phz.common.net.manager.NetStateManager
 import com.phz.common.net.manager.NetStateReceiver
 import com.phz.common.page.activity.BaseVmDbPureActivity
-import com.phz.common.state.BaseViewModel
+import com.phz.common.state.NoViewModel
 import com.phz.dev.R
 import com.phz.dev.databinding.ActivityMainBinding
 import kotlinx.coroutines.flow.collect
-import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 
 /**
  * @author phz
  * @description
  */
-class MainActivity : BaseVmDbPureActivity<BaseViewModel, ActivityMainBinding>() {
+class MainActivity : BaseVmDbPureActivity<NoViewModel, ActivityMainBinding>() {
     private lateinit var mNetStateReceiver: NetStateReceiver
 
     companion object {

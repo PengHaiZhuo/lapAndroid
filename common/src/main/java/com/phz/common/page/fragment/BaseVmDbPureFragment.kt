@@ -9,16 +9,16 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.findViewTreeLifecycleOwner
 import com.phz.common.ext.getVmClazz
-import com.phz.common.state.BaseViewModel
 
 /**
  * @author phz
  * @description Fragment基类纯净版，做了懒加载处理
  */
-abstract class BaseVmDbPureFragment<VM : BaseViewModel, DB : ViewDataBinding> :
+abstract class BaseVmDbPureFragment<VM : ViewModel, DB : ViewDataBinding> :
     Fragment() {
     lateinit var mActivity: AppCompatActivity
     //当前Fragment绑定的泛型类ViewModel

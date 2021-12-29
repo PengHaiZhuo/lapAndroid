@@ -1,13 +1,13 @@
 package com.phz.dev.feature.login
 
 import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.blankj.utilcode.util.ToastUtils
 import com.phz.common.databinding.observablefield.StringObservableField
 import com.phz.common.ext.logE
-import com.phz.common.state.BaseViewModel
+import com.phz.common.ext.request
 import com.phz.dev.data.model.UserBean
-import com.phz.dev.ext.request
 import com.phz.dev.net.apiService
 import com.phz.dev.util.PersistenceUtil
 import kotlinx.coroutines.launch
@@ -16,7 +16,7 @@ import kotlinx.coroutines.launch
  * @author phz on 2021/8/17
  * @description
  */
-class LoginViewModel : BaseViewModel() {
+class LoginViewModel : ViewModel() {
     val userName = StringObservableField()
     val pwd = StringObservableField()
     val userBeanLiveData = MutableLiveData<UserBean>()//登陆返回信息

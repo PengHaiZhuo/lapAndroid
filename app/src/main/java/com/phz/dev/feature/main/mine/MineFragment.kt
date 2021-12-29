@@ -10,7 +10,6 @@ import com.phz.common.page.fragment.BaseVmDbPureFragment
 import com.phz.common.util.ActivityManagerKtx
 import com.phz.dev.R
 import com.phz.dev.databinding.FragmentMineBinding
-import com.phz.dev.ext.request
 import com.phz.dev.feature.practice.PracticeMainActivity
 import com.phz.dev.net.apiService
 import com.phz.dev.state.AppViewModel

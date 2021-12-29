@@ -5,14 +5,14 @@ import androidx.lifecycle.viewModelScope
 import com.blankj.utilcode.util.ToastUtils
 import com.phz.common.ext.getAppViewModel
 import com.phz.common.ext.logE
+import com.phz.common.ext.request
 import com.phz.common.ext.startKtxActivity
 import com.phz.common.ext.view.clickNoRepeat
 import com.phz.common.page.activity.BaseVmDbActivity
-import com.phz.common.state.BaseViewModel
+import com.phz.common.state.NoViewModel
 import com.phz.common.util.ActivityManagerKtx
 import com.phz.dev.R
 import com.phz.dev.databinding.ActivityRegisterBinding
-import com.phz.dev.ext.request
 import com.phz.dev.feature.login.LoginActivity
 import com.phz.dev.feature.main.MainActivity
 import com.phz.dev.net.apiService
@@ -25,7 +25,7 @@ import kotlinx.coroutines.launch
  * @author phz on 2021/12/13
  * @description
  */
-class RegisterActivity : BaseVmDbActivity<BaseViewModel, ActivityRegisterBinding>() {
+class RegisterActivity : BaseVmDbActivity<NoViewModel, ActivityRegisterBinding>() {
     val appViewModel: AppViewModel by lazy { getAppViewModel() }
     override fun initData() {
         mViewDataBinding.btnRegister.clickNoRepeat {

@@ -1,8 +1,6 @@
 package com.phz.dev.net.interceptor
 
 import com.phz.dev.util.PersistenceUtil
-import com.phz.dev.util.PersistenceUtil.TOKEN
-import com.tencent.mmkv.MMKV
 import okhttp3.Interceptor
 import okhttp3.Response
 

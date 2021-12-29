@@ -9,7 +9,6 @@ import com.phz.common.net.interceptor.log.LogInterceptor
 import com.phz.common.net.persistentcookiejar.PersistentCookieJar
 import com.phz.common.net.persistentcookiejar.cache.SetCookieCache
 import com.phz.common.net.persistentcookiejar.persistence.SharedPrefsCookiePersistor
-import com.phz.common.util.StorageUtil
 import com.phz.dev.net.ApiService.Companion.SERVER_ADDRESS
 import com.phz.dev.net.authenticator.MyAuthenticator
 import okhttp3.Cache

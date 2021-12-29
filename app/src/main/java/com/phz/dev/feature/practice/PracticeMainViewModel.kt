@@ -1,10 +1,10 @@
 package com.phz.dev.feature.practice
 
-import com.phz.common.state.BaseViewModel
+import androidx.lifecycle.ViewModel
 
 /**
  * @author phz on 2021/8/23
  * @description
  */
-class PracticeMainViewModel:BaseViewModel() {
+class PracticeMainViewModel: ViewModel() {
 }

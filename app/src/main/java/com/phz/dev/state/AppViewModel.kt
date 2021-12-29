@@ -1,7 +1,7 @@
 package com.phz.dev.state
 
 import androidx.lifecycle.MutableLiveData
-import com.phz.common.state.BaseViewModel
+import androidx.lifecycle.ViewModel
 import com.phz.dev.data.model.UserBean
 
 /**
@@ -10,6 +10,6 @@ import com.phz.dev.data.model.UserBean
  * @use 在任意页面获取appViewModel并添加订阅
  * { ****val appViewModel: AppViewModel by lazy { getAppViewModel<AppViewModel>() }*** }
  */
-class AppViewModel : BaseViewModel() {
+class AppViewModel : ViewModel() {
     val userBean = MutableLiveData<UserBean>()
 }

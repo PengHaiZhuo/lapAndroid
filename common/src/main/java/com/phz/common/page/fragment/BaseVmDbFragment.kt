@@ -8,19 +8,17 @@ import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.findViewTreeLifecycleOwner
-import com.phz.common.ext.dismissLoadingExt
 import com.phz.common.ext.getVmClazz
-import com.phz.common.ext.showLoadingExt
-import com.phz.common.state.BaseViewModel
 import java.lang.reflect.ParameterizedType
 
 /**
  * @author phz
  * @description Fragment基类 VM+DB
  */
-abstract class BaseVmDbFragment<VM : BaseViewModel, DB : ViewDataBinding> : Fragment() {
+abstract class BaseVmDbFragment<VM : ViewModel, DB : ViewDataBinding> : Fragment() {
     lateinit var mActivity: AppCompatActivity
 
     //当前Fragment绑定的泛型类ViewModel
@@ -44,16 +42,6 @@ abstract class BaseVmDbFragment<VM : BaseViewModel, DB : ViewDataBinding> : Frag
         super.onCreate(savedInstanceState)
         //获取viewModel
         mViewModel = ViewModelProvider(this)[getVmClazz(this)]
-        //注册界面响应事件观察者
-        mViewModel.showLoading.observe(this) {
-            if (it) {
-                //显示加载对话框
-                showLoadingExt()
-            } else {
-                //隐藏加载对话框
-                dismissLoadingExt()
-            }
-        }
     }
 
     override fun onCreateView(

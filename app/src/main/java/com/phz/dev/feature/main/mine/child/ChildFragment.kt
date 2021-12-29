@@ -3,7 +3,7 @@ package com.phz.dev.feature.main.mine.child
 import android.os.Bundle
 import com.phz.common.ext.logE
 import com.phz.common.page.fragment.BaseVmDbPureFragment
-import com.phz.common.state.BaseViewModel
+import com.phz.common.state.NoViewModel
 import com.phz.dev.R
 import com.phz.dev.databinding.FragmentHomeBinding
 
@@ -11,7 +11,7 @@ import com.phz.dev.databinding.FragmentHomeBinding
  * @author phz on 2021/8/19
  * @description
  */
-class ChildFragment:BaseVmDbPureFragment<BaseViewModel,FragmentHomeBinding> (){
+class ChildFragment:BaseVmDbPureFragment<NoViewModel,FragmentHomeBinding> (){
     override fun lazyInit() {
     }
 

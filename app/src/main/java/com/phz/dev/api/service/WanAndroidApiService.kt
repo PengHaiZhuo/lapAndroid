@@ -1,7 +1,7 @@
-package com.phz.dev.net
+package com.phz.dev.api.service
 
-import com.phz.common.net.support.data.BaseJsonFormFeedBack
 import com.phz.dev.data.model.UserBean
+import com.phz.dev.net.data.bean.BaseResponse
 import retrofit2.http.Field
 import retrofit2.http.FormUrlEncoded
 import retrofit2.http.GET
@@ -12,21 +12,17 @@ import retrofit2.http.POST
  * @author phz
  * @description 网络Api接口文档类
  */
-interface ApiService {
-    companion object{
-        const val SERVER_ADDRESS="https://www.wanandroid.com"
-        const val TOKEN_OVERDUE=400401
-    }
+interface WanAndroidApiService {
 
     @FormUrlEncoded
     @POST("user/login")
     suspend fun login(
         @Field("username") username: String,
         @Field("password") pwd: String
-    ): BaseJsonFormFeedBack<UserBean>
+    ):BaseResponse<UserBean>
 
     @GET("user/logout/json")
-    suspend fun logout():BaseJsonFormFeedBack<String?>
+    suspend fun logout():BaseResponse<String?>
 
     @FormUrlEncoded
     @POST("user/register")
@@ -34,5 +30,5 @@ interface ApiService {
         @Field("username") username: String,
         @Field("password") pwd: String,
         @Field("repassword") repwd: String
-    ):BaseJsonFormFeedBack<UserBean>
+    ):BaseResponse<UserBean>
 }

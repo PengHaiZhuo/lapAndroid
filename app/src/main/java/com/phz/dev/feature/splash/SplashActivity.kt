@@ -10,12 +10,12 @@ import com.phz.common.appContext
 import com.phz.common.ext.getVersionName
 import com.phz.common.ext.startKtxActivity
 import com.phz.common.page.activity.BaseVmDbPureActivity
-import com.phz.common.state.BaseViewModel
+import com.phz.common.state.NoViewModel
 import com.phz.dev.R
 import com.phz.dev.databinding.ActivitySplashBinding
 import com.phz.dev.feature.login.LoginActivity
 
-class SplashActivity : BaseVmDbPureActivity<BaseViewModel, ActivitySplashBinding>() {
+class SplashActivity : BaseVmDbPureActivity<NoViewModel, ActivitySplashBinding>() {
     val mHandler = Handler(Looper.getMainLooper())
 
     override fun onCreate(savedInstanceState: Bundle?) {

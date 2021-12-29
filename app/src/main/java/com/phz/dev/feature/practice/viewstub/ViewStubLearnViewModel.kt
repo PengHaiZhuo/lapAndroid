@@ -1,10 +1,10 @@
 package com.phz.dev.feature.practice.viewstub
 
-import com.phz.common.state.BaseViewModel
+import androidx.lifecycle.ViewModel
 
 /**
  * @author phz on 2021/9/2
  * @description
  */
-class ViewStubLearnViewModel:BaseViewModel() {
+class ViewStubLearnViewModel: ViewModel() {
 }

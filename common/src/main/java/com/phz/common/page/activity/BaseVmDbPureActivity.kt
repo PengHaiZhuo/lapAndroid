@@ -1,20 +1,19 @@
 package com.phz.common.page.activity
 
 import android.os.Bundle
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
+import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.phz.common.ext.dismissLoadingExt
 import com.phz.common.ext.getVmClazz
-import com.phz.common.ext.showLoadingExt
-import com.phz.common.state.BaseViewModel
 
 /**
  * @author phz
  * @description Fragment纯净版 VM+DB,不使用activity_base作为父布局
  */
-abstract class BaseVmDbPureActivity<VM : BaseViewModel, DB : ViewDataBinding> :
+abstract class BaseVmDbPureActivity<VM : ViewModel, DB : ViewDataBinding> :
     AppCompatActivity() {
     lateinit var mViewModel: VM
     lateinit var mViewDataBinding: DB
@@ -25,16 +24,6 @@ abstract class BaseVmDbPureActivity<VM : BaseViewModel, DB : ViewDataBinding> :
         mViewDataBinding.lifecycleOwner = this
         mViewModel = ViewModelProvider(this)[getVmClazz(this)]
         initView(savedInstanceState)
-        //注册界面响应事件观察者
-        mViewModel.showLoading.observe(this@BaseVmDbPureActivity) {
-            if (it) {
-                //显示加载对话框
-                showLoadingExt()
-            } else {
-                //隐藏加载对话框
-                dismissLoadingExt()
-            }
-        }
         initData()
     }
 

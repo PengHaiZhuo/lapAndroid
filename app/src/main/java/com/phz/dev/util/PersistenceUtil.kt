@@ -1,6 +1,5 @@
 package com.phz.dev.util
 
-import com.phz.dev.data.model.UserBean
 import com.tencent.mmkv.MMKV
 
 /**

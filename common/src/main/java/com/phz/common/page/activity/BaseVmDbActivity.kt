@@ -7,22 +7,20 @@ import android.widget.FrameLayout
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.AppCompatTextView
 import androidx.databinding.ViewDataBinding
+import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.google.android.material.appbar.MaterialToolbar
 import com.gyf.immersionbar.ktx.immersionBar
 import com.phz.common.R
-import com.phz.common.ext.dismissLoadingExt
 import com.phz.common.ext.getVmClazz
-import com.phz.common.ext.showLoadingExt
 import com.phz.common.ext.view.visibleOrGone
-import com.phz.common.state.BaseViewModel
 import java.lang.reflect.ParameterizedType
 
 /**
  * @author phz
  * @description Activity基类 VM+DB
  */
-abstract class BaseVmDbActivity<VM : BaseViewModel, DB : ViewDataBinding> : AppCompatActivity() {
+abstract class BaseVmDbActivity<VM : ViewModel, DB : ViewDataBinding> : AppCompatActivity() {
     //当前Activity绑定的 ViewModel
     lateinit var mViewModel: VM
     //当前Activity的ViewDataBinding的root
@@ -72,16 +70,6 @@ abstract class BaseVmDbActivity<VM : BaseViewModel, DB : ViewDataBinding> : AppC
                 this
             ).inflate(R.layout.layout_empty, null) else mDataBindingView
         )
-        //注册界面响应事件观察者
-        mViewModel.showLoading.observe(this) {
-            if (it) {
-                //显示加载对话框
-                showLoadingExt()
-            } else {
-                //隐藏加载对话框
-                dismissLoadingExt()
-            }
-        }
         initView(savedInstanceState)
         initData()
     }

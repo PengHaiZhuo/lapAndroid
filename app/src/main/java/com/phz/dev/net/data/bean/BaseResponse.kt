@@ -1,6 +1,5 @@
 package com.phz.dev.net.data.bean
 
-import com.phz.common.net.support.data.BaseJsonResponse
 import com.phz.dev.net.ApiService
 
 /**
@@ -11,9 +10,9 @@ data class BaseResponse<T>(
     val errorCode: Int,
     val errorMsg: String,
     val data: T
-) : BaseJsonResponse<T>() {
+)  {
 
-    override fun isSuccess(): Boolean {
+     fun isSuccess(): Boolean {
         //玩安卓api请求成功返回0
         return errorCode == 0
     }
@@ -25,15 +24,15 @@ data class BaseResponse<T>(
         return (errorCode == ApiService.TOKEN_OVERDUE)
     }
 
-    override fun getResponseData(): T {
+     fun getResponseData(): T {
         return data
     }
 
-    override fun getResponseCode(): Int {
+     fun getResponseCode(): Int {
         return errorCode
     }
 
-    override fun getResponseMsg(): String {
+     fun getResponseMsg(): String {
         return errorMsg
     }
 

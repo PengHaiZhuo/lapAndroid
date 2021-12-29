@@ -12,7 +12,7 @@ import com.google.android.exoplayer2.util.Util
 import com.gyf.immersionbar.ktx.immersionBar
 import com.phz.common.ext.logE
 import com.phz.common.page.activity.BaseVmDbPureActivity
-import com.phz.common.state.BaseViewModel
+import com.phz.common.state.NoViewModel
 import com.phz.dev.R
 import com.phz.dev.databinding.ActivityExoPlayerBinding
 import kotlin.math.max
@@ -21,7 +21,7 @@ import kotlin.math.max
  * @author phz on 2021/9/22
  * @description
  */
-class ExoPlayerActivity : BaseVmDbPureActivity<BaseViewModel, ActivityExoPlayerBinding>() {
+class ExoPlayerActivity : BaseVmDbPureActivity<NoViewModel, ActivityExoPlayerBinding>() {
     private var type: TYPE? = null
     private var url: String = ""
     private val playerEventListener: Player.Listener = playEventListener()

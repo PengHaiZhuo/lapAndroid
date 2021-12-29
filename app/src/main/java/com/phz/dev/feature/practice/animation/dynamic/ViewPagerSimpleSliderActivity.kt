@@ -6,14 +6,14 @@ import androidx.viewpager2.widget.ViewPager2
 import com.phz.common.ext.toPx
 import com.phz.common.ext.view.spring
 import com.phz.common.page.activity.BaseVmDbActivity
-import com.phz.common.state.BaseViewModel
+import com.phz.common.state.NoViewModel
 import com.phz.dev.R
 import com.phz.dev.databinding.ActivityViewpager2SimpleSliderBinding
 import com.phz.dev.feature.practice.animation.dynamic.adapter.AvatarAdapter
 import com.phz.dev.feature.practice.animation.dynamic.data.model.GenShinRole
 
 class ViewPagerSimpleSliderActivity :
-    BaseVmDbActivity<BaseViewModel, ActivityViewpager2SimpleSliderBinding>() {
+    BaseVmDbActivity<NoViewModel, ActivityViewpager2SimpleSliderBinding>() {
     private val recyclePagerAdapter: AvatarAdapter by lazy { AvatarAdapter() }
     private var animationStartNeeded = true
     private var targetPosition = 0f

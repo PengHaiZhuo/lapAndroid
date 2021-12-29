@@ -1,6 +1,6 @@
 package com.phz.dev.feature.practice.list.recycleview.state
 
-import com.phz.common.state.BaseViewModel
+import androidx.lifecycle.ViewModel
 import com.phz.dev.R
 import com.phz.dev.feature.practice.list.recycleview.model.GenShinRole
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -10,7 +10,7 @@ import kotlinx.coroutines.flow.StateFlow
  * @author phz on 2021/9/29
  * @description
  */
-class GenShinRoleListViewModel : BaseViewModel() {
+class GenShinRoleListViewModel : ViewModel() {
     private val _roleList = MutableStateFlow<List<GenShinRole>>(emptyList())
     val roles :StateFlow<List<GenShinRole>> =_roleList
 

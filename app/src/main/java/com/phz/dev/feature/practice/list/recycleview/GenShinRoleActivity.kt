@@ -4,6 +4,8 @@ import android.os.Bundle
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
+import com.phz.common.ext.dismissLoadingExt
+import com.phz.common.ext.showLoadingExt
 import com.phz.common.ext.view.divider
 import com.phz.common.ext.view.vertical
 import com.phz.common.page.activity.BaseVmDbActivity
@@ -35,9 +37,9 @@ class GenShinRoleActivity :
         }
         lifecycleScope.launch {
             //模拟网络请求
-            mViewModel.showLoading.value = true
+            showLoadingExt()
             delay(1000)
-            mViewModel.showLoading.value = false
+            dismissLoadingExt()
             lifecycle.repeatOnLifecycle(Lifecycle.State.STARTED) {
                 mViewModel.roles.collect {
                     //StateFlow的collect有点类似LiveData的observe，当数据源发生变化时，会跑到这里来
