@@ -9,7 +9,6 @@ import com.phz.common.net.interceptor.log.LogInterceptor
 import com.phz.common.net.persistentcookiejar.PersistentCookieJar
 import com.phz.common.net.persistentcookiejar.cache.SetCookieCache
 import com.phz.common.net.persistentcookiejar.persistence.SharedPrefsCookiePersistor
-import com.phz.dev.net.ApiService.Companion.SERVER_ADDRESS
 import com.phz.dev.net.authenticator.MyAuthenticator
 import okhttp3.Cache
 import okhttp3.OkHttpClient
@@ -23,7 +22,9 @@ import java.util.concurrent.TimeUnit
  * @author phz
  * @description http请求管理类
  */
-//双重校验锁式-单例 封装NetApiService 方便直接快速调用简单的接口
+const val SERVER_ADDRESS="https://www.wanandroid.com"   /*玩安卓baseurl*/
+
+/*双重校验锁式-单例 封装NetApiService 方便直接快速调用简单的接口*/
 val apiService: ApiService by lazy(mode = LazyThreadSafetyMode.SYNCHRONIZED) {
     HttpManager.INSTANCE.getApi(ApiService::class.java, SERVER_ADDRESS)
 }

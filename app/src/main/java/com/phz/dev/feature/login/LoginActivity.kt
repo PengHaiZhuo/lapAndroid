@@ -1,28 +1,35 @@
 package com.phz.dev.feature.login
 
 import android.os.Bundle
+import androidx.activity.viewModels
+import androidx.lifecycle.lifecycleScope
 import com.gyf.immersionbar.ktx.immersionBar
-import com.phz.common.ext.getAppViewModel
-import com.phz.common.ext.startKtxActivity
+import com.phz.common.ext.*
 import com.phz.common.ext.view.clickNoRepeat
 import com.phz.common.page.activity.BaseVmDbPureActivity
+import com.phz.common.state.NoViewModel
 import com.phz.dev.R
+import com.phz.dev.api.DataState
 import com.phz.dev.databinding.ActivityLoginBinding
 import com.phz.dev.feature.main.MainActivity
 import com.phz.dev.feature.register.RegisterActivity
 import com.phz.dev.state.AppViewModel
 import com.phz.dev.util.PersistenceUtil
 import com.phz.dev.util.StringUtil
+import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.flow.collect
+import kotlinx.coroutines.launch
 
 /**
  * @author phz on 2021/8/17
  * @description 登录页
  */
-class LoginActivity : BaseVmDbPureActivity<LoginViewModel, ActivityLoginBinding>() {
+@AndroidEntryPoint
+class LoginActivity : BaseVmDbPureActivity<NoViewModel, ActivityLoginBinding>() {
     val appViewModel: AppViewModel by lazy { getAppViewModel() }
-
+    val loginViewModel:LoginViewModel  by viewModels()
     override fun initData() {
-        mViewDataBinding.vm=mViewModel
+        mViewDataBinding.vm=loginViewModel
         mViewDataBinding.btnLogin.clickNoRepeat {
             val name = mViewDataBinding.etUsername.text.toString()
             val pwd = mViewDataBinding.etPassword.text.toString()
@@ -34,9 +41,9 @@ class LoginActivity : BaseVmDbPureActivity<LoginViewModel, ActivityLoginBinding>
                 mViewDataBinding.etPassword.error = getString(R.string.tip_pwd)
                 return@clickNoRepeat
             }
-            mViewModel.userName.set(name)
-            mViewModel.pwd.set(pwd)
-            mViewModel.login(name, pwd)
+            loginViewModel.userName.set(name)
+            loginViewModel.pwd.set(pwd)
+            loginViewModel.login(name, pwd)
         }
         mViewDataBinding.register.clickNoRepeat {
             startKtxActivity<RegisterActivity>()//跳转注册页
@@ -49,13 +56,31 @@ class LoginActivity : BaseVmDbPureActivity<LoginViewModel, ActivityLoginBinding>
      * 初始化观察员
      */
     fun initObserver() {
-        mViewModel.userBeanLiveData.observe(this) {
-            //将用户信息缓存本地
-            PersistenceUtil.setUserName(mViewModel.userName.get())
-            PersistenceUtil.setPWD(mViewModel.pwd.get())
-            appViewModel.userBean.value = it
-            startKtxActivity<MainActivity>()
-            finish()
+        lifecycleScope.launch {
+            loginViewModel.userBean.collect {
+                when(it){
+                    is DataState.Loading ->{
+                        showLoadingExt("登录中，请稍候")
+                    }
+                    is DataState.Success ->{
+                        dismissLoadingExt()
+                        //将用户信息缓存本地
+                        PersistenceUtil.setUserName(loginViewModel.userName.get())
+                        PersistenceUtil.setPWD(loginViewModel.pwd.get())
+                        appViewModel.userBean.value = it.data
+                        startKtxActivity<MainActivity>()
+                        finish()
+                    }
+                    is DataState.Error ->{
+                        dismissLoadingExt()
+                        showSnackShort(it.message)
+                    }
+                    is DataState.Empty ->{
+                        dismissLoadingExt()
+                    }
+                }
+
+            }
         }
     }
 

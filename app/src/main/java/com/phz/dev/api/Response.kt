@@ -6,7 +6,7 @@ package com.phz.dev.api
  */
 sealed class Response<T>(
     private val data: T? = null,
-    private val errorMessage: String? = null
+    private val errorMessage: String = ""
 ) {
     companion object {
         fun <T> success(data: T) = Success(data)
@@ -16,14 +16,11 @@ sealed class Response<T>(
     fun isSuccess() = this is Success
     fun isFailed() = this is Failed
 
-    //调用前先判断是否是Success
     fun read() = data!!
-    //调用前先判断是否是Failed
-    fun errorMessage() = errorMessage!!
+    fun readSafely(): T? = if (this is Success<T>) read() else null
+    fun errorMessage() = errorMessage
 
-    /**
-     * 当前状态，可以根据状态展示页面
-     */
+    /* 当前状态，可以根据状态展示页面 */
     fun toDataState() = if(isSuccess()) DataState.Success(read()) else DataState.Error(errorMessage())
 
     class Success<T> internal constructor(data: T) : Response<T>(data = data)

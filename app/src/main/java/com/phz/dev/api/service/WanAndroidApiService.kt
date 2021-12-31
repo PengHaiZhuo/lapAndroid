@@ -1,6 +1,6 @@
 package com.phz.dev.api.service
 
-import com.phz.common.net.support.data.BaseJsonFormFeedBack
+import com.phz.dev.api.BaseJsonFormFeedBack
 import com.phz.dev.data.model.UserBean
 import retrofit2.http.Field
 import retrofit2.http.FormUrlEncoded
@@ -22,7 +22,7 @@ interface WanAndroidApiService {
     ): BaseJsonFormFeedBack<UserBean>
 
     @GET("user/logout/json")
-    suspend fun logout(): BaseJsonFormFeedBack<String?>
+    suspend fun logout(): BaseJsonFormFeedBack<String>
 
     @FormUrlEncoded
     @POST("user/register")

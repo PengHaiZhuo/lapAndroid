@@ -3,15 +3,13 @@ package com.phz.dev.feature.register
 import android.os.Bundle
 import androidx.lifecycle.viewModelScope
 import com.blankj.utilcode.util.ToastUtils
-import com.phz.common.ext.getAppViewModel
-import com.phz.common.ext.logE
-import com.phz.common.ext.request
-import com.phz.common.ext.startKtxActivity
+import com.phz.common.ext.*
 import com.phz.common.ext.view.clickNoRepeat
 import com.phz.common.page.activity.BaseVmDbActivity
 import com.phz.common.state.NoViewModel
 import com.phz.common.util.ActivityManagerKtx
 import com.phz.dev.R
+import com.phz.dev.api.Utils.request
 import com.phz.dev.databinding.ActivityRegisterBinding
 import com.phz.dev.feature.login.LoginActivity
 import com.phz.dev.feature.main.MainActivity
@@ -23,7 +21,7 @@ import kotlinx.coroutines.launch
 
 /**
  * @author phz on 2021/12/13
- * @description
+ * @description 注册界面
  */
 class RegisterActivity : BaseVmDbActivity<NoViewModel, ActivityRegisterBinding>() {
     val appViewModel: AppViewModel by lazy { getAppViewModel() }
@@ -49,7 +47,9 @@ class RegisterActivity : BaseVmDbActivity<NoViewModel, ActivityRegisterBinding>(
                 return@clickNoRepeat
             }
             mViewModel.viewModelScope.launch {
-                mViewModel.request({ apiService.register(username, pwd, confirmPwd) }, {
+                showLoadingExt("注册中")
+                request({apiService.register(username, pwd, confirmPwd) }, {
+                    dismissLoadingExt()
                     //将用户信息缓存本地
                     PersistenceUtil.setUserName(username)
                     PersistenceUtil.setPWD(pwd)
@@ -58,6 +58,7 @@ class RegisterActivity : BaseVmDbActivity<NoViewModel, ActivityRegisterBinding>(
                     ActivityManagerKtx.finishActivity(LoginActivity::class.java)
                     finish()
                 }, {
+                    dismissLoadingExt()
                     ToastUtils.showShort("注册失败，错误码${it.errorCode}")
                     "message:${it.errorMsg}    code:${it.errorCode}".logE()
                 })

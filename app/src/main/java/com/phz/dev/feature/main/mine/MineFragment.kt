@@ -9,6 +9,7 @@ import com.phz.common.ext.*
 import com.phz.common.page.fragment.BaseVmDbPureFragment
 import com.phz.common.util.ActivityManagerKtx
 import com.phz.dev.R
+import com.phz.dev.api.Utils.request
 import com.phz.dev.databinding.FragmentMineBinding
 import com.phz.dev.feature.practice.PracticeMainActivity
 import com.phz.dev.net.apiService
@@ -99,7 +100,7 @@ class MineFragment : BaseVmDbPureFragment<MineViewModel, FragmentMineBinding>() 
                 "确认要退出吗？", "提示",
                 positiveAction = {
                     mViewModel.viewModelScope.launch {
-                        mViewModel.request({ apiService.logout() }, {
+                        request({ apiService.logout() }, {
                             appViewModel.userBean.value = null
                             PersistenceUtil.clearCache()
                             ActivityManagerKtx.removeAllActivity()

@@ -8,7 +8,7 @@ package com.phz.dev.api
 data class BaseJsonFormFeedBack<out T>(
     val errorCode: Int,
     val errorMsg: String,
-    val data: T?
+    val data: T
 ) {
     fun isSuccess(): Boolean = errorCode == 0//后台规定请求成功返回0
 
@@ -17,7 +17,7 @@ data class BaseJsonFormFeedBack<out T>(
      */
     fun isTokenOverDue(): Boolean = errorCode == 400401 //后台规定token过期返回400401，需要重新获取
 
-    fun getResponseData(): T? = data
+    fun getResponseData(): T = data
 
     fun getCode(): Int = errorCode
 

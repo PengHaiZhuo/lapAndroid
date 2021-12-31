@@ -1,6 +1,6 @@
 package com.phz.dev.net
 
-import com.phz.common.net.support.data.BaseJsonFormFeedBack
+import com.phz.dev.api.BaseJsonFormFeedBack
 import com.phz.dev.data.model.UserBean
 import retrofit2.http.Field
 import retrofit2.http.FormUrlEncoded
@@ -13,10 +13,6 @@ import retrofit2.http.POST
  * @description 网络Api接口文档类
  */
 interface ApiService {
-    companion object{
-        const val SERVER_ADDRESS="https://www.wanandroid.com"
-        const val TOKEN_OVERDUE=400401
-    }
 
     @FormUrlEncoded
     @POST("user/login")

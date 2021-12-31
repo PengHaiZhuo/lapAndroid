@@ -10,7 +10,6 @@ import com.phz.common.net.persistentcookiejar.persistence.SharedPrefsCookiePersi
 import com.phz.dev.api.WanAndroidApi
 import com.phz.dev.api.WanAndroidApiImpl
 import com.phz.dev.api.service.WanAndroidApiService
-import com.phz.dev.net.ApiService
 import com.phz.dev.net.authenticator.MyAuthenticator
 import dagger.Module
 import dagger.Provides
