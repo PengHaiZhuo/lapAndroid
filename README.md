@@ -9,6 +9,7 @@ study and practice android
 * Kotlin Coroutine (协程)
 * Retrofit (访问Restful API)
 * Navigation (导航)
+* Hilt
 
 ## 📜 计划
-* 使用Hilt处理多套retrofit配置
+* 待定
