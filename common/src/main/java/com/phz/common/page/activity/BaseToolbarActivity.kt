@@ -18,9 +18,9 @@ import java.lang.reflect.ParameterizedType
 
 /**
  * @author phz
- * @description Activity基类 VM+DB
+ * @description 带工具栏的Activity基类 VM+DB
  */
-abstract class BaseVmDbActivity<VM : ViewModel, DB : ViewDataBinding> : AppCompatActivity() {
+abstract class BaseToolbarActivity<VM : ViewModel, DB : ViewDataBinding> : AppCompatActivity() {
     //当前Activity绑定的 ViewModel
     lateinit var mViewModel: VM
     //当前Activity的ViewDataBinding的root
@@ -80,20 +80,17 @@ abstract class BaseVmDbActivity<VM : ViewModel, DB : ViewDataBinding> : AppCompa
     }
 
     /**
-     * 是否隐藏 标题栏 默认显示
-     * @description 子类重写设置mToolbar显示不显示
+     * 是否隐藏标题栏
+     * 默认显示
+     * @use 子类重写设置mToolbar显示不显示
      */
     open fun showToolBar(): Boolean {
         return true
     }
 
-    /**
-     * 可以在此方法内加载数据，创建数据源观察者，配合setOnclick()拓展函数设置点击事件
-     */
+    /*加载数据，设置适配器，设置点击事件,初始化数据观察员*/
     abstract fun initData()
 
-    /**
-     * 初始化view
-     */
+    /*初始化view*/
     abstract fun initView(savedInstanceState: Bundle?)
 }

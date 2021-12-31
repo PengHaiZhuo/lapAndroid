@@ -2,7 +2,7 @@ package com.phz.dev.feature.practice.countdown
 
 import android.os.Bundle
 import com.phz.common.ext.logE
-import com.phz.common.page.activity.BaseVmDbActivity
+import com.phz.common.page.activity.BaseToolbarActivity
 import com.phz.common.state.NoViewModel
 import com.phz.dev.databinding.ActivityCountDownLatchLearnBinding
 import io.reactivex.Completable
@@ -12,7 +12,7 @@ import java.util.concurrent.CountDownLatch
 import java.util.concurrent.TimeUnit
 
 class CountDownLatchLearnActivity :
-    BaseVmDbActivity<NoViewModel, ActivityCountDownLatchLearnBinding>() {
+    BaseToolbarActivity<NoViewModel, ActivityCountDownLatchLearnBinding>() {
 
     companion object {
         const val WorkerNum = 5  //工人数量

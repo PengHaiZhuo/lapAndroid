@@ -9,13 +9,13 @@ import com.gyf.immersionbar.ktx.immersionBar
 import com.phz.common.appContext
 import com.phz.common.ext.getVersionName
 import com.phz.common.ext.startKtxActivity
-import com.phz.common.page.activity.BaseVmDbPureActivity
+import com.phz.common.page.activity.BasePureActivity
 import com.phz.common.state.NoViewModel
 import com.phz.dev.R
 import com.phz.dev.databinding.ActivitySplashBinding
 import com.phz.dev.feature.login.LoginActivity
 
-class SplashActivity : BaseVmDbPureActivity<NoViewModel, ActivitySplashBinding>() {
+class SplashActivity : BasePureActivity<NoViewModel, ActivitySplashBinding>() {
     val mHandler = Handler(Looper.getMainLooper())
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -53,4 +53,6 @@ class SplashActivity : BaseVmDbPureActivity<NoViewModel, ActivitySplashBinding>(
         super.onDestroy()
         mHandler.removeCallbacksAndMessages(null)
     }
+
+    override fun initObserver() =Unit
 }

@@ -6,7 +6,7 @@ import android.os.Bundle
 import android.provider.MediaStore
 import androidx.activity.result.contract.ActivityResultContracts
 import com.phz.common.ext.logE
-import com.phz.common.page.activity.BaseVmDbActivity
+import com.phz.common.page.activity.BaseToolbarActivity
 import com.phz.common.state.NoViewModel
 import com.phz.dev.R
 import com.phz.dev.databinding.ActivitySafBinding
@@ -15,7 +15,7 @@ import com.phz.dev.databinding.ActivitySafBinding
  * @author phz on 2021/10/19
  * @description Storage Access Framework，存储访问框架使用
  */
-class StorageAccessFrameworkActivity : BaseVmDbActivity<NoViewModel, ActivitySafBinding>() {
+class StorageAccessFrameworkActivity : BaseToolbarActivity<NoViewModel, ActivitySafBinding>() {
 
     companion object {
         val IMAGE_URI = MediaStore.Images.Media.EXTERNAL_CONTENT_URI

@@ -2,7 +2,7 @@ package com.phz.dev.feature.practice.mlkit.scan
 
 import android.os.Bundle
 import com.phz.common.ext.startKtxActivity
-import com.phz.common.page.activity.BaseVmDbActivity
+import com.phz.common.page.activity.BaseToolbarActivity
 import com.phz.common.state.NoViewModel
 import com.phz.dev.R
 import com.phz.dev.databinding.ActivityMlkitScanMenuBinding
@@ -12,7 +12,7 @@ import com.phz.dev.feature.practice.mlkit.scan.ct.MlKitScanWithConsoleActivity
  * @author phz on 2021/8/24
  * @description
  */
-class MlKitScanMenuActivity : BaseVmDbActivity<NoViewModel, ActivityMlkitScanMenuBinding>() {
+class MlKitScanMenuActivity : BaseToolbarActivity<NoViewModel, ActivityMlkitScanMenuBinding>() {
     override fun initData() {
     }
 

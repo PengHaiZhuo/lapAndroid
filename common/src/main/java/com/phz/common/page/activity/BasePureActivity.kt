@@ -1,7 +1,6 @@
 package com.phz.common.page.activity
 
 import android.os.Bundle
-import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
@@ -11,9 +10,9 @@ import com.phz.common.ext.getVmClazz
 
 /**
  * @author phz
- * @description Fragment纯净版 VM+DB,不使用activity_base作为父布局
+ * @description Activity普通版 VM+DB
  */
-abstract class BaseVmDbPureActivity<VM : ViewModel, DB : ViewDataBinding> :
+abstract class BasePureActivity<VM : ViewModel, DB : ViewDataBinding> :
     AppCompatActivity() {
     lateinit var mViewModel: VM
     lateinit var mViewDataBinding: DB
@@ -25,18 +24,18 @@ abstract class BaseVmDbPureActivity<VM : ViewModel, DB : ViewDataBinding> :
         mViewModel = ViewModelProvider(this)[getVmClazz(this)]
         initView(savedInstanceState)
         initData()
+        initObserver()
     }
 
-
+    /*设置布局id*/
     abstract fun layoutId(): Int
 
-    /**
-     * 初始化view
-     */
+    /*初始化view*/
     abstract fun initView(savedInstanceState: Bundle?)
 
-    /**
-     * 可以在此方法内加载数据，创建数据源观察者，配合setOnclick()拓展函数设置点击事件
-     */
+    /*加载数据，设置适配器，设置点击事件*/
     abstract fun initData()
+
+    /*初始化数据观察员*/
+    abstract fun initObserver()
 }

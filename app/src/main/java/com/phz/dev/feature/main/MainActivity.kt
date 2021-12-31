@@ -16,7 +16,7 @@ import com.phz.common.ext.logE
 import com.phz.common.ext.showSnackShort
 import com.phz.common.net.manager.NetStateManager
 import com.phz.common.net.manager.NetStateReceiver
-import com.phz.common.page.activity.BaseVmDbPureActivity
+import com.phz.common.page.activity.BasePureActivity
 import com.phz.common.state.NoViewModel
 import com.phz.dev.R
 import com.phz.dev.databinding.ActivityMainBinding
@@ -27,7 +27,7 @@ import kotlinx.coroutines.launch
  * @author phz
  * @description
  */
-class MainActivity : BaseVmDbPureActivity<NoViewModel, ActivityMainBinding>() {
+class MainActivity : BasePureActivity<NoViewModel, ActivityMainBinding>() {
     private lateinit var mNetStateReceiver: NetStateReceiver
 
     companion object {
@@ -148,4 +148,5 @@ class MainActivity : BaseVmDbPureActivity<NoViewModel, ActivityMainBinding>() {
     }
 
     override fun layoutId(): Int = R.layout.activity_main
+    override fun initObserver() = Unit
 }

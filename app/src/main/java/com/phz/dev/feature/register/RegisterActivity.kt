@@ -5,7 +5,7 @@ import androidx.lifecycle.viewModelScope
 import com.blankj.utilcode.util.ToastUtils
 import com.phz.common.ext.*
 import com.phz.common.ext.view.clickNoRepeat
-import com.phz.common.page.activity.BaseVmDbActivity
+import com.phz.common.page.activity.BaseToolbarActivity
 import com.phz.common.state.NoViewModel
 import com.phz.common.util.ActivityManagerKtx
 import com.phz.dev.R
@@ -23,7 +23,7 @@ import kotlinx.coroutines.launch
  * @author phz on 2021/12/13
  * @description 注册界面
  */
-class RegisterActivity : BaseVmDbActivity<NoViewModel, ActivityRegisterBinding>() {
+class RegisterActivity : BaseToolbarActivity<NoViewModel, ActivityRegisterBinding>() {
     val appViewModel: AppViewModel by lazy { getAppViewModel() }
     override fun initData() {
         mViewDataBinding.btnRegister.clickNoRepeat {

@@ -20,7 +20,7 @@ import com.google.mlkit.vision.barcode.BarcodeScanning
 import com.google.mlkit.vision.common.InputImage
 import com.gyf.immersionbar.ktx.immersionBar
 import com.jraska.console.Console
-import com.phz.common.page.activity.BaseVmDbPureActivity
+import com.phz.common.page.activity.BasePureActivity
 import com.phz.common.state.NoViewModel
 import com.phz.dev.R
 import com.phz.dev.databinding.ActivityMlkitScanCtBinding
@@ -32,7 +32,7 @@ import java.util.concurrent.Executors
  * @description
  */
 class MlKitScanWithConsoleActivity :
-    BaseVmDbPureActivity<NoViewModel, ActivityMlkitScanCtBinding>() {
+    BasePureActivity<NoViewModel, ActivityMlkitScanCtBinding>() {
     private val scanner = BarcodeScanning.getClient(options)
 
     private var cameraProviderFuture: ListenableFuture<ProcessCameraProvider>? = null
@@ -191,4 +191,6 @@ class MlKitScanWithConsoleActivity :
         val options = BarcodeScannerOptions.Builder()
             .setBarcodeFormats(Barcode.FORMAT_ALL_FORMATS, Barcode.FORMAT_UNKNOWN).build()
     }
+
+    override fun initObserver() =Unit
 }

@@ -8,7 +8,7 @@ import com.phz.common.ext.dismissLoadingExt
 import com.phz.common.ext.showLoadingExt
 import com.phz.common.ext.view.divider
 import com.phz.common.ext.view.vertical
-import com.phz.common.page.activity.BaseVmDbActivity
+import com.phz.common.page.activity.BaseToolbarActivity
 import com.phz.dev.R
 import com.phz.dev.databinding.ActivityGenshinRoleBinding
 import com.phz.dev.feature.practice.list.recycleview.adapter.GenShinRoleAdapter
@@ -22,7 +22,7 @@ import kotlinx.coroutines.launch
  * @description
  */
 class GenShinRoleActivity :
-    BaseVmDbActivity<GenShinRoleListViewModel, ActivityGenshinRoleBinding>() {
+    BaseToolbarActivity<GenShinRoleListViewModel, ActivityGenshinRoleBinding>() {
 
     private lateinit var mAdapter: GenShinRoleAdapter
 

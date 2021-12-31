@@ -1,12 +1,6 @@
 package com.phz.common.util
 
 import android.graphics.Bitmap
-import androidx.appcompat.app.AppCompatActivity
-import com.bumptech.glide.Glide
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
 import java.io.ByteArrayOutputStream
 
 /**

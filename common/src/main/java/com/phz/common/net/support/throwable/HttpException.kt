@@ -1,7 +1,5 @@
 package com.phz.common.net.support.throwable
 
-import java.lang.Exception
-
 /**
  * @author phz
  * @description 自定义http异常类

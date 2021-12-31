@@ -7,7 +7,7 @@ import com.phz.common.databinding.MineBindingAdapter.circleImageUrlRes
 import com.phz.common.databinding.MineBindingAdapter.imageGifUrlRes
 import com.phz.common.ext.logE
 import com.phz.common.ext.startKtxActivity
-import com.phz.common.page.activity.BaseVmDbActivity
+import com.phz.common.page.activity.BaseToolbarActivity
 import com.phz.common.state.NoViewModel
 import com.phz.dev.R
 import com.phz.dev.databinding.ActivityDialogLearnBinding
@@ -24,7 +24,7 @@ import com.phz.dev.feature.practice.dialog.fragment.DialogSampleFragment
  * ④自定义customView
  * 补充：推荐使用开源库👉https://github.com/afollestad/material-dialogs
  */
-class DialogLearnActivity : BaseVmDbActivity<NoViewModel, ActivityDialogLearnBinding>() {
+class DialogLearnActivity : BaseToolbarActivity<NoViewModel, ActivityDialogLearnBinding>() {
     private var normalAlertDialog: AlertDialog? = null
     private var itemsAlertDialog: AlertDialog? = null
     private var singleChoiceItemsAlertDialog: AlertDialog? = null

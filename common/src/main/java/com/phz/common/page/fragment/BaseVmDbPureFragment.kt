@@ -16,7 +16,7 @@ import com.phz.common.ext.getVmClazz
 
 /**
  * @author phz
- * @description Fragment基类纯净版，做了懒加载处理
+ * @description Fragment基类纯净版，做了懒加载处理 VM+DB
  */
 abstract class BaseVmDbPureFragment<VM : ViewModel, DB : ViewDataBinding> :
     Fragment() {

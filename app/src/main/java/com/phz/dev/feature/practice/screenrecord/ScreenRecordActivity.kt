@@ -1,7 +1,7 @@
 package com.phz.dev.feature.practice.screenrecord
 
 import android.os.Bundle
-import com.phz.common.page.activity.BaseVmDbActivity
+import com.phz.common.page.activity.BaseToolbarActivity
 import com.phz.common.state.NoViewModel
 import com.phz.dev.R
 import com.phz.dev.databinding.ActivityScreenRecordBinding
@@ -10,7 +10,7 @@ import com.phz.dev.databinding.ActivityScreenRecordBinding
  * @author phz on 2021/9/17
  * @description 开发录屏列表
  */
-class ScreenRecordActivity : BaseVmDbActivity<NoViewModel, ActivityScreenRecordBinding>() {
+class ScreenRecordActivity : BaseToolbarActivity<NoViewModel, ActivityScreenRecordBinding>() {
 
 
     override fun initData() {

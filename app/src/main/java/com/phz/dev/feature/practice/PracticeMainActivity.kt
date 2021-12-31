@@ -3,7 +3,7 @@ package com.phz.dev.feature.practice
 import android.os.Bundle
 import com.phz.common.ext.startKtxActivity
 import com.phz.common.ext.view.vertical
-import com.phz.common.page.activity.BaseVmDbActivity
+import com.phz.common.page.activity.BaseToolbarActivity
 import com.phz.common.page.adapter.listener.OnItemClickListener
 import com.phz.dev.R
 import com.phz.dev.databinding.ActivityPracticeMainBinding
@@ -27,7 +27,7 @@ import com.phz.dev.feature.practice.viewstub.ViewStubLearnActivity
  * @description
  */
 class PracticeMainActivity :
-    BaseVmDbActivity<PracticeMainViewModel, ActivityPracticeMainBinding>() {
+    BaseToolbarActivity<PracticeMainViewModel, ActivityPracticeMainBinding>() {
     private var mAdapter = PracticeListAdapter()
 
     companion object {

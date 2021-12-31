@@ -3,7 +3,7 @@ package com.phz.dev.feature.practice.list.listview
 import android.os.Bundle
 import com.google.android.material.checkbox.MaterialCheckBox
 import com.phz.common.ext.showDialogMessage
-import com.phz.common.page.activity.BaseVmDbActivity
+import com.phz.common.page.activity.BaseToolbarActivity
 import com.phz.common.state.NoViewModel
 import com.phz.dev.R
 import com.phz.dev.databinding.ActivityStudentListBinding
@@ -19,7 +19,7 @@ import com.phz.dev.feature.practice.list.listview.model.StudentBean
  * 关于饿了么2级联动列表，可以参考开源项目 Linkage-RecyclerView
  * 关于左右侧滑Item的列表，可以参考开源项目SwipeRecyclerView
  */
-class StudentListActivity : BaseVmDbActivity<NoViewModel, ActivityStudentListBinding>() {
+class StudentListActivity : BaseToolbarActivity<NoViewModel, ActivityStudentListBinding>() {
 
     var classList = arrayListOf(
         ClassRoomBean("3年1班", arrayListOf(StudentBean("张电"), StudentBean("李电"), StudentBean("王树林"))),

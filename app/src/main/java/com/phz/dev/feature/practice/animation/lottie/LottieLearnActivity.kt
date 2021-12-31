@@ -2,7 +2,7 @@ package com.phz.dev.feature.practice.animation.lottie
 
 import android.animation.Animator
 import android.os.Bundle
-import com.phz.common.page.activity.BaseVmDbActivity
+import com.phz.common.page.activity.BaseToolbarActivity
 import com.phz.common.state.NoViewModel
 import com.phz.dev.R
 import com.phz.dev.databinding.ActivityLottieLearnBinding
@@ -12,7 +12,7 @@ import com.phz.dev.feature.practice.animation.lottie.dialog.DionaDialog
  * @author phz
  * @description  使用请参考【http://airbnb.io/lottie/#/android】
  */
-class LottieLearnActivity : BaseVmDbActivity<NoViewModel, ActivityLottieLearnBinding>() {
+class LottieLearnActivity : BaseToolbarActivity<NoViewModel, ActivityLottieLearnBinding>() {
     private lateinit var dionaDialog: DionaDialog
 
     override fun initData() {

@@ -1,5 +1,3 @@
-import kotlin.collections.*
-
 plugins {
     id("com.android.application")
     kotlin("android")//id("kotlin-android")

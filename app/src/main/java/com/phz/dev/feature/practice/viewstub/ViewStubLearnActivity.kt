@@ -6,7 +6,7 @@ import android.widget.LinearLayout
 import androidx.lifecycle.lifecycleScope
 import com.phz.common.ext.dismissLoadingExt
 import com.phz.common.ext.showLoadingExt
-import com.phz.common.page.activity.BaseVmDbActivity
+import com.phz.common.page.activity.BaseToolbarActivity
 import com.phz.dev.R
 import com.phz.dev.databinding.ActivityViewstubLearnBinding
 import kotlinx.coroutines.delay
@@ -23,7 +23,7 @@ import kotlinx.coroutines.launch
  * /*因此多次 inflate() 操作, 会报错: ViewStub must have a non-null ViewGroup viewParent*/
  */
 class ViewStubLearnActivity :
-    BaseVmDbActivity<ViewStubLearnViewModel, ActivityViewstubLearnBinding>() {
+    BaseToolbarActivity<ViewStubLearnViewModel, ActivityViewstubLearnBinding>() {
     override fun initData() {
         lifecycleScope.launchWhenResumed {
             //模拟请求

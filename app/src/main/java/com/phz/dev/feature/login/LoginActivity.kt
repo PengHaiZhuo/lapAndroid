@@ -6,7 +6,7 @@ import androidx.lifecycle.lifecycleScope
 import com.gyf.immersionbar.ktx.immersionBar
 import com.phz.common.ext.*
 import com.phz.common.ext.view.clickNoRepeat
-import com.phz.common.page.activity.BaseVmDbPureActivity
+import com.phz.common.page.activity.BasePureActivity
 import com.phz.common.state.NoViewModel
 import com.phz.dev.R
 import com.phz.dev.api.DataState
@@ -25,7 +25,7 @@ import kotlinx.coroutines.launch
  * @description 登录页
  */
 @AndroidEntryPoint
-class LoginActivity : BaseVmDbPureActivity<NoViewModel, ActivityLoginBinding>() {
+class LoginActivity : BasePureActivity<NoViewModel, ActivityLoginBinding>() {
     val appViewModel: AppViewModel by lazy { getAppViewModel() }
     val loginViewModel:LoginViewModel  by viewModels()
     override fun initData() {
@@ -48,14 +48,12 @@ class LoginActivity : BaseVmDbPureActivity<NoViewModel, ActivityLoginBinding>() 
         mViewDataBinding.register.clickNoRepeat {
             startKtxActivity<RegisterActivity>()//跳转注册页
         }
-        //初始化观察员
-        initObserver()
     }
 
     /**
      * 初始化观察员
      */
-    fun initObserver() {
+    override fun initObserver() {
         lifecycleScope.launch {
             loginViewModel.userBean.collect {
                 when(it){

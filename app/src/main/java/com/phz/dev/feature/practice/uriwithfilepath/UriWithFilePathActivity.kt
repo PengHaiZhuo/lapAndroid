@@ -6,7 +6,7 @@ import android.os.Bundle
 import android.os.Environment
 import com.phz.common.ext.view.divider
 import com.phz.common.ext.view.vertical
-import com.phz.common.page.activity.BaseVmDbActivity
+import com.phz.common.page.activity.BaseToolbarActivity
 import com.phz.dev.R
 import com.phz.dev.databinding.ActivityUriWithFilepathBinding
 import com.phz.dev.feature.practice.uriwithfilepath.adapter.UriAndFilePathAdapter
@@ -17,7 +17,7 @@ import com.phz.dev.feature.practice.uriwithfilepath.bean.PathBean
  * @description
  */
 class UriWithFilePathActivity :
-    BaseVmDbActivity<UriWithFilePathViewModel, ActivityUriWithFilepathBinding>() {
+    BaseToolbarActivity<UriWithFilePathViewModel, ActivityUriWithFilepathBinding>() {
 
     private val mContext: Context = this
     private val mAdapter by lazy { UriAndFilePathAdapter() }

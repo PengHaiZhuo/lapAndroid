@@ -4,7 +4,7 @@ import android.os.Bundle
 import androidx.lifecycle.lifecycleScope
 import com.phz.common.ext.dismissLoadingExt
 import com.phz.common.ext.showLoadingExt
-import com.phz.common.page.activity.BaseVmDbActivity
+import com.phz.common.page.activity.BaseToolbarActivity
 import com.phz.dev.R
 import com.phz.dev.databinding.ActivityDropDwonTiBinding
 import com.phz.dev.feature.practice.list.listview.adapter.ProjectAdapter
@@ -18,7 +18,7 @@ import kotlinx.coroutines.delay
  * @description
  */
 class DropDownMenuTlActivity :
-    BaseVmDbActivity<DropDownMenuTlViewModel, ActivityDropDwonTiBinding>() {
+    BaseToolbarActivity<DropDownMenuTlViewModel, ActivityDropDwonTiBinding>() {
 
     companion object {
         const val pageName = "DropDownSample"

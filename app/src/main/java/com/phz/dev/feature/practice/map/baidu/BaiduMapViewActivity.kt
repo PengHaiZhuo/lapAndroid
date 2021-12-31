@@ -9,7 +9,7 @@ import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.hjq.permissions.OnPermissionCallback
 import com.hjq.permissions.XXPermissions
 import com.phz.common.ext.view.clickNoRepeat
-import com.phz.common.page.activity.BaseVmDbActivity
+import com.phz.common.page.activity.BaseToolbarActivity
 import com.phz.common.state.NoViewModel
 import com.phz.dev.R
 import com.phz.dev.databinding.ActivityBaiduMapviewBinding
@@ -18,7 +18,7 @@ import com.phz.dev.databinding.ActivityBaiduMapviewBinding
  * @author phz on 2021/10/11
  * @description 百度地图
  */
-class BaiduMapViewActivity : BaseVmDbActivity<NoViewModel, ActivityBaiduMapviewBinding>() {
+class BaiduMapViewActivity : BaseToolbarActivity<NoViewModel, ActivityBaiduMapviewBinding>() {
     companion object {
         //确切定位权限
         const val fineLocation=Manifest.permission.ACCESS_FINE_LOCATION
