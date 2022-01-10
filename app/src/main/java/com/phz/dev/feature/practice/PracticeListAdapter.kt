@@ -1,5 +1,6 @@
 package com.phz.dev.feature.practice
 
+import android.database.Cursor
 import android.view.ViewGroup
 import com.phz.common.page.adapter.BaseRecycleViewAdapter
 import com.phz.common.page.adapter.viewholder.BaseRecycleViewHolder
@@ -11,6 +12,8 @@ import com.phz.dev.databinding.ItemSimpleButtonBinding
  * @description
  */
 class PracticeListAdapter : BaseRecycleViewAdapter<String, ItemSimpleButtonBinding>() {
+
+    private val mCursor: Cursor? = null
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
         return MyViewHolder(parent, viewType)

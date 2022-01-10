@@ -145,7 +145,7 @@ class MlKitScanWithConsoleActivity :
                                     .addOnFailureListener { e ->
                                         e.printStackTrace()
                                     }
-                                    .addOnCompleteListener { q ->
+                                    .addOnCompleteListener { _ ->
                                         mediaImage.close()
                                         it.close()
                                     }

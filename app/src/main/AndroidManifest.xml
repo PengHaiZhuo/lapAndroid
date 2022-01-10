@@ -128,6 +128,12 @@
         <activity android:name=".feature.practice.map.baidu.BaiduMapViewActivity"/>
         <activity android:name=".feature.practice.uriwithfilepath.UriWithFilePathActivity"/>
         <activity android:name=".feature.practice.saf.StorageAccessFrameworkActivity"/>
+        <provider
+            android:name=".feature.practice.PracticeContentProvider"
+            android:authorities="com.phz.android.cp.provider"
+            android:exported="true"
+            android:permission="com.phz.android.cp.provider.READ_WRITE"/>
+
     </application>
 
 </manifest>

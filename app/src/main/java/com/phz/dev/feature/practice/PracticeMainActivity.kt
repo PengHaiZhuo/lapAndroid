@@ -1,11 +1,21 @@
 package com.phz.dev.feature.practice
 
+import android.database.Cursor
 import android.os.Bundle
+import android.view.LayoutInflater
+import android.view.ViewGroup
+import android.widget.TextView
+import androidx.loader.app.LoaderManager
+import androidx.loader.content.CursorLoader
+import androidx.loader.content.Loader
+import androidx.recyclerview.widget.RecyclerView
 import com.phz.common.ext.startKtxActivity
+import com.phz.common.ext.view.clickNoRepeat
 import com.phz.common.ext.view.vertical
 import com.phz.common.page.activity.BaseToolbarActivity
 import com.phz.common.page.adapter.listener.OnItemClickListener
 import com.phz.dev.R
+import com.phz.dev.data.room.bean.Practice
 import com.phz.dev.databinding.ActivityPracticeMainBinding
 import com.phz.dev.feature.practice.animation.dynamic.ViewPagerSimpleSliderActivity
 import com.phz.dev.feature.practice.animation.lottie.LottieLearnActivity
@@ -28,27 +38,30 @@ import com.phz.dev.feature.practice.viewstub.ViewStubLearnActivity
  */
 class PracticeMainActivity :
     BaseToolbarActivity<PracticeMainViewModel, ActivityPracticeMainBinding>() {
-    private var mAdapter = PracticeListAdapter()
+    private var mAdapter = PracticeAdapter()
 
     companion object {
-        val practiceNames = arrayListOf(
-            "Screen Record",
-            "ViewPager Transformer",
-            "Lottie",
-            "Scan",
-            "DrawerLayout",
-            "PopupWindow",
-//            "CollapsingToolbarLayout",
-            "ViewStub"
-//        ,"CountDownLatch"
-            , "Dialog",
-            "ExpandableListView",
-            "DropDownList",
-            "Rv Payload Use",
-            "BaiduMapView",
-            "Path",
-            "Storage Access Framework"
-        )
+        const val LOADER_ID=1
+    }
+
+    private val mLoaderCallbacks= object:LoaderManager.LoaderCallbacks<Cursor>{
+        override fun onCreateLoader(id: Int, args: Bundle?): Loader<Cursor> {
+            return CursorLoader(
+                applicationContext,
+                PracticeContentProvider.URI, arrayOf(Practice.COLUMN_NAME),
+                null, null, null
+            )
+
+        }
+
+        override fun onLoadFinished(loader: Loader<Cursor>, data: Cursor?) {
+            mAdapter.setPractices(data)
+        }
+
+        override fun onLoaderReset(loader: Loader<Cursor>) {
+            mAdapter.setPractices(null)
+        }
+
     }
 
     override fun initData() {
@@ -103,8 +116,8 @@ class PracticeMainActivity :
         mViewDataBinding.rvPractice.apply {
             vertical()
             adapter = mAdapter
-            mAdapter.addAll(practiceNames)
         }
+        LoaderManager.getInstance(this).initLoader(LOADER_ID,null,mLoaderCallbacks)
     }
 
     override fun initView(savedInstanceState: Bundle?) {
@@ -112,6 +125,50 @@ class PracticeMainActivity :
         mToolbar.setNavigationOnClickListener { onBackPressed() }
         centerTextView.text = "实践与练习"
     }
+
+    private class PracticeAdapter : RecyclerView.Adapter<PracticeAdapter.ViewHolder>() {
+        private var mCursor: Cursor? = null
+        private var onItemClickListener: OnItemClickListener<String>? = null //item点击监听
+        override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
+            return ViewHolder(parent)
+        }
+
+        override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+            if (mCursor!!.moveToPosition(position)) {
+                holder.mText.text = mCursor!!.getString(
+                    mCursor!!.getColumnIndexOrThrow(Practice.COLUMN_NAME)
+                )
+                val txt=holder.mText.text
+                holder.mText.clickNoRepeat {
+                    onItemClickListener?.onClick(txt.toString(),position)
+                }
+            }
+        }
+
+        override fun getItemCount(): Int {
+            return if (mCursor == null) 0 else mCursor!!.count
+        }
+
+        /*设置item点击监听*/
+        fun setOnItemClick(onClick: OnItemClickListener<String>){
+            this.onItemClickListener=onClick
+        }
+
+        fun setPractices(cursor: Cursor?) {
+            mCursor = cursor
+            notifyDataSetChanged()
+        }
+
+        class ViewHolder(parent: ViewGroup) :
+            RecyclerView.ViewHolder(
+                LayoutInflater.from(parent.context).inflate(
+                    R.layout.item_simple_text_water, parent, false
+                )
+            ) {
+            val mText: TextView = itemView.findViewById(R.id.tv_list_item)
+        }
+    }
+
 }
 
 

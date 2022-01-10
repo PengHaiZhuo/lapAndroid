@@ -25,11 +25,12 @@ android {
             abiFilters.addAll(arrayListOf("x86_64", "armeabi-v7a", "arm64-v8a"))
         }
 
-//        javaCompileOptions{
-//            annotationProcessorOptions {
-//                arguments = arguments + mapOf("room.incremental" to "true")
-//            }
-//        }
+        javaCompileOptions{
+            annotationProcessorOptions {
+                //app/schemas目录中会生成记录，可以轻松跟踪数据库历时
+                arguments["room.schemaLocation"] = "${projectDir}/schemas"
+            }
+        }
     }
 
     base {
