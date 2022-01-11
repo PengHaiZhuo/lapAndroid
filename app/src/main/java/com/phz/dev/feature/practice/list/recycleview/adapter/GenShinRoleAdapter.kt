@@ -18,12 +18,10 @@ import com.phz.dev.feature.practice.list.recycleview.model.GenShinRole
 
 /**
  * @author phz on 2021/9/29
- * @description
+ * @description 原神角色列表适配器
  */
 class GenShinRoleAdapter(private val isLikeChangeListener: (Int) -> Unit) :
     ListAdapter<GenShinRole, GenShinRoleAdapter.MyViewHolder>(GenShinRoleDiffCallback()) {
-
-    private var lastPosition = -1
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
         val view = LayoutInflater.from(parent.context)

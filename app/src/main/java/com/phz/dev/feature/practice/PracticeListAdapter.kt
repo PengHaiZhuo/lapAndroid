@@ -1,31 +1,48 @@
 package com.phz.dev.feature.practice
 
-import android.database.Cursor
+import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
-import com.phz.common.page.adapter.BaseRecycleViewAdapter
-import com.phz.common.page.adapter.viewholder.BaseRecycleViewHolder
+import android.widget.TextView
+import androidx.recyclerview.widget.DiffUtil
+import androidx.recyclerview.widget.ListAdapter
+import androidx.recyclerview.widget.RecyclerView
+import com.phz.common.ext.view.clickNoRepeat
 import com.phz.dev.R
-import com.phz.dev.databinding.ItemSimpleButtonBinding
 
 /**
  * @author phz on 2021/8/25
  * @description
  */
-class PracticeListAdapter : BaseRecycleViewAdapter<String, ItemSimpleButtonBinding>() {
+class PracticeListAdapter(private val onItemClickListener: (String) -> Unit) :
+    ListAdapter<String, PracticeListAdapter.MyViewHolder>(PracticeDiffUtil()) {
 
-    private val mCursor: Cursor? = null
-
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
-        return MyViewHolder(parent, viewType)
+    inner class MyViewHolder(private val view: View) :
+        RecyclerView.ViewHolder(view) {
+        val tv: TextView = view.findViewById(R.id.tv_list_item)
     }
 
-    override fun getItemViewType(position: Int): Int = R.layout.item_simple_button
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
+        val view = LayoutInflater.from(parent.context)
+            .inflate(R.layout.item_simple_text_water, parent, false)
+        return MyViewHolder(view)
+    }
 
-    inner class MyViewHolder(parent: ViewGroup, layoutId: Int) :
-        BaseRecycleViewHolder<String, ItemSimpleButtonBinding>(parent, layoutId) {
-        override fun onBind(bean: String, position: Int) {
-            val mBinding = mViewBinding as ItemSimpleButtonBinding
-            mBinding.btPractice.text = bean
+    override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
+        val item = getItem(position)
+        holder.tv.text = item
+        holder.tv.clickNoRepeat {
+            onItemClickListener(item)
         }
+    }
+}
+
+class PracticeDiffUtil : DiffUtil.ItemCallback<String>() {
+    override fun areItemsTheSame(oldItem: String, newItem: String): Boolean {
+        return oldItem == newItem
+    }
+
+    override fun areContentsTheSame(oldItem: String, newItem: String): Boolean {
+        return oldItem == newItem
     }
 }

@@ -124,6 +124,5 @@ class PracticeContentProvider:ContentProvider() {
             }
             else -> throw java.lang.IllegalArgumentException("Unknown URI: $uri")
         }
-
     }
 }

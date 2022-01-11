@@ -133,7 +133,6 @@
             android:authorities="com.phz.android.cp.provider"
             android:exported="true"
             android:permission="com.phz.android.cp.provider.READ_WRITE"/>
-
     </application>
 
 </manifest>

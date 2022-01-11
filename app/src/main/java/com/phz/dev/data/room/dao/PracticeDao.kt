@@ -6,7 +6,7 @@ import com.phz.dev.data.room.bean.Practice
 
 /**
  * @author phz
- * @description
+ * @description 实践表Dao
  */
 @Dao
 interface PracticeDao {
@@ -41,12 +41,15 @@ interface PracticeDao {
      * 用这种方式不是很友好，举个例子
      * var tempItemList = ArrayList<Practice>()
      * //给tempItemList添加一些数据...
-     * dao.insertModuleItems(*tempItemList.toTypedArray()) /*这里用了一个'*',感觉多此一举了*/
+     * dao.insertList(*tempItemList.toTypedArray()) /*这里用了一个'*',感觉多此一举了*/
      */
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertList(vararg modules: Practice)  /*插入一批数据，冲突策略为替换*/
 
-    @Transaction
-    @Query("SELECT * FROM ${Practice.TABLE_NAME} WHERE name LIKE :name")
-    suspend fun getPracticeLike(name: String): List<Practice>  /*模糊查找满足条件数据*/
+    /**
+     * 模糊查询
+     */
+    @SuppressWarnings(RoomWarnings.CURSOR_MISMATCH)
+    @Query("SELECT ${Practice.COLUMN_NAME} FROM ${Practice.TABLE_NAME} WHERE ${Practice.COLUMN_NAME} LIKE '%' || :name || '%'")
+    fun getPracticeLike(name: String): List<String> /*模糊查找满足条件数据*/
 }

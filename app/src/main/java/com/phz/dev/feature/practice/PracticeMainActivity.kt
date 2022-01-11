@@ -2,19 +2,16 @@ package com.phz.dev.feature.practice
 
 import android.database.Cursor
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.ViewGroup
-import android.widget.TextView
+import android.view.inputmethod.EditorInfo
+import androidx.lifecycle.lifecycleScope
 import androidx.loader.app.LoaderManager
 import androidx.loader.content.CursorLoader
 import androidx.loader.content.Loader
-import androidx.recyclerview.widget.RecyclerView
 import com.phz.common.ext.startKtxActivity
-import com.phz.common.ext.view.clickNoRepeat
 import com.phz.common.ext.view.vertical
 import com.phz.common.page.activity.BaseToolbarActivity
-import com.phz.common.page.adapter.listener.OnItemClickListener
 import com.phz.dev.R
+import com.phz.dev.data.room.AppDataBase
 import com.phz.dev.data.room.bean.Practice
 import com.phz.dev.databinding.ActivityPracticeMainBinding
 import com.phz.dev.feature.practice.animation.dynamic.ViewPagerSimpleSliderActivity
@@ -31,6 +28,10 @@ import com.phz.dev.feature.practice.screenrecord.ScreenRecordActivity
 import com.phz.dev.feature.practice.toolbar.DrawerLayoutLearnActivity
 import com.phz.dev.feature.practice.uriwithfilepath.UriWithFilePathActivity
 import com.phz.dev.feature.practice.viewstub.ViewStubLearnActivity
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.flow.collect
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 /**
  * @author phz on 2021/8/23
@@ -38,13 +39,13 @@ import com.phz.dev.feature.practice.viewstub.ViewStubLearnActivity
  */
 class PracticeMainActivity :
     BaseToolbarActivity<PracticeMainViewModel, ActivityPracticeMainBinding>() {
-    private var mAdapter = PracticeAdapter()
+    private lateinit var mAdapter: PracticeListAdapter
 
     companion object {
-        const val LOADER_ID=1
+        const val LOADER_ID = 1
     }
 
-    private val mLoaderCallbacks= object:LoaderManager.LoaderCallbacks<Cursor>{
+    private val mLoaderCallbacks = object : LoaderManager.LoaderCallbacks<Cursor> {
         override fun onCreateLoader(id: Int, args: Bundle?): Loader<Cursor> {
             return CursorLoader(
                 applicationContext,
@@ -55,69 +56,43 @@ class PracticeMainActivity :
         }
 
         override fun onLoadFinished(loader: Loader<Cursor>, data: Cursor?) {
-            mAdapter.setPractices(data)
+            mViewModel.formatCursorData(data)
+            //因为Loader会自动重新运行查询，比如从其他页面回来，这里我们将他关了
+            LoaderManager.getInstance(this@PracticeMainActivity).destroyLoader(LOADER_ID)
         }
 
         override fun onLoaderReset(loader: Loader<Cursor>) {
-            mAdapter.setPractices(null)
+            mViewModel.formatCursorData(null)
         }
 
     }
 
     override fun initData() {
-        mAdapter.setOnItemClick(object : OnItemClickListener<String> {
-            override fun onClick(bean: String, position: Int) {
-                when (bean) {
-                    "Screen Record" -> {
-                        startKtxActivity<ScreenRecordActivity>()
-                    }
-                    "ViewPager Transformer" -> {
-                        startKtxActivity<ViewPagerSimpleSliderActivity>()
-                    }
-                    "Lottie" -> {
-                        startKtxActivity<LottieLearnActivity>()
-                    }
-                    "Scan" -> {
-                        startKtxActivity<MlKitScanMenuActivity>()
-                    }
-                    "DrawerLayout" -> {
-                        startKtxActivity<DrawerLayoutLearnActivity>()
-                    }
-                    "PopupWindow" -> {
-                        startKtxActivity<DropDownMenuActivity>()
-                    }
-                    "ViewStub" -> {
-                        startKtxActivity<ViewStubLearnActivity>()
-                    }
-                    "Dialog" -> {
-                        startKtxActivity<DialogLearnActivity>()
-                    }
-                    "ExpandableListView" -> {
-                        startKtxActivity<StudentListActivity>()
-                    }
-                    "DropDownList" -> {
-                        startKtxActivity<DropDownMenuTlActivity>()
-                    }
-                    "Rv Payload Use" -> {
-                        startKtxActivity<GenShinRoleActivity>()
-                    }
-                    "BaiduMapView" -> {
-                        startKtxActivity<BaiduMapViewActivity>()
-                    }
-                    "Path" -> {
-                        startKtxActivity<UriWithFilePathActivity>()
-                    }
-                    "Storage Access Framework" -> {
-                        startKtxActivity<StorageAccessFrameworkActivity>()
-                    }
-                }
-            }
-        })
+        mAdapter = PracticeListAdapter(this::onClickItem)
         mViewDataBinding.rvPractice.apply {
             vertical()
             adapter = mAdapter
         }
-        LoaderManager.getInstance(this).initLoader(LOADER_ID,null,mLoaderCallbacks)
+        lifecycleScope.launch {
+            mViewModel.practiceList.collect {
+                mAdapter.submitList(it)
+            }
+        }
+
+        LoaderManager.getInstance(this).initLoader(LOADER_ID, null, mLoaderCallbacks)
+        mViewDataBinding.searchRepo.setOnEditorActionListener { v, actionId, _ ->
+            if (actionId == EditorInfo.IME_ACTION_SEARCH) {
+                lifecycleScope.launch(Dispatchers.IO) {
+                    val resultList =
+                        AppDataBase.getInstance().practiceDao().getPracticeLike(v.text.toString())
+                    withContext(Dispatchers.Main) {
+                        mViewModel.practiceList.value=resultList
+                    }
+                }
+                true
+            }
+            false
+        }
     }
 
     override fun initView(savedInstanceState: Bundle?) {
@@ -126,49 +101,53 @@ class PracticeMainActivity :
         centerTextView.text = "实践与练习"
     }
 
-    private class PracticeAdapter : RecyclerView.Adapter<PracticeAdapter.ViewHolder>() {
-        private var mCursor: Cursor? = null
-        private var onItemClickListener: OnItemClickListener<String>? = null //item点击监听
-        override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-            return ViewHolder(parent)
-        }
-
-        override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-            if (mCursor!!.moveToPosition(position)) {
-                holder.mText.text = mCursor!!.getString(
-                    mCursor!!.getColumnIndexOrThrow(Practice.COLUMN_NAME)
-                )
-                val txt=holder.mText.text
-                holder.mText.clickNoRepeat {
-                    onItemClickListener?.onClick(txt.toString(),position)
-                }
+    private fun onClickItem(name: String) {
+        when (name) {
+            "Screen Record" -> {
+                startKtxActivity<ScreenRecordActivity>()
+            }
+            "ViewPager Transformer" -> {
+                startKtxActivity<ViewPagerSimpleSliderActivity>()
+            }
+            "Lottie" -> {
+                startKtxActivity<LottieLearnActivity>()
+            }
+            "Scan" -> {
+                startKtxActivity<MlKitScanMenuActivity>()
+            }
+            "DrawerLayout" -> {
+                startKtxActivity<DrawerLayoutLearnActivity>()
+            }
+            "PopupWindow" -> {
+                startKtxActivity<DropDownMenuActivity>()
+            }
+            "ViewStub" -> {
+                startKtxActivity<ViewStubLearnActivity>()
+            }
+            "Dialog" -> {
+                startKtxActivity<DialogLearnActivity>()
+            }
+            "ExpandableListView" -> {
+                startKtxActivity<StudentListActivity>()
+            }
+            "DropDownList" -> {
+                startKtxActivity<DropDownMenuTlActivity>()
+            }
+            "Rv Payload Use" -> {
+                startKtxActivity<GenShinRoleActivity>()
+            }
+            "BaiduMapView" -> {
+                startKtxActivity<BaiduMapViewActivity>()
+            }
+            "Path" -> {
+                startKtxActivity<UriWithFilePathActivity>()
+            }
+            "Storage Access Framework" -> {
+                startKtxActivity<StorageAccessFrameworkActivity>()
             }
         }
 
-        override fun getItemCount(): Int {
-            return if (mCursor == null) 0 else mCursor!!.count
-        }
-
-        /*设置item点击监听*/
-        fun setOnItemClick(onClick: OnItemClickListener<String>){
-            this.onItemClickListener=onClick
-        }
-
-        fun setPractices(cursor: Cursor?) {
-            mCursor = cursor
-            notifyDataSetChanged()
-        }
-
-        class ViewHolder(parent: ViewGroup) :
-            RecyclerView.ViewHolder(
-                LayoutInflater.from(parent.context).inflate(
-                    R.layout.item_simple_text_water, parent, false
-                )
-            ) {
-            val mText: TextView = itemView.findViewById(R.id.tv_list_item)
-        }
     }
-
 }
 
 
