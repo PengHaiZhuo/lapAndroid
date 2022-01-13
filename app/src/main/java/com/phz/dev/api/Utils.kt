@@ -64,15 +64,15 @@ object Utils {
         coroutineScope {
             when {
                 response.isSuccess() -> {
-                    success(response.getResponseData())
+                    success(response.data)
                 }
                 response.isTokenOverDue() -> {
                     //token过期处理
                 }
                 else -> {
                     throw HttpException(
-                        response.getCode(),
-                        response.getMsg()
+                        response.code,
+                        response.msg
                     )
                 }
             }
