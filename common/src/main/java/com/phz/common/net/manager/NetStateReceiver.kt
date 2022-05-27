@@ -4,7 +4,7 @@ import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
 import android.net.ConnectivityManager
-import com.phz.common.ext.isNetWorkAvailable
+import com.phz.common.util.NetWorkUtils
 
 /**
  * @author phz
@@ -14,7 +14,7 @@ class NetStateReceiver : BroadcastReceiver() {
 
     override fun onReceive(context: Context, intent: Intent) {
         if (intent.action == ConnectivityManager.CONNECTIVITY_ACTION) {
-            if (!context.isNetWorkAvailable) {//没网
+            if (!NetWorkUtils.isNetConnected(context)) {//没网
                 if (NetStateManager.instance.isNetAvailable.value) {
                     NetStateManager.instance.isNetAvailable.value = false
                 }

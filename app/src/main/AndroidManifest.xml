@@ -46,6 +46,7 @@
         android:requestLegacyExternalStorage="true"
         android:roundIcon="@android:color/transparent"
         android:supportsRtl="true"
+        android:networkSecurityConfig="@xml/network_security_config"
         android:theme="@style/Theme.Dev">
 
         <!-- 百度地图AK -->
@@ -128,6 +129,7 @@
         <activity android:name=".feature.practice.map.baidu.BaiduMapViewActivity"/>
         <activity android:name=".feature.practice.uriwithfilepath.UriWithFilePathActivity"/>
         <activity android:name=".feature.practice.saf.StorageAccessFrameworkActivity"/>
+        <activity android:name=".feature.practice.arp.ArpListActivity"/>
         <provider
             android:name=".feature.practice.PracticeContentProvider"
             android:authorities="com.phz.android.cp.provider"

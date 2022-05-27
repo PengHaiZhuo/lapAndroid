@@ -12,10 +12,6 @@ import com.phz.common.util.NetWorkUtils
  * @author phz
  * @description context上下文扩展方法
  */
-//是否连接网络
-val Context.isNetWorkAvailable get()= NetWorkUtils.pingBaidu()
-//连接是否花费手机流量
-val Context.isNetWorkBilling get() = this.isNetWorkBeep()
 //是否是蜂窝网络
 fun Context.isNetWorkBeep():Boolean{
         val capabilities = connectivityManager?.getNetworkCapabilities(connectivityManager?.activeNetwork)

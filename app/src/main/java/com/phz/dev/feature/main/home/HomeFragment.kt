@@ -20,9 +20,9 @@ class HomeFragment : BaseVmDbPureFragment<NoViewModel, FragmentHomeBinding>() {
     override fun getLayoutId(): Int = R.layout.fragment_home
 
     override fun initData() {
+
     }
 
     override fun initView(savedInstanceState: Bundle?) {
     }
-
 }

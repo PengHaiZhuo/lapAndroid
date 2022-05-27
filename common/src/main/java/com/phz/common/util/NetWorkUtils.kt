@@ -60,6 +60,8 @@ object NetWorkUtils {
      * 使用ping命令，由结果判断网络状态
      */
     fun pingBaidu(): Boolean {
+        //android10开始，移除了应用主目录的执行权限，不可信应用无法再针对应用主目录中的文件调用 exec()
+        //不过android10还可以通过设置继续用，android11就不行了
         val runtime = Runtime.getRuntime()
         try {
             val ipProcess = runtime.exec("ping -c 3 www.baidu.com")
