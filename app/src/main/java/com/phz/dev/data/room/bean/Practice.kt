@@ -25,15 +25,16 @@ data class Practice(
             "Scan",
             "DrawerLayout",
             "PopupWindow",
-            "ViewStub", "Dialog",
+            "ViewStub",
+            "Dialog",
             "ExpandableListView",
             "DropDownList",
             "Rv Payload Use",
             "BaiduMapView",
             "Path",
             "Storage Access Framework",
-            "Paging3",
-            "ARP LIST"
+            "Arp List",
+            "Udp Socket"
         )
 
         const val COLUMN_ID = BaseColumns._ID

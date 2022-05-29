@@ -15,10 +15,7 @@ object HttpThrowableHandler {
         val ex: HttpException
         e?.let {
             when(it){
-                is HttpException ->{
-                    ex=HttpException(NetError.NETWORK_ERROR,e)
-                    return ex
-                }
+                is HttpException -> return it
                 is JsonParseException, is JSONException, is ParseException, is MalformedJsonException -> {
                     ex = HttpException(NetError.PARSE_ERROR,e)
                     return ex
@@ -39,7 +36,6 @@ object HttpThrowableHandler {
                     ex = HttpException(NetError.NO_HOST_ERROR,e)
                     return ex
                 }
-                is HttpException -> return it
                 else -> {
                     ex=HttpException(NetError.UNKNOWN,e)
                     return ex

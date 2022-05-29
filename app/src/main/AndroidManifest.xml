@@ -130,6 +130,7 @@
         <activity android:name=".feature.practice.uriwithfilepath.UriWithFilePathActivity"/>
         <activity android:name=".feature.practice.saf.StorageAccessFrameworkActivity"/>
         <activity android:name=".feature.practice.arp.ArpListActivity"/>
+        <activity android:name=".feature.practice.socket.udp.UdpLapActivity"/>
         <provider
             android:name=".feature.practice.PracticeContentProvider"
             android:authorities="com.phz.android.cp.provider"

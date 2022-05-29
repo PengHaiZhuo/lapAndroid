@@ -71,8 +71,8 @@ object Utils {
                 }
                 else -> {
                     throw HttpException(
-                        response.code,
-                        response.msg
+                        errCode = response.code,
+                        error = response.msg
                     )
                 }
             }

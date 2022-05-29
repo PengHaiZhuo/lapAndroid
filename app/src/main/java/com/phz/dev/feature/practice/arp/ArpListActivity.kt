@@ -25,7 +25,7 @@ class ArpListActivity : BaseToolbarActivity<NoViewModel,ActivityArpBinding>() {
     override fun initView(savedInstanceState: Bundle?) {
         mToolbar.setNavigationIcon(R.drawable.ic_arrow_left_white)
         mToolbar.setNavigationOnClickListener { onBackPressed() }
-        centerTextView.text = "ARP LIST"
+        centerTextView.text = "Arp List"
         mViewDataBinding.clickProxy = ProxyClick()
     }
     inner class ProxyClick {

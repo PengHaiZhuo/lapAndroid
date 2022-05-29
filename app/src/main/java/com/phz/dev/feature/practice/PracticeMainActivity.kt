@@ -26,6 +26,7 @@ import com.phz.dev.feature.practice.mlkit.scan.MlKitScanMenuActivity
 import com.phz.dev.feature.practice.popupwindow.dropdownmenu.ui.activity.DropDownMenuActivity
 import com.phz.dev.feature.practice.saf.StorageAccessFrameworkActivity
 import com.phz.dev.feature.practice.screenrecord.ScreenRecordActivity
+import com.phz.dev.feature.practice.socket.udp.UdpLapActivity
 import com.phz.dev.feature.practice.toolbar.DrawerLayoutLearnActivity
 import com.phz.dev.feature.practice.uriwithfilepath.UriWithFilePathActivity
 import com.phz.dev.feature.practice.viewstub.ViewStubLearnActivity
@@ -146,8 +147,11 @@ class PracticeMainActivity :
             "Storage Access Framework" -> {
                 startKtxActivity<StorageAccessFrameworkActivity>()
             }
-            "ARP LIST" ->{
+            "Arp List" ->{
                 startKtxActivity<ArpListActivity>()
+            }
+            "Udp Socket" ->{
+                startKtxActivity<UdpLapActivity>()
             }
         }
 
