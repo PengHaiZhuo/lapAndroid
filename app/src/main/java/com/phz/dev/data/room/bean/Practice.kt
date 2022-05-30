@@ -34,7 +34,8 @@ data class Practice(
             "Path",
             "Storage Access Framework",
             "Arp List",
-            "Udp Socket"
+            "Udp Client",
+            "Udp Server"
         )
 
         const val COLUMN_ID = BaseColumns._ID

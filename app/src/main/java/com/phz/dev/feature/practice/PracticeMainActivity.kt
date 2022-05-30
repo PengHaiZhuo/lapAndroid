@@ -26,7 +26,8 @@ import com.phz.dev.feature.practice.mlkit.scan.MlKitScanMenuActivity
 import com.phz.dev.feature.practice.popupwindow.dropdownmenu.ui.activity.DropDownMenuActivity
 import com.phz.dev.feature.practice.saf.StorageAccessFrameworkActivity
 import com.phz.dev.feature.practice.screenrecord.ScreenRecordActivity
-import com.phz.dev.feature.practice.socket.udp.UdpLapActivity
+import com.phz.dev.feature.practice.socket.udp.UdpClientActivity
+import com.phz.dev.feature.practice.socket.udp.UdpServerActivity
 import com.phz.dev.feature.practice.toolbar.DrawerLayoutLearnActivity
 import com.phz.dev.feature.practice.uriwithfilepath.UriWithFilePathActivity
 import com.phz.dev.feature.practice.viewstub.ViewStubLearnActivity
@@ -150,8 +151,11 @@ class PracticeMainActivity :
             "Arp List" ->{
                 startKtxActivity<ArpListActivity>()
             }
-            "Udp Socket" ->{
-                startKtxActivity<UdpLapActivity>()
+            "Udp Client" ->{
+                startKtxActivity<UdpClientActivity>()
+            }
+            "Udp Server" ->{
+                startKtxActivity<UdpServerActivity>()
             }
         }
 

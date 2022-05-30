@@ -39,6 +39,6 @@ class PracticeDiffUtil : DiffUtil.ItemCallback<String>() {
     }
 
     override fun areContentsTheSame(oldItem: String, newItem: String): Boolean {
-        return oldItem == newItem
+        return oldItem.equals(newItem)
     }
 }
