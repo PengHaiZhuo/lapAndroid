@@ -128,6 +128,12 @@ fun String?.isContainEmo(): Boolean {
     }
 }
 
+/**
+ * 字节数组转hex string
+ * @return 16进制字符串，不足2位会补0
+ */
+fun ByteArray.toHex() = joinToString("") { String.format("%02X", (it.toInt() and 0xff)) }
+
 //stdlib包自带的扩展方法toByteArray
 //fun String.toByteArray(charset: Charset = Charsets.UTF_8): ByteArray = (this as java.lang.String).getBytes(charset)
 

@@ -3,6 +3,7 @@ package com.phz.dev.feature.practice.socket.udp
 import android.os.Bundle
 import androidx.lifecycle.lifecycleScope
 import com.phz.common.ext.logE
+import com.phz.common.ext.toHex
 import com.phz.common.ext.view.vertical
 import com.phz.common.page.activity.BaseToolbarActivity
 import com.phz.common.state.NoViewModel
@@ -12,10 +13,13 @@ import com.phz.dev.feature.practice.socket.udp.adapter.MsgListAdapter
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import okio.ByteString.Companion.decodeHex
 import java.io.*
 import java.net.DatagramPacket
 import java.net.DatagramSocket
 import java.net.InetAddress
+import java.util.*
+import kotlin.collections.ArrayList
 
 const val CLIENT_PORT = 8000 //客户端端口
 const val BUF_LENGTH = 1024
@@ -59,21 +63,26 @@ class UdpClientActivity :BaseToolbarActivity<NoViewModel,ActivityUdpClientBindin
         fun send(){
             lifecycleScope.launch(Dispatchers.IO){
                 val strSend="客户端信息"
-                val arrSend=createSendData("客户端信息")
+                val arrSend= arrayOf(43.toByte(),43.toByte(),27.toByte(),21.toByte()).toByteArray()
+
+//                val arrSend=createSendData("客户端信息")
 //                var clientAddress=InetAddress.getLocalHost()
-                    var clientAddress=InetAddress.getByName("192.168.0.102")
-//                    dpClientSend= DatagramPacket(strSend.toByteArray(),strSend.length,clientAddress,SERVER_PORT)
+                    var clientAddress=InetAddress.getByName("192.168.0.107")
+//                dpClientSend= DatagramPacket(strSend.toByteArray(),strSend.length,clientAddress,SERVER_PORT)
                 dpClientSend= DatagramPacket(arrSend,arrSend.size,clientAddress,SERVER_PORT)
                     dsClient.send(dpClientSend)
                 while (flagClient){
                     dsClient.receive(dpClientReceive)
+                    val receiveStr=dpClientReceive.data.toHex()
+                    receiveStr.logE("收到信息")
+                    receiveStr.length.toString().logE("字节数")
 //                    val strReceive=String(dpClientReceive.data,0,dpClientReceive.length)
-                    val strReceive=createReceiveData(dpClientReceive)
-                    strReceive.logE("收到信息")
-                    withContext(Dispatchers.Main){
-                        msgReceiveList.add(strReceive)
-                        msgReceiveAdapter.notifyDataSetChanged()
-                    }
+//                    val strReceive=createReceiveData(dpClientReceive)
+//                    strReceive.logE("收到信息")
+//                    withContext(Dispatchers.Main){
+//                        msgReceiveList.add(strReceive)
+//                        msgReceiveAdapter.notifyDataSetChanged()
+//                    }
                 }
                 dsClient.close()
             }
