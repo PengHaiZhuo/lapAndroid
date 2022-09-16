@@ -11,8 +11,19 @@ import kotlinx.coroutines.flow.StateFlow
  * @description
  */
 class GenShinRoleListViewModel : ViewModel() {
-    private val _roleList = MutableStateFlow<List<GenShinRole>>(emptyList())
+    companion object{
+        val moreList=listOf(
+            GenShinRole(1, "阿贝多", "在雪山写生", R.drawable.ic_genshin_abd,false),
+            GenShinRole(2, "芭芭拉", "大家的偶像", R.drawable.ic_genshin_bbl,false),
+            GenShinRole(3, "菲谢尔", "断罪之皇女", R.drawable.ic_genshin_fxe,false)
+        )
+    }
+    private var _roleList = MutableStateFlow<List<GenShinRole>>(emptyList())
     val roles :StateFlow<List<GenShinRole>> =_roleList
+
+    fun loadMore(){
+        _roleList.value+=moreList
+    }
 
     init {
         _roleList.value=generateRoleList()

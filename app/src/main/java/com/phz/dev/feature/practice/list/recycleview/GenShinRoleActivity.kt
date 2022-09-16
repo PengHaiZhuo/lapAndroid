@@ -5,6 +5,7 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import com.phz.common.ext.dismissLoadingExt
+import com.phz.common.ext.logE
 import com.phz.common.ext.showLoadingExt
 import com.phz.common.ext.view.divider
 import com.phz.common.ext.view.vertical
@@ -34,6 +35,15 @@ class GenShinRoleActivity :
                 setColor("#ff0000")
             }
             adapter = mAdapter
+            val bListener=BottomReachedListener{sum,more->
+                mViewModel.loadMore()
+                mAdapter.notifyItemRangeInserted(sum,more)
+            }
+            addOnScrollListener(BottomReachedListener{sum,more->
+                mViewModel.loadMore()
+                mAdapter.notifyItemRangeInserted(sum,more)
+            })
+
         }
         lifecycleScope.launch {
             //模拟网络请求
