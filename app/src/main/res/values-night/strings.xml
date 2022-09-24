@@ -45,4 +45,20 @@
     <string name="tip_pwd_not_same">密码输入不一致</string>
     <string name="confirm_to_clear_cache">是否要清除缓存？</string>
     <string name="tip">提示</string>
+
+    <string name="tip_first_use">感谢您使用我们的产品！我们非常重视您的个人信息和隐私保护。我们将通过<a>《用户协议》</a>与<a>《隐私政策》</a>帮助您了解我们如何收集、处理个人信息。
+        \n1.我们可能会申请电话权限，读取手机设备ID,获取手机在局域网的ip，用于信息展示、账号登录等主要功能。
+        \n2.我们可能会申请存储权限，在本地记录崩溃日志信息（如有）。
+        \n3.我们可能会申请位置权限，用于局域网摄像头设备扫描功能。
+        \n4.未经您同意，我们不会像其他第三方提供您的信息，并会采用业界先进的安全措施保护您的信息安全。
+    </string>
+    <string name="agreement">用户政策</string>
+    <string name="privacy">隐私协议</string>
+    <string name="no_agree">不同意</string>
+    <string name="agree">同意</string>
+    <string-array name="items_dialog_learn">
+        <item>Red</item>
+        <item>Yellow</item>
+        <item>Blue</item>
+    </string-array>
 </resources>
