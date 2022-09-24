@@ -53,6 +53,10 @@
     <string name="confirm_to_clear_cache">是否要清除缓存？</string>
     <string name="tip">提示</string>
 
+    <string name="tip_first_use"></string>
+    <string name="agreement">用户政策</string>
+    <string name="privacy">隐私协议</string>
+
     <string-array name="items_dialog_learn">
         <item>Red</item>
         <item>Yellow</item>

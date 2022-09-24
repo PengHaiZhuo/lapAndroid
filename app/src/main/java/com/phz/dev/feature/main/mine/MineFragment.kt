@@ -12,6 +12,9 @@ import com.phz.dev.R
 import com.phz.dev.api.Utils.request
 import com.phz.dev.databinding.FragmentMineBinding
 import com.phz.dev.feature.practice.PracticeMainActivity
+import com.phz.dev.feature.wp.WebViewActivity
+import com.phz.dev.feature.wp.WebViewActivity.Companion.FLAG_ASSET
+import com.phz.dev.feature.wp.WebViewActivity.Companion.FLAG_TITLE
 import com.phz.dev.net.apiService
 import com.phz.dev.state.AppViewModel
 import com.phz.dev.util.CacheFileManager
@@ -76,6 +79,24 @@ class MineFragment : BaseVmDbPureFragment<MineViewModel, FragmentMineBinding>() 
         //我的实践
         fun practice() {
             context!!.startKtxActivity<PracticeMainActivity>()
+        }
+
+        //用户政策
+        fun agreement(){
+            var lists = arrayListOf(
+                Pair(FLAG_TITLE, getString(R.string.agreement)),
+                Pair(FLAG_ASSET, "file:///android_asset/agreement.html")
+            )
+            context!!.startKtxActivity<WebViewActivity>(values = lists)
+        }
+
+        //隐私协议
+        fun privacy(){
+            var lists = arrayListOf(
+                Pair(FLAG_TITLE, getString(R.string.privacy)),
+                Pair(FLAG_ASSET, "file:///android_asset/privacy.html")
+            )
+            startKtxActivity<WebViewActivity>(values = lists)
         }
 
         //清理缓存

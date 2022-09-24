@@ -263,6 +263,68 @@
                         android:layout_height="@dimen/normal_view_hw"
                         android:background="?attr/selectableItemBackground"
                         android:gravity="center_vertical"
+                        android:onClick="@{()->clickProxy.agreement()}"
+                        android:orientation="horizontal"
+                        android:paddingLeft="@dimen/margin_normal"
+                        android:paddingRight="@dimen/margin_normal">
+
+                        <ImageView
+                            android:layout_width="@dimen/icon_hw_middle"
+                            android:layout_height="@dimen/icon_hw_middle"
+                            android:src="@drawable/ic_article" />
+
+                        <TextView
+                            style="@style/TextViewMiddle"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/margin_small"
+                            android:layout_weight="1"
+                            android:text="@string/agreement"
+                            android:textColor="@color/colorBlack66" />
+
+                        <ImageView
+                            android:layout_width="16dp"
+                            android:layout_height="16dp"
+                            android:src="@drawable/ic_arrow_right_black" />
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/normal_view_hw"
+                        android:background="?attr/selectableItemBackground"
+                        android:gravity="center_vertical"
+                        android:onClick="@{()->clickProxy.privacy()}"
+                        android:orientation="horizontal"
+                        android:paddingLeft="@dimen/margin_normal"
+                        android:paddingRight="@dimen/margin_normal">
+
+                        <ImageView
+                            android:layout_width="@dimen/icon_hw_middle"
+                            android:layout_height="@dimen/icon_hw_middle"
+                            android:src="@drawable/ic_article" />
+
+                        <TextView
+                            style="@style/TextViewMiddle"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/margin_small"
+                            android:layout_weight="1"
+                            android:text="@string/privacy"
+                            android:textColor="@color/colorBlack66" />
+
+                        <ImageView
+                            android:layout_width="16dp"
+                            android:layout_height="16dp"
+                            android:src="@drawable/ic_arrow_right_black" />
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/normal_view_hw"
+                        android:background="?attr/selectableItemBackground"
+                        android:gravity="center_vertical"
                         android:onClick="@{()->clickProxy.clear()}"
                         android:orientation="horizontal"
                         android:paddingLeft="@dimen/margin_normal"

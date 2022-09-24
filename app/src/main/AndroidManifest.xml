@@ -132,6 +132,7 @@
         <activity android:name=".feature.practice.arp.ArpListActivity"/>
         <activity android:name=".feature.practice.socket.udp.UdpClientActivity"/>
         <activity android:name=".feature.practice.socket.udp.UdpServerActivity"/>
+        <activity android:name=".feature.wp.WebViewActivity"/>
         <provider
             android:name=".feature.practice.PracticeContentProvider"
             android:authorities="com.phz.android.cp.provider"
