@@ -109,7 +109,7 @@
             android:exported="true" />
         <activity android:name=".feature.practice.PracticeMainActivity" />
         <activity android:name=".feature.practice.animation.dynamic.ViewPagerSimpleSliderActivity" />
-        <activity android:name=".feature.practice.animation.lottie.LottieLearnActivity" />
+        <activity android:name=".feature.practice.animation.transition.LottieLearnActivity" />
         <activity android:name=".feature.practice.mlkit.scan.MlKitScanMenuActivity" />
         <activity android:name=".feature.practice.mlkit.scan.ct.MlKitScanWithConsoleActivity" />
         <activity android:name=".feature.practice.toolbar.DrawerLayoutLearnActivity" />
@@ -132,6 +132,7 @@
         <activity android:name=".feature.practice.arp.ArpListActivity"/>
         <activity android:name=".feature.practice.socket.udp.UdpClientActivity"/>
         <activity android:name=".feature.practice.socket.udp.UdpServerActivity"/>
+        <activity android:name=".feature.practice.animation.transition.TransitionActivity"/>
         <activity android:name=".feature.wp.WebViewActivity"/>
         <provider
             android:name=".feature.practice.PracticeContentProvider"

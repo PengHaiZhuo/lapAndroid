@@ -53,6 +53,14 @@ fun View?.visibleOrInvisible(visible: Boolean) {
 }
 
 
+fun View?.toggle() {
+    if (this!!.visibility == View.VISIBLE){
+        this.gone()
+    }else{
+        this.visible()
+    }
+}
+
 /**
  * 设置点击事件
  * @param views 需要设置点击事件的view

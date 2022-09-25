@@ -16,7 +16,7 @@ import androidx.room.migration.Migration
  * @author phz
  * @description
  */
-@Database(entities = [Practice::class], version = 3)
+@Database(entities = [Practice::class], version = 4)
 abstract class AppDataBase :RoomDatabase(){
 abstract fun practiceDao():PracticeDao
 
@@ -28,8 +28,8 @@ abstract fun practiceDao():PracticeDao
                     appContext,
                     AppDataBase::class.java, Constants.DATA_BASE_NAME
                 )
-//                    .fallbackToDestructiveMigration()//更新版本清空数据库
-                    .addMigrations(MIGRATION_1_2,MIGRATION_2_3)
+                    .fallbackToDestructiveMigration()//更新版本清空数据库
+                    .addMigrations(MIGRATION_1_2,MIGRATION_2_3, MIGRATION_3_4)
                     .build()
                 mInstance?.populateInitialData()
             }
@@ -67,5 +67,14 @@ val MIGRATION_1_2: Migration = object : Migration(1, 2) {
 val MIGRATION_2_3: Migration = object : Migration(2, 3) {
     override fun migrate(database: SupportSQLiteDatabase) {
         database.execSQL("DELETE FROM ${Practice.TABLE_NAME} WHERE name ='Udp Socket'")
+    }
+}
+
+/**
+ * 版本3到4迁移处理
+ */
+val MIGRATION_3_4: Migration = object : Migration(3, 4) {
+    override fun migrate(database: SupportSQLiteDatabase) {
+        database.execSQL("INSERT INTO ${Practice.TABLE_NAME}(name)  VALUES('Transition')")
     }
 }

@@ -16,6 +16,7 @@ import com.phz.dev.data.room.bean.Practice
 import com.phz.dev.databinding.ActivityPracticeMainBinding
 import com.phz.dev.feature.practice.animation.dynamic.ViewPagerSimpleSliderActivity
 import com.phz.dev.feature.practice.animation.lottie.LottieLearnActivity
+import com.phz.dev.feature.practice.animation.transition.TransitionActivity
 import com.phz.dev.feature.practice.arp.ArpListActivity
 import com.phz.dev.feature.practice.dialog.DialogLearnActivity
 import com.phz.dev.feature.practice.list.listview.DropDownMenuTlActivity
@@ -156,6 +157,9 @@ class PracticeMainActivity :
             }
             "Udp Server" ->{
                 startKtxActivity<UdpServerActivity>()
+            }
+            "Transition" ->{
+                startKtxActivity<TransitionActivity>()
             }
         }
 
